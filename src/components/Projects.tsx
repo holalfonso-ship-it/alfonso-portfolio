@@ -64,10 +64,10 @@ const Projects: React.FC = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-20 md:py-32 px-6 md:px-12 bg-secondary/50">
+    <section id="projects" className="py-20 md:py-32 px-6 md:px-12 bg-black/30">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-20">
-          <span className="inline-block text-sm md:text-base font-medium tracking-wider mb-4 py-1 px-4 rounded-full bg-primary/10 text-primary">
+          <span className="inline-block text-sm md:text-base font-medium tracking-wider mb-4 py-1 px-4 rounded-full bg-primary/20 text-primary">
             Featured Work
           </span>
           
@@ -87,7 +87,7 @@ const Projects: React.FC = () => {
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                 activeCategory === category
                   ? 'bg-primary text-primary-foreground'
-                  : 'bg-secondary hover:bg-primary/10'
+                  : 'bg-secondary/80 hover:bg-primary/10 text-white/90'
               }`}
               onClick={() => setActiveCategory(category)}
             >

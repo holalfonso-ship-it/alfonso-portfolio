@@ -20,8 +20,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
-				display: ['Satoshi', 'Inter', 'system-ui', 'sans-serif'],
+				sans: ['Neue Montreal', 'Inter', 'system-ui', 'sans-serif'],
+				display: ['Neue Montreal', 'Satoshi', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
