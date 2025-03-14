@@ -26,24 +26,24 @@ const Hero: React.FC = () => {
       <div className="max-w-7xl w-full mx-auto z-10 opacity-0 animate-fade-in animation-delay-200">
         <div className="flex flex-col items-start mb-6">
           <span className="text-sm md:text-base font-medium tracking-wider mb-2 md:mb-4 inline-flex items-center py-1 px-4 rounded-full bg-primary/10 text-primary">
-            Product Designer
+            Design Ops Specialist
           </span>
           
           <h1 className="text-4xl md:text-7xl font-display font-bold leading-tight md:leading-tight mb-6 md:mb-8 tracking-tight">
             <AnimatedText 
-              text="Creating meaningful" 
+              text="Hola, I'm Alfonso a" 
               className="block mb-2"
               delay={100}
               once
             />
             <AnimatedText 
-              text="digital experiences" 
+              text="Product Designer turned" 
               className="block mb-2"
               delay={300}
               once
             />
             <AnimatedText 
-              text="that matter." 
+              text="Design Ops specialist 😎" 
               className="text-gradient block"
               delay={500}
               once
@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl opacity-0 animate-slide-up animation-delay-1000">
-            I design clean, thoughtful, and accessible digital products that prioritize user needs while achieving business goals.
+            Based in sunny Barcelona 🌎, focus on helping teams to create more efficient design processes 💎.
           </p>
         </div>
         
