@@ -3,56 +3,56 @@ import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
 import AnimatedText from './AnimatedText';
 
-const projectCategories = ['All', 'UX/UI', 'AI', 'Mobile App', 'Web'];
+const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System'];
 
 const projects = [
   {
     id: 1,
-    title: 'AI Cleaner',
-    description: 'A smart cleaning assistant app that uses AI to optimize cleaning schedules and techniques based on user habits and preferences.',
-    category: 'AI',
-    image: 'https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80',
-    link: '/project/ai-cleaner'
+    title: 'Leadtech Design System',
+    description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
+    category: 'Design System',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef03a90e9a93e6e0f0c34_design-system.jpg',
+    link: '/project/leadtech-design-system'
   },
   {
     id: 2,
-    title: 'VideoUp',
-    description: 'A video uploading platform with AI-powered editing and enhancement features that streamline the content creation process.',
-    category: 'AI',
-    image: 'https://images.unsplash.com/photo-1626544827763-d516dce335e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
-    link: '/project/videoup'
+    title: 'DesignOps Workflow',
+    description: 'Implemented and optimized DesignOps processes that enhanced team collaboration, reduced handoff time by 40%, and improved overall design efficiency.',
+    category: 'DesignOps',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
+    link: '/project/designops-workflow'
   },
   {
     id: 3,
-    title: 'HealthMonitor',
-    description: 'A comprehensive health tracking mobile application that provides personalized insights and recommendations.',
-    category: 'Mobile App',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    link: '/project/health-monitor'
+    title: 'Loyalty App',
+    description: 'Redesigned the loyalty app experience resulting in a 25% increase in user engagement and a 15% improvement in conversion rates.',
+    category: 'UX/UI',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef033e7b4a454c601a4ba_loyalty%20app.jpg',
+    link: '/project/loyalty-app'
   },
   {
     id: 4,
-    title: 'E-commerce Redesign',
-    description: 'Complete redesign of an e-commerce platform focusing on improved user journey and conversion rates.',
-    category: 'Web',
-    image: 'https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80',
-    link: '/project/ecommerce-redesign'
+    title: 'Data Visualization',
+    description: 'Developed intuitive dashboards and data visualizations that increased stakeholder engagement by 20% and improved decision-making processes.',
+    category: 'Product Design',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef000e7b4a454c6019b93_data-viz.jpg',
+    link: '/project/data-visualization'
   },
   {
     id: 5,
-    title: 'Financial Dashboard',
-    description: 'A clean, modern dashboard for personal finance management with data visualization and analysis.',
+    title: 'Mobile Banking App',
+    description: 'Designed a user-friendly mobile banking application with a focus on accessibility, resulting in a 35% increase in daily active users.',
     category: 'UX/UI',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    link: '/project/financial-dashboard'
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef019090b436b96af1e21_mobileapp.jpg',
+    link: '/project/mobile-banking-app'
   },
   {
     id: 6,
-    title: 'Travel Companion',
-    description: 'A travel planning application that uses AI to recommend personalized itineraries and experiences.',
-    category: 'Mobile App',
-    image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    link: '/project/travel-companion'
+    title: 'E-commerce Platform',
+    description: 'Redesigned the e-commerce experience with a focus on user journey optimization, leading to a 28% increase in conversion rates and improved customer satisfaction.',
+    category: 'Product Design',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef02a090b436b96af1f7b_ecommerce.jpg',
+    link: '/project/ecommerce-platform'
   }
 ];
 
@@ -76,7 +76,7 @@ const Projects: React.FC = () => {
           </h2>
           
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A curated collection of projects showcasing my expertise in UX/UI design, with a focus on artificial intelligence and innovative digital experiences.
+            A curated collection of projects showcasing my expertise in product design, UX/UI, and DesignOps, with a focus on creating efficient and engaging digital experiences.
           </p>
         </div>
 
