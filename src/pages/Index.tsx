@@ -4,6 +4,8 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import About from '@/components/About';
+import Manifesto from '@/components/Manifesto';
+import Testimonials from '@/components/Testimonials';
 import WorkProcess from '@/components/WorkProcess';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -43,7 +45,9 @@ const Index: React.FC = () => {
       <main className="flex-grow">
         <Hero />
         <Projects />
+        <Manifesto />
         <About />
+        <Testimonials />
         <WorkProcess />
         <Contact />
       </main>
