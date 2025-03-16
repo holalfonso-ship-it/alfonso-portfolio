@@ -50,28 +50,26 @@ const Manifesto: React.FC = () => {
           </div>
         </div>
         
-        <div className="glass rounded-xl p-8 relative overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div>
-              <h3 className="text-2xl font-display font-bold mb-4">Design is a team sport</h3>
-              <p className="text-muted-foreground">
-                Great products are created through collaboration between designers, developers, product managers, and other stakeholders. I value open communication and cross-functional teamwork.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-2xl font-display font-bold mb-4">Efficiency matters</h3>
-              <p className="text-muted-foreground">
-                Design operations is about creating systems and processes that enable teams to work more efficiently. This includes standardizing workflows, creating reusable components, and automating repetitive tasks.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="text-2xl font-display font-bold mb-4">Always learning</h3>
-              <p className="text-muted-foreground">
-                The design field evolves rapidly, and I am committed to continuous learning and improvement. I stay updated with the latest trends, tools, and methodologies in design and technology.
-              </p>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+          <div className="glass rounded-xl p-8 relative overflow-hidden">
+            <h3 className="text-2xl font-display font-bold mb-4">Design is a team sport</h3>
+            <p className="text-muted-foreground">
+              Great products are created through collaboration between designers, developers, product managers, and other stakeholders. I value open communication and cross-functional teamwork.
+            </p>
+          </div>
+          
+          <div className="glass rounded-xl p-8 relative overflow-hidden">
+            <h3 className="text-2xl font-display font-bold mb-4">Efficiency matters</h3>
+            <p className="text-muted-foreground">
+              Design operations is about creating systems and processes that enable teams to work more efficiently. This includes standardizing workflows, creating reusable components, and automating repetitive tasks.
+            </p>
+          </div>
+          
+          <div className="glass rounded-xl p-8 relative overflow-hidden">
+            <h3 className="text-2xl font-display font-bold mb-4">Always learning</h3>
+            <p className="text-muted-foreground">
+              The design field evolves rapidly, and I am committed to continuous learning and improvement. I stay updated with the latest trends, tools, and methodologies in design and technology.
+            </p>
           </div>
         </div>
         
