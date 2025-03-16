@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
+import { Button } from './ui/button';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -25,6 +26,13 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleDownloadCV = () => {
+    // In a real app, this would link to an actual CV file
+    console.log('CV download requested');
+    // Example of how this would work with a real file:
+    // window.open('/path-to-cv.pdf', '_blank');
+  };
+
   return (
     <header 
       className={cn(
@@ -41,17 +49,30 @@ const Header: React.FC = () => {
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+        <div className="hidden md:flex items-center space-x-4">
+          <nav className="flex items-center space-x-8 mr-4">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+          
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="flex items-center gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+            onClick={handleDownloadCV}
+          >
+            <FileText size={16} />
+            <span className="hidden sm:inline">Download CV</span>
+            <span className="sm:hidden">CV</span>
+          </Button>
+        </div>
         
         {/* Mobile Menu Button */}
         <button 
@@ -69,7 +90,7 @@ const Header: React.FC = () => {
             mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           )}
         >
-          <nav className="flex flex-col items-center space-y-8">
+          <nav className="flex flex-col items-center space-y-6">
             {navItems.map((item) => (
               <a
                 key={item.href}
@@ -80,6 +101,19 @@ const Header: React.FC = () => {
                 {item.label}
               </a>
             ))}
+            
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="mt-4 flex items-center gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              onClick={() => {
+                handleDownloadCV();
+                setMobileMenuOpen(false);
+              }}
+            >
+              <FileText size={18} />
+              Download CV
+            </Button>
           </nav>
         </div>
       </div>
