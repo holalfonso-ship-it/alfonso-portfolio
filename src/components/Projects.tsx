@@ -9,47 +9,47 @@ const projects = [
   {
     id: 1,
     title: 'Leadtech Design System',
-    description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
+    description: 'Created and maintained a design system that ensures visual consistency across multiple products while increasing development efficiency by 30%.',
     category: 'Design System',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef03a90e9a93e6e0f0c34_design-system.jpg',
     link: '/project/leadtech-design-system'
   },
   {
     id: 2,
-    title: 'DesignOps Workflow',
-    description: 'Implemented and optimized DesignOps processes that enhanced team collaboration, reduced handoff time by 40%, and improved overall design efficiency.',
+    title: 'DesignOps Framework',
+    description: 'Implemented streamlined workflows, standardized processes, and optimized collaboration between design and development teams.',
     category: 'DesignOps',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
     link: '/project/designops-workflow'
   },
   {
     id: 3,
-    title: 'Loyalty App',
-    description: 'Redesigned the loyalty app experience resulting in a 25% increase in user engagement and a 15% improvement in conversion rates.',
+    title: 'Leadtech Mobile App',
+    description: 'Designed a sophisticated mobile experience that increased user engagement by 25% while enhancing accessibility and usability.',
     category: 'UX/UI',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef033e7b4a454c601a4ba_loyalty%20app.jpg',
-    link: '/project/loyalty-app'
+    link: '/project/mobile-app'
   },
   {
     id: 4,
-    title: 'Data Visualization',
-    description: 'Developed intuitive dashboards and data visualizations that increased stakeholder engagement by 20% and improved decision-making processes.',
+    title: 'Data Visualization Dashboard',
+    description: 'Created intuitive dashboards and data visualizations that improved stakeholder decision-making and increased engagement by 20%.',
     category: 'Product Design',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef000e7b4a454c6019b93_data-viz.jpg',
-    link: '/project/data-visualization'
+    link: '/project/data-dashboard'
   },
   {
     id: 5,
-    title: 'Mobile Banking App',
-    description: 'Designed a user-friendly mobile banking application with a focus on accessibility, resulting in a 35% increase in daily active users.',
+    title: 'Customer Journey Application',
+    description: 'Redesigned the customer journey application with focus on user experience, resulting in a 35% increase in customer satisfaction.',
     category: 'UX/UI',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef019090b436b96af1e21_mobileapp.jpg',
-    link: '/project/mobile-banking-app'
+    link: '/project/customer-journey'
   },
   {
     id: 6,
-    title: 'E-commerce Platform',
-    description: 'Redesigned the e-commerce experience with a focus on user journey optimization, leading to a 28% increase in conversion rates and improved customer satisfaction.',
+    title: 'E-commerce Platform Redesign',
+    description: 'Overhauled the e-commerce platform with a focus on conversion optimization, leading to a 28% increase in conversion rates.',
     category: 'Product Design',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef02a090b436b96af1f7b_ecommerce.jpg',
     link: '/project/ecommerce-platform'
