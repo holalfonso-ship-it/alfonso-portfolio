@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProjectDetail from '../components/ProjectDetail';
+import { CrossTeamCollaborationContent } from '../components/project-contents/CrossTeamCollaborationContent';
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
@@ -61,7 +62,8 @@ const projects = [
     description: 'Created a structured DesignOps framework that improved collaboration between design, development, and product teams, reducing project delivery time by 35%.',
     category: 'DesignOps',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
-    link: '/project/cross-team-collaboration'
+    link: '/project/cross-team-collaboration',
+    content: <CrossTeamCollaborationContent />
   }
 ];
 
