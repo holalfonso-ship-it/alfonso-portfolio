@@ -1,11 +1,8 @@
-
 import React from 'react';
 import { Workflow, Share, MessageSquare } from 'lucide-react';
 import { AspectRatio } from '../../ui/aspect-ratio';
-
 export const SolutionSection: React.FC = () => {
-  return (
-    <>
+  return <>
       <h2 className="text-3xl font-bold mb-6">Solution</h2>
       <p className="mb-6">
         To address these challenges, I spearheaded the development of a comprehensive design system that served as a 
@@ -56,7 +53,7 @@ export const SolutionSection: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div>
           <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img alt="Leadtech Design System UI Kit" src="/lovable-uploads/0a0b18bd-6af2-42d6-8ef4-b7a923f4a58d.png" className="w-full h-full object-contain" />
+            <img alt="Leadtech Design System UI Kit" className="w-full h-full object-contain" src="/lovable-uploads/ac31c237-0e0b-465b-9677-8cff4ffd42b3.png" />
           </AspectRatio>
           <p className="text-sm text-muted-foreground">Leadtech Design System UI Kit</p>
         </div>
@@ -67,6 +64,5 @@ export const SolutionSection: React.FC = () => {
           <p className="text-sm text-muted-foreground">Design System Analytics Dashboard in Figma</p>
         </div>
       </div>
-    </>
-  );
+    </>;
 };
