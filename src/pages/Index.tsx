@@ -8,7 +8,6 @@ import Manifesto from '@/components/Manifesto';
 import Testimonials from '@/components/Testimonials';
 import WorkProcess from '@/components/WorkProcess';
 import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
 import TransitionEffect from '@/components/TransitionEffect';
 
 const Index: React.FC = () => {
@@ -51,7 +50,7 @@ const Index: React.FC = () => {
         <WorkProcess />
         <Contact />
       </main>
-      <Footer />
+      {/* Footer removed from here - it's already in App.tsx */}
     </div>
   );
 };
