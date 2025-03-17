@@ -31,7 +31,7 @@ const projects = [
     category: 'DesignOps',
     image: '/lovable-uploads/8c59b616-51e1-4471-9126-d4759111deb2.png',
     heroImages: [
-      '/lovable-uploads/3e0bffd7-7044-4a8e-9004-ff9e47a40849.png'
+      '/lovable-uploads/0ad8e9f1-439b-4b74-9f5b-e5f2d39695e5.png'
     ],
     link: '/project/designops-workflow',
     content: <DesignOpsWorkflowContent />
