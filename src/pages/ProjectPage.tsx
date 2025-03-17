@@ -9,6 +9,7 @@ import { LeadtechGroupContent } from '../components/project-contents/LeadtechGro
 import { LoyaltyAppContent } from '../components/project-contents/LoyaltyAppContent';
 import { DesignOpsWorkflowContent } from '../components/project-contents/DesignOpsWorkflowContent';
 import { DataVisualizationContent } from '../components/project-contents/DataVisualizationContent';
+import { AboutContent } from '../components/project-contents/AboutContent';
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
@@ -21,7 +22,7 @@ const projects = [
     heroImages: [
       '/lovable-uploads/3dcf1c6d-4dde-437c-b626-bbe99631bf3f.png'
     ],
-    link: '/project/leadtech-design-system',
+    link: '/project/1',
     content: <LeadtechGroupContent />
   },
   {
@@ -33,7 +34,7 @@ const projects = [
     heroImages: [
       '/lovable-uploads/ed4aab16-f8c3-46b1-be10-d44758f7d149.png'
     ],
-    link: '/project/designops-workflow',
+    link: '/project/2',
     content: <DesignOpsWorkflowContent />
   },
   {
@@ -45,7 +46,7 @@ const projects = [
     heroImages: [
       '/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png'
     ],
-    link: '/project/loyalty-app',
+    link: '/project/3',
     content: <LoyaltyAppContent />
   },
   {
@@ -57,8 +58,20 @@ const projects = [
     heroImages: [
       '/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png'
     ],
-    link: '/project/data-visualization',
+    link: '/project/4',
     content: <DataVisualizationContent />
+  },
+  {
+    id: 5,
+    title: 'About',
+    description: 'Digital product designer with extensive experience in DesignOps and Product design. Specialized in optimizing workflows, improving collaboration, and enhancing efficiency within design teams.',
+    category: 'Profile',
+    image: '/lovable-uploads/a34955f1-1c9a-4745-b402-a31f0beb6f83.png',
+    heroImages: [
+      '/lovable-uploads/a34955f1-1c9a-4745-b402-a31f0beb6f83.png'
+    ],
+    link: '/project/5',
+    content: <AboutContent />
   },
   {
     id: 7,
@@ -69,27 +82,25 @@ const projects = [
     heroImages: [
       '/lovable-uploads/a8a3c542-efbf-46c2-a78b-bcd8a2ddcb83.png'
     ],
-    link: '/project/cross-team-collaboration',
+    link: '/project/7',
     content: <CrossTeamCollaborationContent />
   }
 ];
 
 const ProjectPage: React.FC = () => {
-  const { projectId } = useParams<{ projectId: string }>();
-  const project = projects.find(p => p.id.toString() === projectId);
+  const { id } = useParams<{ id: string }>();
+  const project = projects.find(p => p.id.toString() === id);
   
-  // Scroll to top when the component mounts or projectId changes
+  // Scroll to top when the component mounts or id changes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [projectId]);
+  }, [id]);
   
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-grow">
         <ProjectDetail project={project} />
       </main>
-      <Footer />
     </div>
   );
 };

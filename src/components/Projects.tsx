@@ -5,7 +5,7 @@ import ProjectCard from './ProjectCard';
 import AnimatedText from './AnimatedText';
 import { cn } from "@/lib/utils";
 
-const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System'];
+const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System', 'Profile'];
 
 const projects = [
   {
@@ -39,6 +39,14 @@ const projects = [
     category: 'Product Design',
     image: '/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png',
     link: '/project/4'
+  },
+  {
+    id: 5,
+    title: 'About',
+    description: 'Digital product designer with extensive experience in DesignOps and Product design. Specialized in optimizing workflows, improving collaboration, and enhancing efficiency within design teams.',
+    category: 'Profile',
+    image: '/lovable-uploads/a34955f1-1c9a-4745-b402-a31f0beb6f83.png',
+    link: '/project/5'
   },
   {
     id: 7,
