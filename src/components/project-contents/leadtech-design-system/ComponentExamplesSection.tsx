@@ -48,7 +48,14 @@ export const ComponentExamplesSection: React.FC = () => {
                   <span className="text-blue-500">const</span> Example = () =&gt; (
                 </div>
                 <div className="ml-4">
-                  &lt;<span className="text-orange-500">Button variant="primary"</span>&gt;Click me&lt;/Button&gt;
+                  &lt;<span className="text-orange-500">Button 
+                    width=&#123;93&#125; 
+                    height=&#123;40&#125; 
+                    borderRadius=&#123;50&#125; 
+                    gap=&#123;8&#125;
+                    padding=&#123;&#123;top: 8, right: 24, bottom: 8, left: 24&#125;&#125;</span>&gt;
+                    Click me
+                  &lt;/Button&gt;
                 </div>
                 <div>);</div>
               </div>
