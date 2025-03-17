@@ -61,7 +61,7 @@ const projects = [
     title: 'Cross-team Collaboration Framework',
     description: 'Created a structured DesignOps framework that improved collaboration between design, development, and product teams, reducing project delivery time by 35%.',
     category: 'DesignOps',
-    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
+    image: '/lovable-uploads/a8a3c542-efbf-46c2-a78b-bcd8a2ddcb83.png',
     link: '/project/7'
   }
 ];
