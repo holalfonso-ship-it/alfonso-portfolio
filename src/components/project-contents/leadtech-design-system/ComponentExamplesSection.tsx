@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from '../../ui/card';
 import { AspectRatio } from '../../ui/aspect-ratio';
@@ -13,7 +14,7 @@ export const ComponentExamplesSection: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-1 gap-8 mb-12">
         <Card className="overflow-hidden">
           <AspectRatio ratio={4 / 3} className="bg-secondary/30">
-            <div className="h-full w-full p-6 flex flex-col">
+            <div className="h-full w-full p-6 flex flex-col min-h-[350px]">
               <div className="bg-primary/10 p-3 rounded-full w-fit mb-4">
                 <Component className="h-6 w-6 text-primary" />
               </div>
@@ -21,7 +22,7 @@ export const ComponentExamplesSection: React.FC = () => {
               <p className="text-muted-foreground">
                 Reusable interface elements like buttons, inputs, and cards that maintain consistent styling.
               </p>
-              <div className=""></div>
+              <div className="flex-grow"></div>
               <div className="mt-4">
                 <img alt="Button component examples" className="w-full rounded-md shadow-sm" src="/lovable-uploads/d5a5265a-473d-4d71-b8d2-8f158deb27ab.png" />
               </div>
@@ -31,7 +32,7 @@ export const ComponentExamplesSection: React.FC = () => {
         
         <Card className="overflow-hidden">
           <AspectRatio ratio={4 / 3} className="bg-secondary/30">
-            <div className="h-full w-full p-6 flex flex-col">
+            <div className="h-full w-full p-6 flex flex-col min-h-[350px]">
               <div className="bg-primary/10 p-3 rounded-full w-fit mb-4">
                 <FileCode className="h-6 w-6 text-primary" />
               </div>
@@ -39,7 +40,7 @@ export const ComponentExamplesSection: React.FC = () => {
               <p className="text-muted-foreground">
                 Standardized code implementation guidelines ensuring consistent component behavior.
               </p>
-              <div className=""></div>
+              <div className="flex-grow"></div>
               <div className="mt-4 bg-background rounded-md p-3 font-mono text-xs shadow-sm overflow-hidden">
                 <div className="text-blue-500">import</div>
                 <div>&#123; Button &#125; from <span className="text-green-500">'@leadtech/design-system'</span>;</div>
@@ -57,7 +58,7 @@ export const ComponentExamplesSection: React.FC = () => {
         
         <Card className="overflow-hidden">
           <AspectRatio ratio={4 / 3} className="bg-secondary/30">
-            <div className="h-full w-full p-6 flex flex-col">
+            <div className="h-full w-full p-6 flex flex-col min-h-[350px]">
               <div className="bg-primary/10 p-3 rounded-full w-fit mb-4">
                 <LayoutDashboard className="h-6 w-6 text-primary" />
               </div>
@@ -75,7 +76,7 @@ export const ComponentExamplesSection: React.FC = () => {
         
         <Card className="overflow-hidden">
           <AspectRatio ratio={4 / 3} className="bg-secondary/30">
-            <div className="h-full w-full p-6 flex flex-col">
+            <div className="h-full w-full p-6 flex flex-col min-h-[350px]">
               <div className="bg-primary/10 p-3 rounded-full w-fit mb-4">
                 <Smartphone className="h-6 w-6 text-primary" />
               </div>
@@ -83,7 +84,7 @@ export const ComponentExamplesSection: React.FC = () => {
               <p className="text-muted-foreground">
                 Adaptable components designed to work seamlessly across different device sizes.
               </p>
-              <div className=""></div>
+              <div className="flex-grow"></div>
               <div className="mt-4">
                 <img alt="Mobile UI examples" className="w-full rounded-md shadow-sm" src="/lovable-uploads/d02ab1a8-a48e-410d-aa65-bb5d4df1b25b.png" />
               </div>
