@@ -21,7 +21,7 @@ const projects = [
     title: 'DesignOps Workflow',
     description: 'Implemented and optimized DesignOps processes that enhanced team collaboration, reduced handoff time by 40%, and improved overall design efficiency.',
     category: 'DesignOps',
-    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
+    image: '/lovable-uploads/8c59b616-51e1-4471-9126-d4759111deb2.png',
     link: '/project/2'
   },
   {
@@ -29,7 +29,7 @@ const projects = [
     title: 'Loyalty App',
     description: 'Redesigned the loyalty app experience resulting in a 25% increase in user engagement and a 15% improvement in conversion rates.',
     category: 'UX/UI',
-    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef033e7b4a454c601a4ba_loyalty%20app.jpg',
+    image: '/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png',
     link: '/project/3'
   },
   {
