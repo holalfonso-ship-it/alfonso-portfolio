@@ -19,7 +19,7 @@ const projects = [
     category: 'Design System',
     image: '/lovable-uploads/4fe6b813-f155-406e-9d47-cab1a5940040.png',
     heroImages: [
-      '/lovable-uploads/4fe6b813-f155-406e-9d47-cab1a5940040.png'
+      '/lovable-uploads/fdbb659f-0ed2-4bdb-8216-81d77efb151e.png'
     ],
     link: '/project/leadtech-design-system',
     content: <LeadtechGroupContent />
