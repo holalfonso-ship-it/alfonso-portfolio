@@ -1,5 +1,7 @@
+
 import React, { useEffect, useRef } from 'react';
 import { cn } from "@/lib/utils";
+
 interface AnimatedTextProps {
   text: string;
   className?: string;
@@ -7,6 +9,7 @@ interface AnimatedTextProps {
   delay?: number;
   threshold?: number;
 }
+
 const AnimatedText: React.FC<AnimatedTextProps> = ({
   text,
   className,
@@ -15,6 +18,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   threshold = 0.5
 }) => {
   const textRef = useRef<HTMLSpanElement>(null);
+  
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -32,18 +36,29 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
     }, {
       threshold
     });
+    
     const currentRef = textRef.current;
     if (currentRef) {
       observer.observe(currentRef);
     }
+    
     return () => {
       if (currentRef) {
         observer.unobserve(currentRef);
       }
     };
   }, [once, delay, threshold]);
-  return <span ref={textRef} className="">
-      {text}
-    </span>;
+  
+  return (
+    <span 
+      ref={textRef} 
+      className={cn("inline-block overflow-hidden relative", className)}
+    >
+      <span className="inline-block transform translate-y-full opacity-0">
+        {text}
+      </span>
+    </span>
+  );
 };
+
 export default AnimatedText;

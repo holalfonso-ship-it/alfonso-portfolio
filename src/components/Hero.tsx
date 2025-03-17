@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import AnimatedText from './AnimatedText';
 import { ChevronDown } from 'lucide-react';
 
