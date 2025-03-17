@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
       className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-32 relative overflow-hidden"
     >
       <div 
-        className="absolute inset-0 pointer-events-none bg-[radial-gradient(50%_50%_at_50%_50%,rgba(var(--primary-rgb),0.1)_0%,rgba(var(--primary-rgb),0)_100%)]" 
+        className="absolute inset-0 pointer-events-none bg-[radial-gradient(70%_70%_at_50%_50%,rgba(var(--primary-rgb),0.2)_0%,rgba(var(--primary-rgb),0)_100%)]" 
         style={{'--primary-rgb': '52, 152, 219'} as React.CSSProperties}
       />
       
@@ -43,15 +43,21 @@ const Hero: React.FC = () => {
               once
             />
             <AnimatedText 
-              text="Design Ops specialist 😎" 
-              className="text-gradient block"
+              text="Design Ops specialist" 
+              className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent block"
               delay={500}
+              once
+            />
+            <AnimatedText 
+              text="🌎 Barcelona · 🚀 Design Systems · 💎 Process"
+              className="text-2xl md:text-3xl mt-4 font-normal"
+              delay={700}
               once
             />
           </h1>
           
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl opacity-0 animate-slide-up animation-delay-1000">
-            Based in sunny Barcelona 🌎, focus on helping teams to create more efficient design processes 💎.
+            Helping teams create more efficient design workflows and processes to scale creativity.
           </p>
         </div>
         
