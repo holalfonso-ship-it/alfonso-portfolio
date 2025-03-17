@@ -1,31 +1,45 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import ProjectPage from "./pages/ProjectPage";
-import AdminPage from "./pages/AdminPage";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Index from './pages';
+import ProjectPage from './pages/ProjectPage';
+import NotFound from './pages/NotFound';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import CursorEffect from './components/CursorEffect';
+import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/toaster"
+import AdminPage from './pages/AdminPage';
+import SiteImages from './pages/SiteImages';
 
-const queryClient = new QueryClient();
+function App() {
+  const [isLoading, setIsLoading] = useState(true);
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner position="top-right" closeButton />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/project/:projectId" element={<ProjectPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+  useEffect(() => {
+    // Simulate loading time
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+  }, []);
+
+  return (
+    <div className="app">
+      <ThemeProvider defaultTheme="dark">
+        <CursorEffect />
+        <BrowserRouter>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/project/:id" element={<ProjectPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/site-images" element={<SiteImages />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+        <Toaster />
+      </ThemeProvider>
+    </div>
+  );
+}
 
 export default App;
