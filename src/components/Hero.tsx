@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
                   Product <span className="text-primary">Designer</span>
                 </span>
                 <span className="block opacity-0 animate-slide-up animation-delay-700">
-                  & <span className="inline-block bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">DesignOps</span>
+                  & <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">DesignOps</span>
                 </span>
                 <span className="block opacity-0 animate-slide-up animation-delay-900">
                   Specialist
