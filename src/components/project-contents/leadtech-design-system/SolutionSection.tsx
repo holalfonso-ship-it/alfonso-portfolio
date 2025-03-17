@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Workflow, Share, MessageSquare } from 'lucide-react';
 import { AspectRatio } from '../../ui/aspect-ratio';
@@ -59,7 +60,7 @@ export const SolutionSection: React.FC = () => {
         </div>
         <div>
           <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img src="/lovable-uploads/2ffb939e-4cd5-4263-92b0-d74903f44566.png" alt="Design System Analytics in Figma" className="object-cover w-full h-full" />
+            <img src="/lovable-uploads/3dcf1c6d-4dde-437c-b626-bbe99631bf3f.png" alt="Design System Analytics in Figma" className="object-cover w-full h-full" />
           </AspectRatio>
           <p className="text-sm text-muted-foreground">Design System Analytics Dashboard in Figma</p>
         </div>
