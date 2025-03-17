@@ -39,7 +39,7 @@ export const ComponentExamplesSection: React.FC = () => {
               <p className="text-muted-foreground">
                 Standardized code implementation guidelines ensuring consistent component behavior.
               </p>
-              <div className="flex-grow"></div>
+              <div className=""></div>
               <div className="mt-4 bg-background rounded-md p-3 font-mono text-xs shadow-sm overflow-hidden">
                 <div className="text-blue-500">import</div>
                 <div>&#123; Button &#125; from <span className="text-green-500">'@leadtech/design-system'</span>;</div>
