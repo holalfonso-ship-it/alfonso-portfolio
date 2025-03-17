@@ -50,6 +50,14 @@ const Header: React.FC = () => {
     window.open('/alfonso-cv.pdf', '_blank');
   };
 
+  // Function to get the correct href for navigation items
+  const getNavItemHref = (href: string) => {
+    if (isProjectPage && href.startsWith('/#')) {
+      return href.replace('#', '');
+    }
+    return href;
+  };
+
   return (
     <header 
       className={cn(
@@ -91,7 +99,7 @@ const Header: React.FC = () => {
               ) : (
                 <Link
                   key={item.href}
-                  to={isProjectPage && item.href.startsWith('/#') ? item.href.replace('#', '') : item.href}
+                  to={getNavItemHref(item.href)}
                   className="text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.label}
@@ -148,7 +156,7 @@ const Header: React.FC = () => {
               ) : (
                 <Link
                   key={item.href}
-                  to={isProjectPage && item.href.startsWith('/#') ? item.href.replace('#', '') : item.href}
+                  to={getNavItemHref(item.href)}
                   className="text-2xl font-medium"
                   onClick={() => setMobileMenuOpen(false)}
                 >
