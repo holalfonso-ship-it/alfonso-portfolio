@@ -1,12 +1,9 @@
-
 import React from 'react';
 import { Card, CardContent } from '../../ui/card';
 import { AspectRatio } from '../../ui/aspect-ratio';
 import { Component, FileCode, LayoutDashboard, Smartphone } from 'lucide-react';
-
 export const ComponentExamplesSection: React.FC = () => {
-  return (
-    <>
+  return <>
       <h2 className="text-3xl font-bold mb-6">Component Examples</h2>
       <p className="mb-8">
         The Leadtech Design System includes a variety of components designed for consistency and reusability across platforms.
@@ -15,7 +12,7 @@ export const ComponentExamplesSection: React.FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <Card className="overflow-hidden">
-          <AspectRatio ratio={4/3} className="bg-secondary/30">
+          <AspectRatio ratio={4 / 3} className="bg-secondary/30">
             <div className="h-full w-full p-6 flex flex-col">
               <div className="bg-primary/10 p-3 rounded-full w-fit mb-4">
                 <Component className="h-6 w-6 text-primary" />
@@ -26,18 +23,14 @@ export const ComponentExamplesSection: React.FC = () => {
               </p>
               <div className="flex-grow"></div>
               <div className="mt-4">
-                <img 
-                  src="/lovable-uploads/3b9b541b-9f9f-475f-a5b2-13e33a6f80fc.png" 
-                  alt="Button component examples" 
-                  className="w-full rounded-md shadow-sm"
-                />
+                <img alt="Button component examples" className="w-full rounded-md shadow-sm" src="/lovable-uploads/d5a5265a-473d-4d71-b8d2-8f158deb27ab.png" />
               </div>
             </div>
           </AspectRatio>
         </Card>
         
         <Card className="overflow-hidden">
-          <AspectRatio ratio={4/3} className="bg-secondary/30">
+          <AspectRatio ratio={4 / 3} className="bg-secondary/30">
             <div className="h-full w-full p-6 flex flex-col">
               <div className="bg-primary/10 p-3 rounded-full w-fit mb-4">
                 <FileCode className="h-6 w-6 text-primary" />
@@ -63,7 +56,7 @@ export const ComponentExamplesSection: React.FC = () => {
         </Card>
         
         <Card className="overflow-hidden">
-          <AspectRatio ratio={4/3} className="bg-secondary/30">
+          <AspectRatio ratio={4 / 3} className="bg-secondary/30">
             <div className="h-full w-full p-6 flex flex-col">
               <div className="bg-primary/10 p-3 rounded-full w-fit mb-4">
                 <LayoutDashboard className="h-6 w-6 text-primary" />
@@ -74,18 +67,14 @@ export const ComponentExamplesSection: React.FC = () => {
               </p>
               <div className="flex-grow"></div>
               <div className="mt-4">
-                <img 
-                  src="/lovable-uploads/3eaa9d8f-3d72-4339-b200-982a6a06bc5c.png" 
-                  alt="Mobile filters UI examples" 
-                  className="w-full rounded-md shadow-sm"
-                />
+                <img src="/lovable-uploads/3eaa9d8f-3d72-4339-b200-982a6a06bc5c.png" alt="Mobile filters UI examples" className="w-full rounded-md shadow-sm" />
               </div>
             </div>
           </AspectRatio>
         </Card>
         
         <Card className="overflow-hidden">
-          <AspectRatio ratio={4/3} className="bg-secondary/30">
+          <AspectRatio ratio={4 / 3} className="bg-secondary/30">
             <div className="h-full w-full p-6 flex flex-col">
               <div className="bg-primary/10 p-3 rounded-full w-fit mb-4">
                 <Smartphone className="h-6 w-6 text-primary" />
@@ -96,16 +85,11 @@ export const ComponentExamplesSection: React.FC = () => {
               </p>
               <div className="flex-grow"></div>
               <div className="mt-4">
-                <img 
-                  src="/lovable-uploads/c0a19b7f-5b09-47de-8aad-69eefa4e7fd9.png" 
-                  alt="Mobile UI examples" 
-                  className="w-full rounded-md shadow-sm"
-                />
+                <img src="/lovable-uploads/c0a19b7f-5b09-47de-8aad-69eefa4e7fd9.png" alt="Mobile UI examples" className="w-full rounded-md shadow-sm" />
               </div>
             </div>
           </AspectRatio>
         </Card>
       </div>
-    </>
-  );
+    </>;
 };
