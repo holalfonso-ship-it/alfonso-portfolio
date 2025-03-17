@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
                   <div className="w-12 h-[1px] bg-muted-foreground/30"></div>
                 </div>
                 <div className="flex items-center justify-end gap-2">
-                  <span className="text-xs uppercase tracking-widest text-muted-foreground">Process</span>
+                  <span className="text-xs uppercase tracking-widest text-muted-foreground">Product design</span>
                   <div className="w-8 h-[1px] bg-muted-foreground/30"></div>
                 </div>
               </div>
