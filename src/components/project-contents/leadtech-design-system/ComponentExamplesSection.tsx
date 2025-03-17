@@ -21,7 +21,7 @@ export const ComponentExamplesSection: React.FC = () => {
               <p className="text-muted-foreground">
                 Reusable interface elements like buttons, inputs, and cards that maintain consistent styling.
               </p>
-              <div className="flex-grow"></div>
+              <div className=""></div>
               <div className="mt-4">
                 <img alt="Button component examples" className="w-full rounded-md shadow-sm" src="/lovable-uploads/d5a5265a-473d-4d71-b8d2-8f158deb27ab.png" />
               </div>
