@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import AnimatedText from './AnimatedText';
 import { SendIcon, Mail, MapPin, Phone } from 'lucide-react';
@@ -8,20 +7,20 @@ const contactInfo = [
   {
     icon: <Mail className="h-5 w-5" />,
     label: 'Email',
-    value: 'hello@portfolio.com',
-    link: 'mailto:hello@portfolio.com'
+    value: 'holalfonso@gamil.com',
+    link: 'mailto:holalfonso@gamil.com'
   },
   {
     icon: <Phone className="h-5 w-5" />,
     label: 'Phone',
-    value: '+1 (123) 456-7890',
-    link: 'tel:+11234567890'
+    value: '+34 678 815 239',
+    link: 'tel:+34678815239'
   },
   {
     icon: <MapPin className="h-5 w-5" />,
     label: 'Location',
-    value: 'San Francisco, CA',
-    link: 'https://maps.google.com/?q=San+Francisco,+CA'
+    value: 'Barcelona, Spain',
+    link: 'https://maps.google.com/?q=Barcelona,+Spain'
   }
 ];
 

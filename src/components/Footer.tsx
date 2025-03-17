@@ -24,20 +24,20 @@ const Footer: React.FC = () => {
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="mailto:hello@example.com" 
+                  href="mailto:holalfonso@gamil.com" 
                   className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="mr-2 h-4 w-4" />
-                  hello@example.com
+                  holalfonso@gamil.com
                 </a>
               </li>
               <li>
                 <a 
-                  href="tel:+1234567890" 
+                  href="tel:+34678815239" 
                   className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Phone className="mr-2 h-4 w-4" />
-                  +1 (234) 567-890
+                  +34 678 815 239
                 </a>
               </li>
             </ul>
