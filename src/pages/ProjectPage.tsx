@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
@@ -59,22 +58,6 @@ const projects = [
     ],
     link: '/project/data-visualization',
     content: <DataVisualizationContent />
-  },
-  {
-    id: 5,
-    title: 'Mobile Banking App',
-    description: 'Designed a user-friendly mobile banking application with a focus on accessibility, resulting in a 35% increase in daily active users.',
-    category: 'UX/UI',
-    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef019090b436b96af1e21_mobileapp.jpg',
-    link: '/project/mobile-banking-app'
-  },
-  {
-    id: 6,
-    title: 'E-commerce Platform',
-    description: 'Redesigned the e-commerce experience with a focus on user journey optimization, leading to a 28% increase in conversion rates and improved customer satisfaction.',
-    category: 'Product Design',
-    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef02a090b436b96af1f7b_ecommerce.jpg',
-    link: '/project/ecommerce-platform'
   },
   {
     id: 7,

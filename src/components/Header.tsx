@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link } from 'react-router-dom';
@@ -16,8 +15,6 @@ const projects = [
   { id: 2, title: 'DesignOps Workflow', category: 'DesignOps' },
   { id: 3, title: 'Loyalty App', category: 'UX/UI' },
   { id: 4, title: 'Data Visualization', category: 'Product Design' },
-  { id: 5, title: 'Mobile Banking App', category: 'UX/UI' },
-  { id: 6, title: 'E-commerce Platform', category: 'Product Design' },
   { id: 7, title: 'Cross-team Collaboration', category: 'DesignOps' },
 ];
 
@@ -172,4 +169,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
