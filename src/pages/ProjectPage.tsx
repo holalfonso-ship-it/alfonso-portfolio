@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
@@ -8,6 +7,7 @@ import { CrossTeamCollaborationContent } from '../components/project-contents/Cr
 import { LeadtechGroupContent } from '../components/project-contents/LeadtechGroupContent';
 import { LoyaltyAppContent } from '../components/project-contents/LoyaltyAppContent';
 import { DesignOpsWorkflowContent } from '../components/project-contents/DesignOpsWorkflowContent';
+import { DataVisualizationContent } from '../components/project-contents/DataVisualizationContent';
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
@@ -28,7 +28,7 @@ const projects = [
     title: 'DesignOps Workflow',
     description: 'Implemented and optimized DesignOps processes that enhanced team collaboration, reduced handoff time by 40%, and improved overall design efficiency.',
     category: 'DesignOps',
-    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
+    image: '/lovable-uploads/8c59b616-51e1-4471-9126-d4759111deb2.png',
     heroImages: [
       '/lovable-uploads/8c59b616-51e1-4471-9126-d4759111deb2.png'
     ],
@@ -52,8 +52,12 @@ const projects = [
     title: 'Data Visualization',
     description: 'Developed intuitive dashboards and data visualizations that increased stakeholder engagement by 20% and improved decision-making processes.',
     category: 'Product Design',
-    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef000e7b4a454c6019b93_data-viz.jpg',
-    link: '/project/data-visualization'
+    image: '/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png',
+    heroImages: [
+      '/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png'
+    ],
+    link: '/project/data-visualization',
+    content: <DataVisualizationContent />
   },
   {
     id: 5,

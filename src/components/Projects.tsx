@@ -37,7 +37,7 @@ const projects = [
     title: 'Data Visualization',
     description: 'Developed intuitive dashboards and data visualizations that increased stakeholder engagement by 20% and improved decision-making processes.',
     category: 'Product Design',
-    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef000e7b4a454c6019b93_data-viz.jpg',
+    image: '/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png',
     link: '/project/4'
   },
   {
