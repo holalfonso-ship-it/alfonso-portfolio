@@ -83,7 +83,7 @@ export const ComponentExamplesSection: React.FC = () => {
               <p className="text-muted-foreground">
                 Adaptable components designed to work seamlessly across different device sizes.
               </p>
-              <div className="flex-grow"></div>
+              <div className=""></div>
               <div className="mt-4">
                 <img alt="Mobile UI examples" className="w-full rounded-md shadow-sm" src="/lovable-uploads/d02ab1a8-a48e-410d-aa65-bb5d4df1b25b.png" />
               </div>
