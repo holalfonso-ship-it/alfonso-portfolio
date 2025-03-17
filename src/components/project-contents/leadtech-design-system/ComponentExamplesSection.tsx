@@ -94,16 +94,12 @@ export const ComponentExamplesSection: React.FC = () => {
                 Adaptable components designed to work seamlessly across different device sizes.
               </p>
               <div className="flex-grow"></div>
-              <div className="mt-4 flex items-end justify-center space-x-4 bg-background p-3 rounded-md shadow-sm">
-                <div className="h-32 w-16 border-2 border-primary/50 rounded-md flex items-center justify-center">
-                  <div className="w-12 h-24 bg-primary/20 rounded"></div>
-                </div>
-                <div className="h-40 w-24 border-2 border-primary rounded-md flex items-center justify-center">
-                  <div className="w-20 h-32 bg-primary/30 rounded"></div>
-                </div>
-                <div className="h-48 w-32 border-2 border-primary/50 rounded-md flex items-center justify-center">
-                  <div className="w-28 h-40 bg-primary/20 rounded"></div>
-                </div>
+              <div className="mt-4">
+                <img 
+                  src="/lovable-uploads/c0a19b7f-5b09-47de-8aad-69eefa4e7fd9.png" 
+                  alt="Mobile UI examples" 
+                  className="w-full rounded-md shadow-sm"
+                />
               </div>
             </div>
           </AspectRatio>
