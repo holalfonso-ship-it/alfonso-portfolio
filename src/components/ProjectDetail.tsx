@@ -35,9 +35,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
   }
 
   // Use heroImages if available, otherwise use the main image
-  const displayImage = project.heroImages && project.heroImages.length > 0 
-    ? project.heroImages[0] 
-    : project.image;
+  const displayImage = project.id === 4 
+    ? '/lovable-uploads/5ecccc7f-84bd-4edc-bedf-07f11a6a1d4b.png'
+    : project.heroImages && project.heroImages.length > 0 
+      ? project.heroImages[0] 
+      : project.image;
 
   console.log("Display image path:", displayImage); // Add debug logging
 
