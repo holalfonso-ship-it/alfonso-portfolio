@@ -10,7 +10,7 @@ export const ComponentExamplesSection: React.FC = () => {
         Below are some examples of components from our library:
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-8 mb-12">
         <Card className="overflow-hidden">
           <AspectRatio ratio={4 / 3} className="bg-secondary/30">
             <div className="h-full w-full p-6 flex flex-col">
