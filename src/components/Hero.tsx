@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import AnimatedText from './AnimatedText';
 import { ChevronDown } from 'lucide-react';
 
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
               once
             />
             <AnimatedText 
-              text="Product Designer turned" 
+              text="Product Designer turned Design OPS" 
               className="block mb-2"
               delay={300}
               once
