@@ -78,10 +78,7 @@ const Header: React.FC = () => {
                     {projects.map((project) => (
                       <DropdownMenuItem key={project.id} asChild>
                         <Link to={`/project/${project.id}`} className="cursor-pointer">
-                          <span className="font-medium">{project.title}</span>
-                          <span className="ml-2 text-xs text-muted-foreground rounded-full px-2 py-0.5">
-                            {project.category}
-                          </span>
+                          {project.title}
                         </Link>
                       </DropdownMenuItem>
                     ))}
@@ -175,3 +172,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
