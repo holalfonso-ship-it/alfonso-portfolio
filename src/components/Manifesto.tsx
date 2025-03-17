@@ -1,7 +1,7 @@
 
 import React from 'react';
 import AnimatedText from './AnimatedText';
-import { Quote, Star, Users, Lightbulb, Book } from 'lucide-react';
+import { Quote, Star, Users, Lightbulb, Book, ChevronRight } from 'lucide-react';
 
 const Manifesto: React.FC = () => {
   return (
