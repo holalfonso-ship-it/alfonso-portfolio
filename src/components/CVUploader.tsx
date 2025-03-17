@@ -26,6 +26,20 @@ const CVUploader: React.FC = () => {
     setIsUploading(true);
     
     try {
+      // Ensure the bucket exists
+      try {
+        const { data: buckets } = await supabase.storage.listBuckets();
+        const bucketExists = buckets?.some(bucket => bucket.name === 'cv_files');
+        
+        if (!bucketExists) {
+          // Create the bucket if it doesn't exist
+          await supabase.rpc('create_cv_files_bucket');
+          console.log('CV files bucket created');
+        }
+      } catch (error) {
+        console.error('Error checking/creating bucket:', error);
+      }
+      
       // Upload file to Supabase Storage
       const fileName = `cv-${Date.now()}.pdf`;
       const { data, error } = await supabase.storage

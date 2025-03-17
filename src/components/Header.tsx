@@ -80,7 +80,6 @@ const Header: React.FC = () => {
     window.open(cvUrl || '/alfonso-cv.pdf', '_blank');
   };
 
-  // Function to get the correct href for navigation items
   const getNavItemHref = (href: string) => {
     if (isProjectPage && href.startsWith('/#')) {
       return href.replace('#', '');
@@ -103,7 +102,6 @@ const Header: React.FC = () => {
           Portfolio<span className="text-primary">.</span>
         </Link>
         
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center">
           <nav className="flex items-center space-x-8 mr-6">
             {navItems.map((item) => (
@@ -149,7 +147,6 @@ const Header: React.FC = () => {
           </Button>
         </div>
         
-        {/* Mobile Menu Button */}
         <button 
           className="md:hidden text-foreground p-2 z-50"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -158,7 +155,6 @@ const Header: React.FC = () => {
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         
-        {/* Mobile Navigation */}
         <div 
           className={cn(
             "fixed inset-0 z-40 glass-dark md:hidden transition-opacity duration-300 flex flex-col justify-center items-center",
