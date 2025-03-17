@@ -73,11 +73,12 @@ export const ComponentExamplesSection: React.FC = () => {
                 Pre-built layout structures for dashboards, forms, and content pages.
               </p>
               <div className="flex-grow"></div>
-              <div className="grid grid-cols-3 grid-rows-3 gap-2 mt-4 bg-background p-3 rounded-md shadow-sm">
-                <div className="bg-primary/20 col-span-3 h-8 rounded"></div>
-                <div className="bg-primary/10 h-24 rounded"></div>
-                <div className="bg-primary/10 col-span-2 h-24 rounded"></div>
-                <div className="bg-primary/15 col-span-3 h-8 rounded"></div>
+              <div className="mt-4">
+                <img 
+                  src="/lovable-uploads/3eaa9d8f-3d72-4339-b200-982a6a06bc5c.png" 
+                  alt="Mobile filters UI examples" 
+                  className="w-full rounded-md shadow-sm"
+                />
               </div>
             </div>
           </AspectRatio>
