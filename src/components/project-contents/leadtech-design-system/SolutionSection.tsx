@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Workflow, Share, MessageSquare } from 'lucide-react';
 import { AspectRatio } from '../../ui/aspect-ratio';
@@ -54,7 +53,7 @@ export const SolutionSection: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div>
           <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img alt="Leadtech Design System UI Kit" className="w-full h-full object-contain" src="/lovable-uploads/ac31c237-0e0b-465b-9677-8cff4ffd42b3.png" />
+            <img alt="Leadtech Design System UI Kit" src="/lovable-uploads/ac31c237-0e0b-465b-9677-8cff4ffd42b3.png" className="w-full h-full object-cover" />
           </AspectRatio>
           <p className="text-sm text-muted-foreground">Leadtech Design System UI Kit</p>
         </div>
