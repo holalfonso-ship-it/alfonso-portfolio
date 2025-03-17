@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from 'react-router-dom';
@@ -17,7 +16,6 @@ const projects = [
   { id: 2, title: 'DesignOps Workflow', category: 'DesignOps' },
   { id: 3, title: 'Loyalty App', category: 'UX/UI' },
   { id: 4, title: 'Data Visualization', category: 'Product Design' },
-  { id: 5, title: 'About Me', category: 'Profile' },
   { id: 7, title: 'Cross-team Collaboration', category: 'DesignOps' },
 ];
 

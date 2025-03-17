@@ -9,7 +9,6 @@ import { LeadtechGroupContent } from '../components/project-contents/LeadtechGro
 import { LoyaltyAppContent } from '../components/project-contents/LoyaltyAppContent';
 import { DesignOpsWorkflowContent } from '../components/project-contents/DesignOpsWorkflowContent';
 import { DataVisualizationContent } from '../components/project-contents/DataVisualizationContent';
-import { AboutContent } from '../components/project-contents/AboutContent';
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
@@ -60,18 +59,6 @@ const projects = [
     ],
     link: '/project/data-visualization',
     content: <DataVisualizationContent />
-  },
-  {
-    id: 5,
-    title: 'About Me',
-    description: 'Professional profile and experience of a digital product designer with extensive experience in DesignOps and Product design.',
-    category: 'Profile',
-    image: '/lovable-uploads/d5a5265a-473d-4d71-b8d2-8f158deb27ab.png',
-    heroImages: [
-      '/lovable-uploads/d5a5265a-473d-4d71-b8d2-8f158deb27ab.png'
-    ],
-    link: '/project/about',
-    content: <AboutContent />
   },
   {
     id: 7,

@@ -1,13 +1,12 @@
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Index from './pages/Index';  // Fixed import path
+import Index from './pages';
 import ProjectPage from './pages/ProjectPage';
 import NotFound from './pages/NotFound';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import CursorEffect from './components/CursorEffect';
-import { ThemeProvider } from "./components/theme-provider";  // Fixed import path
+import { ThemeProvider } from "@/components/theme-provider"
 import { Toaster } from "@/components/ui/toaster"
 import AdminPage from './pages/AdminPage';
 import SiteImages from './pages/SiteImages';
