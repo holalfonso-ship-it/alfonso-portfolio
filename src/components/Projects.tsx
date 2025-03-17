@@ -13,7 +13,7 @@ const projects = [
     title: 'Leadtech Design System',
     description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
     category: 'Design System',
-    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef03a90e9a93e6e0f0c34_design-system.jpg',
+    image: '/lovable-uploads/4fe6b813-f155-406e-9d47-cab1a5940040.png',
     link: '/project/1'
   },
   {

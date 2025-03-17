@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Users, 
@@ -5,7 +6,7 @@ import {
   MessageSquare, 
   CheckCheck, 
   Clock, 
-  BarChart, // Changed from Graph to BarChart
+  BarChart,
   Workflow
 } from 'lucide-react';
 import { Card, CardContent } from '../ui/card';
@@ -73,13 +74,13 @@ export const LeadtechGroupContent: React.FC = () => {
       <div className="mb-12">
         <AspectRatio ratio={16/9} className="bg-muted rounded-lg overflow-hidden">
           <img 
-            src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef03a90e9a93e6e0f0c34_design-system.jpg" 
-            alt="Leadtech Design System" 
+            src="/lovable-uploads/4fe6b813-f155-406e-9d47-cab1a5940040.png" 
+            alt="Leadtech Design System Feedback Dialogs" 
             className="object-cover w-full h-full"
           />
         </AspectRatio>
         <p className="text-sm text-muted-foreground mt-2 text-center">
-          The Leadtech Design System promoting consistency and efficiency
+          Feedback dialog components in the Leadtech Design System
         </p>
       </div>
 
