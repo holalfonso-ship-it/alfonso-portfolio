@@ -119,7 +119,7 @@ export const LeadtechGroupContent: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div>
           <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef000e7b4a454c6019b93_data-viz.jpg" alt="Leadtech Design System UI Kit" className="object-cover w-full h-full" />
+            <img alt="Leadtech Design System UI Kit" src="/lovable-uploads/0a0b18bd-6af2-42d6-8ef4-b7a923f4a58d.png" className="w-full h-full object-contain" />
           </AspectRatio>
           <p className="text-sm text-muted-foreground">Leadtech Design System UI Kit</p>
         </div>
