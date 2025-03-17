@@ -1,20 +1,9 @@
-
 import React from 'react';
-import { 
-  Users, 
-  Share, 
-  MessageSquare, 
-  CheckCheck, 
-  Clock, 
-  BarChart,
-  Workflow
-} from 'lucide-react';
+import { Users, Share, MessageSquare, CheckCheck, Clock, BarChart, Workflow } from 'lucide-react';
 import { Card, CardContent } from '../ui/card';
 import { AspectRatio } from '../ui/aspect-ratio';
-
 export const LeadtechGroupContent: React.FC = () => {
-  return (
-    <>
+  return <>
       <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
       <p className="text-lg mb-8">
         As a Senior Product Designer at Leadtech Group, I led the creation and maintenance of a comprehensive design system. 
@@ -72,12 +61,8 @@ export const LeadtechGroupContent: React.FC = () => {
       </ul>
 
       <div className="mb-12">
-        <AspectRatio ratio={16/9} className="bg-muted rounded-lg overflow-hidden">
-          <img 
-            src="/lovable-uploads/4fe6b813-f155-406e-9d47-cab1a5940040.png" 
-            alt="Leadtech Design System Feedback Dialogs" 
-            className="object-cover w-full h-full"
-          />
+        <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg overflow-hidden">
+          <img alt="Leadtech Design System Feedback Dialogs" className="object-cover w-full h-full" src="/lovable-uploads/1399acab-1dac-4ed4-8eb1-4a299e026443.png" />
         </AspectRatio>
         <p className="text-sm text-muted-foreground mt-2 text-center">
           Feedback dialog components in the Leadtech Design System
@@ -133,22 +118,14 @@ export const LeadtechGroupContent: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div>
-          <AspectRatio ratio={4/3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img 
-              src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef000e7b4a454c6019b93_data-viz.jpg" 
-              alt="Leadtech Design System UI Kit" 
-              className="object-cover w-full h-full"
-            />
+          <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
+            <img src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef000e7b4a454c6019b93_data-viz.jpg" alt="Leadtech Design System UI Kit" className="object-cover w-full h-full" />
           </AspectRatio>
           <p className="text-sm text-muted-foreground">Leadtech Design System UI Kit</p>
         </div>
         <div>
-          <AspectRatio ratio={4/3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img 
-              src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg" 
-              alt="Leadtech Design System in Figma" 
-              className="object-cover w-full h-full"
-            />
+          <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
+            <img src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg" alt="Leadtech Design System in Figma" className="object-cover w-full h-full" />
           </AspectRatio>
           <p className="text-sm text-muted-foreground">Leadtech Design System in Figma</p>
         </div>
@@ -267,6 +244,5 @@ export const LeadtechGroupContent: React.FC = () => {
         Moving forward, we plan to expand the design system to include more advanced components and design patterns. 
         We're also developing a comprehensive training program to help new team members quickly adapt to our design system.
       </p>
-    </>
-  );
+    </>;
 };
