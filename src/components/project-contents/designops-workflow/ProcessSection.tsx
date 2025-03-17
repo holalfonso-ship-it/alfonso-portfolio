@@ -75,7 +75,7 @@ const ProcessSection: React.FC = () => {
         <div className="my-8">
           <AspectRatio ratio={16/9} className="bg-muted rounded-lg overflow-hidden">
             <img 
-              src="/lovable-uploads/8c59b616-51e1-4471-9126-d4759111deb2.png" 
+              src="/lovable-uploads/063b06b8-b62f-4ed1-8024-2dd44c1f971b.png" 
               alt="DesignOps Workflow Diagram" 
               className="w-full h-full object-cover"
             />
@@ -123,7 +123,7 @@ const ProcessSection: React.FC = () => {
         <div>
           <AspectRatio ratio={4/3} className="bg-muted rounded-lg overflow-hidden mb-4">
             <img 
-              src="/lovable-uploads/8c59b616-51e1-4471-9126-d4759111deb2.png" 
+              src="/lovable-uploads/063b06b8-b62f-4ed1-8024-2dd44c1f971b.png" 
               alt="DesignOps Workflow Implementation" 
               className="object-cover w-full h-full"
             />
