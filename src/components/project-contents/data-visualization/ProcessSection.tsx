@@ -1,12 +1,9 @@
-
 import React from 'react';
 import { Card, CardContent } from '../../ui/card';
 import { AspectRatio } from '../../ui/aspect-ratio';
 import { LineChart, Users, Search, Presentation, Monitor, BarChart } from 'lucide-react';
-
 const ProcessSection: React.FC = () => {
-  return (
-    <>
+  return <>
       <h2 className="text-3xl font-bold mb-6">Process</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -85,12 +82,8 @@ const ProcessSection: React.FC = () => {
         </div>
         
         <div className="my-8">
-          <AspectRatio ratio={16/9} className="bg-muted rounded-lg overflow-hidden">
-            <img 
-              src="/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png" 
-              alt="Data Visualization Information Architecture" 
-              className="w-full h-full object-cover"
-            />
+          <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg overflow-hidden">
+            <img alt="Data Visualization Information Architecture" src="/lovable-uploads/a34955f1-1c9a-4745-b402-a31f0beb6f83.png" className="w-full h-full object-scale-down" />
           </AspectRatio>
           <p className="text-sm text-muted-foreground mt-2 text-center">
             Information architecture mapping showing data relationships and visualization patterns
@@ -173,8 +166,6 @@ const ProcessSection: React.FC = () => {
           </div>
         </Card>
       </div>
-    </>
-  );
+    </>;
 };
-
 export default ProcessSection;
