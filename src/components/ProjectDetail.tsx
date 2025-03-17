@@ -39,6 +39,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
     ? project.heroImages[0] 
     : project.image;
 
+  console.log("Display image path:", displayImage); // Add debug logging
+
   return (
     <>
       <TransitionEffect />
@@ -64,6 +66,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
               src={displayImage} 
               alt={project.title} 
               className="w-full h-full object-cover"
+              onError={(e) => {
+                console.error("Image failed to load:", displayImage);
+                const target = e.target as HTMLImageElement;
+                target.src = project.image; // Fallback to main image
+              }}
             />
           </div>
           
