@@ -7,6 +7,7 @@ import ProjectDetail from '../components/ProjectDetail';
 import { CrossTeamCollaborationContent } from '../components/project-contents/CrossTeamCollaborationContent';
 import { LeadtechGroupContent } from '../components/project-contents/LeadtechGroupContent';
 import { LoyaltyAppContent } from '../components/project-contents/LoyaltyAppContent';
+import { DesignOpsWorkflowContent } from '../components/project-contents/DesignOpsWorkflowContent';
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
@@ -25,7 +26,8 @@ const projects = [
     description: 'Implemented and optimized DesignOps processes that enhanced team collaboration, reduced handoff time by 40%, and improved overall design efficiency.',
     category: 'DesignOps',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
-    link: '/project/designops-workflow'
+    link: '/project/designops-workflow',
+    content: <DesignOpsWorkflowContent />
   },
   {
     id: 3,
