@@ -1,7 +1,7 @@
 
 import React from 'react';
 import AnimatedText from './AnimatedText';
-import { Quote, Star, ChevronRight } from 'lucide-react';
+import { Quote, Star, Users, Lightbulb, Book } from 'lucide-react';
 
 const Manifesto: React.FC = () => {
   return (
@@ -50,23 +50,36 @@ const Manifesto: React.FC = () => {
           </div>
         </div>
         
-        <div className="glass rounded-xl p-8 relative overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="glass rounded-xl p-8 relative overflow-hidden">
+            <div className="absolute top-6 left-6 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+              <Users className="w-5 h-5 text-primary" />
+            </div>
+            <div className="mt-14">
               <h3 className="text-2xl font-display font-bold mb-4">Design is a team sport</h3>
               <p className="text-muted-foreground">
                 Great products are created through collaboration between designers, developers, product managers, and other stakeholders. I value open communication and cross-functional teamwork.
               </p>
             </div>
-            
-            <div>
+          </div>
+          
+          <div className="glass rounded-xl p-8 relative overflow-hidden">
+            <div className="absolute top-6 left-6 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+              <Lightbulb className="w-5 h-5 text-primary" />
+            </div>
+            <div className="mt-14">
               <h3 className="text-2xl font-display font-bold mb-4">Efficiency matters</h3>
               <p className="text-muted-foreground">
                 Design operations is about creating systems and processes that enable teams to work more efficiently. This includes standardizing workflows, creating reusable components, and automating repetitive tasks.
               </p>
             </div>
-            
-            <div>
+          </div>
+          
+          <div className="glass rounded-xl p-8 relative overflow-hidden">
+            <div className="absolute top-6 left-6 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+              <Book className="w-5 h-5 text-primary" />
+            </div>
+            <div className="mt-14">
               <h3 className="text-2xl font-display font-bold mb-4">Always learning</h3>
               <p className="text-muted-foreground">
                 The design field evolves rapidly, and I am committed to continuous learning and improvement. I stay updated with the latest trends, tools, and methodologies in design and technology.
