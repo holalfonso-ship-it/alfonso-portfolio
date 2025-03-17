@@ -24,6 +24,17 @@ const ProcessSection: React.FC = () => {
           </p>
         </div>
         
+        <div className="my-8">
+          <img 
+            src="/lovable-uploads/8c59b616-51e1-4471-9126-d4759111deb2.png" 
+            alt="DesignOps Workflow Diagram" 
+            className="w-full rounded-lg shadow-md"
+          />
+          <p className="text-sm text-gray-500 mt-2 text-center">
+            Detailed workflow diagram showing the design-to-development process
+          </p>
+        </div>
+        
         <div>
           <h3 className="text-xl font-bold mb-3">3. Tool Evaluation and Integration</h3>
           <p>

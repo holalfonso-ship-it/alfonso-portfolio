@@ -26,6 +26,9 @@ const projects = [
     description: 'Implemented and optimized DesignOps processes that enhanced team collaboration, reduced handoff time by 40%, and improved overall design efficiency.',
     category: 'DesignOps',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
+    heroImages: [
+      '/lovable-uploads/8c59b616-51e1-4471-9126-d4759111deb2.png'
+    ],
     link: '/project/designops-workflow',
     content: <DesignOpsWorkflowContent />
   },
