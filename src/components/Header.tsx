@@ -27,10 +27,7 @@ const Header: React.FC = () => {
   }, []);
 
   const handleDownloadCV = () => {
-    // This would normally link to your actual CV file
-    console.log('CV download clicked');
-    // In a real implementation, you would use:
-    // window.open('/path-to-your-cv.pdf', '_blank');
+    window.open('/alfonso-cv.pdf', '_blank');
   };
 
   return (
