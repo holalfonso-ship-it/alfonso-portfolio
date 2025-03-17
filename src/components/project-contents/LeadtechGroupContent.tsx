@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Users, Share, MessageSquare, CheckCheck, Clock, BarChart, Workflow } from 'lucide-react';
 import { Card, CardContent } from '../ui/card';
@@ -62,10 +63,10 @@ export const LeadtechGroupContent: React.FC = () => {
 
       <div className="mb-12">
         <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg overflow-hidden">
-          <img alt="Leadtech Design System Feedback Dialogs" className="object-cover w-full h-full" src="/lovable-uploads/42b120a7-920f-4506-8581-6404228a811e.png" />
+          <img alt="Leadtech Design System Analytics Dashboard" className="object-cover w-full h-full" src="/lovable-uploads/2ffb939e-4cd5-4263-92b0-d74903f44566.png" />
         </AspectRatio>
         <p className="text-sm text-muted-foreground mt-2 text-center">
-          Feedback dialog components in the Leadtech Design System
+          Design System Analytics Dashboard showing component usage metrics
         </p>
       </div>
 
@@ -125,9 +126,9 @@ export const LeadtechGroupContent: React.FC = () => {
         </div>
         <div>
           <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg" alt="Leadtech Design System in Figma" className="object-cover w-full h-full" />
+            <img src="/lovable-uploads/2ffb939e-4cd5-4263-92b0-d74903f44566.png" alt="Design System Analytics in Figma" className="object-cover w-full h-full" />
           </AspectRatio>
-          <p className="text-sm text-muted-foreground">Leadtech Design System in Figma</p>
+          <p className="text-sm text-muted-foreground">Design System Analytics Dashboard in Figma</p>
         </div>
       </div>
 
