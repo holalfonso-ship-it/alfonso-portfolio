@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Download, Mail, Phone, ArrowUp } from 'lucide-react';
 import { Button } from './ui/button';
@@ -11,7 +10,6 @@ const Footer: React.FC = () => {
   useEffect(() => {
     const fetchLatestCV = async () => {
       try {
-        // List all files in the cv_files bucket, sorted by created_at desc
         const { data, error } = await supabase.storage
           .from('cv_files')
           .list('', {
@@ -37,7 +35,6 @@ const Footer: React.FC = () => {
     fetchLatestCV();
   }, []);
   
-  // Function to scroll back to top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -45,24 +42,22 @@ const Footer: React.FC = () => {
     });
   };
   
-  // Use uploaded CV URL if available, otherwise use the default one
   const cvDownloadUrl = cvUrl || '/alfonso-cv.pdf';
   
   return (
     <footer className="py-8 px-6 md:px-12 bg-secondary/80">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Contact Information */}
           <div>
             <h3 className="font-bold text-lg mb-4">Contact</h3>
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="mailto:holalfonso@gamil.com" 
+                  href="mailto:holalfonso@gmail.com" 
                   className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="mr-2 h-4 w-4" />
-                  holalfonso@gamil.com
+                  holalfonso@gmail.com
                 </a>
               </li>
               <li>
@@ -77,7 +72,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          {/* Resume Download */}
           <div>
             <h3 className="font-bold text-lg mb-4">Resume</h3>
             <Button 
@@ -92,7 +86,6 @@ const Footer: React.FC = () => {
             </Button>
           </div>
           
-          {/* Quick Links */}
           <div>
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">

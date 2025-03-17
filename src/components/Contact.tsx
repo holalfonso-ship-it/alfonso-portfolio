@@ -7,8 +7,8 @@ const contactInfo = [
   {
     icon: <Mail className="h-5 w-5" />,
     label: 'Email',
-    value: 'holalfonso@gamil.com',
-    link: 'mailto:holalfonso@gamil.com'
+    value: 'holalfonso@gmail.com',
+    link: 'mailto:holalfonso@gmail.com'
   },
   {
     icon: <Phone className="h-5 w-5" />,
@@ -224,3 +224,4 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+
