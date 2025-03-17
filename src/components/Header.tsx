@@ -2,12 +2,32 @@
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link } from 'react-router-dom';
-import { Menu, X, FileText } from 'lucide-react';
+import { Menu, X, FileText, ChevronDown } from 'lucide-react';
 import { Button } from './ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+const projects = [
+  { id: 1, title: 'Leadtech Design System', category: 'Design System' },
+  { id: 2, title: 'DesignOps Workflow', category: 'DesignOps' },
+  { id: 3, title: 'Loyalty App', category: 'UX/UI' },
+  { id: 4, title: 'Data Visualization', category: 'Product Design' },
+  { id: 5, title: 'Mobile Banking App', category: 'UX/UI' },
+  { id: 6, title: 'E-commerce Platform', category: 'Product Design' },
+  { id: 7, title: 'Cross-team Collaboration', category: 'DesignOps' },
+];
 
 const navItems = [
   { label: 'Home', href: '#home' },
-  { label: 'Projects', href: '#projects' },
+  { 
+    label: 'Projects', 
+    href: '#projects',
+    hasDropdown: true 
+  },
   { label: 'About', href: '#about' },
   { label: 'Process', href: '#process' },
   { label: 'Contact', href: '#contact' }
@@ -49,13 +69,33 @@ const Header: React.FC = () => {
         <div className="hidden md:flex items-center">
           <nav className="flex items-center space-x-8 mr-6">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
-              >
-                {item.label}
-              </a>
+              item.hasDropdown ? (
+                <DropdownMenu key={item.href}>
+                  <DropdownMenuTrigger className="flex items-center text-sm font-medium relative">
+                    {item.label} <ChevronDown size={16} className="ml-1" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="center" className="bg-background/90 backdrop-blur-md border-primary/20 shadow-md w-56">
+                    {projects.map((project) => (
+                      <DropdownMenuItem key={project.id} asChild>
+                        <Link to={`/project/${project.id}`} className="cursor-pointer">
+                          <span className="font-medium">{project.title}</span>
+                          <span className="ml-2 text-xs text-muted-foreground rounded-full px-2 py-0.5">
+                            {project.category}
+                          </span>
+                        </Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  {item.label}
+                </a>
+              )
             ))}
           </nav>
           
@@ -88,14 +128,32 @@ const Header: React.FC = () => {
         >
           <nav className="flex flex-col items-center space-y-6">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-2xl font-medium"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {item.label}
-              </a>
+              item.hasDropdown ? (
+                <div key={item.href} className="flex flex-col items-center space-y-3">
+                  <span className="text-2xl font-medium">{item.label}</span>
+                  <div className="flex flex-col items-center space-y-3 mt-2 mb-4">
+                    {projects.map((project) => (
+                      <Link
+                        key={project.id}
+                        to={`/project/${project.id}`}
+                        className="text-lg text-muted-foreground hover:text-white"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {project.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-2xl font-medium"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              )
             ))}
             
             <Button 

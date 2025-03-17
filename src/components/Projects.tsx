@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
 import AnimatedText from './AnimatedText';
 import { cn } from "@/lib/utils";
@@ -13,7 +14,7 @@ const projects = [
     description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
     category: 'Design System',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef03a90e9a93e6e0f0c34_design-system.jpg',
-    link: '/project/leadtech-design-system'
+    link: '/project/1'
   },
   {
     id: 2,
@@ -21,7 +22,7 @@ const projects = [
     description: 'Implemented and optimized DesignOps processes that enhanced team collaboration, reduced handoff time by 40%, and improved overall design efficiency.',
     category: 'DesignOps',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
-    link: '/project/designops-workflow'
+    link: '/project/2'
   },
   {
     id: 3,
@@ -29,7 +30,7 @@ const projects = [
     description: 'Redesigned the loyalty app experience resulting in a 25% increase in user engagement and a 15% improvement in conversion rates.',
     category: 'UX/UI',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef033e7b4a454c601a4ba_loyalty%20app.jpg',
-    link: '/project/loyalty-app'
+    link: '/project/3'
   },
   {
     id: 4,
@@ -37,7 +38,7 @@ const projects = [
     description: 'Developed intuitive dashboards and data visualizations that increased stakeholder engagement by 20% and improved decision-making processes.',
     category: 'Product Design',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef000e7b4a454c6019b93_data-viz.jpg',
-    link: '/project/data-visualization'
+    link: '/project/4'
   },
   {
     id: 5,
@@ -45,7 +46,7 @@ const projects = [
     description: 'Designed a user-friendly mobile banking application with a focus on accessibility, resulting in a 35% increase in daily active users.',
     category: 'UX/UI',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef019090b436b96af1e21_mobileapp.jpg',
-    link: '/project/mobile-banking-app'
+    link: '/project/5'
   },
   {
     id: 6,
@@ -53,7 +54,7 @@ const projects = [
     description: 'Redesigned the e-commerce experience with a focus on user journey optimization, leading to a 28% increase in conversion rates and improved customer satisfaction.',
     category: 'Product Design',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef02a090b436b96af1f7b_ecommerce.jpg',
-    link: '/project/ecommerce-platform'
+    link: '/project/6'
   },
   {
     id: 7,
@@ -61,7 +62,7 @@ const projects = [
     description: 'Created a structured DesignOps framework that improved collaboration between design, development, and product teams, reducing project delivery time by 35%.',
     category: 'DesignOps',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
-    link: '/project/cross-team-collaboration'
+    link: '/project/7'
   }
 ];
 

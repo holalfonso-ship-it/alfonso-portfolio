@@ -1,0 +1,83 @@
+
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ProjectDetail from '../components/ProjectDetail';
+
+// This is our project data that should eventually be moved to a separate data file
+const projects = [
+  {
+    id: 1,
+    title: 'Leadtech Design System',
+    description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
+    category: 'Design System',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef03a90e9a93e6e0f0c34_design-system.jpg',
+    link: '/project/leadtech-design-system'
+  },
+  {
+    id: 2,
+    title: 'DesignOps Workflow',
+    description: 'Implemented and optimized DesignOps processes that enhanced team collaboration, reduced handoff time by 40%, and improved overall design efficiency.',
+    category: 'DesignOps',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
+    link: '/project/designops-workflow'
+  },
+  {
+    id: 3,
+    title: 'Loyalty App',
+    description: 'Redesigned the loyalty app experience resulting in a 25% increase in user engagement and a 15% improvement in conversion rates.',
+    category: 'UX/UI',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef033e7b4a454c601a4ba_loyalty%20app.jpg',
+    link: '/project/loyalty-app'
+  },
+  {
+    id: 4,
+    title: 'Data Visualization',
+    description: 'Developed intuitive dashboards and data visualizations that increased stakeholder engagement by 20% and improved decision-making processes.',
+    category: 'Product Design',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef000e7b4a454c6019b93_data-viz.jpg',
+    link: '/project/data-visualization'
+  },
+  {
+    id: 5,
+    title: 'Mobile Banking App',
+    description: 'Designed a user-friendly mobile banking application with a focus on accessibility, resulting in a 35% increase in daily active users.',
+    category: 'UX/UI',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef019090b436b96af1e21_mobileapp.jpg',
+    link: '/project/mobile-banking-app'
+  },
+  {
+    id: 6,
+    title: 'E-commerce Platform',
+    description: 'Redesigned the e-commerce experience with a focus on user journey optimization, leading to a 28% increase in conversion rates and improved customer satisfaction.',
+    category: 'Product Design',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef02a090b436b96af1f7b_ecommerce.jpg',
+    link: '/project/ecommerce-platform'
+  },
+  {
+    id: 7,
+    title: 'Cross-team Collaboration Framework',
+    description: 'Created a structured DesignOps framework that improved collaboration between design, development, and product teams, reducing project delivery time by 35%.',
+    category: 'DesignOps',
+    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg',
+    link: '/project/cross-team-collaboration'
+  }
+];
+
+const ProjectPage: React.FC = () => {
+  const { projectId } = useParams<{ projectId: string }>();
+  const project = projects.find(p => p.id.toString() === projectId);
+  
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-grow">
+        <ProjectDetail project={project} />
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default ProjectPage;

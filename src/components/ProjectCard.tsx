@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from 'lucide-react';
 
@@ -63,11 +64,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <a 
-        href={link} 
+      <Link 
+        to={link} 
         className="block h-full"
-        target="_blank"
-        rel="noopener noreferrer"
       >
         <div className={cn(
           "relative overflow-hidden bg-muted rounded-lg",
@@ -121,7 +120,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </p>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };
