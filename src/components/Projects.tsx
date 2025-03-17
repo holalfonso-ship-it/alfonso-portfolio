@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import ProjectCard from './ProjectCard';
 import AnimatedText from './AnimatedText';
+import { cn } from "@/lib/utils";
 
 const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System'];
 
@@ -72,49 +73,53 @@ const Projects: React.FC = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-20 md:py-32 px-6 md:px-12 bg-black/30">
+    <section id="projects" className="py-20 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-20">
+        <div className="mb-12 md:mb-20">
           <span className="inline-block text-sm md:text-base font-medium tracking-wider mb-4 py-1 px-4 rounded-full bg-primary/20 text-primary">
             Featured Work
           </span>
           
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight">
-            <AnimatedText text="Selected Projects" className="inline-block" once />
-          </h2>
-          
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A curated collection of projects showcasing my expertise in product design, UX/UI, and DesignOps, with a focus on creating efficient and engaging digital experiences.
-          </p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 md:mb-0 tracking-tight">
+              <AnimatedText text="Selected Projects" className="inline-block" once />
+            </h2>
+            
+            <div className="flex flex-wrap gap-3">
+              {projectCategories.map((category) => (
+                <button
+                  key={category}
+                  className={cn(
+                    "px-4 py-2 text-sm font-medium transition-all border-b-2",
+                    activeCategory === category
+                      ? "border-primary text-white"
+                      : "border-transparent text-muted-foreground hover:text-white hover:border-muted-foreground"
+                  )}
+                  onClick={() => setActiveCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {projectCategories.map((category) => (
-            <button
-              key={category}
-              className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
-                activeCategory === category
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-secondary/80 hover:bg-primary/10 text-white/90'
-              }`}
-              onClick={() => setActiveCategory(category)}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
           {filteredProjects.map((project, index) => (
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              description={project.description}
-              category={project.category}
-              image={project.image}
-              link={project.link}
-              index={index}
-            />
+            <div key={project.id} className={cn(
+              "col-span-1",
+              index === 0 || index === 3 ? "md:col-span-12" : "md:col-span-6",
+            )}>
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                category={project.category}
+                image={project.image}
+                link={project.link}
+                index={index}
+                featured={index === 0 || index === 3}
+              />
+            </div>
           ))}
         </div>
       </div>
