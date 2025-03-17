@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import TransitionEffect from './TransitionEffect';
 import { Button } from './ui/button';
@@ -19,19 +19,14 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
-  const { id } = useParams();
-  
-  // If no project is provided directly, we'd typically fetch it based on ID
-  // This is a placeholder for actual data fetching logic
-  
   if (!project) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-4">Project not found</h1>
           <Button asChild>
-            <Link to="/#projects">
-              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
+            <Link to="/">
+              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
             </Link>
           </Button>
         </div>
@@ -50,10 +45,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
       <div className="pt-24 pb-16 px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <Link 
-            to="/#projects" 
+            to="/" 
             className="inline-flex items-center text-sm text-primary mb-6 hover:underline transition-all"
           >
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Projects
+            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
           </Link>
           
           <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">{project.title}</h1>

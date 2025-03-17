@@ -1,6 +1,7 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, FileText, ChevronDown } from 'lucide-react';
 import { Button } from './ui/button';
 import {
@@ -19,20 +20,22 @@ const projects = [
 ];
 
 const navItems = [
-  { label: 'Home', href: '#home' },
+  { label: 'Home', href: '/' },
   { 
     label: 'Projects', 
-    href: '#projects',
+    href: '/#projects',
     hasDropdown: true 
   },
-  { label: 'About', href: '#about' },
-  { label: 'Process', href: '#process' },
-  { label: 'Contact', href: '#contact' }
+  { label: 'About', href: '/#about' },
+  { label: 'Process', href: '/#process' },
+  { label: 'Contact', href: '/#contact' }
 ];
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isProjectPage = location.pathname.includes('/project/');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +77,11 @@ const Header: React.FC = () => {
                   <DropdownMenuContent align="center" className="bg-background/90 backdrop-blur-md border-primary/20 shadow-md w-56">
                     {projects.map((project) => (
                       <DropdownMenuItem key={project.id} asChild>
-                        <Link to={`/project/${project.id}`} className="cursor-pointer">
+                        <Link 
+                          to={`/project/${project.id}`} 
+                          className="cursor-pointer"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
                           {project.title}
                         </Link>
                       </DropdownMenuItem>
@@ -82,13 +89,13 @@ const Header: React.FC = () => {
                   </DropdownMenuContent>
                 </DropdownMenu>
               ) : (
-                <a
+                <Link
                   key={item.href}
-                  href={item.href}
+                  to={isProjectPage && item.href.startsWith('/#') ? item.href.replace('#', '') : item.href}
                   className="text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {item.label}
-                </a>
+                </Link>
               )
             ))}
           </nav>
@@ -139,14 +146,14 @@ const Header: React.FC = () => {
                   </div>
                 </div>
               ) : (
-                <a
+                <Link
                   key={item.href}
-                  href={item.href}
+                  to={isProjectPage && item.href.startsWith('/#') ? item.href.replace('#', '') : item.href}
                   className="text-2xl font-medium"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
-                </a>
+                </Link>
               )
             ))}
             
