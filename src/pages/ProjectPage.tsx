@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ProjectDetail from '../components/ProjectDetail';
 import { CrossTeamCollaborationContent } from '../components/project-contents/CrossTeamCollaborationContent';
+import { LeadtechGroupContent } from '../components/project-contents/LeadtechGroupContent';
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
@@ -14,7 +15,8 @@ const projects = [
     description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
     category: 'Design System',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef03a90e9a93e6e0f0c34_design-system.jpg',
-    link: '/project/leadtech-design-system'
+    link: '/project/leadtech-design-system',
+    content: <LeadtechGroupContent />
   },
   {
     id: 2,
