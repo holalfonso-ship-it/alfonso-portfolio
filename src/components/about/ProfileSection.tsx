@@ -1,15 +1,25 @@
 
 import React from 'react';
-import { ArrowDownCircle, BookOpen, Zap, Palette, Code, LineChart } from 'lucide-react';
+import { ArrowDownCircle, BookOpen, Zap, Palette, Code, LineChart, Settings } from 'lucide-react';
 import { Button } from '../ui/button';
+import { Link } from 'react-router-dom';
 
 const ProfileSection: React.FC = () => {
   return (
     <div className="bg-card rounded-xl p-6 shadow-md border border-border/50 hover:border-primary/20 transition-all duration-300">
-      <h3 className="text-xl font-semibold mb-5 flex items-center">
-        <BookOpen className="mr-2 h-5 w-5 text-primary" />
-        Professional Profile
-      </h3>
+      <div className="flex justify-between items-start mb-5">
+        <h3 className="text-xl font-semibold flex items-center">
+          <BookOpen className="mr-2 h-5 w-5 text-primary" />
+          Professional Profile
+        </h3>
+        <Link 
+          to="/admin" 
+          className="text-xs text-muted-foreground hover:text-primary flex items-center"
+        >
+          <Settings className="h-3 w-3 mr-1" />
+          Admin
+        </Link>
+      </div>
       
       <div className="relative">
         <div className="absolute -left-3 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/80 to-primary/20"></div>

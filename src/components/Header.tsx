@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from 'react-router-dom';
@@ -10,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { supabase } from '@/integrations/supabase/client';
 
 const projects = [
   { id: 1, title: 'Leadtech Design System', category: 'Design System' },
@@ -34,8 +34,38 @@ const navItems = [
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [cvUrl, setCvUrl] = useState<string | null>(null);
   const location = useLocation();
   const isProjectPage = location.pathname.includes('/project/');
+
+  useEffect(() => {
+    const fetchLatestCV = async () => {
+      try {
+        // List all files in the cv_files bucket, sorted by created_at desc
+        const { data, error } = await supabase.storage
+          .from('cv_files')
+          .list('', {
+            limit: 1,
+            sortBy: { column: 'created_at', order: 'desc' }
+          });
+          
+        if (error) throw error;
+        
+        if (data && data.length > 0) {
+          const latestFile = data[0];
+          const { data: { publicUrl } } = supabase.storage
+            .from('cv_files')
+            .getPublicUrl(latestFile.name);
+            
+          setCvUrl(publicUrl);
+        }
+      } catch (error) {
+        console.error('Error fetching CV:', error);
+      }
+    };
+    
+    fetchLatestCV();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,7 +77,7 @@ const Header: React.FC = () => {
   }, []);
 
   const handleDownloadCV = () => {
-    window.open('/alfonso-cv.pdf', '_blank');
+    window.open(cvUrl || '/alfonso-cv.pdf', '_blank');
   };
 
   // Function to get the correct href for navigation items

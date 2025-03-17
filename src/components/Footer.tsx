@@ -1,10 +1,41 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Download, Mail, Phone, ArrowUp } from 'lucide-react';
 import { Button } from './ui/button';
+import { supabase } from '@/integrations/supabase/client';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const [cvUrl, setCvUrl] = useState<string | null>(null);
+  
+  useEffect(() => {
+    const fetchLatestCV = async () => {
+      try {
+        // List all files in the cv_files bucket, sorted by created_at desc
+        const { data, error } = await supabase.storage
+          .from('cv_files')
+          .list('', {
+            limit: 1,
+            sortBy: { column: 'created_at', order: 'desc' }
+          });
+          
+        if (error) throw error;
+        
+        if (data && data.length > 0) {
+          const latestFile = data[0];
+          const { data: { publicUrl } } = supabase.storage
+            .from('cv_files')
+            .getPublicUrl(latestFile.name);
+            
+          setCvUrl(publicUrl);
+        }
+      } catch (error) {
+        console.error('Error fetching CV:', error);
+      }
+    };
+    
+    fetchLatestCV();
+  }, []);
   
   // Function to scroll back to top
   const scrollToTop = () => {
@@ -13,6 +44,9 @@ const Footer: React.FC = () => {
       behavior: 'smooth'
     });
   };
+  
+  // Use uploaded CV URL if available, otherwise use the default one
+  const cvDownloadUrl = cvUrl || '/alfonso-cv.pdf';
   
   return (
     <footer className="py-8 px-6 md:px-12 bg-secondary/80">
@@ -51,7 +85,7 @@ const Footer: React.FC = () => {
               size="sm" 
               asChild
             >
-              <a href="/alfonso-cv.pdf" download>
+              <a href={cvDownloadUrl} download>
                 <Download className="mr-2 h-4 w-4" />
                 Download CV
               </a>
