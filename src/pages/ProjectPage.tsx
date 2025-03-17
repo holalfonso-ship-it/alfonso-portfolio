@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
@@ -6,6 +5,7 @@ import Footer from '../components/Footer';
 import ProjectDetail from '../components/ProjectDetail';
 import { CrossTeamCollaborationContent } from '../components/project-contents/CrossTeamCollaborationContent';
 import { LeadtechGroupContent } from '../components/project-contents/LeadtechGroupContent';
+import { LoyaltyAppContent } from '../components/project-contents/LoyaltyAppContent';
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
@@ -32,7 +32,8 @@ const projects = [
     description: 'Redesigned the loyalty app experience resulting in a 25% increase in user engagement and a 15% improvement in conversion rates.',
     category: 'UX/UI',
     image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef033e7b4a454c601a4ba_loyalty%20app.jpg',
-    link: '/project/loyalty-app'
+    link: '/project/loyalty-app',
+    content: <LoyaltyAppContent />
   },
   {
     id: 4,
