@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
@@ -12,7 +13,7 @@ const projects = [
     title: 'Leadtech Design System',
     description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
     category: 'Design System',
-    image: '/lovable-uploads/4fe6b813-f155-406e-9d47-cab1a5940040.png',
+    image: '/lovable-uploads/2ffb939e-4cd5-4263-92b0-d74903f44566.png',
     link: '/project/1'
   },
   {
