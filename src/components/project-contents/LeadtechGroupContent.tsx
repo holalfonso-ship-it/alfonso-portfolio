@@ -62,7 +62,7 @@ export const LeadtechGroupContent: React.FC = () => {
 
       <div className="mb-12">
         <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg overflow-hidden">
-          <img alt="Leadtech Design System Feedback Dialogs" className="object-cover w-full h-full" src="/lovable-uploads/1399acab-1dac-4ed4-8eb1-4a299e026443.png" />
+          <img alt="Leadtech Design System Feedback Dialogs" className="object-cover w-full h-full" src="/lovable-uploads/42b120a7-920f-4506-8581-6404228a811e.png" />
         </AspectRatio>
         <p className="text-sm text-muted-foreground mt-2 text-center">
           Feedback dialog components in the Leadtech Design System
