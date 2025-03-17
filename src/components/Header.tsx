@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from 'react-router-dom';
@@ -10,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { supabase } from '@/integrations/supabase/client';
+import { ThemeToggle } from './ThemeToggle';
 
 const projects = [
   { id: 1, title: 'Leadtech Design System', category: 'Design System' },
@@ -136,24 +138,32 @@ const Header: React.FC = () => {
             ))}
           </nav>
           
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300"
-            onClick={handleDownloadCV}
-          >
-            <FileText size={16} className="mr-2" />
-            Download CV
-          </Button>
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
+            
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300"
+              onClick={handleDownloadCV}
+            >
+              <FileText size={16} className="mr-2" />
+              Download CV
+            </Button>
+          </div>
         </div>
         
-        <button 
-          className="md:hidden text-foreground p-2 z-50"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-3">
+          <ThemeToggle />
+          
+          <button 
+            className="text-foreground p-2 z-50"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
         
         <div 
           className={cn(

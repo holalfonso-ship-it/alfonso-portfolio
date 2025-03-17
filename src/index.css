@@ -18,6 +18,47 @@
   }
 
   :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 205 100% 50%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
 
@@ -45,8 +86,6 @@
     --border: 240 4% 16%;
     --input: 240 4% 16%;
     --ring: 240 4.9% 83.9%;
-
-    --radius: 0.75rem;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -93,9 +132,17 @@
   .glass {
     @apply bg-black/50 backdrop-blur-md border border-white/10;
   }
+
+  .light .glass {
+    @apply bg-white/50 backdrop-blur-md border border-black/10;
+  }
   
   .glass-dark {
     @apply bg-black/70 backdrop-blur-md border border-white/10;
+  }
+
+  .light .glass-dark {
+    @apply bg-white/70 backdrop-blur-md border border-black/10;
   }
   
   .text-gradient {
