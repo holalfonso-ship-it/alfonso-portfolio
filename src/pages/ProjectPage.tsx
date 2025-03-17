@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../components/Header';
@@ -31,7 +32,10 @@ const projects = [
     title: 'Loyalty App',
     description: 'Redesigned the loyalty app experience resulting in a 25% increase in user engagement and a 15% improvement in conversion rates.',
     category: 'UX/UI',
-    image: 'https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef033e7b4a454c601a4ba_loyalty%20app.jpg',
+    image: '/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png',
+    heroImages: [
+      '/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png'
+    ],
     link: '/project/loyalty-app',
     content: <LoyaltyAppContent />
   },

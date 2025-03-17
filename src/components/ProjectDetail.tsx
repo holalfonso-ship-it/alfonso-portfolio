@@ -12,6 +12,7 @@ interface ProjectDetailProps {
     description: string;
     category: string;
     image: string;
+    heroImages?: string[];
     content?: React.ReactNode;
     link?: string;
   };
@@ -38,6 +39,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
     );
   }
 
+  // Use heroImages if available, otherwise use the main image
+  const displayImage = project.heroImages && project.heroImages.length > 0 
+    ? project.heroImages[0] 
+    : project.image;
+
   return (
     <>
       <TransitionEffect />
@@ -60,7 +66,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
           
           <div className="aspect-video w-full rounded-lg overflow-hidden mb-12">
             <img 
-              src={project.image} 
+              src={displayImage} 
               alt={project.title} 
               className="w-full h-full object-cover"
             />

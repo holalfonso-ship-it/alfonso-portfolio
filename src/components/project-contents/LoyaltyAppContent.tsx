@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Users, 
@@ -76,7 +75,7 @@ export const LoyaltyAppContent: React.FC = () => {
       <div className="mb-12">
         <AspectRatio ratio={16/9} className="bg-muted rounded-lg overflow-hidden">
           <img 
-            src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef033e7b4a454c601a4ba_loyalty%20app.jpg" 
+            src="/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png" 
             alt="Wanup Loyalty App" 
             className="object-cover w-full h-full"
           />
@@ -140,7 +139,7 @@ export const LoyaltyAppContent: React.FC = () => {
         <div>
           <AspectRatio ratio={4/3} className="bg-muted rounded-lg overflow-hidden mb-4">
             <img 
-              src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef033e7b4a454c601a4ba_loyalty%20app.jpg" 
+              src="/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png" 
               alt="Wanup Loyalty App UI" 
               className="object-cover w-full h-full"
             />
@@ -150,9 +149,9 @@ export const LoyaltyAppContent: React.FC = () => {
         <div>
           <AspectRatio ratio={4/3} className="bg-muted rounded-lg overflow-hidden mb-4">
             <img 
-              src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef033e7b4a454c601a4ba_loyalty%20app.jpg" 
+              src="/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png" 
               alt="Wanup Rewards Dashboard" 
-              className="object-cover w-full h-full"
+              className="object-cover w-full h-full object-top"
             />
           </AspectRatio>
           <p className="text-sm text-muted-foreground">Rewards dashboard showing loyalty benefits</p>
@@ -314,4 +313,3 @@ export const LoyaltyAppContent: React.FC = () => {
     </>
   );
 };
-
