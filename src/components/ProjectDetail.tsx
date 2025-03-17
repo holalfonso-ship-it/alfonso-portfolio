@@ -36,7 +36,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
 
   // Use heroImages if available, otherwise use the main image
   const displayImage = project.id === 4 
-    ? '/lovable-uploads/5ecccc7f-84bd-4edc-bedf-07f11a6a1d4b.png'
+    ? '/lovable-uploads/7b60222b-2167-4fb4-815e-ab1ffd55d3f1.png'
     : project.heroImages && project.heroImages.length > 0 
       ? project.heroImages[0] 
       : project.image;
