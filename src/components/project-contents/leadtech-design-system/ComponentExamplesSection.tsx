@@ -25,16 +25,12 @@ export const ComponentExamplesSection: React.FC = () => {
                 Reusable interface elements like buttons, inputs, and cards that maintain consistent styling.
               </p>
               <div className="flex-grow"></div>
-              <div className="grid grid-cols-3 gap-2 mt-4">
-                <div className="bg-background rounded p-2 flex items-center justify-center shadow-sm">
-                  <div className="w-full h-8 bg-primary rounded-md"></div>
-                </div>
-                <div className="bg-background rounded p-2 flex items-center justify-center shadow-sm">
-                  <div className="w-full h-8 border rounded-md"></div>
-                </div>
-                <div className="bg-background rounded p-2 flex items-center justify-center shadow-sm">
-                  <div className="w-full h-8 bg-secondary rounded-md"></div>
-                </div>
+              <div className="mt-4">
+                <img 
+                  src="/lovable-uploads/3b9b541b-9f9f-475f-a5b2-13e33a6f80fc.png" 
+                  alt="Button component examples" 
+                  className="w-full rounded-md shadow-sm"
+                />
               </div>
             </div>
           </AspectRatio>
