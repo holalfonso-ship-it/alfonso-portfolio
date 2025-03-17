@@ -33,15 +33,14 @@ export const ComponentExamplesSection: React.FC = () => {
         <Card className="overflow-hidden">
           <AspectRatio ratio={4 / 3} className="bg-secondary/30">
             <div className="h-full w-full p-6 flex flex-col min-h-[350px]">
-              <div className="bg-primary/10 p-3 rounded-full w-fit mb-4">
+              <div className="bg-primary/10 p-3 rounded-full w-fit mb-2">
                 <FileCode className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-2">Code Patterns</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-xl font-bold mb-1">Code Patterns</h3>
+              <p className="text-muted-foreground mb-2">
                 Standardized code implementation guidelines ensuring consistent component behavior.
               </p>
-              <div className="flex-grow"></div>
-              <div className="mt-4 bg-background rounded-md p-3 font-mono text-xs shadow-sm overflow-hidden">
+              <div className="mt-2 bg-background rounded-md p-3 font-mono text-xs shadow-sm overflow-hidden flex-grow">
                 <div className="text-blue-500">import</div>
                 <div>&#123; Button &#125; from <span className="text-green-500">'@leadtech/design-system'</span>;</div>
                 <div className="mt-2">
@@ -101,3 +100,4 @@ export const ComponentExamplesSection: React.FC = () => {
       </div>
     </>;
 };
+
