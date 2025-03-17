@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowDownCircle, BookOpen, Award, Briefcase, GraduationCap, Languages, Code, LineChart, Palette, Zap } from 'lucide-react';
+import { ArrowDownCircle, BookOpen, Award, Briefcase, GraduationCap, Languages, Code, LineChart, Palette, Zap, FileText } from 'lucide-react';
 import { Button } from './ui/button';
 import AnimatedText from './AnimatedText';
 
@@ -86,10 +86,17 @@ const About: React.FC = () => {
                   </li>
                 </ul>
                 
-                <Button className="w-full group" onClick={() => window.open('/alfonso-cv.pdf', '_blank')}>
-                  <ArrowDownCircle className="mr-2 h-4 w-4 group-hover:animate-bounce" />
-                  Download Full CV
-                </Button>
+                <div className="flex flex-col gap-3">
+                  <Button className="w-full group" onClick={() => window.open('/alfonso-cv.pdf', '_blank')}>
+                    <ArrowDownCircle className="mr-2 h-4 w-4 group-hover:animate-bounce" />
+                    Download Full CV
+                  </Button>
+                  
+                  <Button variant="outline" className="w-full group border-primary text-primary hover:bg-primary hover:text-white" onClick={() => window.open('/alfonso-cv.pdf', '_blank')}>
+                    <FileText className="mr-2 h-4 w-4" />
+                    Download PDF Document
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
