@@ -9,7 +9,7 @@ import LearningsSection from './data-visualization/LearningsSection';
 
 export const DataVisualizationContent: React.FC = () => {
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
       <ProjectOverview />
       <ChallengeSection />
       <SolutionSection />

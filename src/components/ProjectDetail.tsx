@@ -44,24 +44,24 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
   return (
     <>
       <TransitionEffect />
-      <div className="pt-24 pb-16 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto">
+      <div className="pt-32 pb-24 px-6 md:px-16 lg:px-24">
+        <div className="max-w-4xl mx-auto">
           <Link 
             to="/" 
-            className="inline-flex items-center text-sm text-primary mb-6 hover:underline transition-all"
+            className="inline-flex items-center text-sm text-primary mb-8 hover:underline transition-all"
           >
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
           </Link>
           
-          <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">{project.title}</h1>
+          <h1 className="text-4xl md:text-6xl font-display font-bold mb-8">{project.title}</h1>
           
-          <div className="flex flex-wrap gap-4 mb-8">
+          <div className="flex flex-wrap gap-4 mb-12">
             <span className="text-xs font-medium bg-primary/20 text-primary px-3 py-1 rounded-full">
               {project.category}
             </span>
           </div>
           
-          <div className="aspect-video w-full rounded-lg overflow-hidden mb-12">
+          <div className="aspect-video w-full rounded-lg overflow-hidden mb-16">
             <img 
               src={displayImage} 
               alt={project.title} 
@@ -74,7 +74,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
             />
           </div>
           
-          <div className="prose prose-lg dark:prose-invert max-w-none">
+          <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
             {project.content || (
               <>
                 <h2>Project Overview</h2>

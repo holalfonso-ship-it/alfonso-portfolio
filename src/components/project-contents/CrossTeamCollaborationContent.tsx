@@ -9,10 +9,10 @@ import LearningsSection from './cross-team-collaboration/LearningsSection';
 
 export const CrossTeamCollaborationContent: React.FC = () => {
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
       <ProjectOverview />
       
-      <div className="mb-12">
+      <div className="mb-16">
         <div className="rounded-lg overflow-hidden border border-border/50 shadow-sm">
           <img 
             src="/lovable-uploads/a8a3c542-efbf-46c2-a78b-bcd8a2ddcb83.png" 

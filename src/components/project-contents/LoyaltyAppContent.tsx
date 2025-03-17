@@ -8,12 +8,12 @@ import { LearningsSection } from './loyalty-app/LearningsSection';
 
 export const LoyaltyAppContent: React.FC = () => {
   return (
-    <>
+    <div className="space-y-16">
       <ProjectOverview />
       <SolutionSection />
       <ProcessSection />
       <ResultsSection />
       <LearningsSection />
-    </>
+    </div>
   );
 };

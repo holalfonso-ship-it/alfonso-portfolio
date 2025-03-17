@@ -10,7 +10,7 @@ import { LearningsSection } from './leadtech-design-system/LearningsSection';
 
 export const LeadtechGroupContent: React.FC = () => {
   return (
-    <>
+    <div className="space-y-16">
       <ProjectOverview />
       <ChallengeSection />
       <SolutionSection />
@@ -18,6 +18,6 @@ export const LeadtechGroupContent: React.FC = () => {
       <ComponentExamplesSection />
       <ResultsSection />
       <LearningsSection />
-    </>
+    </div>
   );
 };

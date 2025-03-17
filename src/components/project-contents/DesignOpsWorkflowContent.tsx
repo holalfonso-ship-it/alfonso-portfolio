@@ -9,7 +9,7 @@ import LearningsSection from './designops-workflow/LearningsSection';
 
 export const DesignOpsWorkflowContent: React.FC = () => {
   return (
-    <div className="space-y-12">
+    <div className="space-y-16">
       <ProjectOverview />
       <ChallengeSection />
       <SolutionSection />
