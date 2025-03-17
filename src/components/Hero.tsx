@@ -1,38 +1,28 @@
-
 import React, { useRef, useEffect, useState } from 'react';
 import AnimatedText from './AnimatedText';
 import { ChevronDown, Sparkles } from 'lucide-react';
-
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-    
     checkIfMobile();
     window.addEventListener('resize', checkIfMobile);
-    
     return () => {
       window.removeEventListener('resize', checkIfMobile);
     };
   }, []);
-
   const handleScrollClick = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
+      projectsSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-  
-  return (
-    <section 
-      id="home" 
-      ref={heroRef}
-      className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-32 relative overflow-hidden"
-    >
+  return <section id="home" ref={heroRef} className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-32 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(52,152,219,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(52,152,219,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-60" />
       
@@ -56,7 +46,7 @@ const Hero: React.FC = () => {
                   Product <span className="text-primary">Designer</span>
                 </span>
                 <span className="block opacity-0 animate-slide-up animation-delay-700">
-                  & <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">DesignOps</span>
+                  & <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent px-[8px]">DesignOps</span>
                 </span>
                 <span className="block opacity-0 animate-slide-up animation-delay-900">
                   Specialist
@@ -88,11 +78,7 @@ const Hero: React.FC = () => {
           
           {/* Call to action */}
           <div className="flex flex-col md:flex-row items-start gap-6 md:gap-12 mt-4 md:mt-0 w-full">
-            <a 
-              href="#projects" 
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium transition-transform hover:scale-105 active:scale-95 relative overflow-hidden group opacity-0 animate-slide-up animation-delay-1200"
-              onClick={handleScrollClick}
-            >
+            <a href="#projects" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium transition-transform hover:scale-105 active:scale-95 relative overflow-hidden group opacity-0 animate-slide-up animation-delay-1200" onClick={handleScrollClick}>
               <span className="absolute inset-0 w-full h-full bg-white/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
               <span className="relative">View my work</span>
             </a>
@@ -107,16 +93,10 @@ const Hero: React.FC = () => {
       
       {/* Scroll indicator */}
       <div className="absolute bottom-12 left-0 right-0 flex justify-center opacity-0 animate-fade-in animation-delay-2000">
-        <button
-          onClick={handleScrollClick}
-          className="p-2 text-muted-foreground animate-float"
-          aria-label="Scroll down"
-        >
+        <button onClick={handleScrollClick} className="p-2 text-muted-foreground animate-float" aria-label="Scroll down">
           <ChevronDown size={24} />
         </button>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
