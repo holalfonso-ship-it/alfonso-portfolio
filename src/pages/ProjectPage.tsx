@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
@@ -9,7 +8,6 @@ import { LeadtechGroupContent } from '../components/project-contents/LeadtechGro
 import { LoyaltyAppContent } from '../components/project-contents/LoyaltyAppContent';
 import { DesignOpsWorkflowContent } from '../components/project-contents/DesignOpsWorkflowContent';
 import { DataVisualizationContent } from '../components/project-contents/DataVisualizationContent';
-import { AboutContent } from '../components/project-contents/AboutContent';
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
@@ -60,18 +58,6 @@ const projects = [
     ],
     link: '/project/4',
     content: <DataVisualizationContent />
-  },
-  {
-    id: 5,
-    title: 'About',
-    description: 'Digital product designer with extensive experience in DesignOps and Product design. Specialized in optimizing workflows, improving collaboration, and enhancing efficiency within design teams.',
-    category: 'Profile',
-    image: '/lovable-uploads/a34955f1-1c9a-4745-b402-a31f0beb6f83.png',
-    heroImages: [
-      '/lovable-uploads/a34955f1-1c9a-4745-b402-a31f0beb6f83.png'
-    ],
-    link: '/project/5',
-    content: <AboutContent />
   },
   {
     id: 7,
