@@ -11,6 +11,7 @@ import { ThemeProvider } from "./components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import AdminPage from './pages/AdminPage';
 import SiteImages from './pages/SiteImages';
+import CodeSnippets from './pages/CodeSnippets';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +34,7 @@ function App() {
             <Route path="/project/:id" element={<ProjectPage />} />
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/site-images" element={<SiteImages />} />
+            <Route path="/code-snippets" element={<CodeSnippets />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

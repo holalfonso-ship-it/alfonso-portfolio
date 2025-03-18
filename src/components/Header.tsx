@@ -1,8 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, FileText, ChevronDown } from 'lucide-react';
+import { Menu, X, FileText, ChevronDown, Code } from 'lucide-react';
 import { Button } from './ui/button';
 import {
   DropdownMenu,
@@ -28,7 +27,6 @@ const Header: React.FC = () => {
   const location = useLocation();
   const isProjectPage = location.pathname.includes('/project/');
 
-  // Define nav items based on the current page
   const navItems = isProjectPage 
     ? [
         { label: 'Home', href: '/' },
@@ -36,7 +34,8 @@ const Header: React.FC = () => {
           label: 'Projects', 
           href: '/#projects',
           hasDropdown: true 
-        }
+        },
+        { label: 'Code Snippets', href: '/code-snippets' }
       ]
     : [
         { label: 'Home', href: '/' },
@@ -47,13 +46,13 @@ const Header: React.FC = () => {
         },
         { label: 'About', href: '/#about' },
         { label: 'Process', href: '/#process' },
-        { label: 'Contact', href: '/#contact' }
+        { label: 'Contact', href: '/#contact' },
+        { label: 'Code Snippets', href: '/code-snippets' }
       ];
 
   useEffect(() => {
     const fetchLatestCV = async () => {
       try {
-        // List all files in the cv_files bucket, sorted by created_at desc
         const { data, error } = await supabase.storage
           .from('cv_files')
           .list('', {
@@ -230,3 +229,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
