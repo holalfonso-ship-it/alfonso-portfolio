@@ -1,7 +1,6 @@
+
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import ProjectDetail from '../components/ProjectDetail';
 import { CrossTeamCollaborationContent } from '../components/project-contents/CrossTeamCollaborationContent';
 import { LeadtechGroupContent } from '../components/project-contents/LeadtechGroupContent';
