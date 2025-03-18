@@ -80,7 +80,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             style={{ backgroundImage: `url(${image})` }}
           />
           
-          <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/70" />
+          {/* Removed the gradient overlay div that was here */}
 
           <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-start">
             <span className="text-xs font-medium bg-white/10 backdrop-blur-sm text-white px-3 py-1 rounded-full">
