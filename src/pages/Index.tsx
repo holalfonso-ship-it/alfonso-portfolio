@@ -1,6 +1,5 @@
 
 import React, { useEffect } from 'react';
-import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import About from '@/components/About';
@@ -40,7 +39,6 @@ const Index: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <TransitionEffect />
-      <Header />
       <main className="flex-grow">
         <Hero />
         <Projects />
@@ -50,7 +48,6 @@ const Index: React.FC = () => {
         <WorkProcess />
         <Contact />
       </main>
-      {/* Footer removed from here - it's already in App.tsx */}
     </div>
   );
 };

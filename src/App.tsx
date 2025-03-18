@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Index from './pages/Index';
 import ProjectPage from './pages/ProjectPage';
 import NotFound from './pages/NotFound';
-import Header from './components/Header';
+import Header from './components/header';
 import Footer from './components/Footer';
 import CursorEffect from './components/CursorEffect';
 import { ThemeProvider } from "./components/theme-provider";
