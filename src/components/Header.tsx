@@ -21,24 +21,34 @@ const projects = [
   { id: 7, title: 'Cross-team Collaboration', category: 'DesignOps' },
 ];
 
-const navItems = [
-  { label: 'Home', href: '/' },
-  { 
-    label: 'Projects', 
-    href: '/#projects',
-    hasDropdown: true 
-  },
-  { label: 'About', href: '/#about' },
-  { label: 'Process', href: '/#process' },
-  { label: 'Contact', href: '/#contact' }
-];
-
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cvUrl, setCvUrl] = useState<string | null>(null);
   const location = useLocation();
   const isProjectPage = location.pathname.includes('/project/');
+
+  // Define nav items based on the current page
+  const navItems = isProjectPage 
+    ? [
+        { label: 'Home', href: '/' },
+        { 
+          label: 'Projects', 
+          href: '/#projects',
+          hasDropdown: true 
+        }
+      ]
+    : [
+        { label: 'Home', href: '/' },
+        { 
+          label: 'Projects', 
+          href: '/#projects',
+          hasDropdown: true 
+        },
+        { label: 'About', href: '/#about' },
+        { label: 'Process', href: '/#process' },
+        { label: 'Contact', href: '/#contact' }
+      ];
 
   useEffect(() => {
     const fetchLatestCV = async () => {
