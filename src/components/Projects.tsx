@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
@@ -9,7 +10,7 @@ const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Desig
 const projects = [
   {
     id: 1,
-    title: 'Leadtech Design System',
+    title: 'Design Systems',
     description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
     category: 'Design System',
     image: '/lovable-uploads/3dcf1c6d-4dde-437c-b626-bbe99631bf3f.png',
