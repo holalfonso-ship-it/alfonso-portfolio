@@ -27,12 +27,13 @@ const testimonials = [
 
 const Testimonials: React.FC = () => {
   return (
-    <section id="testimonials" className="py-20 md:py-32 px-6 md:px-12">
+    <section id="testimonials" className="py-20 md:py-32 px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
         <SectionHeader 
-          badge="Testimonials"
-          title="What People Say"
-          subtitle="Hear from the teams and individuals I've had the pleasure of working with throughout my career."
+          badge="What people say"
+          title="Client Testimonials"
+          subtitle="I've had the privilege of working with amazing clients and teams who have shared their feedback on our collaboration."
+          className="text-foreground" // Remove gradient by using regular text color
         />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
