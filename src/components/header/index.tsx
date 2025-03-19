@@ -9,7 +9,7 @@ import MobileMenuToggle from './MobileMenuToggle';
 import MobileMenu from './MobileMenu';
 
 const projects = [
-  { id: 1, title: 'Leadtech Design System', category: 'Design System' },
+  { id: 1, title: 'Design Systems', category: 'Design System' },
   { id: 2, title: 'DesignOps Workflow', category: 'DesignOps' },
   { id: 3, title: 'Loyalty App', category: 'UX/UI' },
   { id: 4, title: 'Data Visualization', category: 'Product Design' },
@@ -30,8 +30,7 @@ const Header: React.FC = () => {
           label: 'Projects', 
           href: '/#projects',
           hasDropdown: true 
-        },
-        { label: 'Code Snippets', href: '/code-snippets' }
+        }
       ]
     : [
         { label: 'Home', href: '/' },
@@ -42,8 +41,7 @@ const Header: React.FC = () => {
         },
         { label: 'About', href: '/#about' },
         { label: 'Process', href: '/#process' },
-        { label: 'Contact', href: '/#contact' },
-        { label: 'Code Snippets', href: '/code-snippets' }
+        { label: 'Contact', href: '/#contact' }
       ];
 
   useEffect(() => {
