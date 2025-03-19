@@ -1,11 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import AnimatedText from './AnimatedText';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
-import ProfileSection from './about/ProfileSection';
 import ExperienceSection from './about/ExperienceSection';
 import EducationSection from './about/EducationSection';
 import LanguagesSection from './about/LanguagesSection';
@@ -56,10 +54,8 @@ const About: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left Column - Profile and Key Skills */}
+          {/* Left Column - Key Skills */}
           <div className="lg:col-span-4 space-y-12">
-            <ProfileSection />
-            
             {/* Download CV Button */}
             <div className="space-y-4">
               <Button 
