@@ -1,10 +1,14 @@
 
 import React from 'react';
+import { Award } from 'lucide-react';
 
 const AwardsSection: React.FC = () => {
   return (
     <div className="space-y-4">
-      <h3 className="text-xl font-display font-bold">Awards</h3>
+      <div className="flex items-center space-x-2">
+        <Award className="h-5 w-5 text-primary" />
+        <h3 className="text-xl font-display font-bold">Awards</h3>
+      </div>
       
       <div className="space-y-2">
         <div className="flex justify-between items-center">
