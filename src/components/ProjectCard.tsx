@@ -80,7 +80,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             style={{ backgroundImage: `url(${image})` }}
           />
           
-          {/* Removed the gradient overlay div that was here */}
+          {/* Adding a gradient overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"></div>
 
           <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-start">
             <span className="text-xs font-medium bg-white/10 backdrop-blur-sm text-white px-3 py-1 rounded-full">
@@ -98,10 +99,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </div>
           
           <div 
-            className={cn(
-              "absolute bottom-0 left-0 right-0 p-6 transition-transform duration-500 ease-out",
-              isHovered ? "translate-y-0" : featured ? "translate-y-0" : "translate-y-8"
-            )}
+            className="absolute bottom-0 left-0 right-0 p-6"
           >
             <h3 className={cn(
               "font-display font-bold text-white mb-2 transition-all duration-300",
@@ -112,8 +110,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             
             <p 
               className={cn(
-                "text-sm text-white/80 max-w-md transition-all duration-500",
-                isHovered || featured ? "opacity-100 max-h-24 translate-y-0" : "opacity-0 max-h-0 translate-y-4",
+                "text-sm text-white/80 max-w-md transition-opacity duration-300",
+                isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-70",
               )}
             >
               {description}
