@@ -53,7 +53,7 @@ const Testimonials: React.FC = () => {
       author: "Adolfo Sánchez Olmo",
       position: "Global Vice President IT Hospitality CoE at Radisson Hotel Group",
       company: "Head of EMMA",
-      avatarSrc: "/lovable-uploads/91240164-fe31-4a11-90dc-6e6fbc8768d7.png"
+      avatarSrc: "/lovable-uploads/4aa2a4cc-8765-4d41-b75d-1656c3d5ca8e.png"
     },
     {
       content: "Alfonso perfectly fulfils the tasks assigned to him in the foreseen time. It pays special attention to the final details and provides productive solutions in the workflow.",
