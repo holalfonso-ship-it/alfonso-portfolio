@@ -1,6 +1,8 @@
 
 import React from 'react';
 import AnimatedText from './AnimatedText';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
 import ProfileSection from './about/ProfileSection';
 import ExperienceSection from './about/ExperienceSection';
 import EducationSection from './about/EducationSection';
@@ -9,36 +11,56 @@ import AwardsSection from './about/AwardsSection';
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-24 bg-gradient-to-b from-background to-muted/20">
-      <div className="container max-w-7xl mx-auto px-6 md:px-12">
-        <div className="mb-16 text-center">
+    <section id="about" className="py-20 md:py-32 px-6 md:px-12 bg-background">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-16">
           <span className="inline-block text-sm md:text-base font-medium tracking-wider mb-4 py-1 px-4 rounded-full bg-primary/20 text-primary">
             About Me
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight mb-6">
             <AnimatedText text="Professional Background" className="inline-block" once />
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
-          {/* Profile Column */}
-          <div className="lg:col-span-1">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Left Column - Profile and Key Skills */}
+          <div className="lg:col-span-4 space-y-12">
             <ProfileSection />
-          </div>
-          
-          {/* Experience Column */}
-          <div className="lg:col-span-2 space-y-8">
-            <ExperienceSection />
             
-            {/* Education and Skills */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <EducationSection />
-              
-              <div className="space-y-8">
-                <LanguagesSection />
-                <AwardsSection />
+            <div className="space-y-4">
+              <h3 className="text-xl font-display font-bold">Key Skills</h3>
+              <div className="flex flex-wrap gap-2">
+                <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none">UI design</Badge>
+                <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none">User experience (UX)</Badge>
+                <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none">Design Systems</Badge>
+                <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none">Digital product design</Badge>
+                <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none">DesignOps</Badge>
+                <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none">Data analysis</Badge>
+                <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none">Success metrics</Badge>
+                <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none">Branding</Badge>
+                <Badge className="bg-primary/10 text-primary hover:bg-primary/20 border-none">Graphic design</Badge>
               </div>
             </div>
+            
+            <div className="space-y-4">
+              <h3 className="text-xl font-display font-bold">Technical Skills</h3>
+              <div className="space-y-2">
+                <p className="text-muted-foreground"><strong className="text-foreground">Tools:</strong> Figma, Sketch, Zeplin, Abstract, Jira, Confluence, Notion</p>
+                <p className="text-muted-foreground"><strong className="text-foreground">Methodologies:</strong> DesignOps, Design Thinking, Agile, SCRUM</p>
+                <p className="text-muted-foreground"><strong className="text-foreground">UI/UX Design:</strong> Wireframing, Prototyping, Research, Visual Design</p>
+                <p className="text-muted-foreground"><strong className="text-foreground">Branding & Marketing:</strong> Visual identity, Brand materials, Advertising design</p>
+                <p className="text-muted-foreground"><strong className="text-foreground">Data Analysis:</strong> Interpreting metrics, data visualization, and optimizing digital experiences</p>
+              </div>
+            </div>
+            
+            <LanguagesSection />
+            <AwardsSection />
+          </div>
+          
+          {/* Right Column - Experience and Education */}
+          <div className="lg:col-span-8 space-y-12">
+            <ExperienceSection />
+            <EducationSection />
           </div>
         </div>
       </div>
