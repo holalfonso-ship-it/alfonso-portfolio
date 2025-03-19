@@ -7,6 +7,7 @@ import { LeadtechGroupContent } from '../components/project-contents/LeadtechGro
 import { LoyaltyAppContent } from '../components/project-contents/LoyaltyAppContent';
 import { DesignOpsWorkflowContent } from '../components/project-contents/DesignOpsWorkflowContent';
 import { DataVisualizationContent } from '../components/project-contents/DataVisualizationContent';
+import { MobileAppDesignContent } from '../components/project-contents/MobileAppDesignContent';
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
@@ -57,6 +58,18 @@ const projects = [
     ],
     link: '/project/4',
     content: <DataVisualizationContent />
+  },
+  {
+    id: 5,
+    title: 'Mobile App Design',
+    description: 'Designed cross-platform mobile applications for iOS and Android that increased user retention by 35% and improved app store ratings by 1.5 stars.',
+    category: 'Mobile',
+    image: '/lovable-uploads/d02ab1a8-a48e-410d-aa65-bb5d4df1b25b.png',
+    heroImages: [
+      '/lovable-uploads/d02ab1a8-a48e-410d-aa65-bb5d4df1b25b.png'
+    ],
+    link: '/project/5',
+    content: <MobileAppDesignContent />
   },
   {
     id: 7,

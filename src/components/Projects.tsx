@@ -5,7 +5,7 @@ import ProjectCard from './ProjectCard';
 import AnimatedText from './AnimatedText';
 import { cn } from "@/lib/utils";
 
-const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System'];
+const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System', 'Mobile'];
 
 const projects = [
   {
@@ -39,6 +39,14 @@ const projects = [
     category: 'Product Design',
     image: '/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png',
     link: '/project/4'
+  },
+  {
+    id: 5,
+    title: 'Mobile App Design',
+    description: 'Designed cross-platform mobile applications for iOS and Android that increased user retention by 35% and improved app store ratings by 1.5 stars.',
+    category: 'Mobile',
+    image: '/lovable-uploads/d02ab1a8-a48e-410d-aa65-bb5d4df1b25b.png',
+    link: '/project/5'
   },
   {
     id: 7,
