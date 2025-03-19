@@ -3,15 +3,19 @@ import React from 'react';
 import AnimatedText from './AnimatedText';
 import { MessageSquare, Award } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
+import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 
 interface TestimonialProps {
   content: string;
   author: string;
   position: string;
-  company: string;
+  company?: string;
+  avatarSrc?: string;
 }
 
-const TestimonialCard: React.FC<TestimonialProps> = ({ content, author, position, company }) => {
+const TestimonialCard: React.FC<TestimonialProps> = ({ content, author, position, company, avatarSrc }) => {
+  const initials = author.split(' ').map(n => n[0]).join('').toUpperCase();
+  
   return (
     <Card className="glass border-0 h-full">
       <CardContent className="p-8">
@@ -20,10 +24,21 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ content, author, position
             <MessageSquare className="w-5 h-5 mr-2" />
             <span className="text-sm font-medium">Testimonial</span>
           </div>
+          
           <p className="text-lg text-muted-foreground italic mb-6">"{content}"</p>
-          <div>
-            <p className="font-bold">{author}</p>
-            <p className="text-sm text-muted-foreground">{position}, {company}</p>
+          
+          <div className="flex items-center">
+            <Avatar className="h-12 w-12 mr-4">
+              {avatarSrc ? (
+                <AvatarImage src={avatarSrc} alt={author} />
+              ) : (
+                <AvatarFallback>{initials}</AvatarFallback>
+              )}
+            </Avatar>
+            <div>
+              <p className="font-bold">{author}</p>
+              <p className="text-sm text-muted-foreground">{position}{company ? `, ${company}` : ''}</p>
+            </div>
           </div>
         </div>
       </CardContent>
@@ -34,22 +49,17 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ content, author, position
 const Testimonials: React.FC = () => {
   const testimonials = [
     {
-      content: "Alfonso has a unique ability to streamline design processes while maintaining high quality standards. His DesignOps approach helped us reduce design delivery time by 30%.",
-      author: "Maria Rodriguez",
-      position: "Head of Product",
-      company: "Leadtech Group"
+      content: "Never afraid to speak her mind, Alfonso has been able to provide a unique perspective and a clarity of thought that I've found invaluable. But more importantly, he has demonstrated on multiple occasions a level of initiative that isn't common amongst her peers, organising and taking the lead in meetings with founders and CEOs of potential partner companies.",
+      author: "Adolfo Sánchez Olmo",
+      position: "Global Vice President IT Hospitality CoE at Radisson Hotel Group",
+      company: "Head of EMMA",
+      avatarSrc: "/lovable-uploads/91240164-fe31-4a11-90dc-6e6fbc8768d7.png"
     },
     {
-      content: "Working with Alfonso transformed how our design team operates. His systematic approach to design and emphasis on efficiency has been invaluable to our growth.",
-      author: "Carlos Martinez",
-      position: "Design Manager",
-      company: "Wanup"
-    },
-    {
-      content: "Alfonso's work on our design system was exceptional. Not only did he create a cohesive visual language, but he also implemented processes that made our team more efficient.",
-      author: "Laura Sanchez",
-      position: "UX Director",
-      company: "Natevoo"
+      content: "Alfonso perfectly fulfils the tasks assigned to him in the foreseen time. It pays special attention to the final details and provides productive solutions in the workflow.",
+      author: "Baptiste Pons",
+      position: "Freelance Product designer",
+      avatarSrc: "/lovable-uploads/91240164-fe31-4a11-90dc-6e6fbc8768d7.png"
     }
   ];
   
@@ -67,8 +77,7 @@ const Testimonials: React.FC = () => {
           </span>
           
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight">
-            <AnimatedText text="Client" className="inline-block mr-3" once />
-            <AnimatedText text="Testimonials" className="text-gradient inline-block" once delay={200} />
+            <AnimatedText text="Testimonials" className="inline-block" once />
           </h2>
           
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -76,7 +85,7 @@ const Testimonials: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard 
               key={index}
@@ -84,6 +93,7 @@ const Testimonials: React.FC = () => {
               author={testimonial.author}
               position={testimonial.position}
               company={testimonial.company}
+              avatarSrc={testimonial.avatarSrc}
             />
           ))}
         </div>
