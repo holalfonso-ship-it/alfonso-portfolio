@@ -59,7 +59,7 @@ const Testimonials: React.FC = () => {
       content: "Alfonso perfectly fulfils the tasks assigned to him in the foreseen time. It pays special attention to the final details and provides productive solutions in the workflow.",
       author: "Baptiste Pons",
       position: "Freelance Product designer",
-      avatarSrc: "/lovable-uploads/91240164-fe31-4a11-90dc-6e6fbc8768d7.png"
+      avatarSrc: "/lovable-uploads/9da1d061-a084-4749-ae66-5f1eb6165ee1.png"
     }
   ];
   
