@@ -73,7 +73,7 @@ export function FooterSection({ className }: FooterSectionProps) {
             <p className="mb-6 text-muted-foreground">
               Join our newsletter for the latest updates and exclusive offers.
             </p>
-            <form className="relative">
+            <form className="relative mb-6">
               <Input
                 type="email"
                 placeholder="Enter your email"
@@ -88,6 +88,17 @@ export function FooterSection({ className }: FooterSectionProps) {
                 <span className="sr-only">Subscribe</span>
               </Button>
             </form>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              asChild
+              className="mb-4 w-full"
+            >
+              <a href={cvDownloadUrl} download>
+                <Download className="mr-2 h-4 w-4" />
+                Download CV
+              </a>
+            </Button>
             <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
           </div>
           
@@ -106,17 +117,6 @@ export function FooterSection({ className }: FooterSectionProps) {
               <a href="/#contact" className="block transition-colors hover:text-primary">
                 Contact
               </a>
-              <Button 
-                variant="outline" 
-                size="sm" 
-                asChild
-                className="mt-4"
-              >
-                <a href={cvDownloadUrl} download>
-                  <Download className="mr-2 h-4 w-4" />
-                  Download CV
-                </a>
-              </Button>
             </nav>
           </div>
           
