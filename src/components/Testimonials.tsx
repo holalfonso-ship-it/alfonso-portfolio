@@ -1,110 +1,111 @@
-
 import React from 'react';
-import AnimatedText from './AnimatedText';
-import { MessageSquare, Award } from 'lucide-react';
-import { Card, CardContent } from './ui/card';
+import SectionHeader from './SectionHeader';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Card, CardContent } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Quote } from 'lucide-react';
 
-interface TestimonialProps {
-  content: string;
-  author: string;
-  position: string;
-  company: string;
-}
-
-const TestimonialCard: React.FC<TestimonialProps> = ({ content, author, position, company }) => {
-  return (
-    <Card className="glass border-0 h-full">
-      <CardContent className="p-8">
-        <div className="mb-6">
-          <div className="flex items-center mb-4 text-primary">
-            <MessageSquare className="w-5 h-5 mr-2" />
-            <span className="text-sm font-medium">Testimonial</span>
-          </div>
-          <p className="text-lg text-muted-foreground italic mb-6">"{content}"</p>
-          <div>
-            <p className="font-bold">{author}</p>
-            <p className="text-sm text-muted-foreground">{position}, {company}</p>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  );
-};
+const testimonials = [
+  {
+    id: 1,
+    name: 'Sarah Johnson',
+    role: 'Product Manager at TechCorp',
+    image: '/avatars/sarah.jpg',
+    content: 'Alfonso's design system work transformed our product development process. His attention to detail and systematic approach helped us reduce design inconsistencies by 80% and accelerated our development cycles significantly.',
+  },
+  {
+    id: 2,
+    name: 'Michael Chen',
+    role: 'Lead Developer at InnovateTech',
+    image: '/avatars/michael.jpg',
+    content: 'Working with Alfonso was a game-changer for our engineering team. His DesignOps processes streamlined our handoffs and reduced back-and-forth communication by at least 60%. I highly recommend his expertise.',
+  },
+  {
+    id: 3,
+    name: 'Elena Rodriguez',
+    role: 'UX Director at DesignForward',
+    image: '/avatars/elena.jpg',
+    content: 'Alfonso brings a unique combination of design excellence and operational efficiency. His work on our cross-team collaboration framework has become the gold standard for how our design and development teams interact.',
+  },
+  {
+    id: 4,
+    name: 'David Kim',
+    role: 'CTO at StartupVision',
+    image: '/avatars/david.jpg',
+    content: 'I was impressed by Alfonso's ability to balance creative design with practical implementation. His design system not only looked great but was also incredibly well-documented and easy for our developers to use.',
+  },
+];
 
 const Testimonials: React.FC = () => {
-  const testimonials = [
-    {
-      content: "Alfonso has a unique ability to streamline design processes while maintaining high quality standards. His DesignOps approach helped us reduce design delivery time by 30%.",
-      author: "Maria Rodriguez",
-      position: "Head of Product",
-      company: "Leadtech Group"
-    },
-    {
-      content: "Working with Alfonso transformed how our design team operates. His systematic approach to design and emphasis on efficiency has been invaluable to our growth.",
-      author: "Carlos Martinez",
-      position: "Design Manager",
-      company: "Wanup"
-    },
-    {
-      content: "Alfonso's work on our design system was exceptional. Not only did he create a cohesive visual language, but he also implemented processes that made our team more efficient.",
-      author: "Laura Sanchez",
-      position: "UX Director",
-      company: "Natevoo"
-    }
-  ];
-  
   return (
-    <section id="testimonials" className="py-24 md:py-32 px-6 md:px-12 relative">
-      <div 
-        className="absolute inset-0 pointer-events-none bg-[radial-gradient(50%_50%_at_50%_50%,rgba(var(--primary-rgb),0.05)_0%,rgba(var(--primary-rgb),0)_100%)]" 
-        style={{'--primary-rgb': '52, 152, 219'} as React.CSSProperties}
-      />
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="mb-16 text-center">
-          <span className="inline-block text-sm md:text-base font-medium tracking-wider mb-4 py-1 px-4 rounded-full bg-primary/10 text-primary">
-            What people say
-          </span>
-          
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight">
-            <AnimatedText text="Client" className="inline-block mr-3" once />
-            <AnimatedText text="Testimonials" className="text-gradient inline-block" once delay={200} />
-          </h2>
-          
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            I've had the privilege of working with amazing clients and teams who have shared their feedback on our collaboration.
-          </p>
-        </div>
+    <section className="py-20 md:py-32 px-6 md:px-12 bg-gradient-to-b from-background/90 to-background">
+      <div className="max-w-7xl mx-auto">
+        <SectionHeader
+          badge="What People Say"
+          title="Testimonials"
+          subtitle="Feedback from clients and colleagues about my work and collaboration style."
+        />
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <TestimonialCard 
-              key={index}
-              content={testimonial.content}
-              author={testimonial.author}
-              position={testimonial.position}
-              company={testimonial.company}
-            />
-          ))}
-        </div>
-        
-        <div className="mt-16 flex justify-center">
-          <div className="glass p-6 rounded-xl max-w-2xl text-center">
-            <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-              <Award className="w-5 h-5 text-primary" />
-            </div>
-            <h3 className="text-xl font-bold mb-3">Ready to work together?</h3>
-            <p className="text-muted-foreground mb-6">
-              Let's collaborate to improve your team's design operations and create exceptional product experiences.
-            </p>
-            <a 
-              href="#contact" 
-              className="inline-flex px-6 py-3 rounded-full bg-primary text-primary-foreground font-medium transition-transform hover:scale-105 active:scale-95"
-            >
-              Get in touch
-            </a>
+        <Tabs defaultValue="grid" className="w-full">
+          <div className="flex justify-center mb-8">
+            <TabsList>
+              <TabsTrigger value="grid">Grid View</TabsTrigger>
+              <TabsTrigger value="carousel">Carousel</TabsTrigger>
+            </TabsList>
           </div>
-        </div>
+          
+          <TabsContent value="grid" className="w-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {testimonials.map((testimonial) => (
+                <Card key={testimonial.id} className="bg-card/50 backdrop-blur-sm border border-border/50 transition-all duration-300 hover:shadow-md">
+                  <CardContent className="p-6">
+                    <Quote className="h-8 w-8 text-primary/20 mb-4" />
+                    <p className="mb-6 italic text-muted-foreground">{testimonial.content}</p>
+                    <div className="flex items-center">
+                      <Avatar className="h-12 w-12 mr-4">
+                        <AvatarImage src={testimonial.image} alt={testimonial.name} />
+                        <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                      <div>
+                        <h4 className="font-semibold">{testimonial.name}</h4>
+                        <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </TabsContent>
+          
+          <TabsContent value="carousel" className="w-full">
+            <div className="flex flex-col items-center">
+              <Card className="max-w-3xl bg-card/50 backdrop-blur-sm border border-border/50 transition-all duration-300 hover:shadow-md">
+                <CardContent className="p-8">
+                  <Quote className="h-12 w-12 text-primary/20 mb-6 mx-auto" />
+                  <p className="mb-8 text-xl text-center italic">{testimonials[0].content}</p>
+                  <div className="flex flex-col items-center">
+                    <Avatar className="h-16 w-16 mb-4">
+                      <AvatarImage src={testimonials[0].image} alt={testimonials[0].name} />
+                      <AvatarFallback>{testimonials[0].name.charAt(0)}</AvatarFallback>
+                    </Avatar>
+                    <h4 className="font-semibold text-lg">{testimonials[0].name}</h4>
+                    <p className="text-muted-foreground">{testimonials[0].role}</p>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <div className="flex mt-6 gap-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`w-3 h-3 rounded-full ${index === 0 ? 'bg-primary' : 'bg-muted'}`}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
       </div>
     </section>
   );
