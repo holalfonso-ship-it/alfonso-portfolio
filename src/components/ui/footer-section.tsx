@@ -12,7 +12,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { ArrowUp, Download, Facebook, Instagram, Linkedin, Mail, Phone, Send, Twitter } from "lucide-react"
+import { ArrowUp, Download, Facebook, FileText, Instagram, Linkedin, Mail, Phone, Send, Sparkles, Twitter } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { supabase } from '@/integrations/supabase/client'
 import { useState, useEffect } from 'react'
@@ -71,34 +71,30 @@ export function FooterSection({ className }: FooterSectionProps) {
           <div className="relative">
             <h2 className="mb-4 text-3xl font-bold tracking-tight">Stay Connected</h2>
             <p className="mb-6 text-muted-foreground">
-              Join our newsletter for the latest updates and exclusive offers.
+              Download my CV to learn more about my experience and skills in Product Design and DesignOps.
             </p>
-            <form className="relative mb-6">
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                className="pr-12 backdrop-blur-sm"
-              />
-              <Button
-                type="submit"
-                size="icon"
-                className="absolute right-1 top-1 h-8 w-8 rounded-full bg-primary text-primary-foreground transition-transform hover:scale-105"
+            <div className="space-y-4">
+              <Button 
+                variant="default" 
+                size="lg" 
+                asChild
+                className="w-full group transition-all duration-300 hover:shadow-lg"
               >
-                <Send className="h-4 w-4" />
-                <span className="sr-only">Subscribe</span>
+                <a href={cvDownloadUrl} download>
+                  <Download className="mr-2 h-5 w-5 transition-transform group-hover:translate-y-1" />
+                  Download CV
+                </a>
               </Button>
-            </form>
-            <Button 
-              variant="outline" 
-              size="sm" 
-              asChild
-              className="mb-4 w-full"
-            >
-              <a href={cvDownloadUrl} download>
-                <Download className="mr-2 h-4 w-4" />
-                Download CV
-              </a>
-            </Button>
+              
+              <div className="flex items-center p-3 bg-background/50 rounded-lg border border-border/50">
+                <FileText className="h-5 w-5 mr-3 text-primary" />
+                <div className="flex-1">
+                  <p className="text-sm font-medium">Professional Profile</p>
+                  <p className="text-xs text-muted-foreground">Digital Product Designer with DesignOps expertise</p>
+                </div>
+                <Sparkles className="h-4 w-4 text-primary/80" />
+              </div>
+            </div>
             <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
           </div>
           
