@@ -1,5 +1,4 @@
-import React from 'react';
-import SectionHeader from './SectionHeader';
+import React, { useState } from 'react';
 import AnimatedText from './AnimatedText';
 import { SendIcon, Mail, MapPin, Phone } from 'lucide-react';
 import { toast } from 'sonner';
@@ -26,14 +25,52 @@ const contactInfo = [
 ];
 
 const Contact: React.FC = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Simulate form submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+      toast.success('Message sent successfully!');
+    }, 1500);
+  };
+
   return (
     <section id="contact" className="py-20 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader
-          badge="Get In Touch"
-          title="Contact Me"
-          subtitle="Interested in working together? Let's discuss how I can help with your design needs."
-        />
+        <div className="text-center mb-12 md:mb-20">
+          <span className="inline-block text-sm md:text-base font-medium tracking-wider mb-4 py-1 px-4 rounded-full bg-primary/10 text-primary">
+            Get In Touch
+          </span>
+          
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight">
+            <AnimatedText text="Let's Work Together" className="inline-block" once />
+          </h2>
+          
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Have a project in mind or want to discuss a potential collaboration? I'd love to hear from you.
+          </p>
+        </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 md:gap-16">
           <div className="lg:col-span-2 space-y-8">
@@ -187,3 +224,4 @@ const Contact: React.FC = () => {
 };
 
 export default Contact;
+

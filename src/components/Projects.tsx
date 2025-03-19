@@ -1,31 +1,118 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
-import SectionHeader from './SectionHeader';
+import AnimatedText from './AnimatedText';
+import { cn } from "@/lib/utils";
+
+const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System', 'Mobile'];
 
 const projects = [
-  { id: 1, title: 'Design Systems', category: 'Design System' },
-  { id: 2, title: 'DesignOps Workflow', category: 'DesignOps' },
-  { id: 3, title: 'Loyalty App', category: 'UX/UI' },
-  { id: 4, title: 'Data Visualization', category: 'Product Design' },
-  { id: 7, title: 'Cross-team Collaboration', category: 'DesignOps' },
+  {
+    id: 1,
+    title: 'Design Systems',
+    description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
+    category: 'Design System',
+    image: '/lovable-uploads/3dcf1c6d-4dde-437c-b626-bbe99631bf3f.png',
+    link: '/project/1'
+  },
+  {
+    id: 2,
+    title: 'DesignOps Workflow',
+    description: 'Implemented and optimized DesignOps processes that enhanced team collaboration, reduced handoff time by 40%, and improved overall design efficiency.',
+    category: 'DesignOps',
+    image: '/lovable-uploads/ed4aab16-f8c3-46b1-be10-d44758f7d149.png',
+    link: '/project/2'
+  },
+  {
+    id: 3,
+    title: 'Loyalty App',
+    description: 'Redesigned the loyalty app experience resulting in a 25% increase in user engagement and a 15% improvement in conversion rates.',
+    category: 'UX/UI',
+    image: '/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png',
+    link: '/project/3'
+  },
+  {
+    id: 4,
+    title: 'Data Visualization',
+    description: 'Developed intuitive dashboards and data visualizations that increased stakeholder engagement by 20% and improved decision-making processes.',
+    category: 'Product Design',
+    image: '/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png',
+    link: '/project/4'
+  },
+  {
+    id: 5,
+    title: 'Mobile App Design',
+    description: 'Designed cross-platform mobile applications for iOS and Android that increased user retention by 35% and improved app store ratings by 1.5 stars.',
+    category: 'Mobile',
+    image: '/lovable-uploads/d02ab1a8-a48e-410d-aa65-bb5d4df1b25b.png',
+    link: '/project/5'
+  },
+  {
+    id: 7,
+    title: 'Cross-team Collaboration Framework',
+    description: 'Created a structured DesignOps framework that improved collaboration between design, development, and product teams, reducing project delivery time by 35%.',
+    category: 'DesignOps',
+    image: '/lovable-uploads/a8a3c542-efbf-46c2-a78b-bcd8a2ddcb83.png',
+    link: '/project/7'
+  }
 ];
 
 const Projects: React.FC = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filteredProjects = activeCategory === 'All' 
+    ? projects 
+    : projects.filter(project => project.category === activeCategory);
+
   return (
     <section id="projects" className="py-20 md:py-32 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader
-          badge="My Work"
-          title="Featured Projects"
-          subtitle="A selection of my recent work showcasing my expertise in DesignOps, Product Design, and UI/UX."
-        />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <Link to={`/project/${project.id}`} key={project.id}>
-              <ProjectCard project={project} />
-            </Link>
+        <div className="mb-12 md:mb-20">
+          <span className="inline-block text-sm md:text-base font-medium tracking-wider mb-4 py-1 px-4 rounded-full bg-primary/20 text-primary">
+            Featured Work
+          </span>
+          
+          <div className="flex flex-col md:flex-row md:items-end justify-between">
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 md:mb-0 tracking-tight">
+              <AnimatedText text="Selected Projects" className="inline-block" once />
+            </h2>
+            
+            <div className="flex flex-wrap gap-3">
+              {projectCategories.map((category) => (
+                <button
+                  key={category}
+                  className={cn(
+                    "px-4 py-2 text-sm font-medium transition-all border-b-2",
+                    activeCategory === category
+                      ? "border-primary text-white"
+                      : "border-transparent text-muted-foreground hover:text-white hover:border-muted-foreground"
+                  )}
+                  onClick={() => setActiveCategory(category)}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+          {filteredProjects.map((project, index) => (
+            <div key={project.id} className={cn(
+              "col-span-1",
+              index === 0 || index === 3 ? "md:col-span-12" : "md:col-span-6",
+            )}>
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                category={project.category}
+                image={project.image}
+                link={project.link}
+                index={index}
+                featured={index === 0 || index === 3}
+              />
+            </div>
           ))}
         </div>
       </div>

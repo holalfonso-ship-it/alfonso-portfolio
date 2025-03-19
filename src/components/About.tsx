@@ -1,10 +1,13 @@
+
 import React, { useState, useEffect } from 'react';
+import AnimatedText from './AnimatedText';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Download, Briefcase, Award, Globe, Code, Palette, BarChart, LineChart, Layers, Zap } from 'lucide-react';
 import ExperienceSection from './about/ExperienceSection';
 import EducationSection from './about/EducationSection';
-import SectionHeader from './SectionHeader';
+import LanguagesSection from './about/LanguagesSection';
+import AwardsSection from './about/AwardsSection';
 import { supabase } from '@/integrations/supabase/client';
 
 const About: React.FC = () => {
@@ -42,11 +45,20 @@ const About: React.FC = () => {
   return (
     <section id="about" className="py-20 md:py-32 px-6 md:px-12 bg-gradient-to-b from-background to-background/90">
       <div className="max-w-7xl mx-auto">
-        <SectionHeader 
-          badge="About Me"
-          title="Professional Background"
-          subtitle="Digital product designer with extensive experience in DesignOps and Product design, specializing in optimizing workflows and enhancing efficiency within design teams."
-        />
+        <div className="mb-16 text-center">
+          <span className="inline-block text-sm md:text-base font-medium tracking-wider mb-4 py-1 px-4 rounded-full bg-primary/20 text-primary animate-pulse">
+            About Me
+          </span>
+          <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight mb-6">
+            <AnimatedText text="Professional Background" className="inline-block" once />
+          </h2>
+          <div className="max-w-2xl mx-auto">
+            <p className="text-muted-foreground">
+              Digital product designer with extensive experience in DesignOps and Product design, 
+              specializing in optimizing workflows and enhancing efficiency within design teams.
+            </p>
+          </div>
+        </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column - Key Skills */}
@@ -222,4 +234,3 @@ const About: React.FC = () => {
 };
 
 export default About;
-

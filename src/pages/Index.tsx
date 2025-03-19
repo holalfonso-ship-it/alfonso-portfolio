@@ -4,6 +4,7 @@ import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import About from '@/components/About';
 import Manifesto from '@/components/Manifesto';
+import Testimonials from '@/components/Testimonials';
 import WorkProcess from '@/components/WorkProcess';
 import Contact from '@/components/Contact';
 import TransitionEffect from '@/components/TransitionEffect';
@@ -43,6 +44,7 @@ const Index: React.FC = () => {
         <Projects />
         <Manifesto />
         <About />
+        <Testimonials />
         <WorkProcess />
         <Contact />
       </main>
