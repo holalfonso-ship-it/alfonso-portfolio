@@ -81,7 +81,7 @@ const Testimonials: React.FC = () => {
           </span>
           
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight">
-            <AnimatedText text="Testimonials" className="inline-block" once />
+            <AnimatedText text="Testimonials" className="block" once />
           </h2>
           
           <p className="text-muted-foreground max-w-2xl mx-auto">
