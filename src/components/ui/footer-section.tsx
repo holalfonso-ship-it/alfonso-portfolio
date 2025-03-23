@@ -12,7 +12,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { ArrowUp, Download, Facebook, FileText, Instagram, Linkedin, Mail, Phone, Send, Sparkles, Twitter } from "lucide-react"
+import { ArrowUp, Download, Facebook, FileText, Instagram, Linkedin, Mail, Phone, Send, Sparkles } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { supabase } from '@/integrations/supabase/client'
 import { useState, useEffect } from 'react'
@@ -142,9 +142,11 @@ export function FooterSection({ className }: FooterSectionProps) {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
-                      <Linkedin className="h-4 w-4" />
-                      <span className="sr-only">LinkedIn</span>
+                    <Button variant="outline" size="icon" className="rounded-full" asChild>
+                      <a href="https://www.linkedin.com/in/alfonsozamorano/" target="_blank" rel="noopener noreferrer">
+                        <Linkedin className="h-4 w-4" />
+                        <span className="sr-only">LinkedIn</span>
+                      </a>
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
@@ -155,26 +157,15 @@ export function FooterSection({ className }: FooterSectionProps) {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
-                      <Instagram className="h-4 w-4" />
-                      <span className="sr-only">Instagram</span>
+                    <Button variant="outline" size="icon" className="rounded-full" asChild>
+                      <a href="https://www.instagram.com/lfns_zmrn/" target="_blank" rel="noopener noreferrer">
+                        <Instagram className="h-4 w-4" />
+                        <span className="sr-only">Instagram</span>
+                      </a>
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
                     <p>Follow on Instagram</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="outline" size="icon" className="rounded-full">
-                      <Twitter className="h-4 w-4" />
-                      <span className="sr-only">Twitter</span>
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Follow on Twitter</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
