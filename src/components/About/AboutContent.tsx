@@ -1,6 +1,6 @@
 
 import React from 'react';
-import ProfileSection from './ProfileSection';
+import ProfileSection from '../about/ProfileSection';
 import ExperienceDisplay from './ExperienceDisplay';
 import EducationDisplay from './EducationDisplay';
 import TechnicalSkillsDisplay from './TechnicalSkillsDisplay';
