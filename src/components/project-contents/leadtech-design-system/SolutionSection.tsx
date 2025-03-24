@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { Workflow, Share, MessageSquare } from 'lucide-react';
 import { AspectRatio } from '../../ui/aspect-ratio';
+
 export const SolutionSection: React.FC = () => {
   return <>
       <h2 className="text-3xl font-bold mb-6">Solution</h2>
@@ -8,6 +10,20 @@ export const SolutionSection: React.FC = () => {
         To address these challenges, I spearheaded the development of a comprehensive design system that served as a 
         single source of truth for all design-related assets and guidelines. The solution consisted of several key components:
       </p>
+
+      {/* Added image placeholder between intro paragraph and components list */}
+      <div className="mb-12">
+        <AspectRatio ratio={16/9} className="bg-muted rounded-lg overflow-hidden">
+          <img 
+            src="/lovable-uploads/422ce4fa-376c-4fcf-bc0a-2464b8752d9c.png" 
+            alt="Design System Solution Overview" 
+            className="w-full h-full object-cover"
+          />
+        </AspectRatio>
+        <p className="text-sm text-muted-foreground mt-2 text-center">
+          Visual representation of the design system architecture and components
+        </p>
+      </div>
 
       <div className="space-y-8 mb-12">
         <div className="flex flex-col md:flex-row gap-6 items-start">
