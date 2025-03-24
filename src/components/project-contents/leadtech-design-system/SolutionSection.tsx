@@ -1,84 +1,51 @@
 
 import React from 'react';
-import { Workflow, Share, MessageSquare } from 'lucide-react';
-import { AspectRatio } from '../../ui/aspect-ratio';
 
-export const SolutionSection: React.FC = () => {
-  return <>
-      <h2 className="text-3xl font-bold mb-6">Solution</h2>
-      <p className="mb-6">
-        To address these challenges, I spearheaded the development of a comprehensive design system that served as a 
-        single source of truth for all design-related assets and guidelines. The solution consisted of several key components:
+const SolutionSection: React.FC = () => {
+  return (
+    <section className="space-y-6">
+      <h2 className="text-3xl font-bold">Solution</h2>
+      <p>
+        After extensive research into design systems across the industry and evaluation of our specific needs, 
+        I developed a comprehensive design system that included:
       </p>
-
-      {/* Added image placeholder between intro paragraph and components list */}
-      <div className="mb-12">
-        <AspectRatio ratio={16/9} className="bg-muted rounded-lg overflow-hidden">
-          <img 
-            src="/lovable-uploads/422ce4fa-376c-4fcf-bc0a-2464b8752d9c.png" 
-            alt="Design System Solution Overview" 
-            className="w-full h-full object-cover"
-          />
-        </AspectRatio>
-        <p className="text-sm text-muted-foreground mt-2 text-center">
-          Visual representation of the design system architecture and components
+      
+      <div className="py-6">
+        <img 
+          src="/lovable-uploads/1b158ca3-ed08-40fa-bc55-7d519486e8c0.png" 
+          alt="Design System Components"
+          className="w-full rounded-lg shadow-lg"
+        />
+        <p className="text-sm text-muted-foreground italic mt-2 text-center">
+          Visual representation of the design system components and structure
         </p>
       </div>
-
-      <div className="space-y-8 mb-12">
-        <div className="flex flex-col md:flex-row gap-6 items-start">
-          <div className="bg-primary/10 p-4 rounded-full shrink-0">
-            <Workflow className="h-8 w-8 text-primary" />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-2">UI Component Library</h3>
-            <p>
-              Developed a library of reusable UI components with detailed specifications and usage guidelines. 
-              These components were designed to be easily integrated into any Leadtech product.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-6 items-start">
-          <div className="bg-primary/10 p-4 rounded-full shrink-0">
-            <Share className="h-8 w-8 text-primary" />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-2">Design Tokens</h3>
-            <p>
-              Implemented a system of design tokens to manage visual styles such as colors, typography, and spacing. 
-              This allowed for easy updates and theming across the entire design system.
-            </p>
-          </div>
-        </div>
-
-        <div className="flex flex-col md:flex-row gap-6 items-start">
-          <div className="bg-primary/10 p-4 rounded-full shrink-0">
-            <MessageSquare className="h-8 w-8 text-primary" />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-2">Documentation & Guidelines</h3>
-            <p>
-              Created comprehensive documentation and usage guidelines for all components and design tokens. 
-              This ensured that designers and developers had a clear understanding of how to use the design system effectively.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <div>
-          <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img alt="Leadtech Design System UI Kit" src="/lovable-uploads/ac31c237-0e0b-465b-9677-8cff4ffd42b3.png" className="w-full h-full object-cover" />
-          </AspectRatio>
-          <p className="text-sm text-muted-foreground">Leadtech Design System UI Kit</p>
-        </div>
-        <div>
-          <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img src="/lovable-uploads/3dcf1c6d-4dde-437c-b626-bbe99631bf3f.png" alt="Design System Analytics in Figma" className="object-cover w-full h-full" />
-          </AspectRatio>
-          <p className="text-sm text-muted-foreground">Design System Analytics Dashboard in Figma</p>
-        </div>
-      </div>
-    </>;
+      
+      <ul className="list-disc pl-5 space-y-2">
+        <li>
+          <strong>Component Library:</strong> A structured collection of UI components with clear usage guidelines, 
+          properties, and behaviors. Each component was designed to be flexible, accessible, and reusable.
+        </li>
+        <li>
+          <strong>Design Tokens:</strong> Fundamental design atoms like colors, typography, spacing, and shadows 
+          that ensure consistency across all platforms and products.
+        </li>
+        <li>
+          <strong>Documentation:</strong> Comprehensive guidelines for designers and developers to understand how 
+          and when to use each component, including code snippets and design best practices.
+        </li>
+        <li>
+          <strong>Governance Process:</strong> A clear workflow for requesting, creating, and modifying components 
+          to maintain the integrity of the design system as it evolved.
+        </li>
+      </ul>
+      
+      <p>
+        The system was implemented in Figma for designers and as a React component library for developers, 
+        ensuring a seamless handoff process and maintaining design consistency through all stages of development.
+      </p>
+    </section>
+  );
 };
+
+export default SolutionSection;

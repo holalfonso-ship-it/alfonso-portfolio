@@ -1,4 +1,3 @@
-
 import React from 'react';
 import TransitionEffect from '@/components/TransitionEffect';
 import { Badge } from '@/components/ui/badge';

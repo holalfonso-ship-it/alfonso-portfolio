@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import TransitionEffect from './TransitionEffect';
@@ -19,6 +19,17 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
+  useEffect(() => {
+    if (project) {
+      // Reset state when project changes
+      setImageLoaded(false);
+      setImageError(false);
+    }
+  }, [project]);
+
   if (!project) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -34,16 +45,13 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
     );
   }
 
-  // Use heroImages if available, otherwise use the main image
-  const displayImage = project.id === 2 
-    ? '/lovable-uploads/57eeac73-35bd-4bdd-bd6d-e697ef033612.png'
-    : project.id === 4 
-    ? '/lovable-uploads/7b60222b-2167-4fb4-815e-ab1ffd55d3f1.png'
-    : project.heroImages && project.heroImages.length > 0 
-      ? project.heroImages[0] 
-      : project.image;
+  // Determine which image to display
+  const displayImage = project.heroImages && project.heroImages.length > 0 
+    ? project.heroImages[0] 
+    : project.image;
 
-  console.log("Display image path:", displayImage); // Add debug logging
+  console.log("Project detail rendering:", project.title);
+  console.log("Display image path:", displayImage);
 
   return (
     <>
@@ -65,17 +73,34 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
             </span>
           </div>
           
-          <div className="aspect-video w-full rounded-lg overflow-hidden mb-16">
+          <div className="aspect-video w-full rounded-lg overflow-hidden mb-16 bg-muted/20">
+            {!imageLoaded && !imageError && (
+              <div className="w-full h-full flex items-center justify-center">
+                <div className="animate-pulse text-muted">Loading image...</div>
+              </div>
+            )}
+            
             <img 
               src={displayImage} 
               alt={project.title} 
-              className="w-full h-full object-cover"
+              className={`w-full h-full object-cover ${imageLoaded ? 'block' : 'hidden'}`}
+              onLoad={() => setImageLoaded(true)}
               onError={(e) => {
                 console.error("Image failed to load:", displayImage);
+                setImageError(true);
                 const target = e.target as HTMLImageElement;
                 target.src = project.image; // Fallback to main image
               }}
             />
+            
+            {imageError && (
+              <div className="w-full h-full flex items-center justify-center bg-muted/20 p-4">
+                <div className="text-center">
+                  <p className="text-muted-foreground">Image could not be loaded</p>
+                  <p className="text-xs text-muted-foreground mt-1">{displayImage}</p>
+                </div>
+              </div>
+            )}
           </div>
           
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">

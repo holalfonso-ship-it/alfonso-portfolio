@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ProjectDetail from '../components/ProjectDetail';
@@ -30,7 +29,7 @@ const projects = [
     category: 'DesignOps',
     image: '/lovable-uploads/ed4aab16-f8c3-46b1-be10-d44758f7d149.png',
     heroImages: [
-      '/lovable-uploads/ed4aab16-f8c3-46b1-be10-d44758f7d149.png'
+      '/lovable-uploads/57eeac73-35bd-4bdd-bd6d-e697ef033612.png'
     ],
     link: '/project/2',
     content: <DesignOpsWorkflowContent />
@@ -89,10 +88,10 @@ const ProjectPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const project = projects.find(p => p.id.toString() === id);
   
-  // Scroll to top when the component mounts or id changes
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+    console.log('Project page mounted, id:', id, 'project:', project);
+  }, [id, project]);
   
   return (
     <div className="min-h-screen flex flex-col">

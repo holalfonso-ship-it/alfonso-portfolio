@@ -20,6 +20,7 @@ function App() {
     // Simulate loading time
     setTimeout(() => {
       setIsLoading(false);
+      console.log('App loaded');
     }, 500);
   }, []);
 
