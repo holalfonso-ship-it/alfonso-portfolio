@@ -1,12 +1,9 @@
-
 import React from 'react';
 import { Card, CardContent } from '../../ui/card';
 import { AspectRatio } from '../../ui/aspect-ratio';
 import { ArrowRight, Clock, CheckCheck, Users, Workflow, Share } from 'lucide-react';
-
 const ProcessSection: React.FC = () => {
-  return (
-    <>
+  return <>
       <h2 className="text-3xl font-bold mb-6">Process</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -73,12 +70,8 @@ const ProcessSection: React.FC = () => {
         </div>
         
         <div className="my-8">
-          <AspectRatio ratio={16/9} className="bg-muted rounded-lg overflow-hidden">
-            <img 
-              src="/lovable-uploads/063b06b8-b62f-4ed1-8024-2dd44c1f971b.png" 
-              alt="DesignOps Workflow Diagram" 
-              className="w-full h-full object-cover"
-            />
+          <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg overflow-hidden">
+            <img alt="DesignOps Workflow Diagram" src="/lovable-uploads/66fb836a-69d5-4b32-a171-1ab35fbb706e.png" className="w-full h-full object-scale-down" />
           </AspectRatio>
           <p className="text-sm text-muted-foreground mt-2 text-center">
             Detailed workflow diagram showing the design-to-development process
@@ -121,28 +114,18 @@ const ProcessSection: React.FC = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div>
-          <AspectRatio ratio={4/3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img 
-              src="/lovable-uploads/063b06b8-b62f-4ed1-8024-2dd44c1f971b.png" 
-              alt="DesignOps Workflow Implementation" 
-              className="object-cover w-full h-full"
-            />
+          <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
+            <img src="/lovable-uploads/063b06b8-b62f-4ed1-8024-2dd44c1f971b.png" alt="DesignOps Workflow Implementation" className="object-cover w-full h-full" />
           </AspectRatio>
           <p className="text-sm text-muted-foreground">DesignOps Framework Implementation</p>
         </div>
         <div>
-          <AspectRatio ratio={4/3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img 
-              src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg" 
-              alt="Design Team Collaboration" 
-              className="object-cover w-full h-full"
-            />
+          <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
+            <img src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg" alt="Design Team Collaboration" className="object-cover w-full h-full" />
           </AspectRatio>
           <p className="text-sm text-muted-foreground">Enhanced Team Collaboration Workflow</p>
         </div>
       </div>
-    </>
-  );
+    </>;
 };
-
 export default ProcessSection;
