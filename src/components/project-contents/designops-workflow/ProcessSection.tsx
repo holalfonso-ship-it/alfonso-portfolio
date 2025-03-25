@@ -121,7 +121,7 @@ const ProcessSection: React.FC = () => {
         </div>
         <div>
           <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img src="https://assets-global.website-files.com/659ee728e18c72ccd4e0cde8/659ef0b2c3c8362baef07ebb_designops.jpg" alt="Design Team Collaboration" className="object-cover w-full h-full" />
+            
           </AspectRatio>
           <p className="text-sm text-muted-foreground">Enhanced Team Collaboration Workflow</p>
         </div>
