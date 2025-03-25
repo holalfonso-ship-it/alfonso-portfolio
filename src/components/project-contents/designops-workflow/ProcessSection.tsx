@@ -115,7 +115,7 @@ const ProcessSection: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div>
           <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img src="/lovable-uploads/063b06b8-b62f-4ed1-8024-2dd44c1f971b.png" alt="DesignOps Workflow Implementation" className="object-cover w-full h-full" />
+            <img alt="DesignOps Workflow Implementation" className="object-cover w-full h-full" src="/lovable-uploads/55963e07-669a-4f5d-b0a0-d5e3ed321407.png" />
           </AspectRatio>
           <p className="text-sm text-muted-foreground">DesignOps Framework Implementation</p>
         </div>
