@@ -1,9 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ImageIcon } from 'lucide-react';
 import TransitionEffect from './TransitionEffect';
 import { Button } from './ui/button';
+import ImageUploader from './ImageUploader';
 
 interface ProjectDetailProps {
   project?: {
@@ -21,12 +22,14 @@ interface ProjectDetailProps {
 const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
+  const [uploadedHeroImage, setUploadedHeroImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (project) {
       // Reset state when project changes
       setImageLoaded(false);
       setImageError(false);
+      setUploadedHeroImage(null);
     }
   }, [project]);
 
@@ -46,12 +49,19 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
   }
 
   // Determine which image to display
-  const displayImage = project.heroImages && project.heroImages.length > 0 
-    ? project.heroImages[0] 
-    : project.image;
+  const displayImage = uploadedHeroImage || 
+    (project.heroImages && project.heroImages.length > 0 
+      ? project.heroImages[0] 
+      : project.image);
 
   console.log("Project detail rendering:", project.title);
   console.log("Display image path:", displayImage);
+
+  const handleImageUploaded = (url: string) => {
+    setUploadedHeroImage(url);
+    setImageLoaded(true);
+    setImageError(false);
+  };
 
   return (
     <>
@@ -80,25 +90,49 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
               </div>
             )}
             
-            <img 
-              src={displayImage} 
-              alt={project.title} 
-              className={`w-full h-full object-cover ${imageLoaded ? 'block' : 'hidden'}`}
-              onLoad={() => setImageLoaded(true)}
-              onError={(e) => {
-                console.error("Image failed to load:", displayImage);
-                setImageError(true);
-                const target = e.target as HTMLImageElement;
-                target.src = project.image; // Fallback to main image
-              }}
-            />
-            
-            {imageError && (
+            {imageError && !uploadedHeroImage && (
               <div className="w-full h-full flex items-center justify-center bg-muted/20 p-4">
-                <div className="text-center">
+                <div className="text-center space-y-4">
+                  <ImageIcon className="h-12 w-12 mx-auto text-muted-foreground" />
                   <p className="text-muted-foreground">Image could not be loaded</p>
-                  <p className="text-xs text-muted-foreground mt-1">{displayImage}</p>
+                  <p className="text-xs text-muted-foreground">{displayImage}</p>
+                  <div className="mt-2">
+                    <ImageUploader
+                      bucketName="site_images"
+                      onImageUploaded={handleImageUploaded}
+                      aspectRatio={16/9}
+                      maxWidth="400px"
+                    />
+                  </div>
                 </div>
+              </div>
+            )}
+            
+            {!imageError && (
+              <img 
+                src={displayImage} 
+                alt={project.title} 
+                className={`w-full h-full object-cover ${imageLoaded ? 'block' : 'hidden'}`}
+                onLoad={() => setImageLoaded(true)}
+                onError={(e) => {
+                  console.error("Image failed to load:", displayImage);
+                  setImageError(true);
+                  const target = e.target as HTMLImageElement;
+                  if (!uploadedHeroImage && project.image) {
+                    target.src = project.image; // Fallback to main image
+                  }
+                }}
+              />
+            )}
+            
+            {imageLoaded && !imageError && (
+              <div className="absolute bottom-4 right-4 opacity-0 hover:opacity-100 transition-opacity">
+                <ImageUploader
+                  bucketName="site_images"
+                  onImageUploaded={handleImageUploaded}
+                  aspectRatio={16/9}
+                  maxWidth="400px"
+                />
               </div>
             )}
           </div>
