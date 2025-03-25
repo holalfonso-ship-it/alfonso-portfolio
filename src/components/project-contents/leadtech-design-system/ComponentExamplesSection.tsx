@@ -91,7 +91,7 @@ export const ComponentExamplesSection: React.FC = () => {
               </p>
               <div className="flex-grow"></div>
               <div className="mt-4">
-                <img alt="Mobile UI examples" className="w-full rounded-md shadow-sm" src="/lovable-uploads/d02ab1a8-a48e-410d-aa65-bb5d4df1b25b.png" />
+                <img alt="Mobile UI examples" className="w-full rounded-md shadow-sm" src="/lovable-uploads/f62e774d-8625-4afb-a943-603afc462ab5.png" />
               </div>
             </div>
           </AspectRatio>
