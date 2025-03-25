@@ -1,11 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ImageIcon } from 'lucide-react';
 import TransitionEffect from './TransitionEffect';
 import { Button } from './ui/button';
 import ImageUploader from './ImageUploader';
-
 interface ProjectDetailProps {
   project?: {
     id: number;
@@ -18,12 +16,12 @@ interface ProjectDetailProps {
     link?: string;
   };
 }
-
-const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
+const ProjectDetail: React.FC<ProjectDetailProps> = ({
+  project
+}) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [uploadedHeroImage, setUploadedHeroImage] = useState<string | null>(null);
-
   useEffect(() => {
     if (project) {
       // Reset state when project changes
@@ -32,10 +30,8 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
       setUploadedHeroImage(null);
     }
   }, [project]);
-
   if (!project) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
+    return <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-4">Project not found</h1>
           <Button asChild>
@@ -44,34 +40,23 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
             </Link>
           </Button>
         </div>
-      </div>
-    );
+      </div>;
   }
 
   // Determine which image to display
-  const displayImage = uploadedHeroImage || 
-    (project.heroImages && project.heroImages.length > 0 
-      ? project.heroImages[0] 
-      : project.image);
-
+  const displayImage = uploadedHeroImage || (project.heroImages && project.heroImages.length > 0 ? project.heroImages[0] : project.image);
   console.log("Project detail rendering:", project.title);
   console.log("Display image path:", displayImage);
-
   const handleImageUploaded = (url: string) => {
     setUploadedHeroImage(url);
     setImageLoaded(true);
     setImageError(false);
   };
-
-  return (
-    <>
+  return <>
       <TransitionEffect />
       <div className="pt-32 pb-24 px-6 md:px-16 lg:px-24">
         <div className="max-w-4xl mx-auto">
-          <Link 
-            to="/" 
-            className="inline-flex items-center text-sm text-primary mb-8 hover:underline transition-all"
-          >
+          <Link to="/" className="inline-flex items-center text-sm text-primary mb-8 hover:underline transition-all">
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
           </Link>
           
@@ -84,62 +69,33 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
           </div>
           
           <div className="aspect-video w-full rounded-lg overflow-hidden mb-16 bg-muted/20">
-            {!imageLoaded && !imageError && (
-              <div className="w-full h-full flex items-center justify-center">
+            {!imageLoaded && !imageError && <div className="w-full h-full flex items-center justify-center">
                 <div className="animate-pulse text-muted">Loading image...</div>
-              </div>
-            )}
+              </div>}
             
-            {imageError && !uploadedHeroImage && (
-              <div className="w-full h-full flex items-center justify-center bg-muted/20 p-4">
-                <img 
-                  src="/lovable-uploads/4fc58735-f413-4fe9-a8bc-3d4a2a3b2997.png" 
-                  alt="DesignOps mission"
-                  className="w-full h-full object-contain"
-                />
+            {imageError && !uploadedHeroImage && <div className="w-full h-full flex items-center justify-center bg-muted/20 p-4">
+                <img alt="DesignOps mission" className="w-full h-full object-contain" src="/lovable-uploads/64e31b91-1115-490f-9d74-cec89f782666.png" />
                 <div className="absolute bottom-4 right-4">
-                  <ImageUploader
-                    bucketName="site_images"
-                    onImageUploaded={handleImageUploaded}
-                    aspectRatio={16/9}
-                    maxWidth="400px"
-                  />
+                  <ImageUploader bucketName="site_images" onImageUploaded={handleImageUploaded} aspectRatio={16 / 9} maxWidth="400px" />
                 </div>
-              </div>
-            )}
+              </div>}
             
-            {!imageError && (
-              <img 
-                src={displayImage} 
-                alt={project.title} 
-                className={`w-full h-full object-cover ${imageLoaded ? 'block' : 'hidden'}`}
-                onLoad={() => setImageLoaded(true)}
-                onError={(e) => {
-                  console.error("Image failed to load:", displayImage);
-                  setImageError(true);
-                  const target = e.target as HTMLImageElement;
-                  if (!uploadedHeroImage && project.image) {
-                    target.src = project.image; // Fallback to main image
-                  }
-                }}
-              />
-            )}
+            {!imageError && <img src={displayImage} alt={project.title} className={`w-full h-full object-cover ${imageLoaded ? 'block' : 'hidden'}`} onLoad={() => setImageLoaded(true)} onError={e => {
+            console.error("Image failed to load:", displayImage);
+            setImageError(true);
+            const target = e.target as HTMLImageElement;
+            if (!uploadedHeroImage && project.image) {
+              target.src = project.image; // Fallback to main image
+            }
+          }} />}
             
-            {imageLoaded && !imageError && (
-              <div className="absolute bottom-4 right-4 opacity-0 hover:opacity-100 transition-opacity">
-                <ImageUploader
-                  bucketName="site_images"
-                  onImageUploaded={handleImageUploaded}
-                  aspectRatio={16/9}
-                  maxWidth="400px"
-                />
-              </div>
-            )}
+            {imageLoaded && !imageError && <div className="absolute bottom-4 right-4 opacity-0 hover:opacity-100 transition-opacity">
+                <ImageUploader bucketName="site_images" onImageUploaded={handleImageUploaded} aspectRatio={16 / 9} maxWidth="400px" />
+              </div>}
           </div>
           
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
-            {project.content || (
-              <>
+            {project.content || <>
                 <h2>Project Overview</h2>
                 <p className="text-lg">{project.description}</p>
                 <h2>Challenge</h2>
@@ -161,13 +117,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
                   <li>40% reduction in development time</li>
                   <li>25% increase in conversion rates</li>
                 </ul>
-              </>
-            )}
+              </>}
           </div>
         </div>
       </div>
-    </>
-  );
+    </>;
 };
-
 export default ProjectDetail;
