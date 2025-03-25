@@ -23,7 +23,7 @@ export const ComponentExamplesSection: React.FC = () => {
               </p>
               <div className="flex-grow"></div>
               <div className="mt-4">
-                <img alt="Button component examples" className="w-full rounded-md shadow-sm" src="/lovable-uploads/d5a5265a-473d-4d71-b8d2-8f158deb27ab.png" />
+                <img alt="Button component examples" className="w-full rounded-md shadow-sm" src="/lovable-uploads/18acb44e-a98b-4cd4-a733-e0f3eca0f0bd.png" />
               </div>
             </div>
           </AspectRatio>
