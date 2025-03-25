@@ -92,18 +92,18 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ project }) => {
             
             {imageError && !uploadedHeroImage && (
               <div className="w-full h-full flex items-center justify-center bg-muted/20 p-4">
-                <div className="text-center space-y-4">
-                  <ImageIcon className="h-12 w-12 mx-auto text-muted-foreground" />
-                  <p className="text-muted-foreground">Image could not be loaded</p>
-                  <p className="text-xs text-muted-foreground">{displayImage}</p>
-                  <div className="mt-2">
-                    <ImageUploader
-                      bucketName="site_images"
-                      onImageUploaded={handleImageUploaded}
-                      aspectRatio={16/9}
-                      maxWidth="400px"
-                    />
-                  </div>
+                <img 
+                  src="/lovable-uploads/4fc58735-f413-4fe9-a8bc-3d4a2a3b2997.png" 
+                  alt="DesignOps mission"
+                  className="w-full h-full object-contain"
+                />
+                <div className="absolute bottom-4 right-4">
+                  <ImageUploader
+                    bucketName="site_images"
+                    onImageUploaded={handleImageUploaded}
+                    aspectRatio={16/9}
+                    maxWidth="400px"
+                  />
                 </div>
               </div>
             )}
