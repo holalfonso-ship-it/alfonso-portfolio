@@ -73,7 +73,7 @@ export const ComponentExamplesSection: React.FC = () => {
               </p>
               <div className="flex-grow"></div>
               <div className="mt-4">
-                <img src="/lovable-uploads/3eaa9d8f-3d72-4339-b200-982a6a06bc5c.png" alt="Mobile filters UI examples" className="w-full rounded-md shadow-sm object-none" />
+                <img alt="Mobile filters UI examples" src="/lovable-uploads/9ec4b5eb-c1ca-4930-b77e-35f026f82888.png" className="w-full rounded-md shadow-sm object-contain" />
               </div>
             </div>
           </AspectRatio>
