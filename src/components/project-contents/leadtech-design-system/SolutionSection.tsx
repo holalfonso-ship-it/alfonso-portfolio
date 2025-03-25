@@ -1,9 +1,6 @@
-
 import React from 'react';
-
 const SolutionSection: React.FC = () => {
-  return (
-    <section className="space-y-6">
+  return <section className="space-y-6">
       <h2 className="text-3xl font-bold">Solution</h2>
       <p>
         After extensive research into design systems across the industry and evaluation of our specific needs, 
@@ -11,11 +8,7 @@ const SolutionSection: React.FC = () => {
       </p>
       
       <div className="py-6">
-        <img 
-          src="/lovable-uploads/1b158ca3-ed08-40fa-bc55-7d519486e8c0.png" 
-          alt="Design System Components"
-          className="w-full rounded-lg shadow-lg"
-        />
+        <img alt="Design System Components" className="w-full rounded-lg shadow-lg" src="/lovable-uploads/5349fb3d-9087-4ddc-8c08-405b7aa7b592.png" />
         <p className="text-sm text-muted-foreground italic mt-2 text-center">
           Visual representation of the design system components and structure
         </p>
@@ -44,8 +37,6 @@ const SolutionSection: React.FC = () => {
         The system was implemented in Figma for designers and as a React component library for developers, 
         ensuring a seamless handoff process and maintaining design consistency through all stages of development.
       </p>
-    </section>
-  );
+    </section>;
 };
-
 export default SolutionSection;
