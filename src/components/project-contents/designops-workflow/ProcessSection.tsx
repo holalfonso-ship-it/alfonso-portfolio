@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { Card, CardContent } from '../../ui/card';
 import { AspectRatio } from '../../ui/aspect-ratio';
 import { ArrowRight, Clock, CheckCheck, Users, Workflow, Share } from 'lucide-react';
+
 const ProcessSection: React.FC = () => {
   return <>
       <h2 className="text-3xl font-bold mb-6">Process</h2>
@@ -120,4 +122,5 @@ const ProcessSection: React.FC = () => {
       </div>
     </>;
 };
+
 export default ProcessSection;
