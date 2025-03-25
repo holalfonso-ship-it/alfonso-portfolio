@@ -16,7 +16,7 @@ export const ChallengeSection: React.FC = () => {
 
       <div className="mb-12">
         <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg overflow-hidden">
-          <img alt="Leadtech Design System Analytics Dashboard" src="/lovable-uploads/2ffb939e-4cd5-4263-92b0-d74903f44566.png" className="w-full h-full object-scale-down" />
+          <img alt="Leadtech Design System Analytics Dashboard" className="w-full h-full object-scale-down" src="/lovable-uploads/3a432e07-768e-444b-a81f-61433a92231b.png" />
         </AspectRatio>
         <p className="text-sm text-muted-foreground mt-2 text-center">
           Design System Analytics Dashboard showing component usage metrics

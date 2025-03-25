@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '../../ui/card';
 import { AspectRatio } from '../../ui/aspect-ratio';
@@ -74,7 +73,7 @@ export const ComponentExamplesSection: React.FC = () => {
               </p>
               <div className="flex-grow"></div>
               <div className="mt-4">
-                <img src="/lovable-uploads/3eaa9d8f-3d72-4339-b200-982a6a06bc5c.png" alt="Mobile filters UI examples" className="w-full rounded-md shadow-sm" />
+                <img src="/lovable-uploads/3eaa9d8f-3d72-4339-b200-982a6a06bc5c.png" alt="Mobile filters UI examples" className="w-full rounded-md shadow-sm object-none" />
               </div>
             </div>
           </AspectRatio>
@@ -100,4 +99,3 @@ export const ComponentExamplesSection: React.FC = () => {
       </div>
     </>;
 };
-
