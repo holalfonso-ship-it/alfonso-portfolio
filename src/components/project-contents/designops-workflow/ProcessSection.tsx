@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card, CardContent } from '../../ui/card';
 import { AspectRatio } from '../../ui/aspect-ratio';
@@ -112,19 +113,11 @@ const ProcessSection: React.FC = () => {
         </div>
       </div>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <div>
-          <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            <img alt="DesignOps Workflow Implementation" className="object-cover w-full h-full" src="/lovable-uploads/55963e07-669a-4f5d-b0a0-d5e3ed321407.png" />
-          </AspectRatio>
-          <p className="text-sm text-muted-foreground">DesignOps Framework Implementation</p>
-        </div>
-        <div>
-          <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
-            
-          </AspectRatio>
-          <p className="text-sm text-muted-foreground">Enhanced Team Collaboration Workflow</p>
-        </div>
+      <div className="mb-12">
+        <AspectRatio ratio={4 / 3} className="bg-muted rounded-lg overflow-hidden mb-4">
+          <img alt="DesignOps Workflow Implementation" className="object-cover w-full h-full" src="/lovable-uploads/55963e07-669a-4f5d-b0a0-d5e3ed321407.png" />
+        </AspectRatio>
+        <p className="text-sm text-muted-foreground">DesignOps Framework Implementation</p>
       </div>
     </>;
 };
