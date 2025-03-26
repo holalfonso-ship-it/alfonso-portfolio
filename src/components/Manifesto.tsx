@@ -1,3 +1,4 @@
+
 import React from 'react';
 import AnimatedText from './AnimatedText';
 import { Quote, Star, Users, Lightbulb, Book, ChevronRight } from 'lucide-react';
@@ -11,7 +12,7 @@ const Manifesto: React.FC = () => {
             Manifesto
           </span>
           
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight leading-relaxed">
             <AnimatedText text="My Design Philosophy" className="inline-block" once />
           </h2>
         </div>
