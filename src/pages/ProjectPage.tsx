@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ProjectDetail from '../components/ProjectDetail';
@@ -63,9 +64,9 @@ const projects = [
     title: 'Mobile App Design',
     description: 'Designed cross-platform mobile applications for iOS and Android that increased user retention by 35% and improved app store ratings by 1.5 stars.',
     category: 'Mobile',
-    image: '/lovable-uploads/d02ab1a8-a48e-410d-aa65-bb5d4df1b25b.png',
+    image: '/lovable-uploads/13e97784-f292-43c2-9d4b-dbeb1049b4ba.png',
     heroImages: [
-      '/lovable-uploads/d02ab1a8-a48e-410d-aa65-bb5d4df1b25b.png'
+      '/lovable-uploads/13e97784-f292-43c2-9d4b-dbeb1049b4ba.png'
     ],
     link: '/project/5',
     content: <MobileAppDesignContent />
