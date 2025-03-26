@@ -15,7 +15,7 @@ export const MobileAppDesignContent: React.FC = () => {
       <div className="mb-16">
         <div className="rounded-lg overflow-hidden border border-border/50 shadow-sm">
           <img 
-            src="/lovable-uploads/d02ab1a8-a48e-410d-aa65-bb5d4df1b25b.png" 
+            src="/lovable-uploads/4125ee16-d045-4896-b097-c1e8f6e5286f.png" 
             alt="Mobile App Design Showcase" 
             className="w-full h-auto"
           />

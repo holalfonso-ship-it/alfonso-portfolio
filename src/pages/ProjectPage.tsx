@@ -64,9 +64,9 @@ const projects = [
     title: 'Mobile App Design',
     description: 'Designed cross-platform mobile applications for iOS and Android that increased user retention by 35% and improved app store ratings by 1.5 stars.',
     category: 'Mobile',
-    image: '/lovable-uploads/13e97784-f292-43c2-9d4b-dbeb1049b4ba.png',
+    image: '/lovable-uploads/4125ee16-d045-4896-b097-c1e8f6e5286f.png',
     heroImages: [
-      '/lovable-uploads/13e97784-f292-43c2-9d4b-dbeb1049b4ba.png'
+      '/lovable-uploads/4125ee16-d045-4896-b097-c1e8f6e5286f.png'
     ],
     link: '/project/5',
     content: <MobileAppDesignContent />
