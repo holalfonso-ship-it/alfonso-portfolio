@@ -1,4 +1,3 @@
-
 import React from 'react';
 import AnimatedText from './AnimatedText';
 import { Quote, Star, Users, Lightbulb, Book, ChevronRight } from 'lucide-react';
@@ -13,8 +12,7 @@ const Manifesto: React.FC = () => {
           </span>
           
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight">
-            <AnimatedText text="My Design" className="block mb-2" once />
-            <AnimatedText text="Philosophy" className="text-gradient block" once delay={200} />
+            <AnimatedText text="My Design Philosophy" className="inline-block" once />
           </h2>
         </div>
         
