@@ -13,6 +13,7 @@ const projects = [
   { id: 2, title: 'DesignOps Workflow', category: 'DesignOps' },
   { id: 3, title: 'Loyalty App', category: 'UX/UI' },
   { id: 4, title: 'Data Visualization', category: 'Product Design' },
+  { id: 5, title: 'Mobile App Design', category: 'Mobile' },
   { id: 7, title: 'Cross-team Collaboration', category: 'DesignOps' },
 ];
 
