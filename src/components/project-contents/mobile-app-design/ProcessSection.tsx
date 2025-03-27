@@ -58,7 +58,7 @@ const ProcessSection: React.FC = () => {
             </div>
             <div className="rounded-lg overflow-hidden border border-border/50">
               <AspectRatio ratio={16 / 9} className="bg-muted">
-                <img src="/lovable-uploads/1b158ca3-ed08-40fa-bc55-7d519486e8c0.png" alt="Information Architecture Planning" className="w-full h-full object-cover" />
+                <img alt="Information Architecture Planning" className="w-full h-full object-cover" src="/lovable-uploads/bf0527b8-71d8-4a05-bb27-3cf2102daa11.png" />
               </AspectRatio>
               <div className="p-3 bg-muted/30">
                 <p className="text-xs text-muted-foreground">
