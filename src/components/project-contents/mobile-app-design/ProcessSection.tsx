@@ -90,7 +90,7 @@ const ProcessSection: React.FC = () => {
             </div>
             <div className="rounded-lg overflow-hidden border border-border/50">
               <AspectRatio ratio={16 / 9} className="bg-muted">
-                <img src="/lovable-uploads/4fe6b813-f155-406e-9d47-cab1a5940040.png" alt="Wireframing and Prototyping Process" className="w-full h-full object-cover" />
+                <img alt="Wireframing and Prototyping Process" className="w-full h-full object-cover" src="/lovable-uploads/9f00aa05-f9b2-486b-8166-30126ef7e168.png" />
               </AspectRatio>
               <div className="p-3 bg-muted/30">
                 <p className="text-xs text-muted-foreground">
