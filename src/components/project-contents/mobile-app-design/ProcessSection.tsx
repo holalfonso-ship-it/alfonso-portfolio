@@ -1,10 +1,7 @@
-
 import React from 'react';
 import { AspectRatio } from '../../../components/ui/aspect-ratio';
-
 const ProcessSection: React.FC = () => {
-  return (
-    <div>
+  return <div>
       <h2 className="text-3xl font-bold mb-6">Design Process</h2>
       
       <div className="space-y-12">
@@ -28,12 +25,8 @@ const ProcessSection: React.FC = () => {
               </ul>
             </div>
             <div className="rounded-lg overflow-hidden border border-border/50">
-              <AspectRatio ratio={16/9} className="bg-muted">
-                <img 
-                  src="/lovable-uploads/3709a877-e3c3-4543-983f-3ad77c4f259b.png" 
-                  alt="Research and Analysis Phase" 
-                  className="w-full h-full object-cover"
-                />
+              <AspectRatio ratio={16 / 9} className="bg-muted">
+                <img alt="Research and Analysis Phase" className="w-full h-full object-cover" src="/lovable-uploads/4789cc35-7092-4740-af94-ce7f152bbf3b.png" />
               </AspectRatio>
               <div className="p-3 bg-muted/30">
                 <p className="text-xs text-muted-foreground">
@@ -64,12 +57,8 @@ const ProcessSection: React.FC = () => {
               </ul>
             </div>
             <div className="rounded-lg overflow-hidden border border-border/50">
-              <AspectRatio ratio={16/9} className="bg-muted">
-                <img 
-                  src="/lovable-uploads/1b158ca3-ed08-40fa-bc55-7d519486e8c0.png" 
-                  alt="Information Architecture Planning" 
-                  className="w-full h-full object-cover"
-                />
+              <AspectRatio ratio={16 / 9} className="bg-muted">
+                <img src="/lovable-uploads/1b158ca3-ed08-40fa-bc55-7d519486e8c0.png" alt="Information Architecture Planning" className="w-full h-full object-cover" />
               </AspectRatio>
               <div className="p-3 bg-muted/30">
                 <p className="text-xs text-muted-foreground">
@@ -100,12 +89,8 @@ const ProcessSection: React.FC = () => {
               </ul>
             </div>
             <div className="rounded-lg overflow-hidden border border-border/50">
-              <AspectRatio ratio={16/9} className="bg-muted">
-                <img 
-                  src="/lovable-uploads/4fe6b813-f155-406e-9d47-cab1a5940040.png" 
-                  alt="Wireframing and Prototyping Process" 
-                  className="w-full h-full object-cover"
-                />
+              <AspectRatio ratio={16 / 9} className="bg-muted">
+                <img src="/lovable-uploads/4fe6b813-f155-406e-9d47-cab1a5940040.png" alt="Wireframing and Prototyping Process" className="w-full h-full object-cover" />
               </AspectRatio>
               <div className="p-3 bg-muted/30">
                 <p className="text-xs text-muted-foreground">
@@ -136,12 +121,8 @@ const ProcessSection: React.FC = () => {
               </ul>
             </div>
             <div className="rounded-lg overflow-hidden border border-border/50">
-              <AspectRatio ratio={16/9} className="bg-muted">
-                <img 
-                  src="/lovable-uploads/3eaa9d8f-3d72-4339-b200-982a6a06bc5c.png" 
-                  alt="Design System Components" 
-                  className="w-full h-full object-cover"
-                />
+              <AspectRatio ratio={16 / 9} className="bg-muted">
+                <img src="/lovable-uploads/3eaa9d8f-3d72-4339-b200-982a6a06bc5c.png" alt="Design System Components" className="w-full h-full object-cover" />
               </AspectRatio>
               <div className="p-3 bg-muted/30">
                 <p className="text-xs text-muted-foreground">
@@ -172,12 +153,8 @@ const ProcessSection: React.FC = () => {
               </ul>
             </div>
             <div className="rounded-lg overflow-hidden border border-border/50">
-              <AspectRatio ratio={16/9} className="bg-muted">
-                <img 
-                  src="/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png" 
-                  alt="UI Design and Iterations" 
-                  className="w-full h-full object-cover"
-                />
+              <AspectRatio ratio={16 / 9} className="bg-muted">
+                <img src="/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png" alt="UI Design and Iterations" className="w-full h-full object-cover" />
               </AspectRatio>
               <div className="p-3 bg-muted/30">
                 <p className="text-xs text-muted-foreground">
@@ -208,12 +185,8 @@ const ProcessSection: React.FC = () => {
               </ul>
             </div>
             <div className="rounded-lg overflow-hidden border border-border/50">
-              <AspectRatio ratio={16/9} className="bg-muted">
-                <img 
-                  src="/lovable-uploads/0a0b18bd-6af2-42d6-8ef4-b7a923f4a58d.png" 
-                  alt="Implementation and Optimization" 
-                  className="w-full h-full object-cover"
-                />
+              <AspectRatio ratio={16 / 9} className="bg-muted">
+                <img src="/lovable-uploads/0a0b18bd-6af2-42d6-8ef4-b7a923f4a58d.png" alt="Implementation and Optimization" className="w-full h-full object-cover" />
               </AspectRatio>
               <div className="p-3 bg-muted/30">
                 <p className="text-xs text-muted-foreground">
@@ -224,8 +197,6 @@ const ProcessSection: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default ProcessSection;
