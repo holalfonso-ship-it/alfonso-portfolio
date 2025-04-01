@@ -111,6 +111,10 @@ const Header: React.FC = () => {
     return href;
   };
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     <header 
       className={cn(
@@ -130,7 +134,7 @@ const Header: React.FC = () => {
         
         <MobileMenuToggle 
           isOpen={mobileMenuOpen}
-          onToggle={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onToggle={toggleMobileMenu}
         />
         
         <MobileMenu 

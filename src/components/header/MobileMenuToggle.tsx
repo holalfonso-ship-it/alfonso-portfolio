@@ -11,13 +11,13 @@ interface MobileMenuToggleProps {
 
 const MobileMenuToggle: React.FC<MobileMenuToggleProps> = ({ isOpen, onToggle }) => {
   return (
-    <div className="md:hidden flex items-center gap-3">
+    <div className="md:hidden flex items-center gap-4">
       <ThemeToggle />
       
       <Button 
-        variant="ghost"
+        variant="outline"
         size="icon"
-        className="text-foreground p-2"
+        className="text-foreground border-border"
         onClick={onToggle}
         aria-label={isOpen ? "Close menu" : "Open menu"}
       >

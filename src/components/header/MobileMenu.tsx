@@ -36,7 +36,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   return (
     <div 
       className={cn(
-        "fixed inset-0 z-40 bg-background/95 backdrop-blur-md md:hidden transition-all duration-300 flex flex-col items-center justify-center",
+        "fixed inset-0 z-50 bg-background/95 backdrop-blur-md md:hidden transition-all duration-300 flex flex-col items-center overflow-y-auto",
         isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       )}
     >
@@ -47,33 +47,46 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
         </Button>
       </div>
       
-      <nav className="flex flex-col items-center space-y-8 py-10 w-full max-w-xs">
+      <nav className="flex flex-col items-center space-y-6 py-24 px-6 w-full">
         {navItems.map((item) => (
           !item.hasDropdown ? (
             <Link
               key={item.href}
               to={item.href}
-              className="text-2xl font-medium transition-colors hover:text-primary"
+              className="text-xl font-medium transition-colors hover:text-primary"
               onClick={onLinkClick}
             >
               {item.label}
             </Link>
           ) : (
-            <div key={item.href} className="w-full">
+            <div key={item.href} className="w-full space-y-4">
               <Link 
                 to={item.href}
-                className="text-2xl font-medium transition-colors hover:text-primary mb-6 block text-center"
+                className="text-xl font-medium transition-colors hover:text-primary block"
                 onClick={onLinkClick}
               >
                 {item.label}
               </Link>
+              
+              <div className="grid grid-cols-1 gap-3 pl-4">
+                {projects.map((project) => (
+                  <Link
+                    key={project.id}
+                    to={`/projects/${project.slug}`}
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors py-1"
+                    onClick={onLinkClick}
+                  >
+                    {project.title}
+                  </Link>
+                ))}
+              </div>
             </div>
           )
         ))}
         
         <Button 
           variant="outline" 
-          className="mt-4 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 w-full max-w-[200px]"
+          className="mt-8 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 w-full max-w-[200px]"
           onClick={() => {
             onDownloadCV();
             onLinkClick();
