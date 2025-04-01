@@ -13,6 +13,7 @@ interface Project {
   id: number;
   title: string;
   category: string;
+  slug?: string;
 }
 
 interface ProjectsDropdownProps {
@@ -30,7 +31,7 @@ const ProjectsDropdown: React.FC<ProjectsDropdownProps> = ({ projects, onSelect 
         {projects.map((project) => (
           <DropdownMenuItem key={project.id} asChild>
             <Link 
-              to={`/project/${project.id}`} 
+              to={project.slug ? `/projects/${project.slug}` : `/project/${project.id}`}
               className="cursor-pointer"
               onClick={onSelect}
             >

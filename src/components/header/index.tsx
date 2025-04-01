@@ -9,12 +9,12 @@ import MobileMenuToggle from './MobileMenuToggle';
 import MobileMenu from './MobileMenu';
 
 const projects = [
-  { id: 5, title: 'Mobile App Design', category: 'Mobile' },
-  { id: 1, title: 'Design Systems', category: 'Design System' },
-  { id: 2, title: 'DesignOps Workflow', category: 'DesignOps' },
-  { id: 3, title: 'Loyalty WebApp B2B SaaS', category: 'UX/UI' },
-  { id: 4, title: 'Data Visualization', category: 'Product Design' },
-  { id: 7, title: 'Cross-team Collaboration', category: 'DesignOps' },
+  { id: 5, title: 'Mobile App Design', category: 'Mobile', slug: 'mobile-app-design' },
+  { id: 1, title: 'Design Systems', category: 'Design System', slug: 'design-systems' },
+  { id: 2, title: 'DesignOps Workflow', category: 'DesignOps', slug: 'designops-workflow' },
+  { id: 3, title: 'Loyalty WebApp B2B SaaS', category: 'UX/UI', slug: 'loyalty-webapp-b2b-saas' },
+  { id: 4, title: 'Data Visualization', category: 'Product Design', slug: 'data-visualization' },
+  { id: 7, title: 'Cross-team Collaboration', category: 'DesignOps', slug: 'cross-team-collaboration-framework' },
 ];
 
 const Header: React.FC = () => {

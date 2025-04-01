@@ -15,6 +15,7 @@ interface Project {
   id: number;
   title: string;
   category: string;
+  slug?: string;
 }
 
 interface MobileMenuProps {
@@ -48,7 +49,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                 {projects.map((project) => (
                   <Link
                     key={project.id}
-                    to={`/project/${project.id}`}
+                    to={project.slug ? `/projects/${project.slug}` : `/project/${project.id}`}
                     className="text-lg text-muted-foreground hover:text-white"
                     onClick={onLinkClick}
                   >

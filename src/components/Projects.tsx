@@ -11,50 +11,56 @@ const projects = [
   {
     id: 5,
     title: 'Mobile App Design',
+    slug: 'mobile-app-design',
     description: 'Designed cross-platform mobile applications for iOS and Android that increased user retention by 35% and improved app store ratings by 1.5 stars.',
     category: 'Mobile',
     image: '/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png',
-    link: '/project/5'
+    link: '/projects/mobile-app-design'
   },
   {
     id: 1,
     title: 'Design Systems',
+    slug: 'design-systems',
     description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
     category: 'Design System',
     image: '/lovable-uploads/3dcf1c6d-4dde-437c-b626-bbe99631bf3f.png',
-    link: '/project/1'
+    link: '/projects/design-systems'
   },
   {
     id: 2,
     title: 'DesignOps Workflow',
+    slug: 'designops-workflow',
     description: 'Implemented and optimized DesignOps processes that enhanced team collaboration, reduced handoff time by 40%, and improved overall design efficiency.',
     category: 'DesignOps',
     image: '/lovable-uploads/ed4aab16-f8c3-46b1-be10-d44758f7d149.png',
-    link: '/project/2'
+    link: '/projects/designops-workflow'
   },
   {
     id: 3,
     title: 'Loyalty WebApp B2B SaaS',
+    slug: 'loyalty-webapp-b2b-saas',
     description: 'Redesigned the B2B loyalty platform resulting in a 25% increase in client engagement and a 15% improvement in conversion rates for enterprise customers.',
     category: 'UX/UI',
     image: '/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png',
-    link: '/project/3'
+    link: '/projects/loyalty-webapp-b2b-saas'
   },
   {
     id: 4,
     title: 'Data Visualization',
+    slug: 'data-visualization',
     description: 'Developed intuitive dashboards and data visualizations that increased stakeholder engagement by 20% and improved decision-making processes.',
     category: 'Product Design',
     image: '/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png',
-    link: '/project/4'
+    link: '/projects/data-visualization'
   },
   {
     id: 7,
     title: 'Cross-team Collaboration Framework',
+    slug: 'cross-team-collaboration-framework',
     description: 'Created a structured DesignOps framework that improved collaboration between design, development, and product teams, reducing project delivery time by 35%.',
     category: 'DesignOps',
     image: '/lovable-uploads/a8a3c542-efbf-46c2-a78b-bcd8a2ddcb83.png',
-    link: '/project/7'
+    link: '/projects/cross-team-collaboration-framework'
   }
 ];
 
