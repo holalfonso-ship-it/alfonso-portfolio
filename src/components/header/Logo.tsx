@@ -8,7 +8,7 @@ const Logo: React.FC = () => {
       to="/" 
       className="text-xl font-display font-bold relative z-10 transition-colors duration-300"
     >
-      azportolio<span className="text-primary">.net</span>
+      azamorano<span className="text-primary">.net</span>
     </Link>
   );
 };
