@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
           <div className="flex flex-col md:flex-row mb-8 md:mb-16 w-full">
             <div className="w-full md:w-3/4">
               <h1 className="text-6xl md:text-8xl xl:text-9xl font-display font-bold leading-tight md:leading-none tracking-tighter mb-6 md:mb-8">
-                <span className="block text-2xl md:text-3xl tracking-widest text-muted-foreground mb-2 opacity-0 animate-slide-up animation-delay-200 font-bold">Hi, I am Alfonso</span>
+                <span className="block text-2xl md:text-3xl text-muted-foreground mb-2 opacity-0 animate-slide-up animation-delay-200 font-bold">Hi, I am Alfonso</span>
                 <span className="block opacity-0 animate-slide-up animation-delay-500">
                   Product <span className="text-primary">Designer</span>
                 </span>
