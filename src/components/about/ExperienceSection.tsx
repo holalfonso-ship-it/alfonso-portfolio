@@ -9,7 +9,10 @@ const ExperienceSection: React.FC = () => {
       
       <div className="space-y-8">
         {/* Leadtech group */}
-        <div className="p-6 rounded-xl border border-border bg-card/50">
+        <div className="p-6 rounded-xl border-2 border-primary bg-card/50 relative shadow-md">
+          <span className="absolute -top-3 right-4 px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
+            Present
+          </span>
           <div className="flex flex-col md:flex-row md:items-start justify-between mb-4">
             <div>
               <h4 className="text-lg font-semibold">Senior Product Designer / DesignOPS</h4>
