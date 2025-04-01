@@ -9,6 +9,14 @@ const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Desig
 
 const projects = [
   {
+    id: 5,
+    title: 'Mobile App Design',
+    description: 'Designed cross-platform mobile applications for iOS and Android that increased user retention by 35% and improved app store ratings by 1.5 stars.',
+    category: 'Mobile',
+    image: '/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png',
+    link: '/project/5'
+  },
+  {
     id: 1,
     title: 'Design Systems',
     description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
@@ -39,14 +47,6 @@ const projects = [
     category: 'Product Design',
     image: '/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png',
     link: '/project/4'
-  },
-  {
-    id: 5,
-    title: 'Mobile App Design',
-    description: 'Designed cross-platform mobile applications for iOS and Android that increased user retention by 35% and improved app store ratings by 1.5 stars.',
-    category: 'Mobile',
-    image: '/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png',
-    link: '/project/5'
   },
   {
     id: 7,

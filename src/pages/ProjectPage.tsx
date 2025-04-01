@@ -12,6 +12,18 @@ import { MobileAppDesignContent } from '../components/project-contents/MobileApp
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
   {
+    id: 5,
+    title: 'Mobile App Design',
+    description: 'Designed cross-platform mobile applications for iOS and Android that increased user retention by 35% and improved app store ratings by 1.5 stars.',
+    category: 'Mobile',
+    image: '/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png',
+    heroImages: [
+      '/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png'
+    ],
+    link: '/project/5',
+    content: <MobileAppDesignContent />
+  },
+  {
     id: 1,
     title: 'Design Systems',
     description: 'Created and maintained a comprehensive design system that increased development efficiency by 30% and ensured visual consistency across multiple products.',
@@ -58,18 +70,6 @@ const projects = [
     ],
     link: '/project/4',
     content: <DataVisualizationContent />
-  },
-  {
-    id: 5,
-    title: 'Mobile App Design',
-    description: 'Designed cross-platform mobile applications for iOS and Android that increased user retention by 35% and improved app store ratings by 1.5 stars.',
-    category: 'Mobile',
-    image: '/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png',
-    heroImages: [
-      '/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png'
-    ],
-    link: '/project/5',
-    content: <MobileAppDesignContent />
   },
   {
     id: 7,
