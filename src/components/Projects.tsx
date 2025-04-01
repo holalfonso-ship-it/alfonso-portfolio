@@ -34,8 +34,8 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Loyalty App',
-    description: 'Redesigned the loyalty app experience resulting in a 25% increase in user engagement and a 15% improvement in conversion rates.',
+    title: 'Loyalty WebApp B2B SaaS',
+    description: 'Redesigned the B2B loyalty platform resulting in a 25% increase in client engagement and a 15% improvement in conversion rates for enterprise customers.',
     category: 'UX/UI',
     image: '/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png',
     link: '/project/3'

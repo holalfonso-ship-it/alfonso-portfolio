@@ -12,7 +12,7 @@ export const SolutionSection: React.FC = () => {
     <>
       <h2 className="text-3xl font-bold mb-6">Solution</h2>
       <p className="mb-6">
-        I developed a comprehensive redesign strategy that addressed key user pain points while 
+        I developed a comprehensive redesign strategy for the B2B SaaS platform that addressed key client pain points while 
         aligning with business objectives:
       </p>
 
@@ -22,11 +22,11 @@ export const SolutionSection: React.FC = () => {
             <Smartphone className="h-8 w-8 text-primary" />
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-2">Intuitive User Interface</h3>
+            <h3 className="text-xl font-bold mb-2">Enterprise-grade Interface</h3>
             <p>
-              Redesigned the app interface with a focus on simplicity and ease of use. 
+              Redesigned the webapp interface with a focus on B2B functionality and ease of use. 
               Implemented clear visual hierarchies and intuitive navigation patterns to 
-              reduce cognitive load and enhance the overall user experience.
+              reduce cognitive load for corporate administrators managing multiple accounts.
             </p>
           </div>
         </div>
@@ -36,11 +36,11 @@ export const SolutionSection: React.FC = () => {
             <Users className="h-8 w-8 text-primary" />
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-2">Personalized Experience</h3>
+            <h3 className="text-xl font-bold mb-2">Multi-tenant Experience</h3>
             <p>
-              Introduced personalization features that tailored the user experience based on 
-              past interactions and preferences. Created a recommendation engine that highlighted 
-              relevant offers and benefits to each user.
+              Introduced enterprise-level customization that tailored the SaaS experience based on 
+              corporate branding and preferences. Created a recommendation engine that highlighted 
+              relevant offers and benefits to different tiers of business clients.
             </p>
           </div>
         </div>
@@ -50,11 +50,11 @@ export const SolutionSection: React.FC = () => {
             <ShoppingBag className="h-8 w-8 text-primary" />
           </div>
           <div>
-            <h3 className="text-xl font-bold mb-2">Streamlined Booking Process</h3>
+            <h3 className="text-xl font-bold mb-2">Streamlined B2B Process</h3>
             <p>
-              Optimized the booking flow to reduce friction and abandon rates. Implemented a 
-              step-by-step process with clear indicators of progress and simplified form fields 
-              to make the transaction process smoother.
+              Optimized the corporate booking flow to reduce friction and abandon rates. Implemented a 
+              step-by-step process with clear indicators of progress and simplified enterprise management 
+              to make the administrative process smoother for B2B clients.
             </p>
           </div>
         </div>
@@ -65,21 +65,21 @@ export const SolutionSection: React.FC = () => {
           <AspectRatio ratio={4/3} className="bg-muted rounded-lg overflow-hidden mb-4">
             <img 
               src="/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png" 
-              alt="Wanup Loyalty App UI" 
+              alt="Wanup B2B SaaS UI" 
               className="object-cover w-full h-full"
             />
           </AspectRatio>
-          <p className="text-sm text-muted-foreground">Mobile app interface with improved navigation</p>
+          <p className="text-sm text-muted-foreground">Enterprise dashboard with improved navigation</p>
         </div>
         <div>
           <AspectRatio ratio={4/3} className="bg-muted rounded-lg overflow-hidden mb-4">
             <img 
               src="/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png" 
-              alt="Wanup Rewards Dashboard" 
+              alt="Wanup B2B Rewards Dashboard" 
               className="object-cover w-full h-full object-top"
             />
           </AspectRatio>
-          <p className="text-sm text-muted-foreground">Rewards dashboard showing loyalty benefits</p>
+          <p className="text-sm text-muted-foreground">Corporate rewards dashboard showing loyalty benefits</p>
         </div>
       </div>
     </>
