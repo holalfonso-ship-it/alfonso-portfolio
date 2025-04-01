@@ -68,36 +68,6 @@ export function FooterSection({ className }: FooterSectionProps) {
     <footer className="relative border-t bg-secondary/80 text-foreground transition-colors duration-300">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">Stay Connected</h2>
-            <p className="mb-6 text-muted-foreground">
-              Download my CV to learn more about my experience and skills in Product Design and DesignOps.
-            </p>
-            <div className="space-y-4">
-              <Button 
-                variant="default" 
-                size="lg" 
-                asChild
-                className="w-full group transition-all duration-300 hover:shadow-lg"
-              >
-                <a href={cvDownloadUrl} download>
-                  <Download className="mr-2 h-5 w-5 transition-transform group-hover:translate-y-1" />
-                  Download CV
-                </a>
-              </Button>
-              
-              <div className="flex items-center p-3 bg-background/50 rounded-lg border border-border/50">
-                <FileText className="h-5 w-5 mr-3 text-primary" />
-                <div className="flex-1">
-                  <p className="text-sm font-medium">Professional Profile</p>
-                  <p className="text-xs text-muted-foreground">Digital Product Designer with DesignOps expertise</p>
-                </div>
-                <Sparkles className="h-4 w-4 text-primary/80" />
-              </div>
-            </div>
-            <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
-          </div>
-          
           <div>
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
             <nav className="space-y-2 text-sm">
@@ -170,6 +140,36 @@ export function FooterSection({ className }: FooterSectionProps) {
                 </Tooltip>
               </TooltipProvider>
             </div>
+          </div>
+          
+          <div className="relative">
+            <h2 className="mb-4 text-3xl font-bold tracking-tight">Stay Connected</h2>
+            <p className="mb-6 text-muted-foreground">
+              Download my CV to learn more about my experience and skills in Product Design and DesignOps.
+            </p>
+            <div className="space-y-4">
+              <Button 
+                variant="default" 
+                size="lg" 
+                asChild
+                className="w-full group transition-all duration-300 hover:shadow-lg"
+              >
+                <a href={cvDownloadUrl} download>
+                  <Download className="mr-2 h-5 w-5 transition-transform group-hover:translate-y-1" />
+                  Download CV
+                </a>
+              </Button>
+              
+              <div className="flex items-center p-3 bg-background/50 rounded-lg border border-border/50">
+                <FileText className="h-5 w-5 mr-3 text-primary" />
+                <div className="flex-1">
+                  <p className="text-sm font-medium">Professional Profile</p>
+                  <p className="text-xs text-muted-foreground">Digital Product Designer with DesignOps expertise</p>
+                </div>
+                <Sparkles className="h-4 w-4 text-primary/80" />
+              </div>
+            </div>
+            <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
           </div>
         </div>
         
