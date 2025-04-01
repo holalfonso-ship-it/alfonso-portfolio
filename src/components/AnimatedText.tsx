@@ -55,7 +55,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
     <span 
       ref={textRef} 
       className={cn(
-        "inline-block opacity-0 overflow-hidden",
+        "inline-block opacity-0 overflow-hidden pb-1", // Added pb-1 for extra space below text
         className
       )}
     >
