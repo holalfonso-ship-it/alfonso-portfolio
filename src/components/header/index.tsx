@@ -24,6 +24,19 @@ const Header: React.FC = () => {
   const location = useLocation();
   const isProjectPage = location.pathname.includes('/project/');
 
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const navItems = isProjectPage 
     ? [
         { label: 'Home', href: '/' },
@@ -81,6 +94,11 @@ const Header: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
 
   const handleDownloadCV = () => {
     window.open(cvUrl || '/alfonso-cv.pdf', '_blank');

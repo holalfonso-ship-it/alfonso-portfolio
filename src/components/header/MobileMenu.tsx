@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FileText } from 'lucide-react';
+import { FileText, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -36,43 +36,44 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
   return (
     <div 
       className={cn(
-        "fixed inset-0 z-40 glass-dark md:hidden transition-opacity duration-300 flex flex-col justify-center items-center",
+        "fixed inset-0 z-40 bg-background/95 backdrop-blur-md md:hidden transition-all duration-300 flex flex-col items-center justify-center",
         isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       )}
     >
-      <nav className="flex flex-col items-center space-y-6">
+      <div className="absolute top-6 right-6">
+        <Button variant="ghost" size="icon" onClick={onLinkClick} className="text-foreground">
+          <X size={24} />
+          <span className="sr-only">Close menu</span>
+        </Button>
+      </div>
+      
+      <nav className="flex flex-col items-center space-y-8 py-10 w-full max-w-xs">
         {navItems.map((item) => (
-          item.hasDropdown ? (
-            <div key={item.href} className="flex flex-col items-center space-y-3">
-              <span className="text-2xl font-medium">{item.label}</span>
-              <div className="flex flex-col items-center space-y-3 mt-2 mb-4">
-                {projects.map((project) => (
-                  <Link
-                    key={project.id}
-                    to={project.slug ? `/projects/${project.slug}` : `/project/${project.id}`}
-                    className="text-lg text-muted-foreground hover:text-white"
-                    onClick={onLinkClick}
-                  >
-                    {project.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : (
+          !item.hasDropdown ? (
             <Link
               key={item.href}
               to={item.href}
-              className="text-2xl font-medium"
+              className="text-2xl font-medium transition-colors hover:text-primary"
               onClick={onLinkClick}
             >
               {item.label}
             </Link>
+          ) : (
+            <div key={item.href} className="w-full">
+              <Link 
+                to={item.href}
+                className="text-2xl font-medium transition-colors hover:text-primary mb-6 block text-center"
+                onClick={onLinkClick}
+              >
+                {item.label}
+              </Link>
+            </div>
           )
         ))}
         
         <Button 
           variant="outline" 
-          className="mt-4 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300"
+          className="mt-4 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 w-full max-w-[200px]"
           onClick={() => {
             onDownloadCV();
             onLinkClick();

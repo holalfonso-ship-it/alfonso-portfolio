@@ -1,9 +1,12 @@
+
 import React, { useRef, useEffect, useState } from 'react';
 import AnimatedText from './AnimatedText';
 import { ChevronDown, Sparkles } from 'lucide-react';
+
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -14,6 +17,7 @@ const Hero: React.FC = () => {
       window.removeEventListener('resize', checkIfMobile);
     };
   }, []);
+  
   const handleScrollClick = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
@@ -22,7 +26,9 @@ const Hero: React.FC = () => {
       });
     }
   };
-  return <section id="home" ref={heroRef} className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-32 relative overflow-hidden">
+  
+  return (
+    <section id="home" ref={heroRef} className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-32 relative overflow-hidden pt-20 md:pt-32">
       {/* Background elements */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(52,152,219,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(52,152,219,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-60" />
       
@@ -97,6 +103,8 @@ const Hero: React.FC = () => {
           <ChevronDown size={24} />
         </button>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;

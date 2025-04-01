@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { Button } from '@/components/ui/button';
 
 interface MobileMenuToggleProps {
   isOpen: boolean;
@@ -13,13 +14,15 @@ const MobileMenuToggle: React.FC<MobileMenuToggleProps> = ({ isOpen, onToggle })
     <div className="md:hidden flex items-center gap-3">
       <ThemeToggle />
       
-      <button 
-        className="text-foreground p-2 z-50"
+      <Button 
+        variant="ghost"
+        size="icon"
+        className="text-foreground p-2"
         onClick={onToggle}
         aria-label={isOpen ? "Close menu" : "Open menu"}
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
-      </button>
+        <Menu size={24} />
+      </Button>
     </div>
   );
 };
