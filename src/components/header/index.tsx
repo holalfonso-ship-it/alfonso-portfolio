@@ -15,8 +15,9 @@ const projects = [
   { id: 3, title: 'Loyalty WebApp B2B SaaS', category: 'UX/UI', slug: 'loyalty-webapp-b2b-saas' },
   { id: 4, title: 'Data Visualization', category: 'Product Design', slug: 'data-visualization' },
   { id: 7, title: 'Cross-team Collaboration', category: 'DesignOps', slug: 'cross-team-collaboration-framework' },
-  { id: 6, title: 'VideoUp Landing Page', category: 'UI Design', slug: 'videoup-landing-page' },
   { id: 8, title: 'ResumeCoach Landing Page', category: 'UI Design', slug: 'resumecoach-landing-page' },
+  { id: 9, title: 'OnlineCV Landing Page', category: 'UI Design', slug: 'onlinecv-landing-page' },
+  { id: 6, title: 'VideoUp Landing Page', category: 'UI Design', slug: 'videoup-landing-page' },
 ];
 
 const Header: React.FC = () => {

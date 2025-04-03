@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
@@ -63,15 +62,6 @@ const projects = [
     link: '/projects/cross-team-collaboration-framework'
   },
   {
-    id: 6,
-    title: 'VideoUp Landing Page',
-    slug: 'videoup-landing-page',
-    description: 'Designed a conversion-driven landing page for VideoUp, an AI-powered video editing app, with modern aesthetics and optimized user experience.',
-    category: 'UI Design',
-    image: '/lovable-uploads/5d3e945c-e1a2-425a-925e-7f2349820971.png',
-    link: '/projects/videoup-landing-page'
-  },
-  {
     id: 8,
     title: 'ResumeCoach Landing Page',
     slug: 'resumecoach-landing-page',
@@ -79,6 +69,15 @@ const projects = [
     category: 'UI Design',
     image: '/placeholder.svg',
     link: '/projects/resumecoach-landing-page'
+  },
+  {
+    id: 9,
+    title: 'OnlineCV Landing Page',
+    slug: 'onlinecv-landing-page',
+    description: 'Designed a conversion-focused landing page for OnlineCV with an intuitive user flow, refined color palette, and mobile-first approach that enhanced user engagement.',
+    category: 'UI Design',
+    image: '/placeholder.svg',
+    link: '/projects/onlinecv-landing-page'
   }
 ];
 
