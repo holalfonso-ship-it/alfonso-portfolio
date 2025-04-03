@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { useLocation } from 'react-router-dom';
@@ -8,13 +9,13 @@ import MobileMenuToggle from './MobileMenuToggle';
 import MobileMenu from './MobileMenu';
 
 const projects = [
-  { id: 6, title: 'VideoUp Landing Page', category: 'UI Design', slug: 'videoup-landing-page' },
   { id: 5, title: 'Mobile App Design', category: 'Mobile', slug: 'mobile-app-design' },
   { id: 1, title: 'Design Systems', category: 'Design System', slug: 'design-systems' },
   { id: 2, title: 'DesignOps Workflow', category: 'DesignOps', slug: 'designops-workflow' },
   { id: 3, title: 'Loyalty WebApp B2B SaaS', category: 'UX/UI', slug: 'loyalty-webapp-b2b-saas' },
   { id: 4, title: 'Data Visualization', category: 'Product Design', slug: 'data-visualization' },
   { id: 7, title: 'Cross-team Collaboration', category: 'DesignOps', slug: 'cross-team-collaboration-framework' },
+  { id: 6, title: 'VideoUp Landing Page', category: 'UI Design', slug: 'videoup-landing-page' },
 ];
 
 const Header: React.FC = () => {

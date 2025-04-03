@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ProjectDetail from '../components/ProjectDetail';
@@ -11,19 +12,6 @@ import { VideoUpLandingContent } from '../components/project-contents/VideoUpLan
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
-  {
-    id: 6,
-    title: 'VideoUp Landing Page',
-    slug: 'videoup-landing-page',
-    description: 'Designed a conversion-driven landing page for VideoUp, an AI-powered video editing app, with modern aesthetics and optimized user experience.',
-    category: 'UI Design',
-    image: '/lovable-uploads/5d3e945c-e1a2-425a-925e-7f2349820971.png',
-    heroImages: [
-      '/lovable-uploads/5d3e945c-e1a2-425a-925e-7f2349820971.png'
-    ],
-    link: '/projects/videoup-landing-page',
-    content: <VideoUpLandingContent />
-  },
   {
     id: 5,
     title: 'Mobile App Design',
@@ -101,6 +89,19 @@ const projects = [
     ],
     link: '/projects/cross-team-collaboration-framework',
     content: <CrossTeamCollaborationContent />
+  },
+  {
+    id: 6,
+    title: 'VideoUp Landing Page',
+    slug: 'videoup-landing-page',
+    description: 'Designed a conversion-driven landing page for VideoUp, an AI-powered video editing app, with modern aesthetics and optimized user experience.',
+    category: 'UI Design',
+    image: '/lovable-uploads/5d3e945c-e1a2-425a-925e-7f2349820971.png',
+    heroImages: [
+      '/lovable-uploads/5d3e945c-e1a2-425a-925e-7f2349820971.png'
+    ],
+    link: '/projects/videoup-landing-page',
+    content: <VideoUpLandingContent />
   }
 ];
 
