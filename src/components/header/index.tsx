@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from "@/lib/utils";
 import { useLocation } from 'react-router-dom';
@@ -9,6 +8,7 @@ import MobileMenuToggle from './MobileMenuToggle';
 import MobileMenu from './MobileMenu';
 
 const projects = [
+  { id: 6, title: 'VideoUp Landing Page', category: 'UI Design', slug: 'videoup-landing-page' },
   { id: 5, title: 'Mobile App Design', category: 'Mobile', slug: 'mobile-app-design' },
   { id: 1, title: 'Design Systems', category: 'Design System', slug: 'design-systems' },
   { id: 2, title: 'DesignOps Workflow', category: 'DesignOps', slug: 'designops-workflow' },
@@ -24,7 +24,6 @@ const Header: React.FC = () => {
   const location = useLocation();
   const isProjectPage = location.pathname.includes('/project/');
 
-  // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -95,7 +94,6 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location]);

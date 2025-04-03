@@ -1,13 +1,21 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
 import AnimatedText from './AnimatedText';
 import { cn } from "@/lib/utils";
 
-const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System', 'Mobile'];
+const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System', 'Mobile', 'UI Design'];
 
 const projects = [
+  {
+    id: 6,
+    title: 'VideoUp Landing Page',
+    slug: 'videoup-landing-page',
+    description: 'Designed a conversion-driven landing page for VideoUp, an AI-powered video editing app, with modern aesthetics and optimized user experience.',
+    category: 'UI Design',
+    image: '/lovable-uploads/5d3e945c-e1a2-425a-925e-7f2349820971.png',
+    link: '/projects/videoup-landing-page'
+  },
   {
     id: 5,
     title: 'Mobile App Design',
