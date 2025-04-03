@@ -16,6 +16,7 @@ const projects = [
   { id: 4, title: 'Data Visualization', category: 'Product Design', slug: 'data-visualization' },
   { id: 7, title: 'Cross-team Collaboration', category: 'DesignOps', slug: 'cross-team-collaboration-framework' },
   { id: 6, title: 'VideoUp Landing Page', category: 'UI Design', slug: 'videoup-landing-page' },
+  { id: 8, title: 'ResumeCoach Landing Page', category: 'UI Design', slug: 'resumecoach-landing-page' },
 ];
 
 const Header: React.FC = () => {

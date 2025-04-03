@@ -70,6 +70,15 @@ const projects = [
     category: 'UI Design',
     image: '/lovable-uploads/5d3e945c-e1a2-425a-925e-7f2349820971.png',
     link: '/projects/videoup-landing-page'
+  },
+  {
+    id: 8,
+    title: 'ResumeCoach Landing Page',
+    slug: 'resumecoach-landing-page',
+    description: 'Designed a user-centric landing page for ResumeCoach with clear CTAs, professional aesthetics, and mobile-optimized experience that increased conversions by 42%.',
+    category: 'UI Design',
+    image: '/placeholder.svg',
+    link: '/projects/resumecoach-landing-page'
   }
 ];
 

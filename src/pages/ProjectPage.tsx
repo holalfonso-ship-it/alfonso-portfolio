@@ -9,6 +9,7 @@ import { DesignOpsWorkflowContent } from '../components/project-contents/DesignO
 import { DataVisualizationContent } from '../components/project-contents/DataVisualizationContent';
 import { MobileAppDesignContent } from '../components/project-contents/MobileAppDesignContent';
 import { VideoUpLandingContent } from '../components/project-contents/VideoUpLandingContent';
+import { ResumeCoachContent } from '../components/project-contents/ResumeCoachContent';
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
@@ -102,6 +103,19 @@ const projects = [
     ],
     link: '/projects/videoup-landing-page',
     content: <VideoUpLandingContent />
+  },
+  {
+    id: 8,
+    title: 'ResumeCoach Landing Page',
+    slug: 'resumecoach-landing-page',
+    description: 'Designed a user-centric landing page for ResumeCoach with clear CTAs, professional aesthetics, and mobile-optimized experience that increased conversions by 42%.',
+    category: 'UI Design',
+    image: '/placeholder.svg',
+    heroImages: [
+      '/placeholder.svg'
+    ],
+    link: '/projects/resumecoach-landing-page',
+    content: <ResumeCoachContent />
   }
 ];
 
