@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ImageIcon } from 'lucide-react';
 import TransitionEffect from './TransitionEffect';
 import { Button } from './ui/button';
-import ImageUploader from './ImageUploader';
+
 interface ProjectDetailProps {
   project?: {
     id: number;
@@ -16,20 +17,21 @@ interface ProjectDetailProps {
     link?: string;
   };
 }
+
 const ProjectDetail: React.FC<ProjectDetailProps> = ({
   project
 }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
-  const [uploadedHeroImage, setUploadedHeroImage] = useState<string | null>(null);
+
   useEffect(() => {
     if (project) {
       // Reset state when project changes
       setImageLoaded(false);
       setImageError(false);
-      setUploadedHeroImage(null);
     }
   }, [project]);
+
   if (!project) {
     return <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
@@ -44,14 +46,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
   }
 
   // Determine which image to display
-  const displayImage = uploadedHeroImage || (project.heroImages && project.heroImages.length > 0 ? project.heroImages[0] : project.image);
+  const displayImage = project.heroImages && project.heroImages.length > 0 ? project.heroImages[0] : project.image;
   console.log("Project detail rendering:", project.title);
   console.log("Display image path:", displayImage);
-  const handleImageUploaded = (url: string) => {
-    setUploadedHeroImage(url);
-    setImageLoaded(true);
-    setImageError(false);
-  };
+
   return <>
       <TransitionEffect />
       <div className="pt-32 pb-24 px-6 md:px-16 lg:px-24">
@@ -73,25 +71,20 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
                 <div className="animate-pulse text-muted">Loading image...</div>
               </div>}
             
-            {imageError && !uploadedHeroImage && <div className="w-full h-full flex items-center justify-center bg-muted/20 p-4">
+            {imageError && <div className="w-full h-full flex items-center justify-center bg-muted/20 p-4">
                 <img alt="DesignOps mission" src="/lovable-uploads/f0f6e294-6abf-4bc5-be7d-4804a64c9383.png" className="w-full h-full object-cover" />
-                <div className="absolute bottom-4 right-4">
-                  <ImageUploader bucketName="site_images" onImageUploaded={handleImageUploaded} aspectRatio={16 / 9} maxWidth="400px" />
-                </div>
               </div>}
             
-            {!imageError && <img src={displayImage} alt={project.title} className={`w-full h-full object-cover ${imageLoaded ? 'block' : 'hidden'}`} onLoad={() => setImageLoaded(true)} onError={e => {
-            console.error("Image failed to load:", displayImage);
-            setImageError(true);
-            const target = e.target as HTMLImageElement;
-            if (!uploadedHeroImage && project.image) {
-              target.src = project.image; // Fallback to main image
-            }
-          }} />}
-            
-            {imageLoaded && !imageError && <div className="absolute bottom-4 right-4 opacity-0 hover:opacity-100 transition-opacity">
-                <ImageUploader bucketName="site_images" onImageUploaded={handleImageUploaded} aspectRatio={16 / 9} maxWidth="400px" />
-              </div>}
+            {!imageError && <img 
+              src={displayImage} 
+              alt={project.title} 
+              className={`w-full h-full object-cover ${imageLoaded ? 'block' : 'hidden'}`} 
+              onLoad={() => setImageLoaded(true)} 
+              onError={e => {
+                console.error("Image failed to load:", displayImage);
+                setImageError(true);
+              }} 
+            />}
           </div>
           
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
@@ -123,4 +116,5 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       </div>
     </>;
 };
+
 export default ProjectDetail;
