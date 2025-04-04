@@ -3,16 +3,13 @@
 
 import * as React from "react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-import { ArrowUp, Download, Facebook, FileText, Instagram, Linkedin, Mail, Phone, Send, Sparkles } from "lucide-react"
+import { ArrowUp, Briefcase, Download, ExternalLink, FileText, Github, Linkedin, Mail, Phone, User } from "lucide-react"
 import { useTheme } from "@/components/theme-provider"
 import { supabase } from '@/integrations/supabase/client'
 import { useState, useEffect } from 'react'
@@ -23,7 +20,7 @@ interface FooterSectionProps {
 }
 
 export function FooterSection({ className }: FooterSectionProps) {
-  const { theme, setTheme } = useTheme()
+  const { theme } = useTheme()
   const [cvUrl, setCvUrl] = useState<string | null>(null)
   const currentYear = new Date().getFullYear()
   
@@ -65,56 +62,25 @@ export function FooterSection({ className }: FooterSectionProps) {
   const cvDownloadUrl = cvUrl || '/alfonso-cv.pdf';
 
   return (
-    <footer className="relative border-t bg-secondary/80 text-foreground transition-colors duration-300">
-      <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-          <div>
-            <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
-            <nav className="space-y-2 text-sm">
-              <Link to="/" className="block transition-colors hover:text-primary">
-                Home
-              </Link>
-              <a href="/#projects" className="block transition-colors hover:text-primary">
-                Projects
-              </a>
-              <a href="/#about" className="block transition-colors hover:text-primary">
-                About Me
-              </a>
-              <a href="/#contact" className="block transition-colors hover:text-primary">
-                Contact
-              </a>
-            </nav>
-          </div>
-          
-          <div>
-            <h3 className="mb-4 text-lg font-semibold">Contact</h3>
-            <address className="space-y-2 text-sm not-italic">
-              <a 
-                href="mailto:holalfonso@gmail.com" 
-                className="flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Mail className="mr-2 h-4 w-4" />
-                holalfonso@gmail.com
-              </a>
-              <a 
-                href="tel:+34678815239" 
-                className="flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <Phone className="mr-2 h-4 w-4" />
-                +34 678 815 239
-              </a>
-            </address>
-          </div>
-          
-          <div className="relative">
-            <h3 className="mb-4 text-lg font-semibold">Follow Me</h3>
-            <div className="mb-6 flex space-x-4">
+    <footer className="w-full border-t bg-background/80 backdrop-blur-md">
+      <div className="container mx-auto px-6 py-12 md:py-24">
+        {/* Top section with logo and links */}
+        <div className="grid gap-12 md:grid-cols-7 lg:gap-8">
+          <div className="md:col-span-3">
+            <h2 className="mb-6 text-3xl font-bold tracking-tight">Alfonso Zamorano</h2>
+            <p className="mb-6 text-muted-foreground max-w-md">
+              Digital product designer with extensive experience in DesignOps
+              and Product design. Specialized in optimizing workflows,
+              improving collaboration, and enhancing efficiency within design teams.
+            </p>
+            
+            <div className="flex space-x-4 mb-8">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button variant="outline" size="icon" className="rounded-full" asChild>
                       <a href="https://www.linkedin.com/in/alfonsozamorano/" target="_blank" rel="noopener noreferrer">
-                        <Linkedin className="h-4 w-4" />
+                        <Linkedin className="h-5 w-5" />
                         <span className="sr-only">LinkedIn</span>
                       </a>
                     </Button>
@@ -124,68 +90,146 @@ export function FooterSection({ className }: FooterSectionProps) {
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
+              
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button variant="outline" size="icon" className="rounded-full" asChild>
-                      <a href="https://www.instagram.com/lfns_zmrn/" target="_blank" rel="noopener noreferrer">
-                        <Instagram className="h-4 w-4" />
-                        <span className="sr-only">Instagram</span>
+                      <a href="mailto:holalfonso@gmail.com">
+                        <Mail className="h-5 w-5" />
+                        <span className="sr-only">Email</span>
                       </a>
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Follow on Instagram</p>
+                    <p>Email me</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="outline" size="icon" className="rounded-full" asChild>
+                      <a href="tel:+34678815239">
+                        <Phone className="h-5 w-5" />
+                        <span className="sr-only">Phone</span>
+                      </a>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Call me</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
             </div>
           </div>
           
-          <div className="relative">
-            <h2 className="mb-4 text-3xl font-bold tracking-tight">Stay Connected</h2>
-            <p className="mb-6 text-muted-foreground">
-              Download my CV to learn more about my experience and skills in Product Design and DesignOps.
-            </p>
-            <div className="space-y-4">
-              <Button 
-                variant="default" 
-                size="lg" 
-                asChild
-                className="w-full group transition-all duration-300 hover:shadow-lg"
-              >
-                <a href={cvDownloadUrl} download>
-                  <Download className="mr-2 h-5 w-5 transition-transform group-hover:translate-y-1" />
-                  Download CV
+          <div className="md:col-span-1">
+            <h3 className="text-lg font-semibold mb-4">Navigate</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <a href="/#projects" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Projects
                 </a>
-              </Button>
+              </li>
+              <li>
+                <a href="/#about" className="text-muted-foreground hover:text-foreground transition-colors">
+                  About Me
+                </a>
+              </li>
+              <li>
+                <a href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+          
+          <div className="md:col-span-1">
+            <h3 className="text-lg font-semibold mb-4">Projects</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="/projects/design-systems" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Design Systems
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects/designops-workflow" className="text-muted-foreground hover:text-foreground transition-colors">
+                  DesignOps
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects/data-visualization" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Data Visualization
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects/mobile-app-design" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Mobile Design
+                </Link>
+              </li>
+            </ul>
+          </div>
+          
+          <div className="md:col-span-2">
+            <div className="bg-primary/5 rounded-lg p-6 border border-primary/10">
+              <div className="flex items-center mb-4">
+                <User className="h-5 w-5 text-primary mr-2" />
+                <h3 className="text-lg font-semibold">Professional Experience</h3>
+              </div>
               
-              <div className="flex items-center p-3 bg-background/50 rounded-lg border border-border/50">
-                <FileText className="h-5 w-5 mr-3 text-primary" />
-                <div className="flex-1">
-                  <p className="text-sm font-medium">Professional Profile</p>
-                  <p className="text-xs text-muted-foreground">Digital Product Designer with DesignOps expertise</p>
-                </div>
-                <Sparkles className="h-4 w-4 text-primary/80" />
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <Briefcase className="h-4 w-4 text-primary mt-1 mr-2 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium">Leadtech group</span>
+                    <p className="text-sm text-muted-foreground">Senior Product Designer / DesignOPS</p>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <Briefcase className="h-4 w-4 text-primary mt-1 mr-2 flex-shrink-0" />
+                  <div>
+                    <span className="font-medium">Wanup</span>
+                    <p className="text-sm text-muted-foreground">Senior Product Designer</p>
+                  </div>
+                </li>
+              </ul>
+              
+              <div className="mt-6">
+                <Button variant="default" size="sm" className="w-full group" asChild>
+                  <a href={cvDownloadUrl} download target="_blank" rel="noopener noreferrer">
+                    <FileText className="mr-2 h-4 w-4 group-hover:animate-pulse" />
+                    Download CV
+                  </a>
+                </Button>
               </div>
             </div>
-            <div className="absolute -right-4 top-0 h-24 w-24 rounded-full bg-primary/10 blur-2xl" />
           </div>
         </div>
         
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border/50 pt-8 text-center md:flex-row">
+        {/* Bottom section with copyright */}
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-8 text-center md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Portfolio. All rights reserved.
+            © {currentYear} Alfonso Zamorano. All rights reserved.
           </p>
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            onClick={scrollToTop}
-            className="text-sm text-muted-foreground hover:text-foreground"
-          >
-            <ArrowUp className="mr-2 h-4 w-4" />
-            Back to top
-          </Button>
+          
+          <div className="flex items-center space-x-4">
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              onClick={scrollToTop}
+              className="text-sm text-muted-foreground hover:text-foreground"
+            >
+              <ArrowUp className="mr-2 h-4 w-4" />
+              Back to top
+            </Button>
+          </div>
         </div>
       </div>
     </footer>
