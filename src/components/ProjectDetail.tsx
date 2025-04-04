@@ -74,7 +74,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
               </div>}
             
             {imageError && !uploadedHeroImage && <div className="w-full h-full flex items-center justify-center bg-muted/20 p-4">
-                <img alt="DesignOps mission" src="/lovable-uploads/58652539-9f9e-4ca1-ab56-cf0e3a02a7bb.png" className="w-full h-full object-cover" />
+                <img alt="DesignOps mission" src="/lovable-uploads/f0f6e294-6abf-4bc5-be7d-4804a64c9383.png" className="w-full h-full object-cover" />
                 <div className="absolute bottom-4 right-4">
                   <ImageUploader bucketName="site_images" onImageUploaded={handleImageUploaded} aspectRatio={16 / 9} maxWidth="400px" />
                 </div>
