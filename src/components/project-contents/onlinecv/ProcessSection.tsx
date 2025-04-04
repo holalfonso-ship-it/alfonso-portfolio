@@ -52,6 +52,21 @@ export const ProcessSection: React.FC = () => {
             </ul>
           </div>
         </div>
+        
+        {/* Process Design Exploration - Added image */}
+        <div className="mt-12 mb-6">
+          <h3 className="text-xl font-semibold mb-4">Design Exploration & Concepts</h3>
+          <div className="border border-muted/20 rounded-lg overflow-hidden">
+            <img 
+              src="/lovable-uploads/d276fa41-1389-4da6-b492-bab97db74487.png" 
+              alt="OnlineCV Design Concepts showing different color variations and layout designs" 
+              className="w-full object-cover"
+            />
+          </div>
+          <p className="text-sm text-muted-foreground mt-2">
+            Different color schemes and layout variations explored during the design process
+          </p>
+        </div>
       </div>
     </section>
   );
