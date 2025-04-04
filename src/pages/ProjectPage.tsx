@@ -111,9 +111,9 @@ const projects = [
     slug: 'onlinecv-landing-page',
     description: 'Designed a conversion-focused landing page for OnlineCV with an intuitive user flow, refined color palette, and mobile-first approach that enhanced user engagement.',
     category: 'UI Design',
-    image: '/placeholder.svg',
+    image: '/lovable-uploads/0f20931f-54cb-4835-b363-ee4414b5be83.png',
     heroImages: [
-      '/placeholder.svg'
+      '/lovable-uploads/0f20931f-54cb-4835-b363-ee4414b5be83.png'
     ],
     link: '/projects/onlinecv-landing-page',
     content: <OnlineCVContent />
