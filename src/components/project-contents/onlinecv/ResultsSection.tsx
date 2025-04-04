@@ -40,7 +40,23 @@ export const ResultsSection: React.FC = () => {
         <p>
           The redesign also received positive qualitative feedback from users and stakeholders, highlighting the improved clarity, visual appeal, and overall user experience. The new design effectively establishes OnlineCV as a premium offering in the resume-building market while maintaining accessibility for users across different demographics.
         </p>
+        
+        {/* Final OnlineCV Landing Page Design */}
+        <div className="mt-12 mb-6">
+          <h3 className="text-xl font-semibold mb-4">Final Landing Page Design</h3>
+          <div className="border border-muted/20 rounded-lg overflow-hidden">
+            <img 
+              src="/lovable-uploads/b45151f4-a928-4038-8b12-0ac67c4ed2a9.png" 
+              alt="OnlineCV final landing page showing resume templates and features" 
+              className="w-full object-cover"
+            />
+          </div>
+          <p className="text-sm text-muted-foreground mt-2">
+            The final OnlineCV landing page featuring the main hero section with resume templates and key feature highlights
+          </p>
+        </div>
       </div>
     </section>
   );
 };
+
