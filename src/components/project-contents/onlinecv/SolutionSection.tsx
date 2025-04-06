@@ -21,6 +21,20 @@ export const SolutionSection: React.FC = () => {
             </div>
           </div>
           
+          {/* Hero Section Image - Added as requested */}
+          <div className="mt-4 mb-8">
+            <div className="border border-muted/20 rounded-lg overflow-hidden">
+              <img 
+                src="/lovable-uploads/aff82d83-f09c-466e-aac2-29946e8f7b30.png" 
+                alt="OnlineCV hero section showing the website interface with resume templates" 
+                className="w-full object-cover"
+              />
+            </div>
+            <p className="text-sm text-muted-foreground mt-2">
+              The OnlineCV hero section featuring a clean interface, resume template preview, and clear call-to-action
+            </p>
+          </div>
+          
           <div className="rounded-lg overflow-hidden border border-muted/20">
             <div className="bg-primary/10 p-6">
               <h3 className="text-xl font-semibold">Feature Showcase</h3>
