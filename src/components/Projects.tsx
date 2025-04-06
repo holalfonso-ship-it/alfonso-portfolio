@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
@@ -67,7 +68,7 @@ const projects = [
     slug: 'resumecoach-landing-page',
     description: 'Designed a user-centric landing page for ResumeCoach with clear CTAs, professional aesthetics, and mobile-optimized experience that increased conversions by 42%.',
     category: 'UI Design',
-    image: '/placeholder.svg',
+    image: '/lovable-uploads/bf0527b8-71d8-4a05-bb27-3cf2102daa11.png',
     link: '/projects/resumecoach-landing-page'
   },
   {
@@ -76,7 +77,7 @@ const projects = [
     slug: 'onlinecv-landing-page',
     description: 'Designed a conversion-focused landing page for OnlineCV with an intuitive user flow, refined color palette, and mobile-first approach that enhanced user engagement.',
     category: 'UI Design',
-    image: '/placeholder.svg',
+    image: '/lovable-uploads/b45151f4-a928-4038-8b12-0ac67c4ed2a9.png',
     link: '/projects/onlinecv-landing-page'
   }
 ];
