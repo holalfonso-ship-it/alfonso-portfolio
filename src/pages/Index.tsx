@@ -8,6 +8,7 @@ import Testimonials from '@/components/Testimonials';
 import WorkProcess from '@/components/WorkProcess';
 import Contact from '@/components/Contact';
 import TransitionEffect from '@/components/TransitionEffect';
+import PersonalProjects from '@/components/PersonalProjects';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -42,6 +43,7 @@ const Index: React.FC = () => {
       <main className="flex-grow">
         <Hero />
         <Projects />
+        <PersonalProjects />
         <Manifesto />
         <About />
         <Testimonials />

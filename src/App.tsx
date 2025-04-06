@@ -12,6 +12,7 @@ import { Toaster } from "@/components/ui/toaster";
 import AdminPage from './pages/AdminPage';
 import SiteImages from './pages/SiteImages';
 import AboutPage from './pages/AboutPage';
+import PersonalProjectsPage from './pages/PersonalProjectsPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,6 +38,7 @@ function App() {
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/site-images" element={<SiteImages />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/personal-projects" element={<PersonalProjectsPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

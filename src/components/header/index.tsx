@@ -46,7 +46,8 @@ const Header: React.FC = () => {
           label: 'Projects', 
           href: '/#projects',
           hasDropdown: true 
-        }
+        },
+        { label: 'Personal Projects', href: '/personal-projects' }
       ]
     : [
         { label: 'Home', href: '/' },
@@ -55,6 +56,7 @@ const Header: React.FC = () => {
           href: '/#projects',
           hasDropdown: true 
         },
+        { label: 'Personal Projects', href: '/personal-projects' },
         { label: 'About', href: '/#about' },
         { label: 'Process', href: '/#process' },
         { label: 'Contact', href: '/#contact' }
