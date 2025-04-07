@@ -31,24 +31,6 @@ const PersonalProjectsPage: React.FC = () => {
       image: "/lovable-uploads/a8a3c542-efbf-46c2-a78b-bcd8a2ddcb83.png", 
       link: "#",
       tags: ["DesignOps", "Dashboard", "Analytics"]
-    },
-    {
-      id: 3,
-      title: "Style Guide Generator",
-      description: "A tool that automatically generates comprehensive style guides from design files, saving hours of documentation work for design teams.",
-      type: "Web Application",
-      image: "/lovable-uploads/3dcf1c6d-4dde-437c-b626-bbe99631bf3f.png",
-      link: "#",
-      tags: ["Style Guide", "Design Systems", "Automation"]
-    },
-    {
-      id: 4,
-      title: "Accessibility Checker",
-      description: "A design plugin that analyzes designs for accessibility issues and provides suggestions for improvements, helping create more inclusive products.",
-      type: "Design Tool",
-      image: "/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png",
-      link: "#",
-      tags: ["Accessibility", "Design Tool", "UI/UX"]
     }
   ];
 
