@@ -21,8 +21,17 @@ const PersonalProjectCard: React.FC<PersonalProjectCardProps> = ({
   link,
   tags
 }) => {
+  const handleCardClick = () => {
+    if (link) {
+      window.open(link, '_blank', 'noopener noreferrer');
+    }
+  };
+
   return (
-    <Card className="overflow-hidden border border-muted/20 transition-all duration-300 hover:border-primary/50 hover:shadow-lg group">
+    <Card 
+      className="overflow-hidden border border-muted/20 transition-all duration-300 hover:border-primary/50 hover:shadow-lg group cursor-pointer"
+      onClick={handleCardClick}
+    >
       <div className="relative aspect-video overflow-hidden bg-muted">
         <img 
           src={image} 
@@ -46,6 +55,7 @@ const PersonalProjectCard: React.FC<PersonalProjectCardProps> = ({
             rel="noopener noreferrer" 
             className="text-muted-foreground hover:text-primary transition-colors"
             aria-label={`Visit ${title} project`}
+            onClick={(e) => e.stopPropagation()}
           >
             <ExternalLink size={18} />
           </a>
