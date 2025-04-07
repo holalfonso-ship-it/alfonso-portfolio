@@ -19,7 +19,7 @@ const PersonalProjectsPage: React.FC = () => {
       title: "Conexion Monitor",
       description: "A Figma plugin that helps designers monitor and manage connections between components in complex design systems. Visualizes dependencies and highlights potential issues.",
       type: "Figma Plugin",
-      image: "/lovable-uploads/42b120a7-920f-4506-8581-6404228a811e.png",
+      image: "/lovable-uploads/52d9cc5b-87a4-458c-a97b-1d77acf95ad4.png",
       link: "https://www.figma.com/community/plugin/1471535543456488959/conexion-monitor",
       tags: ["Design Systems", "Figma Plugin", "Developer Tool"]
     },
