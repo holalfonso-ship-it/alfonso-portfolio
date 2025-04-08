@@ -44,6 +44,20 @@ export const SolutionSection: React.FC = () => {
             </div>
           </div>
           
+          {/* Feature Showcase Image - Adding as requested */}
+          <div className="mt-4 mb-8">
+            <div className="border border-muted/20 rounded-lg overflow-hidden">
+              <img 
+                src="/lovable-uploads/b644f2ad-1249-484d-aafe-dd0118c62098.png" 
+                alt="OnlineCV feature showcase highlighting the advantages of using their resume builder" 
+                className="w-full object-cover"
+              />
+            </div>
+            <p className="text-sm text-muted-foreground mt-2">
+              The advantages section highlighting six key benefits of using OnlineCV for resume creation
+            </p>
+          </div>
+          
           <div className="rounded-lg overflow-hidden border border-muted/20">
             <div className="bg-primary/10 p-6">
               <h3 className="text-xl font-semibold">Testimonials & Social Proof</h3>
