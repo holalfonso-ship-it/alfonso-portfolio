@@ -53,6 +53,20 @@ export const SolutionSection: React.FC = () => {
             </div>
           </div>
           
+          {/* Trustpilot Testimonials Image - Adding as requested */}
+          <div className="mt-4 mb-8">
+            <div className="border border-muted/20 rounded-lg overflow-hidden">
+              <img 
+                src="/lovable-uploads/c4fc6dda-043a-46ec-8f71-c69171ade850.png" 
+                alt="Trustpilot testimonials showing positive reviews from OnlineCV users" 
+                className="w-full object-cover"
+              />
+            </div>
+            <p className="text-sm text-muted-foreground mt-2">
+              Trustpilot reviews showcasing positive user experiences with OnlineCV's resume building platform
+            </p>
+          </div>
+          
           <div className="rounded-lg overflow-hidden border border-muted/20">
             <div className="bg-primary/10 p-6">
               <h3 className="text-xl font-semibold">Visual Design System</h3>
