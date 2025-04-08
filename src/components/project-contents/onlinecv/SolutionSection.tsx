@@ -90,6 +90,20 @@ export const SolutionSection: React.FC = () => {
             </div>
           </div>
           
+          {/* Visual Design System Image - Adding as requested */}
+          <div className="mt-4 mb-8">
+            <div className="border border-muted/20 rounded-lg overflow-hidden">
+              <img 
+                src="/lovable-uploads/842125b7-1cc0-4fd3-9178-315057bfc996.png" 
+                alt="OnlineCV visual design system showing color and UI variations" 
+                className="w-full object-cover"
+              />
+            </div>
+            <p className="text-sm text-muted-foreground mt-2">
+              Color palette and navigation design variations for the OnlineCV platform, showcasing consistent branding across different visual themes
+            </p>
+          </div>
+          
           <div className="rounded-lg overflow-hidden border border-muted/20">
             <div className="bg-primary/10 p-6">
               <h3 className="text-xl font-semibold">Responsive Implementation</h3>
