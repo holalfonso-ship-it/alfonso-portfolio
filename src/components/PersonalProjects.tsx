@@ -22,7 +22,7 @@ const PersonalProjects: React.FC = () => {
       title: "DesignOps Dashboard",
       description: "A custom dashboard built to visualize design team metrics and streamline DesignOps workflows.",
       type: "Internal Tool",
-      image: "/lovable-uploads/a8a3c542-efbf-46c2-a78b-bcd8a2ddcb83.png",
+      image: "/lovable-uploads/86277ae4-f579-48fb-941c-775548ddac82.png",
     }
   ];
   
