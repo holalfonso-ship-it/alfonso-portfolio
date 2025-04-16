@@ -58,19 +58,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div 
       ref={cardRef}
       className={cn(
-        "group relative cursor-pointer transition-all duration-700 opacity-0 transform translate-y-12",
+        "group relative transition-all duration-700 opacity-0 transform translate-y-12 cursor-pointer",
         isVisible && "opacity-100 translate-y-0"
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link 
-        to={link} 
-        className="block h-full"
-      >
+      <Link to={link}>
         <div className={cn(
-          "relative overflow-hidden bg-muted rounded-lg",
-          featured ? "aspect-[16/9]" : "aspect-square",
+          "relative overflow-hidden rounded-2xl bg-muted",
+          featured ? "aspect-[16/9]" : "aspect-[4/3]",
         )}>
           <div 
             className={cn(
@@ -80,42 +77,41 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             style={{ backgroundImage: `url(${image})` }}
           />
           
-          {/* Adding a gradient overlay for better text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
 
-          <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-start">
-            <span className="text-xs font-medium bg-white/10 backdrop-blur-sm text-white px-3 py-1 rounded-full">
-              {category}
-            </span>
+          <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between">
+            <div className="flex justify-between items-start">
+              <span className="text-xs font-medium bg-white/10 backdrop-blur-sm text-white px-3 py-1 rounded-full">
+                {category}
+              </span>
+              
+              <span 
+                className={cn(
+                  "relative flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500",
+                  isHovered ? "opacity-100 rotate-0" : "opacity-0 -rotate-45"
+                )}
+              >
+                <ArrowUpRight size={16} className="text-white" />
+              </span>
+            </div>
             
-            <span 
-              className={cn(
-                "relative flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500",
-                isHovered ? "opacity-100 rotate-0" : "opacity-0 -rotate-45"
-              )}
-            >
-              <ArrowUpRight size={16} className="text-white" />
-            </span>
-          </div>
-          
-          <div 
-            className="absolute bottom-0 left-0 right-0 p-6"
-          >
-            <h3 className={cn(
-              "font-display font-bold text-white mb-2 transition-all duration-300",
-              featured ? "text-2xl md:text-3xl" : "text-xl md:text-2xl",
-            )}>
-              {title}
-            </h3>
-            
-            <p 
-              className={cn(
-                "text-sm text-white/80 max-w-md transition-opacity duration-300",
-                isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-70",
-              )}
-            >
-              {description}
-            </p>
+            <div>
+              <h3 className={cn(
+                "font-display font-bold text-white mb-3 transition-all duration-300",
+                featured ? "text-2xl md:text-4xl" : "text-xl md:text-2xl",
+              )}>
+                {title}
+              </h3>
+              
+              <p 
+                className={cn(
+                  "text-sm text-white/80 max-w-md transition-all duration-300",
+                  isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-70",
+                )}
+              >
+                {description}
+              </p>
+            </div>
           </div>
         </div>
       </Link>

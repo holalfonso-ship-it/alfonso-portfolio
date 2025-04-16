@@ -90,34 +90,38 @@ const Projects: React.FC = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-20 md:py-32 px-6 md:px-12">
+    <section id="projects" className="py-32 md:py-40 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-12 md:mb-20">
-          <span className="inline-block text-sm md:text-base font-medium tracking-wider mb-4 py-1 px-4 rounded-full bg-primary/20 text-primary">
-            Featured Work
-          </span>
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between">
-            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 md:mb-0 tracking-tight">
-              <AnimatedText text="Selected Projects" className="inline-block" once />
+        <div className="mb-16 md:mb-24">
+          <div className="flex flex-col space-y-4">
+            <span className="text-sm md:text-base font-medium tracking-wider py-1 px-4 rounded-full bg-primary/10 text-primary w-fit">
+              Selected Work
+            </span>
+            
+            <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tight max-w-2xl">
+              <AnimatedText text="Creating impactful digital experiences" className="inline-block" once />
             </h2>
             
-            <div className="flex flex-wrap gap-3">
-              {projectCategories.map((category) => (
-                <button
-                  key={category}
-                  className={cn(
-                    "px-4 py-2 text-sm font-medium transition-all border-b-2",
-                    activeCategory === category
-                      ? "border-primary text-white"
-                      : "border-transparent text-muted-foreground hover:text-white hover:border-muted-foreground"
-                  )}
-                  onClick={() => setActiveCategory(category)}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mt-4">
+              A collection of projects focusing on design systems, user experience, and digital product design.
+            </p>
+          </div>
+
+          <div className="mt-12 flex flex-wrap gap-4 border-b border-muted/20">
+            {projectCategories.map((category) => (
+              <button
+                key={category}
+                className={cn(
+                  "px-4 py-3 text-sm font-medium transition-all border-b-2 -mb-[1px]",
+                  activeCategory === category
+                    ? "border-primary text-primary"
+                    : "border-transparent text-muted-foreground hover:text-foreground hover:border-muted-foreground"
+                )}
+                onClick={() => setActiveCategory(category)}
+              >
+                {category}
+              </button>
+            ))}
           </div>
         </div>
 
