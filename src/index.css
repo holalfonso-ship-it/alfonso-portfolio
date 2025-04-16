@@ -195,6 +195,24 @@
     animation-delay: 2000ms;
   }
   
+  /* 3D flip perspective utilities */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  .rotate-y-0 {
+    transform: rotateY(0deg);
+  }
+  
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  
   @keyframes float {
     0% {
       transform: translateY(0px);
