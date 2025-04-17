@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ImageIcon } from 'lucide-react';
+import { ArrowLeft, ImageIcon, Home } from 'lucide-react';
 import TransitionEffect from './TransitionEffect';
 import { Button } from './ui/button';
 
@@ -54,9 +54,27 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       <TransitionEffect />
       <div className="pt-32 pb-24 px-6 md:px-16 lg:px-24">
         <div className="max-w-4xl mx-auto">
-          <Link to="/" className="inline-flex items-center text-sm text-primary mb-8 hover:underline transition-all">
-            <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
-          </Link>
+          <div className="flex justify-between items-center mb-8">
+            <Link to="/" className="inline-flex items-center text-sm text-primary hover:underline transition-all">
+              <ArrowLeft className="mr-2 h-4 w-4" /> Back to Home
+            </Link>
+            
+            {project.title === 'Loyalty WebApp B2B SaaS' && (
+              <Link 
+                to="/" 
+                className="flex items-center gap-2 px-3 py-2 bg-background hover:bg-secondary/20 rounded-md transition-all"
+              >
+                <div className="w-40 h-12 overflow-hidden rounded-md">
+                  <img 
+                    src="/lovable-uploads/724b4ae0-8e3b-433c-9644-e252ff97a553.png" 
+                    alt="Wanup website" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <Home size={16} className="text-primary" />
+              </Link>
+            )}
+          </div>
           
           <h1 className="text-4xl md:text-6xl font-display font-bold mb-8">{project.title}</h1>
           
