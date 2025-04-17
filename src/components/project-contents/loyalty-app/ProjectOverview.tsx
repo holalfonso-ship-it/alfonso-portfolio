@@ -69,7 +69,7 @@ export const ProjectOverview: React.FC = () => {
         <li>Outdated design that didn't reflect the brand's premium B2B positioning</li>
       </ul>
 
-      <div className="mb-12">
+      <div className="mb-12 space-y-6">
         <AspectRatio ratio={16/9} className="bg-muted rounded-lg overflow-hidden">
           <img 
             src="/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png" 
@@ -79,6 +79,17 @@ export const ProjectOverview: React.FC = () => {
         </AspectRatio>
         <p className="text-sm text-muted-foreground mt-2 text-center">
           The redesigned Wanup B2B loyalty webapp focusing on enterprise client engagement
+        </p>
+        
+        <AspectRatio ratio={16/9} className="bg-muted rounded-lg overflow-hidden">
+          <img 
+            src="/lovable-uploads/fc7651f1-c719-479c-b96c-dc96a4fb5cf9.png" 
+            alt="Wanup Consumer Website Landing Pages" 
+            className="object-cover w-full h-full"
+          />
+        </AspectRatio>
+        <p className="text-sm text-muted-foreground mt-2 text-center">
+          Wanup's consumer-facing landing pages that informed the B2B portal's design language
         </p>
       </div>
     </>
