@@ -10,6 +10,22 @@ const ProjectOverview: React.FC = () => {
         showcasing my expertise in cross-platform design principles and platform-specific guidelines.
       </p>
       
+      <div className="mb-16">
+        <div className="rounded-lg overflow-hidden border border-border/50 shadow-sm">
+          <img 
+            alt="AI Cleaner Mobile App Design" 
+            className="w-full h-auto" 
+            src="/lovable-uploads/0bc2a468-ef5a-499f-9a1e-0872d156546c.png" 
+          />
+          <div className="p-4 bg-muted/30">
+            <p className="text-sm text-muted-foreground">
+              The AI Cleaner app design showcases an intelligent mobile interface for optimizing phone storage, 
+              featuring advanced AI-powered cleaning and performance analysis across multiple device screens.
+            </p>
+          </div>
+        </div>
+      </div>
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
         <div className="bg-muted/20 p-6 rounded-lg border border-border/50">
           <h3 className="text-xl font-semibold mb-3">Client</h3>
