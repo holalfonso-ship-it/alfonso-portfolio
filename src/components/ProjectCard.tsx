@@ -97,6 +97,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </div>
             
             <div>
+              <div className="mb-3">
+                <img 
+                  src="https://gefsvwcyxxgyfaandyjp.supabase.co/storage/v1/object/public/site_images/image-1744886019219.png" 
+                  alt="Profile icon" 
+                  className="w-8 h-8 rounded-full border border-white/20"
+                />
+              </div>
+              
               <h3 className={cn(
                 "font-display font-bold text-white mb-3 transition-all duration-300 drop-shadow-md",
                 featured ? "text-2xl md:text-4xl" : "text-xl md:text-2xl",
