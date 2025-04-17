@@ -66,7 +66,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     >
       <Link to={link}>
         <div className={cn(
-          "relative overflow-hidden rounded-2xl bg-muted",
+          "relative overflow-hidden rounded-2xl bg-muted/50",
           featured ? "aspect-[16/9]" : "aspect-[4/3]",
         )}>
           <div 
@@ -77,17 +77,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             style={{ backgroundImage: `url(${image})` }}
           />
           
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30" />
+          {/* Reduce the darkness of the gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
           <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between">
             <div className="flex justify-between items-start">
-              <span className="text-xs font-medium bg-white/10 backdrop-blur-sm text-white px-3 py-1 rounded-full">
+              <span className="text-xs font-medium bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full">
                 {category}
               </span>
               
               <span 
                 className={cn(
-                  "relative flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500",
+                  "relative flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm transition-all duration-500",
                   isHovered ? "opacity-100 rotate-0" : "opacity-0 -rotate-45"
                 )}
               >
@@ -97,7 +98,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             
             <div>
               <h3 className={cn(
-                "font-display font-bold text-white mb-3 transition-all duration-300",
+                "font-display font-bold text-white mb-3 transition-all duration-300 drop-shadow-md",
                 featured ? "text-2xl md:text-4xl" : "text-xl md:text-2xl",
               )}>
                 {title}
@@ -105,8 +106,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               
               <p 
                 className={cn(
-                  "text-sm text-white/80 max-w-md transition-all duration-300",
-                  isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-70",
+                  "text-sm text-white max-w-md transition-all duration-300 drop-shadow-md",
+                  isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-80",
                 )}
               >
                 {description}
