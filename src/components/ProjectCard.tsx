@@ -79,14 +79,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           
           {/* Reduce the darkness of the gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
-          
-          {/* Add decorative vertical line that appears on hover */}
-          <div 
-            className={cn(
-              "absolute left-8 md:left-10 top-0 w-0.5 bg-primary opacity-0 transition-all duration-500",
-              isHovered ? "h-full opacity-70" : "h-0"
-            )}
-          />
 
           <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between">
             <div className="flex justify-between items-start">
