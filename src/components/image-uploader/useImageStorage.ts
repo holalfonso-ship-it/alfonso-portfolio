@@ -7,24 +7,24 @@ export const useImageStorage = (bucketName: string) => {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   
-  // Create bucket if it doesn't exist (on component mount)
+  // Check if bucket exists (on component mount)
   useEffect(() => {
-    const ensureBucketExists = async () => {
+    const checkBucketExists = async () => {
       try {
         const { data: buckets } = await supabase.storage.listBuckets();
         const bucketExists = buckets?.some(bucket => bucket.name === bucketName);
         
         if (!bucketExists) {
-          // Create the bucket if it doesn't exist
-          await supabase.rpc('create_site_images_bucket');
-          console.log(`${bucketName} bucket created`);
+          console.log(`${bucketName} bucket not found. Make sure it exists in Supabase storage.`);
+        } else {
+          console.log(`${bucketName} bucket found successfully.`);
         }
       } catch (error) {
-        console.error('Error checking/creating bucket:', error);
+        console.error('Error checking bucket:', error);
       }
     };
     
-    ensureBucketExists();
+    checkBucketExists();
   }, [bucketName]);
   
   const uploadImage = async (file: File) => {
