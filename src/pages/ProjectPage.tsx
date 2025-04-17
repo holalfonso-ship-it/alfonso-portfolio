@@ -59,8 +59,9 @@ const projects = [
     slug: 'loyalty-webapp-b2b-saas',
     description: 'Redesigned the B2B loyalty platform resulting in a 25% increase in client engagement and a 15% improvement in conversion rates for enterprise customers.',
     category: 'UX/UI',
-    image: '/lovable-uploads/c7103e46-5321-457f-b71d-7e63c4f3ae06.png',
+    image: '/lovable-uploads/375ecce8-c782-4b61-a40f-a6fcd87cf4e7.png',
     heroImages: [
+      '/lovable-uploads/375ecce8-c782-4b61-a40f-a6fcd87cf4e7.png',
       '/lovable-uploads/c7103e46-5321-457f-b71d-7e63c4f3ae06.png',
       '/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png',
       '/lovable-uploads/fc7651f1-c719-479c-b96c-dc96a4fb5cf9.png'
