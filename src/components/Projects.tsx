@@ -32,7 +32,7 @@ const projects = [
     slug: 'designops-workflow',
     description: 'Implemented and optimized DesignOps processes that enhanced team collaboration, reduced handoff time by 40%, and improved overall design efficiency.',
     category: 'DesignOps',
-    image: '/lovable-uploads/ed4aab16-f8c3-46b1-be10-d44758f7d149.png',
+    image: '/lovable-uploads/b1be486d-7971-4477-97b7-e2bb6ff06bd3.png',
     link: '/projects/designops-workflow'
   },
   {
