@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
@@ -34,33 +33,6 @@ const projects = [
     category: 'DesignOps',
     image: '/lovable-uploads/b1be486d-7971-4477-97b7-e2bb6ff06bd3.png',
     link: '/projects/designops-workflow'
-  },
-  {
-    id: 3,
-    title: 'Loyalty WebApp B2B SaaS',
-    slug: 'loyalty-webapp-b2b-saas',
-    description: 'Redesigned the B2B loyalty platform resulting in a 25% increase in client engagement and a 15% improvement in conversion rates for enterprise customers.',
-    category: 'UX/UI',
-    image: '/lovable-uploads/645e23f4-887a-4ecb-8564-a0d1b002b217.png',
-    link: '/projects/loyalty-webapp-b2b-saas'
-  },
-  {
-    id: 4,
-    title: 'Data Visualization',
-    slug: 'data-visualization',
-    description: 'Developed intuitive dashboards and data visualizations that increased stakeholder engagement by 20% and improved decision-making processes.',
-    category: 'Product Design',
-    image: '/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png',
-    link: '/projects/data-visualization'
-  },
-  {
-    id: 7,
-    title: 'Cross-team Collaboration Framework',
-    slug: 'cross-team-collaboration-framework',
-    description: 'Created a structured DesignOps framework that improved collaboration between design, development, and product teams, reducing project delivery time by 35%.',
-    category: 'DesignOps',
-    image: '/lovable-uploads/a8a3c542-efbf-46c2-a78b-bcd8a2ddcb83.png',
-    link: '/projects/cross-team-collaboration-framework'
   },
   {
     id: 8,
