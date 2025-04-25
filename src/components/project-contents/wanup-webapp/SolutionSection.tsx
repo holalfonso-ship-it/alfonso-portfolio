@@ -1,9 +1,6 @@
-
 import React from 'react';
-
 export const SolutionSection: React.FC = () => {
-  return (
-    <div>
+  return <div>
       <h2 className="text-3xl font-bold mb-6">The Solution</h2>
       
       <p className="mb-8">
@@ -35,13 +32,7 @@ export const SolutionSection: React.FC = () => {
       </div>
 
       <div className="rounded-lg overflow-hidden border border-border/50">
-        <img 
-          alt="Wanup Solution Interface" 
-          className="w-full h-auto" 
-          src="/lovable-uploads/7d9b0008-9150-4021-aadd-00500f40f69d.png"
-        />
+        <img alt="Wanup Solution Interface" className="w-full h-auto" src="/lovable-uploads/7a1a686d-1706-4fa5-8a38-f8159c0da8b6.png" />
       </div>
-    </div>
-  );
+    </div>;
 };
-
