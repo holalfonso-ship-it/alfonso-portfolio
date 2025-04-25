@@ -35,15 +35,6 @@ const projects = [
     link: '/projects/designops-workflow'
   },
   {
-    id: 8,
-    title: 'ResumeCoach Landing Page',
-    slug: 'resumecoach-landing-page',
-    description: 'Designed a user-centric landing page for ResumeCoach with clear CTAs, professional aesthetics, and mobile-optimized experience that increased conversions by 42%.',
-    category: 'UI Design',
-    image: '/lovable-uploads/bf0527b8-71d8-4a05-bb27-3cf2102daa11.png',
-    link: '/projects/resumecoach-landing-page'
-  },
-  {
     id: 9,
     title: 'OnlineCV Landing Page',
     slug: 'onlinecv-landing-page',
