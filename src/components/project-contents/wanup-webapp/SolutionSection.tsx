@@ -11,7 +11,7 @@ export const SolutionSection: React.FC = () => {
         providing an engaging experience for end users.
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
         <div className="bg-muted/20 p-6 rounded-lg border border-border/50">
           <h3 className="text-xl font-semibold mb-3">Key Features</h3>
           <ul className="list-disc pl-6 space-y-2">
@@ -33,6 +33,15 @@ export const SolutionSection: React.FC = () => {
           </ul>
         </div>
       </div>
+
+      <div className="rounded-lg overflow-hidden border border-border/50">
+        <img 
+          alt="Wanup Solution Interface" 
+          className="w-full h-auto" 
+          src="/lovable-uploads/7d9b0008-9150-4021-aadd-00500f40f69d.png"
+        />
+      </div>
     </div>
   );
 };
+
