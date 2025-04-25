@@ -1,4 +1,3 @@
-
 import React from 'react';
 export const SolutionSection: React.FC = () => {
   return <div>
@@ -46,7 +45,7 @@ export const SolutionSection: React.FC = () => {
         </div>
         
         <div className="rounded-lg overflow-hidden border border-border/50">
-          <img alt="Wanup Platform Detailed View" className="w-full h-auto" src="/lovable-uploads/4fe6b813-f155-406e-9d47-cab1a5940040.png" />
+          <img alt="Wanup Platform Detailed View" className="w-full h-auto" src="/lovable-uploads/73beadac-1cc9-4bcf-a948-ab2e0e335f7f.png" />
         </div>
       </div>
     </div>;
