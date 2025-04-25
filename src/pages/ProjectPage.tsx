@@ -9,7 +9,7 @@ import { DataVisualizationContent } from '../components/project-contents/DataVis
 import { MobileAppDesignContent } from '../components/project-contents/MobileAppDesignContent';
 import { VideoUpLandingContent } from '../components/project-contents/VideoUpLandingContent';
 import { ResumeCoachContent } from '../components/project-contents/ResumeCoachContent';
-import { OnlineCVContent } from '../components/OnlineCVContent';
+import { OnlineCVContent } from '../components/project-contents/onlinecv/OnlineCVContent';
 import { WanupWebappContent } from '../components/project-contents/WanupWebappContent';
 
 // This is our project data that should eventually be moved to a separate data file
@@ -95,19 +95,6 @@ const projects = [
     ],
     link: '/projects/cross-team-collaboration-framework',
     content: <CrossTeamCollaborationContent />
-  },
-  {
-    id: 8,
-    title: 'ResumeCoach Landing Page',
-    slug: 'resumecoach-landing-page',
-    description: 'Designed a user-centric landing page for ResumeCoach with clear CTAs, professional aesthetics, and mobile-optimized experience that increased conversions by 42%.',
-    category: 'UI Design',
-    image: '/lovable-uploads/bf0527b8-71d8-4a05-bb27-3cf2102daa11.png',
-    heroImages: [
-      '/lovable-uploads/bf0527b8-71d8-4a05-bb27-3cf2102daa11.png'
-    ],
-    link: '/projects/resumecoach-landing-page',
-    content: <ResumeCoachContent />
   },
   {
     id: 9,
