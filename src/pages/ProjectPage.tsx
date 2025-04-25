@@ -128,9 +128,9 @@ const projects = [
     slug: 'wanup-webapp-b2b-saas',
     description: 'Designed and developed a comprehensive B2B SaaS platform for hotel bookings and loyalty program management, featuring an intuitive user interface and streamlined booking experience.',
     category: 'UX/UI',
-    image: '/lovable-uploads/fdda8111-6522-4d6c-bc11-7be46ab54f7e.png',
+    image: '/lovable-uploads/1e56b3c3-c29f-454f-a37e-0994670e690f.png',
     heroImages: [
-      '/lovable-uploads/fdda8111-6522-4d6c-bc11-7be46ab54f7e.png',
+      '/lovable-uploads/1e56b3c3-c29f-454f-a37e-0994670e690f.png',
       '/lovable-uploads/8e40ce72-3e8b-4985-afc8-8f92e34cfc66.png',
       '/lovable-uploads/5ea3a279-d974-4fe4-85f5-ccb57fffa6a2.png',
       '/lovable-uploads/d18bb0bd-850d-42b3-88bc-b035d36fb153.png',
