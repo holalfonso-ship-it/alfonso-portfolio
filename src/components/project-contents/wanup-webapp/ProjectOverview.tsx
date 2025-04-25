@@ -1,9 +1,6 @@
-
 import React from 'react';
-
 export const ProjectOverview: React.FC = () => {
-  return (
-    <div className="space-y-8">
+  return <div className="space-y-8">
       <div>
         <h2 className="text-3xl font-bold mb-6">Project Overview</h2>
         <p className="mb-6">
@@ -49,12 +46,7 @@ export const ProjectOverview: React.FC = () => {
       </div>
 
       <div className="rounded-lg overflow-hidden border border-border/50">
-        <img 
-          src="/lovable-uploads/b91a519a-2ea1-44cc-bbac-776f33b8bf50.png"
-          alt="Supabase Database Schema"
-          className="w-full h-auto"
-        />
+        <img alt="Supabase Database Schema" className="w-full h-auto" src="/lovable-uploads/b06acd6a-aa23-4f4d-a84d-b1f6516899fe.png" />
       </div>
-    </div>
-  );
+    </div>;
 };
