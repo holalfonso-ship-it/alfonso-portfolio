@@ -1,4 +1,6 @@
+
 import React from 'react';
+
 export const ProjectOverview: React.FC = () => {
   return <div className="space-y-8">
       <div>
@@ -48,5 +50,14 @@ export const ProjectOverview: React.FC = () => {
       <div className="rounded-lg overflow-hidden border border-border/50">
         <img alt="Supabase Database Schema" className="w-full h-auto" src="/lovable-uploads/b06acd6a-aa23-4f4d-a84d-b1f6516899fe.png" />
       </div>
+
+      <div className="rounded-lg overflow-hidden border border-border/50">
+        <img 
+          alt="Wanup Landing Page Design" 
+          className="w-full h-auto" 
+          src="/lovable-uploads/17168ae9-eb7c-4ff0-9e04-97d7f8c5db12.png"
+        />
+      </div>
     </div>;
 };
+
