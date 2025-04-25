@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
@@ -41,7 +40,7 @@ const projects = [
     slug: 'wanup-webapp-b2b-saas',
     description: 'Designed and developed a comprehensive B2B SaaS platform for hotel bookings and loyalty program management, featuring an intuitive user interface and streamlined booking experience.',
     category: 'UX/UI',
-    image: '/lovable-uploads/fdda8111-6522-4d6c-bc11-7be46ab54f7e.png',
+    image: '/lovable-uploads/c8cc2ea3-a4af-4917-b174-0b399cf3ee04.png',
     heroImages: [
       '/lovable-uploads/fdda8111-6522-4d6c-bc11-7be46ab54f7e.png',
       '/lovable-uploads/8e40ce72-3e8b-4985-afc8-8f92e34cfc66.png',
