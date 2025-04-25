@@ -134,7 +134,8 @@ const projects = [
       '/lovable-uploads/8e40ce72-3e8b-4985-afc8-8f92e34cfc66.png',
       '/lovable-uploads/5ea3a279-d974-4fe4-85f5-ccb57fffa6a2.png',
       '/lovable-uploads/d18bb0bd-850d-42b3-88bc-b035d36fb153.png',
-      '/lovable-uploads/131a06a8-d704-4c76-966d-3237434734d8.png'
+      '/lovable-uploads/131a06a8-d704-4c76-966d-3237434734d8.png',
+      '/lovable-uploads/9b07f1b1-7c80-42f6-ae7a-9e1cda415a94.png'
     ],
     link: '/projects/wanup-webapp-b2b-saas',
     content: <WanupWebappContent />
