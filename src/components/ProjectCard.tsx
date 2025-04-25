@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from 'lucide-react';
+import ZoomableImage from './ui/zoomable-image';
 
 interface ProjectCardProps {
   title: string;
@@ -68,12 +70,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           "relative overflow-hidden rounded-2xl bg-muted/50",
           featured ? "aspect-[16/9]" : "aspect-[4/3]",
         )}>
-          <div 
-            className={cn(
-              "absolute inset-0 transition-transform duration-700 ease-out bg-cover bg-center bg-no-repeat will-change-transform",
-              isHovered ? "scale-105" : "scale-100"
-            )}
-            style={{ backgroundImage: `url(${image})` }}
+          <ZoomableImage
+            src={image}
+            alt={title}
+            className="absolute inset-0 w-full h-full object-cover"
           />
           
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />

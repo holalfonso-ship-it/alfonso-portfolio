@@ -11,7 +11,13 @@ interface ZoomableImageProps {
   onError?: () => void;
 }
 
-const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt, className, onLoad, onError }) => {
+const ZoomableImage: React.FC<ZoomableImageProps> = ({ 
+  src, 
+  alt, 
+  className, 
+  onLoad, 
+  onError 
+}) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -19,11 +25,11 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt, className, onLo
           <img 
             src={src} 
             alt={alt} 
-            className={className}
+            className={`${className} transition-all duration-300 group-hover:opacity-80`}
             onLoad={onLoad}
             onError={onError}
           />
-          <div className="absolute inset-0 flex items-center justify-center bg-background/80 opacity-0 transition-opacity group-hover:opacity-100">
+          <div className="absolute inset-0 flex items-center justify-center bg-background/50 opacity-0 transition-opacity group-hover:opacity-100">
             <ZoomIn className="h-8 w-8 text-primary" />
           </div>
         </div>
