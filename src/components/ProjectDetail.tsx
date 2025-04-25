@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ImageIcon, Home } from 'lucide-react';
 import TransitionEffect from './TransitionEffect';
 import { Button } from './ui/button';
+import ZoomableImage from './ui/zoomable-image';
 
 interface ProjectDetailProps {
   project?: {
@@ -26,7 +26,6 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
 
   useEffect(() => {
     if (project) {
-      // Reset state when project changes
       setImageLoaded(false);
       setImageError(false);
     }
@@ -45,7 +44,6 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
       </div>;
   }
 
-  // Determine which image to display
   const displayImage = project.heroImages && project.heroImages.length > 0 ? project.heroImages[0] : project.image;
   console.log("Project detail rendering:", project.title);
   console.log("Display image path:", displayImage);
@@ -85,24 +83,34 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
           </div>
           
           <div className="aspect-video w-full rounded-lg overflow-hidden mb-16 bg-muted/20">
-            {!imageLoaded && !imageError && <div className="w-full h-full flex items-center justify-center">
+            {!imageLoaded && !imageError && (
+              <div className="w-full h-full flex items-center justify-center">
                 <div className="animate-pulse text-muted">Loading image...</div>
-              </div>}
+              </div>
+            )}
             
-            {imageError && <div className="w-full h-full flex items-center justify-center bg-muted/20 p-4">
-                <img alt="DesignOps mission" src="/lovable-uploads/f0f6e294-6abf-4bc5-be7d-4804a64c9383.png" className="w-full h-full object-cover" />
-              </div>}
+            {imageError && (
+              <div className="w-full h-full flex items-center justify-center bg-muted/20 p-4">
+                <img 
+                  alt="DesignOps mission" 
+                  src="/lovable-uploads/f0f6e294-6abf-4bc5-be7d-4804a64c9383.png" 
+                  className="w-full h-full object-cover" 
+                />
+              </div>
+            )}
             
-            {!imageError && <img 
-              src={displayImage} 
-              alt={project.title} 
-              className={`w-full h-full object-cover ${imageLoaded ? 'block' : 'hidden'}`} 
-              onLoad={() => setImageLoaded(true)} 
-              onError={e => {
-                console.error("Image failed to load:", displayImage);
-                setImageError(true);
-              }} 
-            />}
+            {!imageError && (
+              <ZoomableImage
+                src={displayImage}
+                alt={project.title}
+                className={`w-full h-full object-cover ${imageLoaded ? 'block' : 'hidden'}`}
+                onLoad={() => setImageLoaded(true)}
+                onError={() => {
+                  console.error("Image failed to load:", displayImage);
+                  setImageError(true);
+                }}
+              />
+            )}
           </div>
           
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
