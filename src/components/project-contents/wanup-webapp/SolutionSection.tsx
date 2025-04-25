@@ -1,3 +1,4 @@
+
 import React from 'react';
 export const SolutionSection: React.FC = () => {
   return <div>
@@ -42,6 +43,10 @@ export const SolutionSection: React.FC = () => {
         
         <div className="rounded-lg overflow-hidden border border-border/50">
           <img alt="Wanup Platform Interface" className="w-full h-auto" src="/lovable-uploads/cda6b9ef-facc-4dd6-94bf-13fff0127106.png" />
+        </div>
+        
+        <div className="rounded-lg overflow-hidden border border-border/50">
+          <img alt="Wanup Platform Detailed View" className="w-full h-auto" src="/lovable-uploads/4fe6b813-f155-406e-9d47-cab1a5940040.png" />
         </div>
       </div>
     </div>;
