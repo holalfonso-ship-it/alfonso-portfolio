@@ -1,18 +1,17 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ProjectDetail from '../components/ProjectDetail';
-import { CrossTeamCollaborationContent } from '../components/project-contents/CrossTeamCollaborationContent';
-import { LeadtechGroupContent } from '../components/project-contents/LeadtechGroupContent';
-import { LoyaltyAppContent } from '../components/project-contents/LoyaltyAppContent';
-import { DesignOpsWorkflowContent } from '../components/project-contents/DesignOpsWorkflowContent';
-import { DataVisualizationContent } from '../components/project-contents/DataVisualizationContent';
-import { MobileAppDesignContent } from '../components/project-contents/MobileAppDesignContent';
-import { VideoUpLandingContent } from '../components/project-contents/VideoUpLandingContent';
-import { ResumeCoachContent } from '../components/project-contents/ResumeCoachContent';
-import { OnlineCVContent } from '../components/project-contents/onlinecv/OnlineCVContent';
-import { WanupWebappContent } from '../components/project-contents/WanupWebappContent';
+import CrossTeamCollaborationContent from '../components/project-contents/CrossTeamCollaborationContent';
+import LeadtechGroupContent from '../components/project-contents/LeadtechGroupContent';
+import LoyaltyAppContent from '../components/project-contents/LoyaltyAppContent';
+import DesignOpsWorkflowContent from '../components/project-contents/DesignOpsWorkflowContent';
+import DataVisualizationContent from '../components/project-contents/DataVisualizationContent';
+import MobileAppDesignContent from '../components/project-contents/MobileAppDesignContent';
+import VideoUpLandingContent from '../components/project-contents/VideoUpLandingContent';
+import ResumeCoachContent from '../components/project-contents/ResumeCoachContent';
+import OnlineCVContent from '../components/project-contents/onlinecv/OnlineCVContent';
+import WanupWebappContent from '../components/project-contents/WanupWebappContent';
 
-// This is our project data that should eventually be moved to a separate data file
 const projects = [
   {
     id: 5,
@@ -144,7 +143,6 @@ const projects = [
 const ProjectPage: React.FC = () => {
   const { id, slug } = useParams<{ id?: string, slug?: string }>();
   
-  // Find project by ID or slug
   const project = id 
     ? projects.find(p => p.id.toString() === id)
     : projects.find(p => p.slug === slug);
