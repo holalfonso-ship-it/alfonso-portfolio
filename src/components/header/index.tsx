@@ -12,7 +12,8 @@ const projects = [
   { id: 5, title: 'Mobile App Design', category: 'Mobile', slug: 'mobile-app-design' },
   { id: 1, title: 'Design Systems', category: 'Design System', slug: 'design-systems' },
   { id: 2, title: 'DesignOps Workflow', category: 'DesignOps', slug: 'designops-workflow' },
-  { id: 9, title: 'OnlineCV Landing Page', category: 'UI Design', slug: 'onlinecv-landing-page' },
+  { id: 3, title: 'Wanup Webapp B2B SaaS', category: 'UX/UI', slug: 'wanup-webapp-b2b-saas' },
+  { id: 9, title: 'OnlineCV Landing Page', category: 'UI Design', slug: 'onlinecv-landing-page' }
 ];
 
 const Header: React.FC = () => {

@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ProjectDetail from '../components/ProjectDetail';
@@ -10,7 +9,8 @@ import { DataVisualizationContent } from '../components/project-contents/DataVis
 import { MobileAppDesignContent } from '../components/project-contents/MobileAppDesignContent';
 import { VideoUpLandingContent } from '../components/project-contents/VideoUpLandingContent';
 import { ResumeCoachContent } from '../components/project-contents/ResumeCoachContent';
-import { OnlineCVContent } from '../components/project-contents/OnlineCVContent';
+import { OnlineCVContent } from '../components/OnlineCVContent';
+import { WanupWebappContent } from '../components/project-contents/WanupWebappContent';
 
 // This is our project data that should eventually be moved to a separate data file
 const projects = [
@@ -134,6 +134,23 @@ const projects = [
     ],
     link: '/projects/videoup-landing-page',
     content: <VideoUpLandingContent />
+  },
+  {
+    id: 3,
+    title: 'Wanup Webapp B2B SaaS',
+    slug: 'wanup-webapp-b2b-saas',
+    description: 'Designed and developed a comprehensive B2B SaaS platform for hotel bookings and loyalty program management, featuring an intuitive user interface and streamlined booking experience.',
+    category: 'UX/UI',
+    image: '/lovable-uploads/fdda8111-6522-4d6c-bc11-7be46ab54f7e.png',
+    heroImages: [
+      '/lovable-uploads/fdda8111-6522-4d6c-bc11-7be46ab54f7e.png',
+      '/lovable-uploads/8e40ce72-3e8b-4985-afc8-8f92e34cfc66.png',
+      '/lovable-uploads/5ea3a279-d974-4fe4-85f5-ccb57fffa6a2.png',
+      '/lovable-uploads/d18bb0bd-850d-42b3-88bc-b035d36fb153.png',
+      '/lovable-uploads/131a06a8-d704-4c76-966d-3237434734d8.png'
+    ],
+    link: '/projects/wanup-webapp-b2b-saas',
+    content: <WanupWebappContent />
   }
 ];
 
