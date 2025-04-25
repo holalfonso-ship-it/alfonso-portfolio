@@ -1,9 +1,10 @@
+
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ProjectDetail from '../components/ProjectDetail';
 import CrossTeamCollaborationContent from '../components/project-contents/CrossTeamCollaborationContent';
-import LeadtechGroupContent from '../components/project-contents/LeadtechGroupContent';
-import LoyaltyAppContent from '../components/project-contents/LoyaltyAppContent';
+import { LeadtechGroupContent } from '../components/project-contents/LeadtechGroupContent';
+import { LoyaltyAppContent } from '../components/project-contents/LoyaltyAppContent';
 import DesignOpsWorkflowContent from '../components/project-contents/DesignOpsWorkflowContent';
 import DataVisualizationContent from '../components/project-contents/DataVisualizationContent';
 import MobileAppDesignContent from '../components/project-contents/MobileAppDesignContent';
