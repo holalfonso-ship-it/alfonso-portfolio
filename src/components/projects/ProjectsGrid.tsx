@@ -10,29 +10,28 @@ interface ProjectsGridProps {
 
 const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
   // Find featured projects to ensure they're always first
-  const wanupProject = projects.find(p => p.slug === 'wanup-webapp-b2b-saas');
   const mobileAppProject = projects.find(p => p.slug === 'mobile-app-design');
+  const wanupProject = projects.find(p => p.slug === 'wanup-webapp-b2b-saas');
   const otherProjects = projects.filter(p => 
-    p.slug !== 'wanup-webapp-b2b-saas' && p.slug !== 'mobile-app-design'
+    p.slug !== 'mobile-app-design' && p.slug !== 'wanup-webapp-b2b-saas'
   );
   
-  // Arrange projects with featured ones first
+  // Arrange projects with mobile app first, then Wanup, then others
   const sortedProjects = [
-    ...(wanupProject ? [wanupProject] : []),
     ...(mobileAppProject ? [mobileAppProject] : []),
+    ...(wanupProject ? [wanupProject] : []),
     ...otherProjects
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+    <div className="grid grid-cols-1 gap-12 md:gap-24">
       {sortedProjects.map((project, index) => {
-        const isFeatured = index < 2; // First two projects are featured
+        const isFirstProject = index === 0;
         
         return (
           <div key={project.id} className={cn(
-            "col-span-1",
-            isFeatured ? "md:col-span-12" : "md:col-span-6",
-            isFeatured ? "aspect-[21/9]" : "aspect-[16/9]"
+            "w-full",
+            isFirstProject ? "aspect-[16/9] md:aspect-[21/9]" : "aspect-[16/9]"
           )}>
             <ProjectCard
               title={project.title}
@@ -41,7 +40,7 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
               image={project.image}
               link={project.link}
               index={index}
-              featured={isFeatured}
+              featured={isFirstProject}
             />
           </div>
         );
@@ -51,3 +50,4 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
 };
 
 export default ProjectsGrid;
+

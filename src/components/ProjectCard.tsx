@@ -74,7 +74,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             style={{ backgroundImage: `url(${image})` }}
           />
           
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+          <div className={cn(
+            "absolute inset-0",
+            featured 
+              ? "bg-gradient-to-t from-black/90 via-black/50 to-transparent"
+              : "bg-gradient-to-t from-black/80 via-black/50 to-transparent"
+          )} />
 
           <div className="absolute inset-0 p-6 md:p-8 lg:p-10 flex flex-col justify-between">
             <div className="flex justify-between items-start space-x-4">
@@ -95,17 +100,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <div className="space-y-3 md:space-y-4">
               <h3 className={cn(
                 "font-display font-bold text-white leading-tight",
-                featured ? "text-2xl md:text-4xl lg:text-5xl max-w-2xl" : "text-lg md:text-2xl",
+                featured ? "text-3xl md:text-5xl lg:text-6xl max-w-3xl" : "text-xl md:text-3xl",
               )}>
                 {title}
               </h3>
               
-              <p 
-                className={cn(
-                  "text-sm md:text-base text-white/80 max-w-2xl leading-relaxed",
-                  isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-80",
-                )}
-              >
+              <p className={cn(
+                "text-sm md:text-base text-white/80 max-w-2xl leading-relaxed",
+                featured ? "md:text-lg" : "",
+                isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-80",
+              )}>
                 {description}
               </p>
             </div>
@@ -117,3 +121,4 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 };
 
 export default ProjectCard;
+
