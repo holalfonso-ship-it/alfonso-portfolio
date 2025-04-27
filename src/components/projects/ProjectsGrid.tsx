@@ -3,6 +3,7 @@ import React from 'react';
 import { cn } from "@/lib/utils";
 import ProjectCard from '../ProjectCard';
 import { ProjectType } from '@/types/project';
+import { AspectRatio } from '../ui/aspect-ratio';
 
 interface ProjectsGridProps {
   projects: ProjectType[];
@@ -28,19 +29,21 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
           <div 
             key={project.id} 
             className={cn(
-              "w-full aspect-video", // 16:9 aspect ratio
-              isFeatured && "md:col-span-2" // Featured project spans full width on desktop
+              "w-full",
+              isFeatured && "md:col-span-2"
             )}
           >
-            <ProjectCard
-              title={project.title}
-              description={project.description}
-              category={project.category}
-              image={project.image}
-              link={project.link}
-              index={index}
-              featured={isFeatured}
-            />
+            <AspectRatio ratio={16/9}>
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                category={project.category}
+                image={project.image}
+                link={project.link}
+                index={index}
+                featured={isFeatured}
+              />
+            </AspectRatio>
           </div>
         );
       })}

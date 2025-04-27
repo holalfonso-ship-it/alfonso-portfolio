@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from 'lucide-react';
@@ -22,49 +23,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   index,
   featured = false
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              setIsVisible(true);
-            }, index * 150);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRef = cardRef.current;
-    if (currentRef) {
-      observer.observe(currentRef);
-    }
-
-    return () => {
-      if (currentRef) {
-        observer.unobserve(currentRef);
-      }
-    };
-  }, [index]);
 
   return (
     <div 
-      ref={cardRef}
-      className={cn(
-        "group relative transition-all duration-700 opacity-0 transform translate-y-12 h-full",
-        isVisible && "opacity-100 translate-y-0"
-      )}
+      className="h-full relative overflow-hidden rounded-2xl bg-muted/50"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link to={link} className="h-full block">
-        <div className="relative h-full overflow-hidden rounded-2xl bg-muted/50">
+      <Link to={link} className="block h-full">
+        <div className="relative h-full">
           <div 
             className={cn(
               "absolute inset-0 transition-transform duration-700 ease-out bg-cover bg-center bg-no-repeat",
