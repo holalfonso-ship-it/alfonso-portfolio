@@ -24,8 +24,11 @@ export const projects: ProjectType[] = [
     title: 'Mobile App Design',
     slug: 'mobile-app-design',
     description: 'Designed cross-platform mobile applications for iOS and Android that increased user retention by 35% and improved app store ratings by 1.5 stars.',
-    category: 'Mobile',
+    category: ['Mobile', 'Product Design'],
     image: '/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png',
+    heroImages: [
+      '/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png'
+    ],
     link: '/projects/mobile-app-design'
   },
   {

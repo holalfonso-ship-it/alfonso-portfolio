@@ -6,7 +6,7 @@ import { ArrowUpRight } from 'lucide-react';
 interface ProjectCardProps {
   title: string;
   description: string;
-  category: string;
+  category: string | string[];
   image: string;
   link: string;
   index: number;
@@ -76,14 +76,25 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
 
           <div className="absolute inset-0 p-6 md:p-8 lg:p-10 flex flex-col justify-between">
-            <div className="flex justify-between items-start space-x-4">
-              <span className="text-xs md:text-sm font-medium bg-white/10 backdrop-blur-sm text-white px-3 py-1.5 rounded-full">
-                {category}
-              </span>
+            <div className="flex flex-wrap items-start gap-2">
+              {Array.isArray(category) ? (
+                category.map((cat, i) => (
+                  <span 
+                    key={i}
+                    className="text-xs md:text-sm font-medium bg-white/10 backdrop-blur-sm text-white px-3 py-1.5 rounded-full"
+                  >
+                    {cat}
+                  </span>
+                ))
+              ) : (
+                <span className="text-xs md:text-sm font-medium bg-white/10 backdrop-blur-sm text-white px-3 py-1.5 rounded-full">
+                  {category}
+                </span>
+              )}
               
               <span 
                 className={cn(
-                  "relative flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500",
+                  "ml-auto relative flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500",
                   isHovered ? "opacity-100 rotate-0" : "opacity-0 -rotate-45"
                 )}
               >
