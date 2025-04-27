@@ -9,33 +9,43 @@ interface ProjectsGridProps {
 }
 
 const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
-  // Find Wanup project to ensure it's always first
+  // Find featured projects to ensure they're always first
   const wanupProject = projects.find(p => p.slug === 'wanup-webapp-b2b-saas');
-  const otherProjects = projects.filter(p => p.slug !== 'wanup-webapp-b2b-saas');
+  const mobileAppProject = projects.find(p => p.slug === 'mobile-app-design');
+  const otherProjects = projects.filter(p => 
+    p.slug !== 'wanup-webapp-b2b-saas' && p.slug !== 'mobile-app-design'
+  );
   
-  const sortedProjects = wanupProject 
-    ? [wanupProject, ...otherProjects]
-    : projects;
+  // Arrange projects with featured ones first
+  const sortedProjects = [
+    ...(wanupProject ? [wanupProject] : []),
+    ...(mobileAppProject ? [mobileAppProject] : []),
+    ...otherProjects
+  ];
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
-      {sortedProjects.map((project, index) => (
-        <div key={project.id} className={cn(
-          "col-span-1",
-          index === 0 ? "md:col-span-12" : "md:col-span-6",
-          index === 0 ? "aspect-[21/9]" : "aspect-[16/9]"
-        )}>
-          <ProjectCard
-            title={project.title}
-            description={project.description}
-            category={project.category}
-            image={project.image}
-            link={project.link}
-            index={index}
-            featured={index === 0}
-          />
-        </div>
-      ))}
+      {sortedProjects.map((project, index) => {
+        const isFeatured = index < 2; // First two projects are featured
+        
+        return (
+          <div key={project.id} className={cn(
+            "col-span-1",
+            isFeatured ? "md:col-span-12" : "md:col-span-6",
+            isFeatured ? "aspect-[21/9]" : "aspect-[16/9]"
+          )}>
+            <ProjectCard
+              title={project.title}
+              description={project.description}
+              category={project.category}
+              image={project.image}
+              link={project.link}
+              index={index}
+              featured={isFeatured}
+            />
+          </div>
+        );
+      })}
     </div>
   );
 };
