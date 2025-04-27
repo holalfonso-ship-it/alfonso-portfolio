@@ -1,9 +1,24 @@
-
 import { ProjectType } from '@/types/project';
 
 export const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System', 'Mobile', 'UI Design'];
 
 export const projects: ProjectType[] = [
+  {
+    id: 3,
+    title: 'Wanup Webapp B2B SaaS',
+    slug: 'wanup-webapp-b2b-saas',
+    description: 'Designed and developed a comprehensive B2B SaaS platform for hotel bookings and loyalty program management, featuring an intuitive user interface and streamlined booking experience.',
+    category: 'UX/UI',
+    image: '/lovable-uploads/beea8986-3e6c-4a18-ac1d-bff9c36d72bb.png',
+    heroImages: [
+      '/lovable-uploads/beea8986-3e6c-4a18-ac1d-bff9c36d72bb.png',
+      '/lovable-uploads/8e40ce72-3e8b-4985-afc8-8f92e34cfc66.png',
+      '/lovable-uploads/5ea3a279-d974-4fe4-85f5-ccb57fffa6a2.png',
+      '/lovable-uploads/d18bb0bd-850d-42b3-88bc-b035d36fb153.png',
+      '/lovable-uploads/131a06a8-d704-4c76-966d-3237434734d8.png'
+    ],
+    link: '/projects/wanup-webapp-b2b-saas',
+  },
   {
     id: 5,
     title: 'Mobile App Design',
@@ -30,22 +45,6 @@ export const projects: ProjectType[] = [
     category: 'DesignOps',
     image: '/lovable-uploads/b1be486d-7971-4477-97b7-e2bb6ff06bd3.png',
     link: '/projects/designops-workflow'
-  },
-  {
-    id: 3,
-    title: 'Wanup Webapp B2B SaaS',
-    slug: 'wanup-webapp-b2b-saas',
-    description: 'Designed and developed a comprehensive B2B SaaS platform for hotel bookings and loyalty program management, featuring an intuitive user interface and streamlined booking experience.',
-    category: 'UX/UI',
-    image: '/lovable-uploads/241d29d3-0fb8-472d-a81c-4925e5256f9b.png',
-    heroImages: [
-      '/lovable-uploads/241d29d3-0fb8-472d-a81c-4925e5256f9b.png',
-      '/lovable-uploads/8e40ce72-3e8b-4985-afc8-8f92e34cfc66.png',
-      '/lovable-uploads/5ea3a279-d974-4fe4-85f5-ccb57fffa6a2.png',
-      '/lovable-uploads/d18bb0bd-850d-42b3-88bc-b035d36fb153.png',
-      '/lovable-uploads/131a06a8-d704-4c76-966d-3237434734d8.png'
-    ],
-    link: '/projects/wanup-webapp-b2b-saas',
   },
   {
     id: 9,

@@ -58,17 +58,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div 
       ref={cardRef}
       className={cn(
-        "group relative transition-all duration-700 opacity-0 transform translate-y-12 cursor-pointer",
+        "group relative transition-all duration-700 opacity-0 transform translate-y-12 h-full",
         isVisible && "opacity-100 translate-y-0"
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link to={link}>
-        <div className={cn(
-          "relative overflow-hidden rounded-2xl bg-muted/50",
-          featured ? "aspect-[16/9]" : "aspect-[4/3]",
-        )}>
+      <Link to={link} className="h-full block">
+        <div className="relative h-full overflow-hidden rounded-2xl bg-muted/50">
           <div 
             className={cn(
               "absolute inset-0 transition-transform duration-700 ease-out bg-cover bg-center bg-no-repeat will-change-transform",
@@ -77,11 +74,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             style={{ backgroundImage: `url(${image})` }}
           />
           
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
 
           <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between">
             <div className="flex justify-between items-start">
-              <span className="text-xs font-medium bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full">
+              <span className="text-xs md:text-sm font-medium bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full">
                 {category}
               </span>
               
@@ -97,15 +94,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             
             <div>
               <h3 className={cn(
-                "font-display font-bold text-white mb-3 transition-all duration-300 drop-shadow-md",
-                featured ? "text-2xl md:text-4xl" : "text-xl md:text-2xl",
+                "font-display font-bold text-white mb-3 transition-all duration-300",
+                featured ? "text-3xl md:text-5xl" : "text-xl md:text-2xl",
               )}>
                 {title}
               </h3>
               
               <p 
                 className={cn(
-                  "text-sm text-white max-w-md transition-all duration-300 drop-shadow-md",
+                  "text-sm md:text-base text-white/90 max-w-2xl transition-all duration-300",
                   isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-80",
                 )}
               >
