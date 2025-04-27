@@ -10,9 +10,9 @@ export const projects: ProjectType[] = [
     slug: 'wanup-webapp-b2b-saas',
     description: 'Designed and developed a comprehensive B2B SaaS platform for hotel bookings and loyalty program management, featuring an intuitive user interface and streamlined booking experience.',
     category: 'UX/UI',
-    image: '/lovable-uploads/17168ae9-eb7c-4ff0-9e04-97d7f8c5db12.png',
+    image: '/lovable-uploads/399e039f-3f04-438d-b1e2-bfe914903368.png',
     heroImages: [
-      '/lovable-uploads/17168ae9-eb7c-4ff0-9e04-97d7f8c5db12.png',
+      '/lovable-uploads/399e039f-3f04-438d-b1e2-bfe914903368.png',
       '/lovable-uploads/8e40ce72-3e8b-4985-afc8-8f92e34cfc66.png',
       '/lovable-uploads/5ea3a279-d974-4fe4-85f5-ccb57fffa6a2.png',
       '/lovable-uploads/d18bb0bd-850d-42b3-88bc-b035d36fb153.png',
