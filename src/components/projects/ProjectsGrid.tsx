@@ -50,4 +50,3 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
 };
 
 export default ProjectsGrid;
-
