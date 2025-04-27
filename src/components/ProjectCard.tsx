@@ -74,35 +74,35 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             style={{ backgroundImage: `url(${image})` }}
           />
           
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
 
-          <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between">
-            <div className="flex justify-between items-start">
-              <span className="text-xs md:text-sm font-medium bg-white/20 backdrop-blur-sm text-white px-3 py-1 rounded-full">
+          <div className="absolute inset-0 p-6 md:p-8 lg:p-10 flex flex-col justify-between">
+            <div className="flex justify-between items-start space-x-4">
+              <span className="text-xs md:text-sm font-medium bg-white/10 backdrop-blur-sm text-white px-3 py-1.5 rounded-full">
                 {category}
               </span>
               
               <span 
                 className={cn(
-                  "relative flex items-center justify-center w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm transition-all duration-500",
+                  "relative flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500",
                   isHovered ? "opacity-100 rotate-0" : "opacity-0 -rotate-45"
                 )}
               >
-                <ArrowUpRight size={16} className="text-white" />
+                <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </span>
             </div>
             
-            <div>
+            <div className="space-y-3 md:space-y-4">
               <h3 className={cn(
-                "font-display font-bold text-white mb-3 transition-all duration-300",
-                featured ? "text-3xl md:text-5xl" : "text-xl md:text-2xl",
+                "font-display font-bold text-white leading-tight",
+                featured ? "text-2xl md:text-4xl lg:text-5xl max-w-2xl" : "text-lg md:text-2xl",
               )}>
                 {title}
               </h3>
               
               <p 
                 className={cn(
-                  "text-sm md:text-base text-white/90 max-w-2xl transition-all duration-300",
+                  "text-sm md:text-base text-white/80 max-w-2xl leading-relaxed",
                   isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-80",
                 )}
               >
