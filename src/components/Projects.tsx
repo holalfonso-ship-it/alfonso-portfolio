@@ -1,8 +1,10 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
 import AnimatedText from './AnimatedText';
 import { cn } from "@/lib/utils";
+import WanupWebappContent from './project-contents/WanupWebappContent';
 
 const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System', 'Mobile', 'UI Design'];
 
