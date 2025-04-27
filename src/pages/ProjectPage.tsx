@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ProjectDetail from '../components/ProjectDetail';
@@ -128,13 +127,13 @@ const projects = [
     slug: 'wanup-webapp-b2b-saas',
     description: 'Designed and developed a comprehensive B2B SaaS platform for hotel bookings and loyalty program management, featuring an intuitive user interface and streamlined booking experience.',
     category: 'UX/UI',
-    image: 'https://gefsvwcyxxgyfaandyjp.supabase.co/storage/v1/object/public/site_images/image-1745570509895.png',
+    image: '/lovable-uploads/241d29d3-0fb8-472d-a81c-4925e5256f9b.png',
     heroImages: [
-      'https://gefsvwcyxxgyfaandyjp.supabase.co/storage/v1/object/public/site_images/image-1745570509895.png',
-      'https://gefsvwcyxxgyfaandyjp.supabase.co/storage/v1/object/public/site_images/image-1745570530526.png',
-      'https://gefsvwcyxxgyfaandyjp.supabase.co/storage/v1/object/public/site_images/image-1745570544807.png',
-      'https://gefsvwcyxxgyfaandyjp.supabase.co/storage/v1/object/public/site_images/image-1745570558430.png',
-      'https://gefsvwcyxxgyfaandyjp.supabase.co/storage/v1/object/public/site_images/image-1745570572851.png'
+      '/lovable-uploads/241d29d3-0fb8-472d-a81c-4925e5256f9b.png',
+      '/lovable-uploads/8e40ce72-3e8b-4985-afc8-8f92e34cfc66.png',
+      '/lovable-uploads/5ea3a279-d974-4fe4-85f5-ccb57fffa6a2.png',
+      '/lovable-uploads/d18bb0bd-850d-42b3-88bc-b035d36fb153.png',
+      '/lovable-uploads/131a06a8-d704-4c76-966d-3237434734d8.png'
     ],
     link: '/projects/wanup-webapp-b2b-saas',
     content: <WanupWebappContent />
