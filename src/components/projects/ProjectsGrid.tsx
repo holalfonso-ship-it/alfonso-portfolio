@@ -31,7 +31,7 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
         return (
           <div key={project.id} className={cn(
             "w-full",
-            isFirstProject ? "aspect-[16/9] md:aspect-[21/9]" : "aspect-[16/9]"
+            isFirstProject ? "aspect-[21/9]" : "aspect-video"
           )}>
             <ProjectCard
               title={project.title}
@@ -50,4 +50,3 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
 };
 
 export default ProjectsGrid;
-

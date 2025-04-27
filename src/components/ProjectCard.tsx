@@ -58,17 +58,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div 
       ref={cardRef}
       className={cn(
-        "group relative transition-all duration-700 opacity-0 transform translate-y-12 h-full",
+        "group relative transition-all duration-700 opacity-0 transform translate-y-12",
         isVisible && "opacity-100 translate-y-0"
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link to={link} className="h-full block">
-        <div className="relative h-full overflow-hidden rounded-2xl bg-muted/50">
+      <Link to={link} className="block">
+        <figure className="relative overflow-hidden rounded-2xl bg-muted/50">
           <div 
             className={cn(
-              "absolute inset-0 transition-transform duration-700 ease-out bg-cover bg-center bg-no-repeat will-change-transform",
+              "relative aspect-video transition-transform duration-700 ease-out bg-cover bg-center bg-no-repeat will-change-transform",
               isHovered ? "scale-105" : "scale-100"
             )}
             style={{ backgroundImage: `url(${image})` }}
@@ -81,7 +81,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               : "bg-gradient-to-t from-black/80 via-black/50 to-transparent"
           )} />
 
-          <div className="absolute inset-0 p-6 md:p-8 lg:p-10 flex flex-col justify-between">
+          <figcaption className="absolute inset-0 p-6 md:p-8 lg:p-10 flex flex-col justify-between">
             <div className="flex justify-between items-start space-x-4">
               <span className="text-xs md:text-sm font-medium bg-white/10 backdrop-blur-sm text-white px-3 py-1.5 rounded-full">
                 {category}
@@ -113,12 +113,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 {description}
               </p>
             </div>
-          </div>
-        </div>
+          </figcaption>
+        </figure>
       </Link>
     </div>
   );
 };
 
 export default ProjectCard;
-
