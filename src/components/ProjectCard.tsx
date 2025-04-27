@@ -95,7 +95,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <div className="space-y-3 md:space-y-4">
               <h3 className={cn(
                 "font-display font-bold text-white leading-tight",
-                "text-2xl md:text-4xl lg:text-5xl max-w-2xl" : "text-lg md:text-2xl",
+                featured ? "text-2xl md:text-4xl lg:text-5xl max-w-2xl" : "text-lg md:text-2xl"
               )}>
                 {title}
               </h3>
@@ -103,7 +103,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               <p 
                 className={cn(
                   "text-sm md:text-base text-white/80 max-w-2xl leading-relaxed",
-                  isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-80",
+                  isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-80"
                 )}
               >
                 {description}
