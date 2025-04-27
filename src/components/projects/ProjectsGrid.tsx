@@ -9,12 +9,14 @@ interface ProjectsGridProps {
 }
 
 const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
+  // Find featured projects to ensure they're always first
   const mobileAppProject = projects.find(p => p.slug === 'mobile-app-design');
   const wanupProject = projects.find(p => p.slug === 'wanup-webapp-b2b-saas');
   const otherProjects = projects.filter(p => 
     p.slug !== 'mobile-app-design' && p.slug !== 'wanup-webapp-b2b-saas'
   );
   
+  // Arrange projects with mobile app first, then Wanup, then others
   const sortedProjects = [
     ...(mobileAppProject ? [mobileAppProject] : []),
     ...(wanupProject ? [wanupProject] : []),
@@ -22,21 +24,15 @@ const ProjectsGrid: React.FC<ProjectsGridProps> = ({ projects }) => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
+    <div className="grid grid-cols-1 gap-12 md:gap-24">
       {sortedProjects.map((project, index) => {
         const isFirstProject = index === 0;
-        const isSecondProject = index === 1;
         
         return (
-          <div 
-            key={project.id} 
-            className={cn(
-              "w-full",
-              isFirstProject && "md:col-span-2 aspect-[21/9]",
-              !isFirstProject && "aspect-[4/3]",
-              isSecondProject && "md:aspect-[3/2]"
-            )}
-          >
+          <div key={project.id} className={cn(
+            "w-full",
+            isFirstProject ? "aspect-[21/9]" : "aspect-video"
+          )}>
             <ProjectCard
               title={project.title}
               description={project.description}
