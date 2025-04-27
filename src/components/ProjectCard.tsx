@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { cn } from "@/lib/utils";
@@ -94,8 +93,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             
             <div className="space-y-3 md:space-y-4">
               <h3 className={cn(
-                "font-display font-bold text-white leading-tight",
-                featured ? "text-2xl md:text-4xl lg:text-5xl max-w-2xl" : "text-lg md:text-2xl"
+                "font-display font-bold text-white leading-tight text-lg md:text-2xl max-w-2xl"
               )}>
                 {title}
               </h3>
