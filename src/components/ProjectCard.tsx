@@ -58,14 +58,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     <div 
       ref={cardRef}
       className={cn(
-        "group relative transition-all duration-700 opacity-0 transform translate-y-12",
-        isVisible && "opacity-100 translate-y-0",
-        featured ? "aspect-[21/9]" : "aspect-[16/9]"
+        "group relative transition-all duration-700 opacity-0 transform translate-y-12 h-full",
+        isVisible && "opacity-100 translate-y-0"
       )}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link to={link} className="block h-full">
+      <Link to={link} className="h-full block">
         <div className="relative h-full overflow-hidden rounded-2xl bg-muted/50">
           <div 
             className={cn(
@@ -75,35 +74,41 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             style={{ backgroundImage: `url(${image})` }}
           />
           
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+          <div className={cn(
+            "absolute inset-0",
+            featured 
+              ? "bg-gradient-to-t from-black/90 via-black/50 to-transparent"
+              : "bg-gradient-to-t from-black/80 via-black/50 to-transparent"
+          )} />
 
-          <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-between">
+          <div className="absolute inset-0 p-6 md:p-8 lg:p-10 flex flex-col justify-between">
             <div className="flex justify-between items-start space-x-4">
-              <span className="text-sm font-medium bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full">
+              <span className="text-xs md:text-sm font-medium bg-white/10 backdrop-blur-sm text-white px-3 py-1.5 rounded-full">
                 {category}
               </span>
               
               <span 
                 className={cn(
-                  "relative flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500",
+                  "relative flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full bg-white/10 backdrop-blur-sm transition-all duration-500",
                   isHovered ? "opacity-100 rotate-0" : "opacity-0 -rotate-45"
                 )}
               >
-                <ArrowUpRight className="w-5 h-5 text-white" />
+                <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-white" />
               </span>
             </div>
             
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               <h3 className={cn(
-                "font-display font-bold text-white leading-tight tracking-tight",
-                featured ? "text-4xl md:text-5xl lg:text-6xl max-w-3xl" : "text-2xl md:text-3xl lg:text-4xl"
+                "font-display font-bold text-white leading-tight",
+                featured ? "text-3xl md:text-5xl lg:text-6xl max-w-3xl" : "text-xl md:text-3xl",
               )}>
                 {title}
               </h3>
               
               <p className={cn(
-                "text-base md:text-lg text-white/80 max-w-2xl leading-relaxed",
-                isHovered ? "opacity-100" : "opacity-80"
+                "text-sm md:text-base text-white/80 max-w-2xl leading-relaxed",
+                featured ? "md:text-lg" : "",
+                isHovered ? "opacity-100" : featured ? "opacity-100" : "opacity-80",
               )}>
                 {description}
               </p>
