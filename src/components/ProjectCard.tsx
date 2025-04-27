@@ -67,7 +67,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="relative h-full overflow-hidden rounded-2xl bg-muted/50">
           <div 
             className={cn(
-              "absolute inset-0 transition-transform duration-700 ease-out bg-cover bg-center bg-no-repeat will-change-transform",
+              "absolute inset-0 transition-transform duration-700 ease-out bg-cover bg-center bg-no-repeat",
               isHovered ? "scale-105" : "scale-100"
             )}
             style={{ backgroundImage: `url(${image})` }}
@@ -92,9 +92,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             </div>
             
             <div className="space-y-3 md:space-y-4">
-              <h3 className={cn(
-                "font-display font-bold text-white leading-tight text-lg md:text-2xl max-w-2xl"
-              )}>
+              <h3 className="font-display font-bold text-white leading-tight text-lg md:text-2xl xl:text-3xl">
                 {title}
               </h3>
               
