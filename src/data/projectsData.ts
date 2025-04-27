@@ -1,3 +1,4 @@
+
 import { ProjectType } from '@/types/project';
 
 export const projectCategories = ['All', 'UX/UI', 'Product Design', 'DesignOps', 'Design System', 'Mobile', 'UI Design'];
@@ -12,9 +13,10 @@ export const projects: ProjectType[] = [
     image: '/lovable-uploads/399e039f-3f04-438d-b1e2-bfe914903368.png',
     heroImages: [
       '/lovable-uploads/399e039f-3f04-438d-b1e2-bfe914903368.png',
-      '/lovable-uploads/7a1a686d-1706-4fa5-8a38-f8159c0da8b6.png',
-      '/lovable-uploads/cda6b9ef-facc-4dd6-94bf-13fff0127106.png',
-      '/lovable-uploads/73beadac-1cc9-4bcf-a948-ab2e0e335f7f.png'
+      '/lovable-uploads/8e40ce72-3e8b-4985-afc8-8f92e34cfc66.png',
+      '/lovable-uploads/5ea3a279-d974-4fe4-85f5-ccb57fffa6a2.png',
+      '/lovable-uploads/d18bb0bd-850d-42b3-88bc-b035d36fb153.png',
+      '/lovable-uploads/131a06a8-d704-4c76-966d-3237434734d8.png'
     ],
     link: '/projects/wanup-webapp-b2b-saas',
   },
