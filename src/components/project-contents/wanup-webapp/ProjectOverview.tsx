@@ -1,6 +1,4 @@
-
 import React from 'react';
-
 export const ProjectOverview: React.FC = () => {
   return <div className="space-y-8">
       <div>
@@ -52,12 +50,7 @@ export const ProjectOverview: React.FC = () => {
       </div>
 
       <div className="rounded-lg overflow-hidden border border-border/50">
-        <img 
-          alt="Wanup Landing Page Design" 
-          className="w-full h-auto" 
-          src="/lovable-uploads/17168ae9-eb7c-4ff0-9e04-97d7f8c5db12.png"
-        />
+        <img alt="Wanup Landing Page Design" src="/lovable-uploads/17168ae9-eb7c-4ff0-9e04-97d7f8c5db12.png" className="w-full h-auto object-cover" />
       </div>
     </div>;
 };
-
