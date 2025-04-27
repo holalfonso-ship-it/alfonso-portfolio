@@ -12,7 +12,6 @@ import PersonalProjects from '@/components/PersonalProjects';
 
 const Index: React.FC = () => {
   useEffect(() => {
-    // Add smooth scrolling behavior for anchor links
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a');
@@ -23,18 +22,13 @@ const Index: React.FC = () => {
         
         if (targetElement) {
           targetElement.scrollIntoView({ behavior: 'smooth' });
-          
-          // Optional: Update URL with hash without scrolling
           window.history.pushState(null, '', anchor.hash);
         }
       }
     };
     
     document.addEventListener('click', handleAnchorClick);
-    
-    return () => {
-      document.removeEventListener('click', handleAnchorClick);
-    };
+    return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
   
   return (

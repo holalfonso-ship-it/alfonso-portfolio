@@ -1,6 +1,9 @@
+
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ProjectDetail from '../components/ProjectDetail';
+
+// Import all content components
 import CrossTeamCollaborationContent from '../components/project-contents/CrossTeamCollaborationContent';
 import { LeadtechGroupContent } from '../components/project-contents/LeadtechGroupContent';
 import { LoyaltyAppContent } from '../components/project-contents/LoyaltyAppContent';
@@ -11,8 +14,10 @@ import VideoUpLandingContent from '../components/project-contents/VideoUpLanding
 import ResumeCoachContent from '../components/project-contents/ResumeCoachContent';
 import OnlineCVContent from '../components/project-contents/onlinecv/OnlineCVContent';
 import WanupWebappContent from '../components/project-contents/WanupWebappContent';
+import { projects as projectsData } from '../data/projectsData';
 
-const projects = [
+// Create a mapping of projects with their content components
+const projectsWithContent = [
   {
     id: 5,
     title: 'Mobile App Design',
@@ -54,20 +59,20 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Loyalty WebApp B2B SaaS',
-    slug: 'loyalty-webapp-b2b-saas',
-    description: 'Redesigned the B2B loyalty platform resulting in a 25% increase in client engagement and a 15% improvement in conversion rates for enterprise customers.',
+    title: 'Wanup Webapp B2B SaaS',
+    slug: 'wanup-webapp-b2b-saas',
+    description: 'Designed and developed a comprehensive B2B SaaS platform for hotel bookings and loyalty program management, featuring an intuitive user interface and streamlined booking experience.',
     category: 'UX/UI',
-    image: '/lovable-uploads/645e23f4-887a-4ecb-8564-a0d1b002b217.png',
+    image: '/lovable-uploads/241d29d3-0fb8-472d-a81c-4925e5256f9b.png',
     heroImages: [
-      '/lovable-uploads/645e23f4-887a-4ecb-8564-a0d1b002b217.png',
-      '/lovable-uploads/375ecce8-c782-4b61-a40f-a6fcd87cf4e7.png',
-      '/lovable-uploads/c7103e46-5321-457f-b71d-7e63c4f3ae06.png',
-      '/lovable-uploads/304f003e-df34-4217-85fd-3591e8869fa2.png',
-      '/lovable-uploads/fc7651f1-c719-479c-b96c-dc96a4fb5cf9.png'
+      '/lovable-uploads/241d29d3-0fb8-472d-a81c-4925e5256f9b.png',
+      '/lovable-uploads/8e40ce72-3e8b-4985-afc8-8f92e34cfc66.png',
+      '/lovable-uploads/5ea3a279-d974-4fe4-85f5-ccb57fffa6a2.png',
+      '/lovable-uploads/d18bb0bd-850d-42b3-88bc-b035d36fb153.png',
+      '/lovable-uploads/131a06a8-d704-4c76-966d-3237434734d8.png'
     ],
-    link: '/projects/loyalty-webapp-b2b-saas',
-    content: <LoyaltyAppContent />
+    link: '/projects/wanup-webapp-b2b-saas',
+    content: <WanupWebappContent />
   },
   {
     id: 4,
@@ -121,31 +126,14 @@ const projects = [
     link: '/projects/videoup-landing-page',
     content: <VideoUpLandingContent />
   },
-  {
-    id: 3,
-    title: 'Wanup Webapp B2B SaaS',
-    slug: 'wanup-webapp-b2b-saas',
-    description: 'Designed and developed a comprehensive B2B SaaS platform for hotel bookings and loyalty program management, featuring an intuitive user interface and streamlined booking experience.',
-    category: 'UX/UI',
-    image: '/lovable-uploads/241d29d3-0fb8-472d-a81c-4925e5256f9b.png',
-    heroImages: [
-      '/lovable-uploads/241d29d3-0fb8-472d-a81c-4925e5256f9b.png',
-      '/lovable-uploads/8e40ce72-3e8b-4985-afc8-8f92e34cfc66.png',
-      '/lovable-uploads/5ea3a279-d974-4fe4-85f5-ccb57fffa6a2.png',
-      '/lovable-uploads/d18bb0bd-850d-42b3-88bc-b035d36fb153.png',
-      '/lovable-uploads/131a06a8-d704-4c76-966d-3237434734d8.png'
-    ],
-    link: '/projects/wanup-webapp-b2b-saas',
-    content: <WanupWebappContent />
-  }
 ];
 
 const ProjectPage: React.FC = () => {
   const { id, slug } = useParams<{ id?: string, slug?: string }>();
   
   const project = id 
-    ? projects.find(p => p.id.toString() === id)
-    : projects.find(p => p.slug === slug);
+    ? projectsWithContent.find(p => p.id.toString() === id)
+    : projectsWithContent.find(p => p.slug === slug);
   
   useEffect(() => {
     window.scrollTo(0, 0);
