@@ -1,10 +1,8 @@
-
 import React, { useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AnimatedText from '@/components/AnimatedText';
 import TransitionEffect from '@/components/TransitionEffect';
-import { Button } from '@/components/ui/button';
 import PersonalProjectCard from '@/components/PersonalProjectCard';
 
 const PersonalProjectsPage: React.FC = () => {
@@ -28,7 +26,7 @@ const PersonalProjectsPage: React.FC = () => {
       title: "DesignOps Dashboard",
       description: "A custom dashboard built to visualize design team metrics and streamline DesignOps workflows. Provides insights on team productivity and project status.",
       type: "Internal Tool",
-      image: "/lovable-uploads/86277ae4-f579-48fb-941c-775548ddac82.png", 
+      image: "/lovable-uploads/12d78b9a-4afa-4e63-a37b-ff7e544d948c.png",
       link: "#",
       tags: ["DesignOps", "Dashboard", "Analytics"]
     }
