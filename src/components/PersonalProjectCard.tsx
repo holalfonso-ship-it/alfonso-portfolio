@@ -3,6 +3,7 @@ import React from 'react';
 import { ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import ZoomableImage from '@/components/ui/zoomable-image';
 
 interface PersonalProjectCardProps {
   title: string;
@@ -33,9 +34,9 @@ const PersonalProjectCard: React.FC<PersonalProjectCardProps> = ({
       onClick={handleCardClick}
     >
       <div className="relative aspect-video overflow-hidden bg-muted">
-        <img 
+        <ZoomableImage 
           src={image} 
-          alt={title} 
+          alt={title}
           className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute top-3 left-3">
