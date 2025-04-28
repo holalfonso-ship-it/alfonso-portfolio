@@ -83,7 +83,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({
                   </div>}
                 
                 {imageError && <div className="w-full h-full flex items-center justify-center bg-muted/20 p-4">
-                    <img alt="DesignOps mission" className="w-full h-full object-cover" src="/lovable-uploads/11bc8c00-3a54-4cd3-be4e-80e5a99cbf37.png" />
+                    <img alt="DesignOps mission" className="w-full h-full object-cover" src="/lovable-uploads/bf73ca47-c600-42f9-9cfc-f6e34bce1d7f.png" />
                   </div>}
                 
                 {!imageError && <ZoomableImage src={displayImage} alt={project.title} className={`w-full h-full object-cover ${imageLoaded ? 'block' : 'hidden'}`} onLoad={() => setImageLoaded(true)} onError={() => {
