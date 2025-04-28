@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -22,7 +21,7 @@ const PersonalProjects: React.FC = () => {
       title: "DesignOps Dashboard",
       description: "A custom dashboard built to visualize design team metrics and streamline DesignOps workflows.",
       type: "Internal Tool",
-      image: "/lovable-uploads/86277ae4-f579-48fb-941c-775548ddac82.png",
+      image: "/lovable-uploads/0a5f2c80-0ca0-4fc8-a4c3-0a73ec109c27.png",
     }
   ];
   
