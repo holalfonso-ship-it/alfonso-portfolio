@@ -2,10 +2,12 @@
 import React, { useRef, useEffect, useState } from 'react';
 import AnimatedText from './AnimatedText';
 import { ChevronDown, Sparkles } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [cvUrl, setCvUrl] = useState<string | null>(null);
   
   useEffect(() => {
     const checkIfMobile = () => {
@@ -16,6 +18,34 @@ const Hero: React.FC = () => {
     return () => {
       window.removeEventListener('resize', checkIfMobile);
     };
+  }, []);
+  
+  useEffect(() => {
+    const fetchLatestCV = async () => {
+      try {
+        const { data, error } = await supabase.storage
+          .from('cv_files')
+          .list('', {
+            limit: 1,
+            sortBy: { column: 'created_at', order: 'desc' }
+          });
+          
+        if (error) throw error;
+        
+        if (data && data.length > 0) {
+          const latestFile = data[0];
+          const { data: { publicUrl } } = supabase.storage
+            .from('cv_files')
+            .getPublicUrl(latestFile.name);
+            
+          setCvUrl(publicUrl);
+        }
+      } catch (error) {
+        console.error('Error fetching CV:', error);
+      }
+    };
+    
+    fetchLatestCV();
   }, []);
   
   const handleScrollClick = () => {
@@ -74,7 +104,7 @@ const Hero: React.FC = () => {
               </a>
               
               <a 
-                href="/alfonso-cv.pdf" 
+                href={cvUrl || '/alfonso-cv.pdf'} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-border bg-background text-foreground font-medium transition-all hover:bg-muted hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
