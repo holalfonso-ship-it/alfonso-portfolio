@@ -13,20 +13,22 @@ const Projects: React.FC = () => {
     : projects.filter(project => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-32 md:py-40 px-6 md:px-12 bg-gradient-to-b from-background to-background/95">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16 md:mb-24">
-          <ProjectsHeader />
-          <ProjectCategories 
-            categories={projectCategories}
-            activeCategory={activeCategory}
-            onCategoryChange={setActiveCategory}
-          />
-        </div>
+    <main id="main-content">
+      <section id="projects" className="py-32 md:py-40 px-6 md:px-12 bg-gradient-to-b from-background to-background/95">
+        <div className="max-w-7xl mx-auto">
+          <div className="mb-16 md:mb-24">
+            <ProjectsHeader />
+            <ProjectCategories 
+              categories={projectCategories}
+              activeCategory={activeCategory}
+              onCategoryChange={setActiveCategory}
+            />
+          </div>
 
-        <ProjectsGrid projects={filteredProjects} />
-      </div>
-    </section>
+          <ProjectsGrid projects={filteredProjects} />
+        </div>
+      </section>
+    </main>
   );
 };
 

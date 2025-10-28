@@ -10,7 +10,7 @@ const ProjectsHeader: React.FC = () => {
       </span>
       
       <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tight max-w-2xl">
-        <AnimatedText text="Creating impactful digital experiences" className="inline-block" once />
+        Selected Projects
       </h2>
       
       <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mt-4">

@@ -53,16 +53,15 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ content, author, position
 const Testimonials: React.FC = () => {
   const testimonials = [
     {
-      content: "Never afraid to speak her mind, Alfonso has been able to provide a unique perspective and a clarity of thought that I've found invaluable. But more importantly, he has demonstrated on multiple occasions a level of initiative that isn't common amongst her peers, organising and taking the lead in meetings with founders and CEOs of potential partner companies.",
+      content: "Never afraid to speak his mind, Alfonso has been able to provide a unique perspective and a clarity of thought that I've found invaluable. But more importantly, he has demonstrated on multiple occasions a level of initiative that isn't common amongst his peers, organising and taking the lead in meetings with founders and CEOs of potential partner companies.",
       author: "Adolfo Sánchez Olmo",
-      position: "Global Vice President IT Hospitality CoE at Radisson Hotel Group",
-      company: "Head of EMMA",
+      position: "Global Vice President IT Hospitality CoE at Radisson Hotel Group, Head of EMMA",
       avatarSrc: "/lovable-uploads/4aa2a4cc-8765-4d41-b75d-1656c3d5ca8e.png"
     },
     {
-      content: "Alfonso perfectly fulfils the tasks assigned to him in the foreseen time. It pays special attention to the final details and provides productive solutions in the workflow.",
+      content: "Alfonso perfectly fulfils the tasks assigned to him in the foreseen time. He pays special attention to the final details and provides productive solutions in the workflow.",
       author: "Baptiste Pons",
-      position: "Freelance Product designer",
+      position: "Freelance Product Designer",
       avatarSrc: "/lovable-uploads/9da1d061-a084-4749-ae66-5f1eb6165ee1.png"
     }
   ];
@@ -81,7 +80,7 @@ const Testimonials: React.FC = () => {
           </span>
           
           <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 tracking-tight">
-            <AnimatedText text="Testimonials" className="inline-block" once />
+            Testimonials
           </h2>
           
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -96,7 +95,6 @@ const Testimonials: React.FC = () => {
               content={testimonial.content}
               author={testimonial.author}
               position={testimonial.position}
-              company={testimonial.company}
               avatarSrc={testimonial.avatarSrc}
             />
           ))}

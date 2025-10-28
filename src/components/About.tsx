@@ -50,7 +50,7 @@ const About: React.FC = () => {
             About Me
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight mb-6">
-            <AnimatedText text="Professional Background" className="inline-block" once />
+            About
           </h2>
           <div className="max-w-2xl mx-auto">
             <p className="text-muted-foreground">
