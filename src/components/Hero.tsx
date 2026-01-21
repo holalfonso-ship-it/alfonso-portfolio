@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
             
             <div className="text-muted-foreground flex flex-col gap-1 opacity-0 animate-slide-up animation-delay-1400">
               <p className="text-sm">Specialized in</p>
-              <p className="text-base">Product Design · UI Design · Design Systems · DesignOps · Workflows</p>
+              <p className="text-base">          DesignOps · Design System Governance ·  Product Design    </p>
             </div>
           </div>
         </div>
