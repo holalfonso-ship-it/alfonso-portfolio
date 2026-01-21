@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
               </h1>
               
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl opacity-0 animate-slide-up animation-delay-1000">
-                Helping teams create more efficient design workflows and processes to scale creativity.
+                Optimizing design operations and scaling systems to bridge the gap between design, product, and engineering.
               </p>
             </div>
             
