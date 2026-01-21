@@ -1,12 +1,9 @@
-
 import React, { useRef, useEffect, useState } from 'react';
 import AnimatedText from './AnimatedText';
 import { ChevronDown, Sparkles } from 'lucide-react';
-
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-  
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -17,7 +14,6 @@ const Hero: React.FC = () => {
       window.removeEventListener('resize', checkIfMobile);
     };
   }, []);
-  
   const handleScrollClick = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
@@ -26,9 +22,7 @@ const Hero: React.FC = () => {
       });
     }
   };
-  
-  return (
-    <section id="home" ref={heroRef} className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-32 relative overflow-hidden pt-20 md:pt-32">
+  return <section id="home" ref={heroRef} className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-32 relative overflow-hidden pt-20 md:pt-32">
       {/* Background elements */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(52,152,219,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(52,152,219,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-60" />
       
@@ -49,7 +43,7 @@ const Hero: React.FC = () => {
               <h1 className="text-6xl md:text-8xl xl:text-9xl font-display font-bold leading-tight md:leading-none tracking-tighter mb-6 md:mb-8">
                 <span className="block text-2xl md:text-3xl tracking-widest text-muted-foreground mb-2 opacity-0 animate-slide-up animation-delay-200 font-bold">Hi, I am Alfonso</span>
                 <span className="block opacity-0 animate-slide-up animation-delay-500 italic">
-                  <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">DesignOps</span>
+                  <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent mx-0 px-[10px]">DesignOps</span>
                 </span>
                 <span className="block opacity-0 animate-slide-up animation-delay-700">
                   & Senior <span className="text-primary">Product</span>
@@ -103,8 +97,6 @@ const Hero: React.FC = () => {
           <ChevronDown size={24} />
         </button>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
