@@ -31,11 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Link 
-        to={link} 
-        className="block h-full"
-        aria-label={`View ${title} project - ${description}`}
-      >
+      <Link to={link} className="block h-full">
         <div className="relative h-full">
           <div 
             className={cn(
@@ -43,8 +39,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               isHovered ? "scale-105" : "scale-100"
             )}
             style={{ backgroundImage: `url(${image})` }}
-            role="img"
-            aria-label={`${title} project preview`}
           />
           
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />

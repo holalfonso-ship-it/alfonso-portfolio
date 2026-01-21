@@ -60,17 +60,6 @@ const CodeSnippetForm: React.FC<CodeSnippetFormProps> = ({
 
   const handleSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      
-      if (!user) {
-        toast({
-          title: 'Authentication required',
-          description: 'You must be logged in to manage code snippets',
-          variant: 'destructive',
-        });
-        return;
-      }
-
       if (snippet) {
         // Update existing snippet
         const { error } = await supabase
@@ -97,7 +86,6 @@ const CodeSnippetForm: React.FC<CodeSnippetFormProps> = ({
           description: values.description || null,
           language: values.language,
           code_content: values.code_content,
-          user_id: user.id,
         });
 
         if (error) throw error;
