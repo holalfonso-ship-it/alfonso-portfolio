@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import Hero from '@/components/Hero';
 import Projects from '@/components/Projects';
 import About from '@/components/About';
-import Manifesto from '@/components/Manifesto';
 import Testimonials from '@/components/Testimonials';
 import WorkProcess from '@/components/WorkProcess';
 import Contact from '@/components/Contact';
@@ -38,7 +37,6 @@ const Index: React.FC = () => {
         <Hero />
         <Projects />
         <PersonalProjects />
-        <Manifesto />
         <About />
         <Testimonials />
         <WorkProcess />
