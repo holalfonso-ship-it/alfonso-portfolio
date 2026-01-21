@@ -48,14 +48,14 @@ const Hero: React.FC = () => {
             <div className="w-full md:w-3/4">
               <h1 className="text-6xl md:text-8xl xl:text-9xl font-display font-bold leading-tight md:leading-none tracking-tighter mb-6 md:mb-8">
                 <span className="block text-2xl md:text-3xl tracking-widest text-muted-foreground mb-2 opacity-0 animate-slide-up animation-delay-200 font-bold">Hi, I am Alfonso</span>
-                <span className="block opacity-0 animate-slide-up animation-delay-500">
+                <span className="block opacity-0 animate-slide-up animation-delay-500 italic">
                   <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent">DesignOps</span>
                 </span>
                 <span className="block opacity-0 animate-slide-up animation-delay-700">
                   & Senior <span className="text-primary">Product</span>
                 </span>
                 <span className="block opacity-0 animate-slide-up animation-delay-900">
-                  Designer
+                  <span className="text-primary">Designer</span>
                 </span>
               </h1>
               
