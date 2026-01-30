@@ -1,7 +1,6 @@
-
 import React, { useEffect } from 'react';
 import Hero from '@/components/Hero';
-import Projects from '@/components/Projects';
+import FeaturedCaseStudy from '@/components/FeaturedCaseStudy';
 import About from '@/components/About';
 import Testimonials from '@/components/Testimonials';
 import WorkProcess from '@/components/WorkProcess';
@@ -35,7 +34,7 @@ const Index: React.FC = () => {
       <TransitionEffect />
       <main className="flex-grow">
         <Hero />
-        <Projects />
+        <FeaturedCaseStudy />
         <PersonalProjects />
         <About />
         <Testimonials />
