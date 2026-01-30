@@ -8,14 +8,6 @@ import DesktopNav from './DesktopNav';
 import MobileMenuToggle from './MobileMenuToggle';
 import MobileMenu from './MobileMenu';
 
-const projects = [
-  { id: 5, title: 'Mobile App Design', category: 'Mobile', slug: 'mobile-app-design' },
-  { id: 1, title: 'Design Systems', category: 'Design System', slug: 'design-systems' },
-  { id: 2, title: 'DesignOps Workflow', category: 'DesignOps', slug: 'designops-workflow' },
-  { id: 3, title: 'Wanup Webapp B2B SaaS', category: 'UX/UI', slug: 'wanup-webapp-b2b-saas' },
-  { id: 9, title: 'OnlineCV Landing Page', category: 'UI Design', slug: 'onlinecv-landing-page' }
-];
-
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -38,20 +30,12 @@ const Header: React.FC = () => {
   const navItems = isProjectPage 
     ? [
         { label: 'Home', href: '/' },
-        { 
-          label: 'Projects', 
-          href: '/#projects',
-          hasDropdown: true 
-        },
+        { label: 'Case Study', href: '/#case-study' },
         { label: 'Personal Projects', href: '/personal-projects' }
       ]
     : [
         { label: 'Home', href: '/' },
-        { 
-          label: 'Projects', 
-          href: '/#projects',
-          hasDropdown: true 
-        },
+        { label: 'Case Study', href: '/#case-study' },
         { label: 'Personal Projects', href: '/personal-projects' },
         { label: 'About', href: '/#about' },
         { label: 'Process', href: '/#process' },
@@ -126,7 +110,6 @@ const Header: React.FC = () => {
         
         <DesktopNav 
           navItems={navItems}
-          projects={projects}
           getNavItemHref={getNavItemHref}
           onDownloadCV={handleDownloadCV}
         />
@@ -139,7 +122,6 @@ const Header: React.FC = () => {
         <MobileMenu 
           isOpen={mobileMenuOpen}
           navItems={navItems}
-          projects={projects}
           onLinkClick={() => setMobileMenuOpen(false)}
           onDownloadCV={handleDownloadCV}
         />

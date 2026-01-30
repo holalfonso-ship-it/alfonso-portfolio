@@ -8,20 +8,11 @@ import { cn } from '@/lib/utils';
 interface NavItem {
   label: string;
   href: string;
-  hasDropdown?: boolean;
-}
-
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  slug?: string;
 }
 
 interface MobileMenuProps {
   isOpen: boolean;
   navItems: NavItem[];
-  projects: Project[];
   onLinkClick: () => void;
   onDownloadCV: () => void;
 }
@@ -29,7 +20,6 @@ interface MobileMenuProps {
 const MobileMenu: React.FC<MobileMenuProps> = ({ 
   isOpen, 
   navItems, 
-  projects, 
   onLinkClick,
   onDownloadCV 
 }) => {
@@ -49,39 +39,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
       
       <nav className="flex flex-col items-center space-y-6 py-24 px-6 w-full">
         {navItems.map((item) => (
-          !item.hasDropdown ? (
-            <Link
-              key={item.href}
-              to={item.href}
-              className="text-xl font-medium transition-colors hover:text-primary"
-              onClick={onLinkClick}
-            >
-              {item.label}
-            </Link>
-          ) : (
-            <div key={item.href} className="w-full space-y-4">
-              <Link 
-                to={item.href}
-                className="text-xl font-medium transition-colors hover:text-primary block"
-                onClick={onLinkClick}
-              >
-                {item.label}
-              </Link>
-              
-              <div className="grid grid-cols-1 gap-3 pl-4">
-                {projects.map((project) => (
-                  <Link
-                    key={project.id}
-                    to={`/projects/${project.slug}`}
-                    className="text-sm text-muted-foreground hover:text-primary transition-colors py-1"
-                    onClick={onLinkClick}
-                  >
-                    {project.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )
+          <Link
+            key={item.href}
+            to={item.href}
+            className="text-xl font-medium transition-colors hover:text-primary"
+            onClick={onLinkClick}
+          >
+            {item.label}
+          </Link>
         ))}
         
         <Button 
