@@ -125,7 +125,7 @@ export function FooterSection({ className }: FooterSectionProps) {
             </div>
           </div>
           
-          <div className="md:col-span-1">
+          <div className="md:col-span-2">
             <h3 className="text-lg font-semibold mb-4">Navigate</h3>
             <ul className="space-y-3">
               <li>
@@ -134,9 +134,14 @@ export function FooterSection({ className }: FooterSectionProps) {
                 </Link>
               </li>
               <li>
-                <a href="/#projects" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Projects
+                <a href="/#case-study" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Case Study
                 </a>
+              </li>
+              <li>
+                <Link to="/personal-projects" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Personal Projects
+                </Link>
               </li>
               <li>
                 <a href="/#about" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -144,35 +149,14 @@ export function FooterSection({ className }: FooterSectionProps) {
                 </a>
               </li>
               <li>
+                <a href="/#process" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Process
+                </a>
+              </li>
+              <li>
                 <a href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
                   Contact
                 </a>
-              </li>
-            </ul>
-          </div>
-          
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Projects</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/projects/design-systems" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Design Systems
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects/designops-workflow" className="text-muted-foreground hover:text-foreground transition-colors">
-                  DesignOps
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects/data-visualization" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Data Visualization
-                </Link>
-              </li>
-              <li>
-                <Link to="/projects/mobile-app-design" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Mobile Design
-                </Link>
               </li>
             </ul>
           </div>
