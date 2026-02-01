@@ -76,6 +76,34 @@ const FeaturedCaseStudy: React.FC = () => {
           <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/5 to-primary/20 rounded-2xl blur-xl -z-10" />
         </div>
 
+        {/* Storytelling Section */}
+        <div className="max-w-3xl mx-auto mb-20 md:mb-28 animate-fade-in">
+          <h3 className="text-3xl md:text-4xl font-display font-semibold text-center mb-8 tracking-tight">
+            The Story Behind AI Cleaner
+          </h3>
+          <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed text-center md:text-left">
+            <p>
+              We live in an era of digital obesity. Our iPhones are no longer just tools; they have become 
+              cluttered archives of duplicate memories, forgotten screenshots, and endless junk mail that 
+              drain both our storage and our mental clarity.
+            </p>
+            <p>
+              As the <span className="font-semibold text-foreground">Lead Product Designer</span>, I saw an 
+              opportunity to do more than just build a utility app. My goal was to leverage{' '}
+              <span className="font-semibold text-foreground">AI-driven workflows</span> to create a 
+              'digital sanctuary.' By merging Data-Informed Design (via Amplitude) with cutting-edge AI tools, 
+              we transformed a tedious 15-minute manual task into a seamless, one-tap experience.
+            </p>
+            <p>
+              This isn't just a story about cleaning files; it's about how we scaled a premium iOS experience 
+              from Barcelona to a global stage—including the highly competitive{' '}
+              <span className="font-semibold text-foreground">Chinese market</span>—while maintaining a 
+              4.5-star excellence and a 30% faster delivery velocity through modern{' '}
+              <span className="font-semibold text-primary">DesignOps</span>.
+            </p>
+          </div>
+        </div>
+
         {/* STAR Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Situation */}
