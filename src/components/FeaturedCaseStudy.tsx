@@ -62,7 +62,7 @@ const FeaturedCaseStudy: React.FC = () => {
 
         {/* Hero Image */}
         <div className="relative mb-16 md:mb-24 rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
-          <div className="relative aspect-video md:aspect-[21/9] w-full">
+          <div className="relative aspect-[4/3] md:aspect-[16/9] w-full">
             <img 
               src={aiCleanerHero} 
               alt="AI Cleaner app interface showing +2.5GB recovered with Smart Filters" 
