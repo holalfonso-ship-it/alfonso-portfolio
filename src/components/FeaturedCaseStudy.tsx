@@ -6,36 +6,32 @@ import { ArrowRight, Lightbulb, Target, Zap, TrendingUp, Users, Sparkles, Brain,
 import AnimatedText from '@/components/AnimatedText';
 import { Link } from 'react-router-dom';
 import aiCleanerHero from '@/assets/ai-cleaner-hero.png';
-
 const FeaturedCaseStudy: React.FC = () => {
   const tags = ['DesignOps', 'AI Integration', 'Team Leadership'];
-
-  const actionMilestones = [
-    {
-      icon: Zap,
-      title: 'DesignOps Frameworks',
-      description: 'Implemented DesignOps frameworks to reduce friction between design, product and engineering teams.',
-    },
-    {
-      icon: Brain,
-      title: 'AI Workflow Integration',
-      description: 'Integrated AI-powered workflows using Figma Make AI, UxPilot, and Lovable for accelerated prototyping.',
-    },
-    {
-      icon: Users,
-      title: 'Team Mentorship',
-      description: 'Mentored a team of 6 designers focused on experimentation and continuous improvement.',
-    },
-  ];
-
-  const results = [
-    { value: '+30%', label: 'Acceleration in product delivery' },
-    { value: '+25%', label: 'Increase in velocity' },
-    { value: '+20%', label: 'Stakeholder satisfaction' },
-  ];
-
-  return (
-    <section id="case-study" className="py-32 md:py-40 px-6 md:px-12 bg-gradient-to-b from-background to-background/95">
+  const actionMilestones = [{
+    icon: Zap,
+    title: 'DesignOps Frameworks',
+    description: 'Implemented DesignOps frameworks to reduce friction between design, product and engineering teams.'
+  }, {
+    icon: Brain,
+    title: 'AI Workflow Integration',
+    description: 'Integrated AI-powered workflows using Figma Make AI, UxPilot, and Lovable for accelerated prototyping.'
+  }, {
+    icon: Users,
+    title: 'Team Mentorship',
+    description: 'Mentored a team of 6 designers focused on experimentation and continuous improvement.'
+  }];
+  const results = [{
+    value: '+30%',
+    label: 'Acceleration in product delivery'
+  }, {
+    value: '+25%',
+    label: 'Increase in velocity'
+  }, {
+    value: '+20%',
+    label: 'Stakeholder satisfaction'
+  }];
+  return <section id="case-study" className="py-32 md:py-40 px-6 md:px-12 bg-gradient-to-b from-background to-background/95">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col space-y-6 mb-12 md:mb-16">
@@ -48,26 +44,16 @@ const FeaturedCaseStudy: React.FC = () => {
           </h2>
           
           <div className="flex flex-wrap gap-3 mt-4">
-            {tags.map((tag) => (
-              <Badge 
-                key={tag} 
-                variant="secondary" 
-                className="text-sm px-4 py-1.5 bg-secondary/80 hover:bg-secondary"
-              >
+            {tags.map(tag => <Badge key={tag} variant="secondary" className="text-sm px-4 py-1.5 bg-secondary/80 hover:bg-secondary">
                 {tag}
-              </Badge>
-            ))}
+              </Badge>)}
           </div>
         </div>
 
         {/* Hero Image */}
         <div className="relative mb-16 md:mb-24 rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
           <div className="relative aspect-[4/3] md:aspect-[16/9] w-full">
-            <img 
-              src={aiCleanerHero} 
-              alt="AI Cleaner app interface showing +2.5GB recovered with Smart Filters" 
-              className="w-full h-full object-cover object-center"
-            />
+            <img src={aiCleanerHero} alt="AI Cleaner app interface showing +2.5GB recovered with Smart Filters" className="w-full h-full object-cover object-center" />
             {/* Gradient overlay for depth */}
             <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent" />
@@ -128,8 +114,11 @@ const FeaturedCaseStudy: React.FC = () => {
                   <h3 className="text-2xl font-display font-semibold">Situation</h3>
                 </div>
                 <p className="text-muted-foreground text-base leading-relaxed">
-                  Faced the challenge of aligning user experience with business objectives across multiple digital products. 
-                  Design inconsistencies and siloed workflows were creating friction and slowing down delivery.
+                  The Context: Mobile users are overwhelmed by "digital clutter"—duplicate photos, bloated screenshots, and junk emails that exhaust device storage and mental clarity.
+
+The Problem: Faced the challenge of aligning user experience with business goals by transforming a tedious manual process into a secure, automated AI-driven solution.
+
+The Role: As Lead Product Designer, I initiated the transition from siloed workflows to a unified strategy to reduce user friction.​
                 </p>
               </div>
             </CardContent>
@@ -188,18 +177,13 @@ const FeaturedCaseStudy: React.FC = () => {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {actionMilestones.map((milestone, index) => (
-                  <div 
-                    key={index} 
-                    className="p-5 rounded-2xl bg-background/40 backdrop-blur-sm border border-border/20 hover:border-primary/30 hover:bg-background/60 transition-all duration-300"
-                  >
+                {actionMilestones.map((milestone, index) => <div key={index} className="p-5 rounded-2xl bg-background/40 backdrop-blur-sm border border-border/20 hover:border-primary/30 hover:bg-background/60 transition-all duration-300">
                     <div className="p-2.5 rounded-xl bg-primary/10 w-fit mb-4">
                       <milestone.icon className="w-5 h-5 text-primary" />
                     </div>
                     <h4 className="text-lg font-semibold mb-2">{milestone.title}</h4>
                     <p className="text-muted-foreground text-sm leading-relaxed">{milestone.description}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </CardContent>
@@ -228,17 +212,12 @@ const FeaturedCaseStudy: React.FC = () => {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {results.map((result, index) => (
-                  <div 
-                    key={index} 
-                    className="p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 text-center"
-                  >
+                {results.map((result, index) => <div key={index} className="p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 text-center">
                     <span className="text-4xl md:text-5xl font-display font-bold text-primary block mb-2">
                       {result.value}
                     </span>
                     <p className="text-muted-foreground text-sm">{result.label}</p>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
           </CardContent>
@@ -248,18 +227,13 @@ const FeaturedCaseStudy: React.FC = () => {
         {/* CTA Button */}
         <div className="flex justify-center">
           <Link to="/project/leadtech-design-system">
-            <Button 
-              size="lg" 
-              className="group text-lg px-8 py-6 bg-primary hover:bg-primary/90"
-            >
+            <Button size="lg" className="group text-lg px-8 py-6 bg-primary hover:bg-primary/90">
               View Full Documentation
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default FeaturedCaseStudy;
