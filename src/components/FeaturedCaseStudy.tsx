@@ -2,7 +2,7 @@ import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Lightbulb, Target, Zap, TrendingUp, Users, Sparkles, Brain } from 'lucide-react';
+import { ArrowRight, Lightbulb, Target, Zap, TrendingUp, Users, Sparkles, Brain, HardDrive, Globe, Layers, Star } from 'lucide-react';
 import AnimatedText from '@/components/AnimatedText';
 import { Link } from 'react-router-dom';
 import aiCleanerHero from '@/assets/ai-cleaner-hero.png';
@@ -107,90 +107,143 @@ const FeaturedCaseStudy: React.FC = () => {
         {/* STAR Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
           {/* Situation */}
-          <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-colors duration-300">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-xl bg-primary/10">
-                  <Lightbulb className="w-6 h-6 text-primary" />
+          <Card className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
+            <CardContent className="p-0">
+              {/* Image Placeholder */}
+              <div className="relative h-48 md:h-56 bg-gradient-to-br from-muted/80 via-muted/60 to-muted/40 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 via-transparent to-destructive/5" />
+                <div className="relative p-6 rounded-2xl bg-background/20 backdrop-blur-sm border border-border/20 group-hover:scale-105 transition-transform duration-500">
+                  <HardDrive className="w-12 h-12 text-destructive/70" />
                 </div>
-                <h3 className="text-2xl font-display font-semibold">Situation</h3>
+                <span className="absolute bottom-4 left-4 text-xs font-medium text-muted-foreground/60 tracking-wider uppercase">
+                  The Problem
+                </span>
               </div>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Faced the challenge of aligning user experience with business objectives across multiple digital products. 
-                Design inconsistencies and siloed workflows were creating friction and slowing down delivery across the organization.
-              </p>
+              {/* Content */}
+              <div className="p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-primary/10">
+                    <Lightbulb className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-display font-semibold">Situation</h3>
+                </div>
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  Faced the challenge of aligning user experience with business objectives across multiple digital products. 
+                  Design inconsistencies and siloed workflows were creating friction and slowing down delivery.
+                </p>
+              </div>
             </CardContent>
           </Card>
 
           {/* Task */}
-          <Card className="bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 transition-colors duration-300">
-            <CardContent className="p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-xl bg-primary/10">
-                  <Target className="w-6 h-6 text-primary" />
+          <Card className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
+            <CardContent className="p-0">
+              {/* Image Placeholder */}
+              <div className="relative h-48 md:h-56 bg-gradient-to-br from-muted/80 via-muted/60 to-muted/40 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
+                <div className="relative p-6 rounded-2xl bg-background/20 backdrop-blur-sm border border-border/20 group-hover:scale-105 transition-transform duration-500">
+                  <Globe className="w-12 h-12 text-primary/70" />
                 </div>
-                <h3 className="text-2xl font-display font-semibold">Task</h3>
+                <span className="absolute bottom-4 left-4 text-xs font-medium text-muted-foreground/60 tracking-wider uppercase">
+                  The Goal
+                </span>
               </div>
-              <p className="text-muted-foreground text-lg leading-relaxed">
-                Scale the corporate Design System to ensure consistency across all products while establishing 
-                measurable UX metrics to track impact and demonstrate value to stakeholders.
-              </p>
+              {/* Content */}
+              <div className="p-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-2.5 rounded-xl bg-primary/10">
+                    <Target className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-display font-semibold">Task</h3>
+                </div>
+                <p className="text-muted-foreground text-base leading-relaxed">
+                  Scale the corporate Design System to ensure consistency across all products while establishing 
+                  measurable UX metrics to track impact and demonstrate value to stakeholders.
+                </p>
+              </div>
             </CardContent>
           </Card>
         </div>
 
-        {/* Action */}
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="p-3 rounded-xl bg-primary/10">
-              <Sparkles className="w-6 h-6 text-primary" />
+        {/* Action Section */}
+        <Card className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden mb-16 group">
+          <CardContent className="p-0">
+            {/* Image Placeholder */}
+            <div className="relative h-48 md:h-64 bg-gradient-to-br from-muted/80 via-muted/60 to-muted/40 flex items-center justify-center overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-secondary/20 via-transparent to-primary/10" />
+              <div className="relative p-6 rounded-2xl bg-background/20 backdrop-blur-sm border border-border/20 group-hover:scale-105 transition-transform duration-500">
+                <Layers className="w-14 h-14 text-secondary-foreground/70" />
+              </div>
+              <span className="absolute bottom-4 left-4 text-xs font-medium text-muted-foreground/60 tracking-wider uppercase">
+                The Solution
+              </span>
             </div>
-            <h3 className="text-2xl font-display font-semibold">Action</h3>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {actionMilestones.map((milestone, index) => (
-              <Card 
-                key={index} 
-                className="bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/30 hover:shadow-lg transition-all duration-300 group"
-              >
-                <CardContent className="p-6">
-                  <div className="p-3 rounded-xl bg-primary/10 w-fit mb-4 group-hover:bg-primary/20 transition-colors">
-                    <milestone.icon className="w-6 h-6 text-primary" />
+            {/* Content */}
+            <div className="p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2.5 rounded-xl bg-primary/10">
+                  <Sparkles className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="text-2xl font-display font-semibold">Action</h3>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {actionMilestones.map((milestone, index) => (
+                  <div 
+                    key={index} 
+                    className="p-5 rounded-2xl bg-background/40 backdrop-blur-sm border border-border/20 hover:border-primary/30 hover:bg-background/60 transition-all duration-300"
+                  >
+                    <div className="p-2.5 rounded-xl bg-primary/10 w-fit mb-4">
+                      <milestone.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h4 className="text-lg font-semibold mb-2">{milestone.title}</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{milestone.description}</p>
                   </div>
-                  <h4 className="text-xl font-semibold mb-3">{milestone.title}</h4>
-                  <p className="text-muted-foreground leading-relaxed">{milestone.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Result */}
-        <div className="mb-16">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="p-3 rounded-xl bg-primary/10">
-              <TrendingUp className="w-6 h-6 text-primary" />
+                ))}
+              </div>
             </div>
-            <h3 className="text-2xl font-display font-semibold">Result</h3>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {results.map((result, index) => (
-              <Card 
-                key={index} 
-                className="bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20 hover:border-primary/40 transition-all duration-300"
-              >
-                <CardContent className="p-8 text-center">
-                  <span className="text-5xl md:text-6xl font-display font-bold text-primary block mb-3">
-                    {result.value}
-                  </span>
-                  <p className="text-muted-foreground text-lg">{result.label}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+          </CardContent>
+        </Card>
+
+        {/* Result Section */}
+        <Card className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden mb-16 group">
+          <CardContent className="p-0">
+            {/* Image Placeholder */}
+            <div className="relative h-48 md:h-64 bg-gradient-to-br from-muted/80 via-muted/60 to-muted/40 flex items-center justify-center overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-accent/10" />
+              <div className="relative p-6 rounded-2xl bg-background/20 backdrop-blur-sm border border-border/20 group-hover:scale-105 transition-transform duration-500">
+                <Star className="w-14 h-14 text-primary/70" />
+              </div>
+              <span className="absolute bottom-4 left-4 text-xs font-medium text-muted-foreground/60 tracking-wider uppercase">
+                The Impact
+              </span>
+            </div>
+            {/* Content */}
+            <div className="p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2.5 rounded-xl bg-primary/10">
+                  <TrendingUp className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="text-2xl font-display font-semibold">Result</h3>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {results.map((result, index) => (
+                  <div 
+                    key={index} 
+                    className="p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 text-center"
+                  >
+                    <span className="text-4xl md:text-5xl font-display font-bold text-primary block mb-2">
+                      {result.value}
+                    </span>
+                    <p className="text-muted-foreground text-sm">{result.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
 
         {/* CTA Button */}
         <div className="flex justify-center">
