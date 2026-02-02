@@ -96,11 +96,11 @@ const FeaturedCaseStudy: React.FC = () => {
           <Card className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
             <CardContent className="p-0">
               {/* Situation Image */}
-              <div className="relative h-48 md:h-56 overflow-hidden">
+              <div className="relative h-48 md:h-56 overflow-hidden bg-muted/30">
                 <img 
                   src="/lovable-uploads/9ec4b5eb-c1ca-4930-b77e-35f026f82888.png" 
                   alt="Digital clutter and storage issues on mobile devices" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-2">
@@ -134,11 +134,11 @@ const FeaturedCaseStudy: React.FC = () => {
           <Card className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 transition-all duration-300 overflow-hidden group">
             <CardContent className="p-0">
               {/* Task Image */}
-              <div className="relative h-48 md:h-56 overflow-hidden">
+              <div className="relative h-48 md:h-56 overflow-hidden bg-muted/30">
                 <img 
                   src="/lovable-uploads/b3fb73d0-b03b-495d-81d7-fb908ec0b8e6.png" 
                   alt="Global expansion roadmap and strategic planning" 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-2">
@@ -173,11 +173,11 @@ const FeaturedCaseStudy: React.FC = () => {
         <Card className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden mb-16 group">
           <CardContent className="p-0">
             {/* Action Image */}
-            <div className="relative h-48 md:h-64 overflow-hidden">
+            <div className="relative h-48 md:h-64 overflow-hidden bg-muted/30">
               <img 
                 src="/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png" 
                 alt="DesignOps workflow with AI integration and data analysis" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
               <div className="absolute bottom-4 left-4 flex items-center gap-2">
@@ -218,11 +218,11 @@ const FeaturedCaseStudy: React.FC = () => {
         <Card className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden mb-16 group">
           <CardContent className="p-0">
             {/* Result Image */}
-            <div className="relative h-48 md:h-64 overflow-hidden">
+            <div className="relative h-48 md:h-64 overflow-hidden bg-muted/30">
               <img 
                 src="/lovable-uploads/4789cc35-7092-4740-af94-ce7f152bbf3b.png" 
                 alt="App Store success metrics and user satisfaction results" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
               <div className="absolute bottom-4 left-4 flex items-center gap-2">
