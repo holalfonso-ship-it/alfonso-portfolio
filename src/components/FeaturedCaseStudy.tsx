@@ -10,26 +10,26 @@ const FeaturedCaseStudy: React.FC = () => {
   const tags = ['DesignOps', 'AI Integration', 'Team Leadership'];
   const actionMilestones = [{
     icon: Zap,
-    title: 'DesignOps Frameworks',
-    description: 'Implemented DesignOps frameworks to reduce friction between design, product and engineering teams.'
+    title: 'Data-Driven Insights',
+    description: 'Leveraged Amplitude for cohort analysis to inform design decisions with real user behavior data.'
   }, {
     icon: Brain,
-    title: 'AI Workflow Integration',
-    description: 'Integrated AI-powered workflows using Figma Make AI, UxPilot, and Lovable for accelerated prototyping.'
+    title: 'AI-Powered Prototyping',
+    description: 'Integrated Figma AI, Figma Make, and Gemini Copilots to accelerate prototyping workflows.'
   }, {
     icon: Users,
-    title: 'Team Mentorship',
-    description: 'Mentored a team of 6 designers focused on experimentation and continuous improvement.'
+    title: 'Cross-Functional Leadership',
+    description: 'Employed Synthetic Users for market validation and mentored a team of 6 designers to ensure process excellence.'
   }];
   const results = [{
+    value: '4.5/5',
+    label: 'Stars rating & Top 100 Utilities on App Store'
+  }, {
     value: '+30%',
     label: 'Acceleration in product delivery'
   }, {
     value: '+25%',
-    label: 'Increase in velocity'
-  }, {
-    value: '+20%',
-    label: 'Stakeholder satisfaction'
+    label: 'Increase in velocity & 20% stakeholder satisfaction'
   }];
   return <section id="case-study" className="py-32 md:py-40 px-6 md:px-12 bg-gradient-to-b from-background to-background/95">
       <div className="max-w-7xl mx-auto">
@@ -113,12 +113,11 @@ const FeaturedCaseStudy: React.FC = () => {
                   </div>
                   <h3 className="text-2xl font-display font-semibold">Situation</h3>
                 </div>
+                <h4 className="text-lg font-semibold text-foreground mb-3">
+                  Addressing Digital Obesity in the iOS Ecosystem
+                </h4>
                 <p className="text-muted-foreground text-base leading-relaxed">
-                  The Context: Mobile users are overwhelmed by "digital clutter"—duplicate photos, bloated screenshots, and junk emails that exhaust device storage and mental clarity.
-
-The Problem: Faced the challenge of aligning user experience with business goals by transforming a tedious manual process into a secure, automated AI-driven solution.
-
-The Role: As Lead Product Designer, I initiated the transition from siloed workflows to a unified strategy to reduce user friction.​
+                  Mobile users are overwhelmed by 'digital clutter'—duplicate photos, bloated screenshots, and junk emails that exhaust device storage and mental clarity. As the Lead Product Designer, I initiated the transition from siloed workflows to a unified strategy to reduce user friction.
                 </p>
               </div>
             </CardContent>
@@ -145,9 +144,11 @@ The Role: As Lead Product Designer, I initiated the transition from siloed workf
                   </div>
                   <h3 className="text-2xl font-display font-semibold">Task</h3>
                 </div>
+                <h4 className="text-lg font-semibold text-foreground mb-3">
+                  Defining the Global Roadmap & Strategic Goals
+                </h4>
                 <p className="text-muted-foreground text-base leading-relaxed">
-                  Scale the corporate Design System to ensure consistency across all products while establishing 
-                  measurable UX metrics to track impact and demonstrate value to stakeholders.
+                  My mission was to scale the corporate Design System to ensure visual consistency while establishing measurable UX metrics. The primary objective was leading the product's expansion into the highly competitive Chinese market, requiring deep cultural adaptation and technical compliance.
                 </p>
               </div>
             </CardContent>
@@ -175,6 +176,9 @@ The Role: As Lead Product Designer, I initiated the transition from siloed workf
                 </div>
                 <h3 className="text-2xl font-display font-semibold">Action</h3>
               </div>
+              <h4 className="text-lg font-semibold text-foreground mb-4">
+                Merging DesignOps, AI, and Data Intelligence
+              </h4>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {actionMilestones.map((milestone, index) => <div key={index} className="p-5 rounded-2xl bg-background/40 backdrop-blur-sm border border-border/20 hover:border-primary/30 hover:bg-background/60 transition-all duration-300">
@@ -204,6 +208,9 @@ The Role: As Lead Product Designer, I initiated the transition from siloed workf
             </div>
             {/* Content */}
             <div className="p-8">
+              <h4 className="text-lg font-semibold text-foreground mb-4">
+                Delivering Measurable Business & User Value
+              </h4>
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2.5 rounded-xl bg-primary/10">
                   <TrendingUp className="w-5 h-5 text-primary" />
