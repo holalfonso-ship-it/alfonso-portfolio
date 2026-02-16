@@ -121,10 +121,10 @@ const FeaturedCaseStudy: React.FC = () => {
                   <h3 className="text-2xl font-display font-semibold">Situation</h3>
                 </div>
                 <h4 className="text-lg font-semibold text-foreground mb-3">
-                  Addressing Digital Obesity in the iOS Ecosystem
+                  Digital Anxiety & Decision Fatigue in the iOS Ecosystem
                 </h4>
                 <p className="text-muted-foreground text-base leading-relaxed">
-                  Mobile users are overwhelmed by 'digital clutter'—duplicate photos, bloated screenshots, and junk emails that exhaust device storage and mental clarity. As the Lead Product Designer, I initiated the transition from siloed workflows to a unified strategy to reduce user friction.
+                  Users suffered from <span className="font-semibold text-foreground">Digital Anxiety</span>—the constant stress of full storage notifications—compounded by <span className="font-semibold text-foreground">Decision Fatigue</span> when manually sorting thousands of files. As the Lead Product Designer, I identified these psychological barriers as the core UX problem, shifting our strategy from a simple utility to a cognitive-relief tool.
                 </p>
               </div>
             </CardContent>
@@ -159,10 +159,10 @@ const FeaturedCaseStudy: React.FC = () => {
                   <h3 className="text-2xl font-display font-semibold">Task</h3>
                 </div>
                 <h4 className="text-lg font-semibold text-foreground mb-3">
-                  Defining the Global Roadmap & Strategic Goals
+                  Global Expansion Through Cultural UX Adaptation
                 </h4>
                 <p className="text-muted-foreground text-base leading-relaxed">
-                  My mission was to scale the corporate Design System to ensure visual consistency while establishing measurable UX metrics. The primary objective was leading the product's expansion into the highly competitive Chinese market, requiring deep cultural adaptation and technical compliance.
+                  My mission was to scale the corporate Design System while leading expansion into the <span className="font-semibold text-foreground">Chinese market</span>—a challenge that demanded <span className="font-semibold text-foreground">Cultural UX Adaptation</span>, not just translation. This meant rethinking information density, color semantics, trust signals, and payment flows to align with local user mental models and platform conventions (WeChat, Alipay).
                 </p>
               </div>
             </CardContent>
@@ -259,8 +259,11 @@ const FeaturedCaseStudy: React.FC = () => {
 
               {/* Key Takeaway */}
               <div className="mt-10 text-center">
-                <p className="text-muted-foreground text-base md:text-lg italic leading-relaxed max-w-2xl mx-auto mb-6">
-                  Key takeaway: By integrating AI into the design workflow, we didn't just move faster—we delivered a more precise solution for our users.
+                <blockquote className="text-foreground text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto mb-2 border-l-2 border-primary/40 pl-4 text-left">
+                  "AI is the new Invisible UI: we didn't just clean files; we reclaimed time."
+                </blockquote>
+                <p className="text-muted-foreground text-sm italic max-w-2xl mx-auto mb-6">
+                  — Key takeaway from the AI Cleaner project
                 </p>
                 <Link to="/#projects">
                   <Button variant="outline" size="lg" className="group text-base px-8 py-5 border-border/40 hover:border-primary/50">
