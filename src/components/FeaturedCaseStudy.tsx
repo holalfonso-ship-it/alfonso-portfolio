@@ -265,19 +265,13 @@ const FeaturedCaseStudy: React.FC = () => {
                 <p className="text-muted-foreground text-sm italic max-w-2xl mx-auto mb-6">
                   — Key takeaway from the AI Cleaner project
                 </p>
-                <Link to="/#projects">
-                  <Button variant="outline" size="lg" className="group text-base px-8 py-5 border-border/40 hover:border-primary/50">
-                    Back to Projects
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
               </div>
             </div>
           </CardContent>
         </Card>
 
         {/* Project Tech Stack & Skills */}
-        <div className="mb-16 p-8 md:p-10 rounded-2xl bg-card/40 backdrop-blur-md border border-border/30">
+        <div className="p-8 md:p-10 rounded-2xl bg-card/40 backdrop-blur-md border border-border/30">
           <h3 className="text-2xl md:text-3xl font-display font-bold text-center mb-10 tracking-tight">
             Project Tech Stack & Skills
           </h3>
@@ -300,16 +294,6 @@ const FeaturedCaseStudy: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* CTA Button */}
-        <div className="flex justify-center">
-          <Link to="/project/leadtech-design-system">
-            <Button size="lg" className="group text-lg px-8 py-6 bg-primary hover:bg-primary/90">
-              View Full Documentation
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </Link>
         </div>
       </div>
     </section>;
