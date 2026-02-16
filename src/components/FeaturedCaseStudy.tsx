@@ -11,15 +11,15 @@ const FeaturedCaseStudy: React.FC = () => {
   const actionMilestones = [{
     icon: Zap,
     title: 'Data-Driven Insights',
-    description: 'Leveraged Amplitude for cohort analysis to inform design decisions with real user behavior data.'
+    description: 'Leveraged Amplitude for cohort analysis, identifying friction points that led to a 15% increase in user retention.'
   }, {
     icon: Brain,
     title: 'AI-Powered Prototyping',
-    description: 'Integrated Figma AI, Figma Make, and Gemini Copilots to accelerate prototyping workflows.'
+    description: 'Integrated Figma AI and Gemini Copilots to reduce high-fidelity prototyping time by 40%.'
   }, {
     icon: Users,
     title: 'Cross-Functional Leadership',
-    description: 'Employed Synthetic Users for market validation and mentored a team of 6 designers to ensure process excellence.'
+    description: 'Led a cross-functional team of 6 designers using Synthetic Users for rapid market validation before development.'
   }];
   const results = [{
     value: '4.5/5',
@@ -173,11 +173,11 @@ const FeaturedCaseStudy: React.FC = () => {
         <Card className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden mb-16 group">
           <CardContent className="p-0">
             {/* Action Image */}
-            <div className="relative h-48 md:h-64 overflow-hidden bg-muted/30">
+            <div className="relative h-48 md:h-64 overflow-hidden bg-muted/30 rounded-[16px]">
               <img 
                 src="/lovable-uploads/5cb0453f-dc0d-4b19-852f-8c3131354284.png" 
                 alt="DesignOps workflow with AI integration and data analysis" 
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
               <div className="absolute bottom-4 left-4 flex items-center gap-2">
@@ -197,12 +197,12 @@ const FeaturedCaseStudy: React.FC = () => {
                 </div>
                 <h3 className="text-2xl font-display font-semibold">Action</h3>
               </div>
-              <h4 className="text-lg font-semibold text-foreground mb-4">
+              <h4 className="text-lg font-bold text-foreground mb-4">
                 Merging DesignOps, AI, and Data Intelligence
               </h4>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {actionMilestones.map((milestone, index) => <div key={index} className="p-5 rounded-2xl bg-background/40 backdrop-blur-sm border border-border/20 hover:border-primary/30 hover:bg-background/60 transition-all duration-300">
+                {actionMilestones.map((milestone, index) => <div key={index} className="p-5 rounded-2xl bg-gradient-to-br from-card/60 to-card/30 backdrop-blur-md border border-border/20 hover:border-primary/30 hover:from-card/80 hover:to-card/50 transition-all duration-300 shadow-lg shadow-background/20">
                     <div className="p-2.5 rounded-xl bg-primary/10 w-fit mb-4">
                       <milestone.icon className="w-5 h-5 text-primary" />
                     </div>
