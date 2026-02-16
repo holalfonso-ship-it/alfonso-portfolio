@@ -217,12 +217,12 @@ const FeaturedCaseStudy: React.FC = () => {
         {/* Result Section */}
         <Card className="bg-card/30 backdrop-blur-md border-border/30 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 overflow-hidden mb-16 group">
           <CardContent className="p-0">
-            {/* Result Image */}
-            <div className="relative h-48 md:h-64 overflow-hidden bg-muted/30">
+            {/* Result Image - Product success composition */}
+            <div className="relative h-48 md:h-64 overflow-hidden bg-muted/30 rounded-[16px]">
               <img 
                 src="/lovable-uploads/4789cc35-7092-4740-af94-ce7f152bbf3b.png" 
-                alt="App Store success metrics and user satisfaction results" 
-                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                alt="AI Cleaner product success - App Store Top 100 Utilities" 
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent" />
               <div className="absolute bottom-4 left-4 flex items-center gap-2">
@@ -236,28 +236,42 @@ const FeaturedCaseStudy: React.FC = () => {
             </div>
             {/* Content */}
             <div className="p-8">
-              <h4 className="text-lg font-semibold text-foreground mb-4">
-                Delivering Measurable Business & User Value
-              </h4>
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2.5 rounded-xl bg-primary/10">
                   <TrendingUp className="w-5 h-5 text-primary" />
                 </div>
                 <h3 className="text-2xl font-display font-semibold">Result</h3>
               </div>
+              <h4 className="text-lg font-bold text-foreground mb-4">
+                Delivering Measurable Business & User Value
+              </h4>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {results.map((result, index) => <div key={index} className="p-6 rounded-2xl bg-gradient-to-br from-primary/5 to-primary/10 border border-primary/20 hover:border-primary/40 transition-all duration-300 text-center">
-                    <span className="text-4xl md:text-5xl font-display font-bold text-primary block mb-2">
+                {results.map((result, index) => <div key={index} className="p-6 rounded-2xl bg-gradient-to-br from-card/60 to-card/30 backdrop-blur-md border border-[hsl(210,100%,60%,0.25)] hover:border-[hsl(210,100%,60%,0.5)] hover:from-card/80 hover:to-card/50 transition-all duration-300 shadow-lg shadow-[hsl(210,100%,60%,0.08)] text-center">
+                    <span className={`text-4xl md:text-5xl font-display font-bold block mb-2 ${
+                      result.value === '4.5/5' ? 'text-primary' : 'text-[hsl(160,60%,50%)]'
+                    }`}>
                       {result.value}
                     </span>
                     <p className="text-muted-foreground text-sm">{result.label}</p>
                   </div>)}
               </div>
+
+              {/* Key Takeaway */}
+              <div className="mt-10 text-center">
+                <p className="text-muted-foreground text-base md:text-lg italic leading-relaxed max-w-2xl mx-auto mb-6">
+                  Key takeaway: By integrating AI into the design workflow, we didn't just move faster—we delivered a more precise solution for our users.
+                </p>
+                <Link to="/#projects">
+                  <Button variant="outline" size="lg" className="group text-base px-8 py-5 border-border/40 hover:border-primary/50">
+                    Back to Projects
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </CardContent>
         </Card>
-
 
         {/* CTA Button */}
         <div className="flex justify-center">
