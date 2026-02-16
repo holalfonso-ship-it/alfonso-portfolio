@@ -276,6 +276,32 @@ const FeaturedCaseStudy: React.FC = () => {
           </CardContent>
         </Card>
 
+        {/* Project Tech Stack & Skills */}
+        <div className="mb-16 p-8 md:p-10 rounded-2xl bg-card/40 backdrop-blur-md border border-border/30">
+          <h3 className="text-2xl md:text-3xl font-display font-bold text-center mb-10 tracking-tight">
+            Project Tech Stack & Skills
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              { title: 'Product Strategy', pills: ['Growth Loops', 'Data-Informed Design (Amplitude)', 'Market Expansion (APAC/China)'] },
+              { title: 'AI & DesignOps', pills: ['Figma AI', 'Gemini Copilots', 'Synthetic Users', 'Automated Prototyping'] },
+              { title: 'UX/UI Research', pills: ['Cohort Analysis', 'Cross-cultural UX', 'A/B Testing', 'Design Systems Scaling'] },
+              { title: 'Tools', pills: ['Figma', 'Amplitude', 'Jira', 'Slack', 'Notion (DesignOps documentation)'] },
+            ].map((category) => (
+              <div key={category.title}>
+                <h4 className="text-sm font-semibold uppercase tracking-wider text-primary mb-3">{category.title}</h4>
+                <div className="flex flex-wrap gap-2">
+                  {category.pills.map((pill) => (
+                    <span key={pill} className="px-4 py-1.5 text-sm rounded-full bg-secondary/60 text-foreground/80 border border-border/30">
+                      {pill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* CTA Button */}
         <div className="flex justify-center">
           <Link to="/project/leadtech-design-system">
