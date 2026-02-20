@@ -11,7 +11,7 @@ const useScrollReveal = (threshold = 0.15) => {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setIsVisible(true); observer.unobserve(el); } },
+      ([entry]) => {if (entry.isIntersecting) {setIsVisible(true);observer.unobserve(el);}},
       { threshold }
     );
     observer.observe(el);
@@ -25,16 +25,16 @@ const FeaturedCaseStudy: React.FC = () => {
   const tags = ['DesignOps', 'AI Integration', 'Team Leadership'];
 
   const actionMilestones = [
-    { title: 'Data-Driven Insights', description: 'Leveraged Amplitude for cohort analysis, identifying friction points that led to a 15% increase in user retention.' },
-    { title: 'AI-Powered Prototyping', description: 'Integrated Figma AI and Gemini Copilots to reduce high-fidelity prototyping time by 40%.' },
-    { title: 'Cross-Functional Leadership', description: 'Led a cross-functional team of 6 designers using Synthetic Users for rapid market validation before development.' },
-  ];
+  { title: 'Data-Driven Insights', description: 'Leveraged Amplitude for cohort analysis, identifying friction points that led to a 15% increase in user retention.' },
+  { title: 'AI-Powered Prototyping', description: 'Integrated Figma AI and Gemini Copilots to reduce high-fidelity prototyping time by 40%.' },
+  { title: 'Cross-Functional Leadership', description: 'Led a cross-functional team of 6 designers using Synthetic Users for rapid market validation before development.' }];
+
 
   const results = [
-    { value: '4.5/5', label: 'Stars rating & Top 100 Utilities on App Store' },
-    { value: '+30%', label: 'Acceleration in product delivery' },
-    { value: '+25%', label: 'Increase in velocity & 20% stakeholder satisfaction' },
-  ];
+  { value: '4.5/5', label: 'Stars rating & Top 100 Utilities on App Store' },
+  { value: '+30%', label: 'Acceleration in product delivery' },
+  { value: '+25%', label: 'Increase in velocity & 20% stakeholder satisfaction' }];
+
 
   const hero = useScrollReveal(0.1);
   const story = useScrollReveal();
@@ -59,11 +59,11 @@ const FeaturedCaseStudy: React.FC = () => {
             <AnimatedText text="AI Cleaner: Redefining Inbox Hygiene with AI" className="inline-block" once />
           </h2>
           <div className="flex flex-wrap gap-3 mt-4">
-            {tags.map(tag => (
-              <Badge key={tag} variant="secondary" className="text-sm px-4 py-1.5 bg-secondary/80 hover:bg-secondary">
+            {tags.map((tag) =>
+            <Badge key={tag} variant="secondary" className="text-sm px-4 py-1.5 bg-secondary/80 hover:bg-secondary">
                 {tag}
               </Badge>
-            ))}
+            )}
           </div>
         </div>
 
@@ -94,8 +94,8 @@ const FeaturedCaseStudy: React.FC = () => {
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-6 block">The Problem</span>
           <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr] gap-6 md:gap-12 items-start">
             <h3 className="text-3xl md:text-4xl font-display font-bold tracking-tight leading-tight">Digital Anxiety & Decision Fatigue</h3>
-            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
-              Users suffered from <span className="font-semibold text-foreground">Digital Anxiety</span>—the constant stress of full storage notifications—compounded by <span className="font-semibold text-foreground">Decision Fatigue</span> when manually sorting thousands of files. As the Lead Product Designer, I identified these psychological barriers as the core UX problem, shifting our strategy from a simple utility to a cognitive-relief tool.
+            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">Users suffered from Digital Anxiety the constant stress of full storage notifications compounded by Decision Fatigue when manually sorting thousands of files. As the Lead Product Designer, I identified these psychological barriers as the core UX problem, shifting our strategy from a simple utility to a cognitive-relief tool.
+              <span className="font-semibold text-foreground">Digital Anxiety</span>—the constant stress of full storage notifications—compounded by <span className="font-semibold text-foreground">Decision Fatigue</span> when manually sorting thousands of files. As the Lead Product Designer, I identified these psychological barriers as the core UX problem, shifting our strategy from a simple utility to a cognitive-relief tool.
             </p>
           </div>
         </div>
@@ -117,12 +117,12 @@ const FeaturedCaseStudy: React.FC = () => {
           <h3 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-16">Merging DesignOps, AI & Data Intelligence</h3>
 
           <div className="space-y-16 md:space-y-20">
-            {actionMilestones.map((milestone, index) => (
-              <div ref={actionItems[index].ref} key={index} className={`grid grid-cols-1 md:grid-cols-[3fr_7fr] gap-4 md:gap-12 items-start ${actionItems[index].className}`}>
+            {actionMilestones.map((milestone, index) =>
+            <div ref={actionItems[index].ref} key={index} className={`grid grid-cols-1 md:grid-cols-[3fr_7fr] gap-4 md:gap-12 items-start ${actionItems[index].className}`}>
                 <h4 className="text-2xl md:text-3xl font-display font-semibold tracking-tight">{milestone.title}</h4>
                 <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">{milestone.description}</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
 
@@ -132,16 +132,16 @@ const FeaturedCaseStudy: React.FC = () => {
           <h3 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-16">Delivering Measurable Business & User Value</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 mb-20">
-            {results.map((result, index) => (
-              <div ref={metrics[index].ref} key={index} className={`text-left ${metrics[index].className}`}>
+            {results.map((result, index) =>
+            <div ref={metrics[index].ref} key={index} className={`text-left ${metrics[index].className}`}>
                 <span className={`text-5xl md:text-6xl font-display font-bold block mb-3 ${
-                  result.value === '4.5/5' ? 'text-primary' : 'text-[hsl(160,60%,50%)]'
-                }`}>
+              result.value === '4.5/5' ? 'text-primary' : 'text-[hsl(160,60%,50%)]'}`
+              }>
                   {result.value}
                 </span>
                 <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{result.label}</p>
               </div>
-            ))}
+            )}
           </div>
 
           <div ref={quote.ref} className={quote.className}>
@@ -159,25 +159,25 @@ const FeaturedCaseStudy: React.FC = () => {
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-10 block">Tech Stack & Skills</span>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
-              { title: 'Product Strategy', pills: ['Growth Loops', 'Data-Informed Design (Amplitude)', 'Market Expansion (APAC/China)'] },
-              { title: 'AI & DesignOps', pills: ['Figma AI', 'Gemini Copilots', 'Synthetic Users', 'Automated Prototyping'] },
-              { title: 'UX/UI Research', pills: ['Cohort Analysis', 'Cross-cultural UX', 'A/B Testing', 'Design Systems Scaling'] },
-              { title: 'Tools', pills: ['Figma', 'Amplitude', 'Jira', 'Slack', 'Notion (DesignOps documentation)'] },
-            ].map((category) => (
-              <div key={category.title}>
+            { title: 'Product Strategy', pills: ['Growth Loops', 'Data-Informed Design (Amplitude)', 'Market Expansion (APAC/China)'] },
+            { title: 'AI & DesignOps', pills: ['Figma AI', 'Gemini Copilots', 'Synthetic Users', 'Automated Prototyping'] },
+            { title: 'UX/UI Research', pills: ['Cohort Analysis', 'Cross-cultural UX', 'A/B Testing', 'Design Systems Scaling'] },
+            { title: 'Tools', pills: ['Figma', 'Amplitude', 'Jira', 'Slack', 'Notion (DesignOps documentation)'] }].
+            map((category) =>
+            <div key={category.title}>
                 <h4 className="text-sm font-semibold uppercase tracking-wider text-primary mb-4">{category.title}</h4>
                 <div className="flex flex-wrap gap-2">
-                  {category.pills.map((pill) => (
-                    <span key={pill} className="px-4 py-1.5 text-sm rounded-full bg-secondary/60 text-foreground/80 border border-border/30">{pill}</span>
-                  ))}
+                  {category.pills.map((pill) =>
+                <span key={pill} className="px-4 py-1.5 text-sm rounded-full bg-secondary/60 text-foreground/80 border border-border/30">{pill}</span>
+                )}
                 </div>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default FeaturedCaseStudy;
