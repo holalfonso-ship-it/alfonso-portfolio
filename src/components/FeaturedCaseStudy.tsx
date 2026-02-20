@@ -144,14 +144,6 @@ const FeaturedCaseStudy: React.FC = () => {
             )}
           </div>
 
-          <div ref={quote.ref} className={quote.className}>
-            <blockquote className="border-l-2 border-primary/40 pl-6 max-w-2xl">
-              <p className="text-foreground text-lg md:text-xl font-medium leading-relaxed mb-2">
-                "AI is the new Invisible UI: we didn't just clean files; we reclaimed time."
-              </p>
-              <cite className="text-muted-foreground text-sm italic not-italic">— Key takeaway from the AI Cleaner project</cite>
-            </blockquote>
-          </div>
         </div>
 
         {/* ── TECH STACK ── */}
