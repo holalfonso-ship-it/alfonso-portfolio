@@ -31,8 +31,8 @@ const FeaturedCaseStudy: React.FC = () => {
 
 
   const results = [
+  { value: '+2.5GB', label: 'Average storage recovered per user' },
   { value: '4.5/5', label: 'Stars rating & Top 100 Utilities on App Store' },
-  { value: '+30%', label: 'Acceleration in product delivery' },
   { value: '+25%', label: 'Increase in velocity & 20% stakeholder satisfaction' }];
 
 
