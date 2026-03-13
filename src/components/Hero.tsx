@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
               <h1 className="text-6xl md:text-8xl xl:text-9xl font-display font-bold leading-tight md:leading-none tracking-tighter mb-6 md:mb-8">
                 <span className="block text-2xl md:text-3xl tracking-widest text-muted-foreground mb-2 opacity-0 animate-slide-up animation-delay-200 font-bold">Hi, I am Alfonso</span>
                 <span className="block opacity-0 animate-slide-up animation-delay-500">
-                  <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent mx-0 px-[10px]">DesignOps</span>
+                  <span className="bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent mx-0 px-[10px]">DesignOps Lead</span>
                 </span>
                 <span className="block opacity-0 animate-slide-up animation-delay-700">
                   & Senior <span className="text-primary">Product</span>
@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
               </h1>
               
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl opacity-0 animate-slide-up animation-delay-1000">
-                Optimizing design operations and scaling systems to bridge the gap between design, product, and engineering.
+                Optimizing design operations and scaling systems to accelerate product delivery by 30%
               </p>
             </div>
             
