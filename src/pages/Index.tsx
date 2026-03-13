@@ -3,7 +3,7 @@ import Hero from '@/components/Hero';
 import FeaturedCaseStudy from '@/components/FeaturedCaseStudy';
 import About from '@/components/About';
 import Testimonials from '@/components/Testimonials';
-import WorkProcess from '@/components/WorkProcess';
+//import WorkProcess from '@/components/WorkProcess';
 import Contact from '@/components/Contact';
 import TransitionEffect from '@/components/TransitionEffect';
 import PersonalProjects from '@/components/PersonalProjects';
@@ -38,7 +38,7 @@ const Index: React.FC = () => {
         <PersonalProjects />
         <About />
         <Testimonials />
-        <WorkProcess />
+       {/* <WorkProcess /> */}
         <Contact />
       </main>
     </div>
