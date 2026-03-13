@@ -3,10 +3,10 @@
 // and is referenced throughout the portfolio site
 
 export const professionalProfile = {
-  summary: `Digital product designer with extensive experience in DesignOps
-  and Product design. Specialized in optimizing workflows,
-  improving collaboration, and enhancing efficiency within design
-  teams. Expert in Figma, Sketch, Zeplin, and Abstract, with an agile
+  summary: `Senior / Lead Product Designer and DesignOps Leader with over 10 years of
+  experience building design culture and scaling operations in fast-paced digital
+  environments. Expert in Mobile App Design (iOS & Android) and connecting design.
+  Expert in Figma, AI & Automation, Figma Make AI, CodAI, Lovable, with an agile
   mindset through SCRUM methodologies and tools like
   Jira/Confluence.`,
   
@@ -28,10 +28,10 @@ export const experienceData = [
     period: "Oct. 2018 - Present",
     location: "Barcelona",
     achievements: [
-      "Implemented and optimized DesignOps processes to enhance team collaboration and efficiency.",
-      "Created and maintained the Design System, ensuring visual consistency and scalability.",
+      "Team Leadership: Mentor and coach a team of 6 designers, building a culture focused on AI integration and continuous process improvement.",
+      "Design Systems: Established and scaled a company-wide Design System, accelerating product delivery by 30%.",
       "Designed digital experiences for different stages of the customer journey, focusing on iOS and Android apps.",
-      "Reduced data load times by 15% and improved visual consistency by 25%.",
+      "Efficiency: Implemented DesignOps frameworks that streamlined collaboration, reducing delivery friction and increasing velocity by 25%.",
       "Developed dashboards and data visualizations, increasing stakeholder engagement by 20%.",
       "Applied quantitative and qualitative data analysis to measure and enhance user experience."
     ]
