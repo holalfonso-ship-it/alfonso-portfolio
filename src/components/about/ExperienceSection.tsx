@@ -25,10 +25,10 @@ const ExperienceSection: React.FC = () => {
           </div>
           
           <ul className="space-y-2 list-disc pl-5 text-muted-foreground">
-            <li>Implemented and optimized DesignOps processes to enhance team collaboration and efficiency.</li>
-            <li>Created and maintained the Design System, ensuring visual consistency and scalability.</li>
+            <li>Team Leadership: Mentor and coach a team of 6 designers, building a culture focused on AI integration and continuous process improvement.</li>
+            <li>Design Systems: Established and scaled a company-wide Design System, accelerating product delivery by 30%.</li>
             <li>Designed digital experiences for different stages of the customer journey, focusing on iOS and Android apps.</li>
-            <li>Reduced data load times by 15% and improved visual consistency by 25%.</li>
+            <li>Efficiency: Implemented DesignOps frameworks that streamlined collaboration,reducing delivery friction and increasing velocity by 25%.</li>
             <li>Developed dashboards and data visualizations, increasing stakeholder engagement by 20%.</li>
             <li>Applied quantitative and qualitative data analysis to measure and enhance user experience.</li>
           </ul>
