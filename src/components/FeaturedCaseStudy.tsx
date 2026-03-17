@@ -4,7 +4,7 @@ import AnimatedText from '@/components/AnimatedText';
 import aiCleanerHero from '@/assets/ai-cleaner-hero.png';
 import mobilesImg from '@/assets/ai-cleaner-mobiles.png';
 import metricsImg from '@/assets/ai-cleaner-metrics.png';
-import uiKitImg from '@/assets/ai-cleaner-ui-kit.jpg';
+import uiKitImg from '@/assets/ai-cleaner-ui-kit.png';
 
 const useScrollReveal = (threshold = 0.15) => {
   const ref = useRef<HTMLDivElement>(null);
