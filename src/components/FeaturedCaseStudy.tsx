@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { Badge } from './ui/Badge';
+import React from 'react';
+import { Badge } from './ui/Badge'; // Asegúrate de que la 'B' sea mayúscula si el archivo se llama Badge.tsx
 import AnimatedText from './AnimatedText';
 import aiCleanerHero from '../assets/aicleaner-hero.png';
 
