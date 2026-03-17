@@ -90,12 +90,14 @@ const FeaturedCaseStudy: React.FC = () => {
           </h3>
           <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed text-center md:text-left">
             <p>
-              In an era of digital obesity, AiCleaner wasn't just conceived as a utility app, but as a strategic solution to cognitive overhead. As the <span className="font-semibold text-foreground">Design Lead</span>, my mission was to bridge the gap between complex AI capabilities and a seamless user experience, ensuring the product could scale strategically
-            <p>
-              I spearheaded the cross-functional alignment, moving beyond interface design to establish a <span className="font-semibold text-foreground">Design System Governance</span>. This allowed our engineering team to iterate <span className="font-semibold text-primary">30% faster</span> across global markets.
-            </p>
-            <p>
-              By integrating <span className="font-semibold text-foreground">AI-driven workflows</span>, we reduced team delivery friction by <span className="font-semibold text-primary">25%</span>. This project proves that modern <span className="font-semibold text-primary">DesignOps</span> is the key to scaling premium products globally.
+  In an era of digital obesity, AiCleaner was a strategic solution to cognitive overhead. As the Design Lead, my mission was to bridge the gap between complex AI capabilities and a seamless user experience.
+</p>
+<p>
+  I spearheaded the cross-functional alignment and established a Design System Governance. This allowed our engineering team to iterate 30% faster across global markets.
+</p>
+<p>
+  By integrating AI-driven workflows, we reduced team delivery friction by 25%. This project proves that modern DesignOps is the key to scaling premium products globally.
+</p>
           </div>
         </div>
 
