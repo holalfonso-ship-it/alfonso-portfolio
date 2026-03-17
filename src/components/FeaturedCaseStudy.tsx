@@ -73,7 +73,7 @@ const FeaturedCaseStudy: React.FC = () => {
         {/* Hero Image */}
         <div ref={hero.ref} className={`relative mb-16 md:mb-24 rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 ${hero.className}`}>
           <div className="relative aspect-[4/3] md:aspect-[16/9] w-full">
-            <img src={aiCleanerHero} alt="AI Cleaner app interface showing +2.5GB recovered with Smart Filters" className="w-full h-full object-cover object-center" />
+            <img src={ai-cleaner-mobiles} alt="AI Cleaner app interface showing +2.5GB recovered with Smart Filters" className="w-full h-full object-cover object-center" />
             <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-r from-background/20 to-transparent" />
           </div>
