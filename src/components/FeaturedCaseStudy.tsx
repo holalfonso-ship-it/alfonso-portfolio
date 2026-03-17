@@ -1,8 +1,12 @@
 import React from 'react';
-import { Badge } from '../components/ui/badge'; // Cambiado a minúscula para que Vercel lo encuentre
 import AnimatedText from './AnimatedText';
 import aiCleanerHero from '../assets/aicleaner-hero.png';
 
+const Badge = ({ children, className }: { children: React.ReactNode, className?: string, variant?: string }) => (
+  <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 ${className}`}>
+    {children}
+  </span>
+);
 const FeaturedCaseStudy = () => {
   // Datos alineados con tu perfil Senior/DesignOps
   const results = [
