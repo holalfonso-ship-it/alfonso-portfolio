@@ -95,7 +95,7 @@ const FeaturedCaseStudy: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr] gap-6 md:gap-12 items-start">
             <h3 className="text-3xl md:text-4xl font-display font-bold tracking-tight leading-tight">Digital Anxiety & Decision Fatigue</h3>
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">Users suffered from Digital Anxiety the constant stress of full storage notifications compounded by Decision Fatigue when manually sorting thousands of files. As the Lead Product Designer, I identified these psychological barriers as the core UX problem, shifting our strategy from a simple utility to a cognitive-relief tool.
-              <span className="font-semibold text-foreground">Digital Anxiety</span>—the constant stress of full storage notifications compounded by <span className="font-semibold text-foreground">Decision Fatigue</span> when manually sorting thousands of files. As the Lead Product Designer, I identified these psychological barriers as the core UX problem, shifting our strategy from a simple utility to a cognitive-relief tool.
+              <span className="font-semibold text-foreground">Digital Anxiety</span>—the constant stress of full storage notifications compounded by <span className="font-semibold text-foreground">Decision Fatigue</span> when manually sorting thousands of files. As the Lead Product Designer, I identified these psychological barriers as the core UX problem, shifting our strategy from a simple utility to a cognitive relief tool.
             </p>
           </div>
         </div>
