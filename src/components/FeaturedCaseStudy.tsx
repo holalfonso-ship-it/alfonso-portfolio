@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import AnimatedText from '@/components/AnimatedText';
-import aiCleanerHero from '@/assets/ai-cleaner-hero.png';
+import aiCleanerHero from '@/assets/ai-cleaner-mobiles.png';
 
 const useScrollReveal = (threshold = 0.15) => {
   const ref = useRef<HTMLDivElement>(null);
