@@ -90,18 +90,47 @@ const FeaturedCaseStudy: React.FC = () => {
               I spearheaded the cross-functional alignment, moving beyond simple interface design to establish a <span className="font-semibold text-foreground">Design System Governance</span>. This allowed our engineering team to iterate <span className="font-semibold text-primary">30% faster</span> and ensured that every touchpoint remained consistent across global markets.
             </p>
             <p>
-              By integrating <span className="font-semibold text-foreground">AI-driven workflows</span>, we reclaimed design time for high-level strategy and reduced team delivery friction by <span className="font-semibold text-primary">25%</span>. This project proves that modern <span className="font-semibold text-primary">DesignOps</span> is the key to scaling premium products—from Barcelona to the competitive Chinese market—while maintaining 4.5-star excellence.
+              By integrating <span className="font-semibold text-foreground">AI-driven workflows</span>, we reclaimed design time for high-level strategy and reduced team delivery friction by <span className="font-semibold text-primary">25%</span>. This project proves that modern <span className="font-semibold text-primary">DesignOps</span> is the key to scaling premium products from Barcelona to the competitive Chinese market while maintaining 4.5 star excellence.
             </p>
           </div>
         </div>
-        {/* ── SITUATION ── */}
-        <div ref={situation.ref} className={`py-[60px] md:py-[120px] ${situation.className}`}>
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-6 block">The Problem</span>
-          <div className="grid grid-cols-1 md:grid-cols-[3fr_7fr] gap-6 md:gap-12 items-start">
-            <h3 className="text-3xl md:text-4xl font-display font-bold tracking-tight leading-tight">Digital Anxiety & Decision Fatigue</h3>
-            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">Users suffered from Digital Anxiety the constant stress of full storage notifications compounded by Decision Fatigue when manually sorting thousands of files. As the Lead Product Designer, I identified these psychological barriers as the core UX problem, shifting our strategy from a simple utility to a cognitive-relief tool.
-              <span className="font-semibold text-foreground">Digital Anxiety</span>—the constant stress of full storage notifications—compounded by <span className="font-semibold text-foreground">Decision Fatigue</span> when manually sorting thousands of files. As the Lead Product Designer, I identified these psychological barriers as the core UX problem, shifting our strategy from a simple utility to a cognitive-relief tool.
-            </p>
+        {/* SITUATION - PROBLEM */}
+        <div className="py-20 md:py-32 border-b border-border/10">
+          <span className="text-primary font-mono text-sm tracking-wider uppercase mb-4 block text-center md:text-left">The Problem</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5">
+              <h3 className="text-3xl md:text-5xl font-display font-bold tracking-tight leading-tight">
+                Digital clutter as a <span className="text-muted-foreground italic text-3xl md:text-4xl block mt-2">Operational Bottleneck</span>
+              </h3>
+            </div>
+            <div className="lg:col-span-7 space-y-6 text-lg text-muted-foreground">
+              <p>
+                Users were overwhelmed by "digital obesity," but the real challenge was internal: manual cleanup workflows were slow and inconsistent. From a <span className="font-semibold text-foreground">DesignOps perspective</span>, we identified that the lack of automated intelligent filtering was causing massive user drop-off.
+              </p>
+              <p>
+                As the Lead Designer, I recognized that we weren't just fighting cluttered galleries, but <span className="font-semibold text-foreground">decision fatigue</span>. The friction in the existing process was mirrored in our team's delivery—manual asset management was slowing down our ability to scale the product for global markets.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* THE GOAL */}
+        <div className="py-20 md:py-32 border-b border-border/10 bg-muted/5 -mx-4 px-4 md:-mx-12 md:px-12">
+          <span className="text-primary font-mono text-sm tracking-wider uppercase mb-4 block text-center md:text-left">The Goal</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5">
+              <h3 className="text-3xl md:text-5xl font-display font-bold tracking-tight leading-tight">
+                Scaling Excellence through <span className="text-muted-foreground italic text-3xl md:text-4xl block mt-2">Systems & Automation</span>
+              </h3>
+            </div>
+            <div className="lg:col-span-7 space-y-6 text-lg text-muted-foreground">
+              <p>
+                My mission was to transition from a manual utility to an <span className="font-semibold text-foreground">AI-automated ecosystem</span>. This required more than just new screens; it required a complete overhaul of our internal design architecture.
+              </p>
+              <p>
+                The primary objective was to <span className="font-semibold text-foreground">scale the Design System governance</span> while expanding into the Chinese market. We aimed to reduce team delivery friction by 25% and establish a framework where high-fidelity prototyping and data-informed iterations could happen <span className="font-semibold text-primary">30% faster</span>.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -131,26 +160,33 @@ const FeaturedCaseStudy: React.FC = () => {
           </div>
         </div>
 
-        {/* ── RESULTS ── */}
-        <div ref={impact.ref} className={`py-[60px] md:py-[120px] border-t border-border/20 ${impact.className}`}>
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-10 block">Impact</span>
-          <h3 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-16">Delivering Measurable Business & User Value</h3>
+        {/* RESULTS */}
+        <div id="results" className="py-20 md:py-32 border-b border-border/10">
+          <span className="text-primary font-mono text-sm tracking-wider uppercase mb-4 block text-center">Impact & Metrics</span>
+          <h3 className="text-3xl md:text-5xl font-display font-bold tracking-tight text-center mb-16">
+            Driving Business <span className="text-muted-foreground italic">Efficiency</span>
+          </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16 mb-20">
-            {results.map((result, index) =>
-            <div ref={metrics[index].ref} key={index} className={`text-left ${metrics[index].className}`}>
-                <span className={`text-5xl md:text-6xl font-display font-bold block mb-3 ${
-              result.value === '4.5/5' ? 'text-primary' : 'text-[hsl(160,60%,50%)]'}`
-              }>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {results.map((result, index) => (
+              <div key={index} className="p-8 rounded-2xl border border-border/10 bg-muted/5 text-center">
+                <div className="text-4xl md:text-6xl font-display font-bold text-primary mb-4">
                   {result.value}
-                </span>
-                <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{result.label}</p>
+                </div>
+                <div className="text-lg text-muted-foreground font-medium leading-snug italic">
+                  {result.label}
+                </div>
               </div>
-            )}
+            ))}
           </div>
-
+          
+          <div className="mt-16 p-8 rounded-2xl border border-primary/20 bg-primary/5">
+            <p className="text-center text-lg md:text-xl text-foreground max-w-3xl mx-auto italic">
+              "The implementation of a centralized <strong>Design System Governance</strong> not only accelerated our delivery by 30%, but also established a scalable foundation that allowed us to dominate international markets with consistent 4.5-star quality."
+            </p>
+          </div>
         </div>
-
+        
         {/* ── TECH STACK ── */}
         <div ref={techStack.ref} className={`py-[60px] md:py-[120px] border-t border-border/20 ${techStack.className}`}>
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground mb-10 block">Tech Stack & Skills</span>
