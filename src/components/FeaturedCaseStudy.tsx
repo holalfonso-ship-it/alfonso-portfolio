@@ -89,15 +89,9 @@ const FeaturedCaseStudy: React.FC = () => {
             The Story Behind AI Cleaner
           </h3>
           <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed text-center md:text-left">
-            <p>
-  In an era of digital obesity, AiCleaner was a strategic solution to cognitive overhead. As the Design Lead, my mission was to bridge the gap between complex AI capabilities and a seamless user experience.
-</p>
-<p>
-  I spearheaded the cross-functional alignment and established a Design System Governance. This allowed our engineering team to iterate 30% faster across global markets.
-</p>
-<p>
-  By integrating AI-driven workflows, we reduced team delivery friction by 25%. This project proves that modern DesignOps is the key to scaling premium products globally.
-</p>
+            <p> In an era of digital obesity, AiCleaner was a strategic solution to cognitive overhead. As the Design Lead, my mission was to bridge the gap between complex AI capabilities and a seamless user experience. </p>
+            <p> I spearheaded the cross-functional alignment and established a Design System Governance. This allowed our engineering team to iterate 30% faster across global markets.</p>
+            <p> By integrating AI-driven workflows, we reduced team delivery friction by 25%. This project proves that modern DesignOps is the key to scaling premium products globally.</p>
           </div>
         </div>
 
