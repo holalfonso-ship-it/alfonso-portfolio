@@ -25,15 +25,15 @@ const FeaturedCaseStudy: React.FC = () => {
   const tags = ['DesignOps', 'AI Integration', 'Team Leadership'];
 
   const actionMilestones = [
-  { title: 'Data-Driven Insights', description: 'Leveraged Amplitude for cohort analysis, identifying friction points that led to a 15% increase in user retention.' },
+  { title: 'AiCleaner: Design System Governance & AI Automation Leadership', description: 'Led the cross-functional alignment between design, engineering, and product to establish a scalable cleaning ecosystem.' },
   { title: 'AI-Powered Prototyping', description: 'Integrated Figma AI and Gemini Copilots to reduce high-fidelity prototyping time by 40%.' },
-  { title: 'Cross-Functional Leadership', description: 'Led a cross-functional team of 6 designers using Synthetic Users for rapid market validation before development.' }];
+  { title: 'Cross-Functional Leadership', description: 'Led a cross-functional team of 6 designers, implementing DesignOps frameworks that reduced delivery friction by 25%' }];
 
 
   const results = [
-  { value: '+2.5GB', label: 'Average storage recovered per user' },
+  { value: '+30%', label: 'Product delivery acceleration through Design System scaling' },
   { value: '4.5/5', label: 'Stars rating & Top 100 Utilities on App Store' },
-  { value: '+25%', label: 'Increase in velocity & 20% stakeholder satisfaction' }];
+  { value: '25%', label: 'Reduction in team delivery friction using AI automation' }];
 
 
   const hero = useScrollReveal(0.1);
