@@ -27,7 +27,7 @@ const FeaturedCaseStudy: React.FC = () => {
   const actionMilestones = [
     { 
       title: 'Design System Governance & AI Leadership', 
-      description: 'Led the cross-functional alignment between design, engineering, and product to establish a scalable cleaning ecosystem.' 
+      description: 'Led a cross-functional team of 6 designers, implementing DesignOps frameworks that reduced delivery friction by 25%' 
     },
     { 
       title: 'AI-Powered Prototyping', 
