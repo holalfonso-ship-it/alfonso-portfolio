@@ -1,9 +1,11 @@
 import React from 'react';
-import { Badge } from './ui/Badge'; // Asegúrate de que la 'B' sea mayúscula si el archivo se llama Badge.tsx
+// Corregido: Importación exacta según tu estructura de carpetas
+import { Badge } from './ui/Badge'; 
 import AnimatedText from './AnimatedText';
 import aiCleanerHero from '../assets/aicleaner-hero.png';
 
 const FeaturedCaseStudy = () => {
+  // Datos alineados con tu perfil Senior/DesignOps
   const results = [
     { value: '+30%', label: 'Product delivery acceleration through Design System scaling' },
     { value: '4.5/5', label: 'Stars rating & Top 100 Utilities on App Store' },
@@ -35,12 +37,16 @@ const FeaturedCaseStudy = () => {
         {/* Hero Image */}
         <div className="relative mb-16 md:mb-24 rounded-2xl overflow-hidden shadow-2xl shadow-primary/10">
           <div className="relative aspect-[4/3] md:aspect-[16/9] w-full">
-            <img src={aiCleanerHero} alt="AiCleaner Leadership Vision" className="w-full h-full object-cover object-center" />
+            <img 
+              src={aiCleanerHero} 
+              alt="AiCleaner Leadership Vision" 
+              className="w-full h-full object-cover object-center" 
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
           </div>
         </div>
 
-        {/* Storytelling */}
+        {/* Storytelling - Perfil Senior */}
         <div className="max-w-3xl mx-auto mb-20 md:mb-28">
           <h3 className="text-3xl md:text-4xl font-display font-semibold text-center mb-8 tracking-tight">
             The Story Behind AI Cleaner
@@ -55,13 +61,17 @@ const FeaturedCaseStudy = () => {
           </div>
         </div>
 
-        {/* Results */}
-        <div id="results" className="py-20">
+        {/* Impact Results */}
+        <div id="results" className="py-20 border-t border-border/10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {results.map((result, index) => (
               <div key={index} className="p-8 rounded-2xl border border-border/10 bg-muted/5 text-center">
-                <div className="text-4xl md:text-6xl font-display font-bold text-primary mb-4">{result.value}</div>
-                <div className="text-lg text-muted-foreground font-medium italic">{result.label}</div>
+                <div className="text-4xl md:text-6xl font-display font-bold text-primary mb-4">
+                  {result.value}
+                </div>
+                <div className="text-lg text-muted-foreground font-medium italic">
+                  {result.label}
+                </div>
               </div>
             ))}
           </div>
