@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge } from './ui/badge'; // Cambiado a minúscula para que Vercel lo encuentre
+import { Badge } from '../components/ui/badge'; // Cambiado a minúscula para que Vercel lo encuentre
 import AnimatedText from './AnimatedText';
 import aiCleanerHero from '../assets/aicleaner-hero.png';
 
