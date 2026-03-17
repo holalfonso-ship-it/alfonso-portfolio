@@ -1,6 +1,5 @@
 import React from 'react';
-// Corregido: Importación exacta según tu estructura de carpetas
-import { Badge } from './ui/Badge'; 
+import { Badge } from './ui/badge'; // Cambiado a minúscula para que Vercel lo encuentre
 import AnimatedText from './AnimatedText';
 import aiCleanerHero from '../assets/aicleaner-hero.png';
 
