@@ -1,9 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import AnimatedText from './AnimatedText';
-import { ChevronDown, Sparkles } from 'lucide-react';
+import { ChevronDown, Download } from 'lucide-react';
+
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -14,6 +16,7 @@ const Hero: React.FC = () => {
       window.removeEventListener('resize', checkIfMobile);
     };
   }, []);
+
   const handleScrollClick = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
@@ -22,7 +25,19 @@ const Hero: React.FC = () => {
       });
     }
   };
-  return <section id="home" ref={heroRef} className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-32 relative overflow-hidden pt-20 md:pt-32">
+
+  const handleDownloadCV = () => {
+    const cvUrl = '/alfonso-cv.pdf';
+    const link = document.createElement('a');
+    link.href = cvUrl;
+    link.download = 'Alfonso-CV.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  return (
+    <section id="home" ref={heroRef} className="min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-32 relative overflow-hidden pt-20 md:pt-32">
       {/* Background elements */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(52,152,219,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(52,152,219,0.03)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-60" />
       
@@ -78,14 +93,20 @@ const Hero: React.FC = () => {
           
           {/* Call to action */}
           <div className="flex flex-col md:flex-row items-start gap-6 md:gap-12 mt-4 md:mt-0 w-full">
-            <a href="#projects" className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium transition-transform hover:scale-105 active:scale-95 relative overflow-hidden group opacity-0 animate-slide-up animation-delay-1200" onClick={handleScrollClick}>
+            <button 
+              onClick={handleDownloadCV}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-medium transition-transform hover:scale-105 active:scale-95 relative overflow-hidden group opacity-0 animate-slide-up animation-delay-1200"
+            >
               <span className="absolute inset-0 w-full h-full bg-white/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
-              <span className="relative">View my work</span>
-            </a>
+              <span className="relative flex items-center gap-2">
+                <Download className="w-5 h-5" />
+                Download my CV
+              </span>
+            </button>
             
             <div className="text-muted-foreground flex flex-col gap-1 opacity-0 animate-slide-up animation-delay-1400">
               <p className="text-sm">Specialized in</p>
-              <p className="text-base">          DesignOps · Design System Governance ·  Product Design    </p>
+              <p className="text-base">DesignOps · Design System Governance · Product Design</p>
             </div>
           </div>
         </div>
@@ -97,6 +118,8 @@ const Hero: React.FC = () => {
           <ChevronDown size={24} />
         </button>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
