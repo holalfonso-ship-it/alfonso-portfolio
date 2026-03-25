@@ -145,9 +145,9 @@ const Testimonials: React.FC = () => {
               {slides.map((slide, slideIndex) => (
                 <div key={slideIndex} className="w-full flex-shrink-0">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-8">
-                    {slide.map((testimonial, index) => (
+                    {slide.map((testimonial, idx) => (
                       <TestimonialCard 
-                        key={index}
+                        key={idx}
                         content={testimonial.content}
                         author={testimonial.author}
                         position={testimonial.position}
@@ -219,4 +219,8 @@ const Testimonials: React.FC = () => {
           </div>
         </div>
       </div>
-    *
+    </section>
+  );
+};
+
+export default Testimonials;
