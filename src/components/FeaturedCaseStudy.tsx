@@ -47,19 +47,17 @@ const SectionLabel = ({ text }: { text: string }) => (
   </div>
 );
 
-// ─── Full-width image with optional caption ───────────────────────────────────
+// ─── Full-width image — fixed 16/7 ratio, no zoom ────────────────────────────
 
 const FullImage = ({
   src,
   alt,
   caption,
-  aspect = '16/8',
   priority = false,
 }: {
   src: string;
   alt: string;
   caption?: string;
-  aspect?: string;
   priority?: boolean;
 }) => {
   const reveal = useScrollReveal(0.05);
@@ -67,13 +65,13 @@ const FullImage = ({
     <div ref={reveal.ref} className={`my-14 md:my-20 ${reveal.className}`}>
       <div
         className="w-full overflow-hidden rounded-xl"
-        style={{ aspectRatio: aspect }}
+        style={{ aspectRatio: '16/9' }}
       >
         <img
           src={src}
           alt={alt}
           loading={priority ? 'eager' : 'lazy'}
-          className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-[1.02]"
+          className="w-full h-full object-cover object-center"
         />
       </div>
       {caption && (
@@ -134,10 +132,8 @@ const FeaturedCaseStudy: React.FC = () => {
   const techStack = useScrollReveal();
 
   return (
-    <section
-      id="case-study"
-      className="py-28 md:py-36 bg-background"
-    >
+    <section id="case-study" className="py-28 md:py-36 bg-background">
+
       {/* ── HEADER ─────────────────────────────────────────────────────────── */}
       <div
         ref={headerReveal.ref}
@@ -183,9 +179,12 @@ const FeaturedCaseStudy: React.FC = () => {
         </div>
       </div>
 
-      {/* ── HERO IMAGE — full bleed ─────────────────────────────────────────── */}
+      {/* ── HERO IMAGE — full bleed, 16/9 ──────────────────────────────────── */}
       <div className="w-full px-0 md:px-6 lg:px-12 max-w-7xl mx-auto mb-0">
-        <div className="relative w-full overflow-hidden rounded-none md:rounded-2xl" style={{ aspectRatio: '16/9' }}>
+        <div
+          className="relative w-full overflow-hidden rounded-none md:rounded-2xl"
+          style={{ aspectRatio: '16/9' }}
+        >
           <img
             src={aiCleanerHero}
             alt="AI Cleaner app interface showing +2.5GB recovered with Smart Filters"
@@ -208,13 +207,12 @@ const FeaturedCaseStudy: React.FC = () => {
         </div>
       </div>
 
-      {/* ── MOBILES IMAGE — large ──────────────────────────────────────────── */}
+      {/* ── IMAGE 2 ────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
           src={mobilesImg}
           alt="AI Cleaner interface across multiple iPhone screens"
           caption="The redesigned interface — Smart Filters and one-tap cleanup reduce a 15-minute manual task to seconds."
-          aspect="16/7"
           priority
         />
       </div>
@@ -248,13 +246,12 @@ const FeaturedCaseStudy: React.FC = () => {
         </div>
       </div>
 
-      {/* ── METRICS IMAGE — large ─────────────────────────────────────────── */}
+      {/* ── IMAGE 3 ────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
           src={metricsImg}
           alt="Analytics and growth data from Amplitude dashboard"
           caption="Amplitude cohort data revealing the critical drop-off point in the onboarding permissions flow."
-          aspect="16/8"
         />
       </div>
 
@@ -274,9 +271,7 @@ const FeaturedCaseStudy: React.FC = () => {
                 My mission was to scale the Design System while leading expansion into the{' '}
                 <span className="font-semibold text-foreground">Chinese market</span> — a
                 challenge that demanded{' '}
-                <span className="font-semibold text-foreground">
-                  Cultural UX Adaptation
-                </span>
+                <span className="font-semibold text-foreground">Cultural UX Adaptation</span>
                 , not just translation.
               </p>
               <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
@@ -322,13 +317,12 @@ const FeaturedCaseStudy: React.FC = () => {
         </div>
       </div>
 
-      {/* ── UI KIT IMAGE — large ──────────────────────────────────────────── */}
+      {/* ── IMAGE 4 ────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
           src={uiKitImg}
           alt="Design system components and UI kit"
           caption="The scalable Design System built to support both Western and Chinese market variants — 120+ components documented."
-          aspect="16/8"
         />
       </div>
 
@@ -343,7 +337,6 @@ const FeaturedCaseStudy: React.FC = () => {
             Delivering Measurable Business &amp; User Value
           </h3>
 
-          {/* Metrics grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-border/30 border border-border/30 rounded-xl overflow-hidden mb-16">
             {results.map((result, index) => (
               <div
@@ -351,8 +344,10 @@ const FeaturedCaseStudy: React.FC = () => {
                 key={index}
                 className={`bg-background py-8 px-6 text-center ${metricsReveal[index].className}`}
               >
-                <span className="block font-display font-black leading-none mb-3 text-foreground"
-                  style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+                <span
+                  className="block font-display font-black leading-none mb-3 text-foreground"
+                  style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+                >
                   {result.value}
                 </span>
                 <p className="text-[11px] tracking-[0.07em] uppercase text-muted-foreground leading-relaxed">
