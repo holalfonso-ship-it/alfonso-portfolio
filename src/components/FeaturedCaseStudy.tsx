@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import AnimatedText from '@/components/AnimatedText';
-import aiCleanerHero from '@/assets/ai-cleaner-hero.png';
+import aiCleanerHero from '@/assets/hero-aicleaner.png';
 import mobilesImg from '@/assets/ai-cleaner-mobiles.png';
 import metricsImg from '@/assets/ai-cleaner-metrics.png';
 import uiKitImg from '@/assets/ai-cleaner-ui-kit.png';
