@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
   };
 
   const handleDownloadCV = () => {
-    const cvUrl = '/alfonso-cv.pdf';
+    const cvDownloadUrl = cvUrl || '/alfonso-cv.pdf';
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = 'Alfonso-CV.pdf';
