@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AnimatedText from './AnimatedText';
-import { MessageSquare, Award } from 'lucide-react';
+import { MessageSquare, Award, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 
@@ -77,6 +77,34 @@ const Testimonials: React.FC = () => {
       company: "Leadtech"
     }
   ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlay, setIsAutoPlay] = useState(true);
+
+  useEffect(() => {
+    if (!isAutoPlay) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlay, testimonials.length]);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    setIsAutoPlay(false);
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    setIsAutoPlay(false);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+    setIsAutoPlay(false);
+  };
   
   return (
     <section id="testimonials" className="py-24 md:py-32 px-6 md:px-12 relative">
@@ -100,17 +128,68 @@ const Testimonials: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <TestimonialCard 
+        {/* Carrusel */}
+        <div className="relative mb-8">
+          {/* Slides Container */}
+          <div className="overflow-hidden rounded-lg">
+            <div 
+              className="flex transition-transform duration-500 ease-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="w-full flex-shrink-0">
+                  <div className="px-4 md:px-8">
+                    <TestimonialCard 
+                      content={testimonial.content}
+                      author={testimonial.author}
+                      position={testimonial.position}
+                      company={testimonial.company}
+                      avatarSrc={testimonial.avatarSrc}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={goToPrevious}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 md:-translate-x-20 z-20 p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors duration-200"
+            aria-label="Previous testimonial"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <button
+            onClick={goToNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 md:translate-x-20 z-20 p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors duration-200"
+            aria-label="Next testimonial"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Indicadores - Dots */}
+        <div className="flex justify-center items-center gap-3 mb-8">
+          {testimonials.map((_, index) => (
+            <button
               key={index}
-              content={testimonial.content}
-              author={testimonial.author}
-              position={testimonial.position}
-              company={testimonial.company}
-              avatarSrc={testimonial.avatarSrc}
+              onClick={() => goToSlide(index)}
+              className={`transition-all duration-300 rounded-full ${
+                index === currentIndex
+                  ? 'bg-primary w-8 h-3'
+                  : 'bg-primary/30 hover:bg-primary/50 w-3 h-3'
+              }`}
+              aria-label={`Go to testimonial ${index + 1}`}
             />
           ))}
+        </div>
+
+        {/* Indicador de números */}
+        <div className="text-center text-sm text-muted-foreground mb-16">
+          <span className="font-medium text-foreground">{currentIndex + 1}</span>
+          <span className="text-muted-foreground"> / {testimonials.length}</span>
         </div>
         
         <div className="mt-16 flex justify-center">
