@@ -1,11 +1,38 @@
+import React from 'react';
+
 const testimonials = [
-    // Existing testimonials...
     {
-        author: "Franc Andreu",
-        position: "Product Design Team Lead",
-        company: "Leadtech Group",
-        content: "He's an experienced professional who identifies and resolves complex usability issues on the various projects he works on. I would also like to highlight his expertise in Design Ops, which has contributed to the team's growth. He always approaches his work proactively and is eager to help and serve as a role model for his colleagues. I would recommend Alfonso to any digital product team looking to set a higher standard in every respect."
+        name: "John Doe",
+        feedback: "This is a fantastic product! Highly recommend it!",
+        image: "path_to_john_image"
+    },
+    {
+        name: "Jane Smith",
+        feedback: "Excellent service and support. Very satisfied!",
+        image: "path_to_jane_image"
+    },
+    {
+        name: "Emily Johnson",
+        feedback: "A game changer in my workflow. Can't imagine life without it!",
+        image: "path_to_emily_image"
     }
 ];
 
-export default testimonials;
+const Testimonials = () => {
+    return (
+        <div>
+            <h2>Testimonials</h2>
+            <ul>
+                {testimonials.map((testimonial, index) => (
+                    <li key={index}>
+                        <img src={testimonial.image} alt={testimonial.name} />
+                        <p><strong>{testimonial.name}</strong></p>
+                        <p>{testimonial.feedback}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default Testimonials;
