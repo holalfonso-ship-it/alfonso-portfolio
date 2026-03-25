@@ -3,7 +3,7 @@ import { Badge } from '@/components/ui/badge';
 import AnimatedText from '@/components/AnimatedText';
 import aiCleanerHero from '@/assets/hero-aicleaner.png';
 import mobilesImg from '@/assets/2nd-aicleaner.png';
-import metricsImg from '@/assets/ai-cleaner-metrics.png';
+import metricsImg from '@/assets/3rd-aicleaner.png';
 import uiKitImg from '@/assets/designsistem-aicleaner.png';
 
 // ─── Scroll reveal hook ───────────────────────────────────────────────────────
