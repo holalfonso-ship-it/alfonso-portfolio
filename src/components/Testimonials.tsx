@@ -78,6 +78,12 @@ const Testimonials: React.FC = () => {
     }
   ];
 
+  // Dividir testimonios en grupos de 2
+  const slides = [];
+  for (let i = 0; i < testimonials.length; i += 2) {
+    slides.push(testimonials.slice(i, i + 2));
+  }
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
 
@@ -85,19 +91,19 @@ const Testimonials: React.FC = () => {
     if (!isAutoPlay) return;
     
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlay, testimonials.length]);
+  }, [isAutoPlay, slides.length]);
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
     setIsAutoPlay(false);
   };
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
     setIsAutoPlay(false);
   };
 
@@ -136,16 +142,19 @@ const Testimonials: React.FC = () => {
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="w-full flex-shrink-0">
-                  <div className="px-4 md:px-8">
-                    <TestimonialCard 
-                      content={testimonial.content}
-                      author={testimonial.author}
-                      position={testimonial.position}
-                      company={testimonial.company}
-                      avatarSrc={testimonial.avatarSrc}
-                    />
+              {slides.map((slide, slideIndex) => (
+                <div key={slideIndex} className="w-full flex-shrink-0">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-8">
+                    {slide.map((testimonial, index) => (
+                      <TestimonialCard 
+                        key={index}
+                        content={testimonial.content}
+                        author={testimonial.author}
+                        position={testimonial.position}
+                        company={testimonial.company}
+                        avatarSrc={testimonial.avatarSrc}
+                      />
+                    ))}
                   </div>
                 </div>
               ))}
@@ -156,7 +165,7 @@ const Testimonials: React.FC = () => {
           <button
             onClick={goToPrevious}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 md:-translate-x-20 z-20 p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors duration-200"
-            aria-label="Previous testimonial"
+            aria-label="Previous testimonials"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -164,7 +173,7 @@ const Testimonials: React.FC = () => {
           <button
             onClick={goToNext}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 md:translate-x-20 z-20 p-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors duration-200"
-            aria-label="Next testimonial"
+            aria-label="Next testimonials"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
@@ -172,7 +181,7 @@ const Testimonials: React.FC = () => {
 
         {/* Indicadores - Dots */}
         <div className="flex justify-center items-center gap-3 mb-8">
-          {testimonials.map((_, index) => (
+          {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => goToSlide(index)}
@@ -181,7 +190,7 @@ const Testimonials: React.FC = () => {
                   ? 'bg-primary w-8 h-3'
                   : 'bg-primary/30 hover:bg-primary/50 w-3 h-3'
               }`}
-              aria-label={`Go to testimonial ${index + 1}`}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
@@ -189,7 +198,7 @@ const Testimonials: React.FC = () => {
         {/* Indicador de números */}
         <div className="text-center text-sm text-muted-foreground mb-16">
           <span className="font-medium text-foreground">{currentIndex + 1}</span>
-          <span className="text-muted-foreground"> / {testimonials.length}</span>
+          <span className="text-muted-foreground"> / {slides.length}</span>
         </div>
         
         <div className="mt-16 flex justify-center">
@@ -210,8 +219,4 @@ const Testimonials: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
-};
-
-export default Testimonials;
+    *
