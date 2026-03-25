@@ -27,13 +27,10 @@ const Hero: React.FC = () => {
   };
 
   const handleDownloadCV = () => {
-    const cvDownloadUrl = cvUrl || '/alfonso-cv.pdf';
-    const link = document.createElement('a');
-    link.href = cvUrl;
-    link.download = 'Alfonso-CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open(
+      'https://gefsvwcyxxgyfaandyjp.supabase.co/storage/v1/object/public/cv_files/cv-1754558816430.pdf',
+      '_blank'
+    );
   };
 
   return (
