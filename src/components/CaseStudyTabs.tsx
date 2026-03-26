@@ -33,7 +33,7 @@ const TABS = [
     tags: ['Booking Experience', 'Design System', 'Loyalty UX'],
     metrics: [
       { value: '+42%', label: 'Checkout rate' },
-      { value: '−28%', label: 'Abandonment' },
+      { value: '28%', label: 'Abandonment' },
       { value: '3.1×', label: 'Repeat booking' },
     ],
   },
