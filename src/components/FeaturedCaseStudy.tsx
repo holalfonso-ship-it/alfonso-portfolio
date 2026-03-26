@@ -4,6 +4,7 @@ import AnimatedText from '@/components/AnimatedText';
 import aiCleanerHero from '@/assets/hero-aicleaner.png';
 import mobilesImg from '@/assets/2nd-aicleaner.png';
 import metricsImg from '@/assets/3rd-aicleaner.png';
+import goalImg from '@/assets/4to-aicleaner.png';
 import uiKitImg from '@/assets/designsistem-aicleaner.png';
 
 // ─── Scroll reveal hook ───────────────────────────────────────────────────────
@@ -47,7 +48,7 @@ const SectionLabel = ({ text }: { text: string }) => (
   </div>
 );
 
-// ─── Full-width image — fixed 16/7 ratio, no zoom ────────────────────────────
+// ─── Full-width image — fixed 16/9 ratio, no zoom ────────────────────────────
 
 const FullImage = ({
   src,
@@ -284,6 +285,15 @@ const FeaturedCaseStudy: React.FC = () => {
         </div>
       </div>
 
+      {/* ── IMAGE 4 — after The Goal ────────────────────────────────────────── */}
+      <div className="px-6 md:px-12 max-w-7xl mx-auto">
+        <FullImage
+          src={goalImg}
+          alt="Cultural UX adaptation for the Chinese market"
+          caption="Side-by-side comparison of the Western and Chinese market UI variants — adapted trust signals, iconography and payment flows."
+        />
+      </div>
+
       {/* ── ACTION ─────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <div
@@ -317,7 +327,7 @@ const FeaturedCaseStudy: React.FC = () => {
         </div>
       </div>
 
-      {/* ── IMAGE 4 ────────────────────────────────────────────────────────── */}
+      {/* ── IMAGE 5 — Design System ─────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
           src={uiKitImg}
