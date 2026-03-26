@@ -66,9 +66,9 @@ const WanupCaseStudy: React.FC = () => {
   ];
   const results = [
     { value: '+42%', label: 'Checkout completion rate', description: 'Funnel conversion improved after simplifying the availability selection step and reducing form fields by 30%.' },
-    { value: '−28%', label: 'Booking abandonment', description: 'Drop-off rate at the hotel detail page reduced by surfacing availability and pricing earlier in the flow.' },
+    { value: '28%', label: 'Booking abandonment', description: 'Drop-off rate at the hotel detail page reduced by surfacing availability and pricing earlier in the flow.' },
     { value: '+3.1×', label: 'Repeat booking rate', description: 'Users enrolled in Cash Rewards returned to book again at 3× the rate of non-enrolled users within 90 days.' },
-    { value: '4.7★', label: 'User satisfaction score', description: 'Post-booking NPS improved significantly after redesigning the confirmation flow and booking detail screens.' },
+    { value: '4.7', label: 'User satisfaction score', description: 'Post-booking NPS improved significantly after redesigning the confirmation flow and booking detail screens.' },
   ];
   const headerReveal = useScrollReveal(0.05);
   const situation = useScrollReveal();
