@@ -18,7 +18,7 @@ const TABS = [
     thumbAlt: 'AI Cleaner app interface',
     tags: ['DesignOps', 'AI Integration', 'Team Leadership'],
     metrics: [
-      { value: '4.5★', label: 'App Store' },
+      { value: '4.5', label: 'App Store' },
       { value: '+30%', label: 'Delivery speed' },
       { value: '+2.5GB', label: 'Per user' },
     ],
