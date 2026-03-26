@@ -115,7 +115,7 @@ const FeaturedCaseStudy: React.FC = () => {
         'Average gain per session after onboarding — up from 340MB with the previous manual flow.',
     },
     {
-      value: '4.5★',
+      value: '4.5',
       label: 'App Store rating',
       description:
         'Sustained across US and China markets, reaching Top 100 in the Utilities category.',
