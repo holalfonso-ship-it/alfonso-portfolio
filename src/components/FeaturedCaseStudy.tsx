@@ -48,7 +48,7 @@ const SectionLabel = ({ text }: { text: string }) => (
   </div>
 );
 
-// ─── Full-width image — fixed 16/9 ratio, no zoom ────────────────────────────
+// ─── Full-width image — fixed 16/9, no zoom ───────────────────────────────────
 
 const FullImage = ({
   src,
@@ -64,10 +64,7 @@ const FullImage = ({
   const reveal = useScrollReveal(0.05);
   return (
     <div ref={reveal.ref} className={`my-14 md:my-20 ${reveal.className}`}>
-      <div
-        className="w-full overflow-hidden rounded-xl"
-        style={{ aspectRatio: '16/9' }}
-      >
+      <div className="w-full overflow-hidden rounded-xl" style={{ aspectRatio: '16/9' }}>
         <img
           src={src}
           alt={alt}
@@ -76,7 +73,7 @@ const FullImage = ({
         />
       </div>
       {caption && (
-        <p className="mt-4 text-xs text-muted-foreground pl-4 border-l border-border/40 leading-relaxed max-w-xl">
+        <p className="mt-4 text-xs text-muted-foreground pl-4 border-l border-border/40 leading-relaxed max-w-2xl">
           {caption}
         </p>
       )}
@@ -111,10 +108,30 @@ const FeaturedCaseStudy: React.FC = () => {
   ];
 
   const results = [
-    { value: '+2.5GB', label: 'Average storage recovered per user' },
-    { value: '4.5★', label: 'App Store rating · Top 100 Utilities' },
-    { value: '+30%', label: 'Delivery speed increase' },
-    { value: '+25%', label: 'Velocity & 20% stakeholder satisfaction' },
+    {
+      value: '+2.5GB',
+      label: 'Storage recovered per user',
+      description:
+        'Average gain per session after onboarding — up from 340MB with the previous manual flow.',
+    },
+    {
+      value: '4.5★',
+      label: 'App Store rating',
+      description:
+        'Sustained across US and China markets, reaching Top 100 in the Utilities category.',
+    },
+    {
+      value: '+30%',
+      label: 'Delivery speed',
+      description:
+        'Faster design-to-dev cycles achieved through the AI-assisted DesignOps workflow.',
+    },
+    {
+      value: '+25%',
+      label: 'Team velocity',
+      description:
+        'Increase in sprint output, combined with a 20% improvement in stakeholder satisfaction scores.',
+    },
   ];
 
   // Reveal hooks
@@ -124,13 +141,20 @@ const FeaturedCaseStudy: React.FC = () => {
   const action = useScrollReveal();
   const actionItems = [useScrollReveal(), useScrollReveal(), useScrollReveal()];
   const impact = useScrollReveal();
-  const metricsReveal = [
-    useScrollReveal(),
-    useScrollReveal(),
-    useScrollReveal(),
-    useScrollReveal(),
-  ];
+  const m0 = useScrollReveal();
+  const m1 = useScrollReveal();
+  const m2 = useScrollReveal();
+  const m3 = useScrollReveal();
+  const metricsReveal = [m0, m1, m2, m3];
   const techStack = useScrollReveal();
+
+  // Border classes per cell position in a 2-col grid
+  const cellBorder = [
+    'border-b border-r border-border/20 pb-10 pr-8 md:pr-14',
+    'border-b border-border/20 pb-10 pl-8 md:pl-14',
+    'pt-10 border-r border-border/20 pr-8 md:pr-14',
+    'pt-10 pl-8 md:pl-14',
+  ];
 
   return (
     <section id="case-study" className="py-28 md:py-36 bg-background">
@@ -180,7 +204,7 @@ const FeaturedCaseStudy: React.FC = () => {
         </div>
       </div>
 
-      {/* ── HERO IMAGE — full bleed, 16/9 ──────────────────────────────────── */}
+      {/* ── HERO IMAGE ─────────────────────────────────────────────────────── */}
       <div className="w-full px-0 md:px-6 lg:px-12 max-w-7xl mx-auto mb-0">
         <div
           className="relative w-full overflow-hidden rounded-none md:rounded-2xl"
@@ -188,7 +212,7 @@ const FeaturedCaseStudy: React.FC = () => {
         >
           <img
             src={aiCleanerHero}
-            alt="AI Cleaner app interface showing +2.5GB recovered with Smart Filters"
+            alt="AI Cleaner — main app interface overview"
             loading="eager"
             className="w-full h-full object-cover object-center"
           />
@@ -212,8 +236,8 @@ const FeaturedCaseStudy: React.FC = () => {
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
           src={mobilesImg}
-          alt="AI Cleaner interface across multiple iPhone screens"
-          caption="The redesigned interface — Smart Filters and one-tap cleanup reduce a 15-minute manual task to seconds."
+          alt="AI Cleaner across three key screens: Smart Scan, Storage Breakdown, one-tap Clean"
+          caption="Final UI across the three core screens — Smart Scan, Storage Breakdown, and one-tap Clean. The full flow was reduced from 7 steps to 2."
           priority
         />
       </div>
@@ -251,8 +275,8 @@ const FeaturedCaseStudy: React.FC = () => {
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
           src={metricsImg}
-          alt="Analytics and growth data from Amplitude dashboard"
-          caption="Amplitude cohort data revealing the critical drop-off point in the onboarding permissions flow."
+          alt="Amplitude dashboard showing cohort behaviour and drop-off points"
+          caption="Amplitude cohort analysis — the permissions screen had a 67% drop-off rate. Redesigning this single step recovered the majority of lost activations."
         />
       </div>
 
@@ -285,12 +309,12 @@ const FeaturedCaseStudy: React.FC = () => {
         </div>
       </div>
 
-      {/* ── IMAGE 4 — after The Goal ────────────────────────────────────────── */}
+      {/* ── IMAGE 4 ────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
           src={goalImg}
-          alt="Cultural UX adaptation for the Chinese market"
-          caption="Side-by-side comparison of the Western and Chinese market UI variants — adapted trust signals, iconography and payment flows."
+          alt="Western vs Chinese market UI variants side by side"
+          caption="Western vs. China variant — same core system, adapted trust signals, denser information layout, and localised payment entry points for WeChat Pay and Alipay."
         />
       </div>
 
@@ -331,8 +355,8 @@ const FeaturedCaseStudy: React.FC = () => {
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
           src={uiKitImg}
-          alt="Design system components and UI kit"
-          caption="The scalable Design System built to support both Western and Chinese market variants — 120+ components documented."
+          alt="AI Cleaner design system — full component library overview"
+          caption="AI Cleaner Design System — 120+ components covering both market variants, built in Figma with Auto Layout and tokenised variables for light and dark mode."
         />
       </div>
 
@@ -343,25 +367,38 @@ const FeaturedCaseStudy: React.FC = () => {
           className={`py-16 md:py-24 border-t border-border/20 ${impact.className}`}
         >
           <SectionLabel text="Impact" />
-          <h3 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-16 max-w-xl">
-            Delivering Measurable Business &amp; User Value
-          </h3>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-border/30 border border-border/30 rounded-xl overflow-hidden mb-16">
+          {/* Header row */}
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_5fr] gap-8 md:gap-20 items-start mb-16">
+            <h3 className="text-3xl md:text-4xl font-display font-bold tracking-tight leading-tight">
+              Delivering Measurable Business &amp; User Value
+            </h3>
+            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
+              From activation rates to App Store rankings, every key metric moved in the right
+              direction — validated across two markets with significantly different user
+              behaviours and expectations.
+            </p>
+          </div>
+
+          {/* 2×2 metric grid with internal dividers, no box borders */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 border-t border-border/20">
             {results.map((result, index) => (
               <div
                 ref={metricsReveal[index].ref}
                 key={index}
-                className={`bg-background py-8 px-6 text-center ${metricsReveal[index].className}`}
+                className={`flex flex-col gap-3 ${cellBorder[index]} ${metricsReveal[index].className}`}
               >
                 <span
-                  className="block font-display font-black leading-none mb-3 text-foreground"
-                  style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
+                  className="font-display font-black leading-none text-foreground"
+                  style={{ fontSize: 'clamp(3.2rem, 6vw, 5rem)' }}
                 >
                   {result.value}
                 </span>
-                <p className="text-[11px] tracking-[0.07em] uppercase text-muted-foreground leading-relaxed">
+                <p className="text-base font-semibold text-foreground tracking-tight">
                   {result.label}
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed max-w-xs">
+                  {result.description}
                 </p>
               </div>
             ))}
