@@ -3,8 +3,8 @@ import FeaturedCaseStudy from '@/components/FeaturedCaseStudy';
 import WanupCaseStudy from '@/components/WanupCaseStudy';
 
 // ─── Thumbnail imports ────────────────────────────────────────────────────────
-import aiCleanerHero from '@/assets/hero-aicleaner.png';
-// import wanupHero from '@/assets/wanup-hero.png'; // uncomment when ready
+import aiCleanerCover from '@/assets/Cover-icleaner.png';
+import wanupCover from '@/assets/Cover-wanup.png';
 
 // ─── Tab config ───────────────────────────────────────────────────────────────
 
@@ -14,7 +14,7 @@ const TABS = [
     type: 'B2C · iOS App',
     year: '2024',
     title: 'AI Cleaner',
-    thumb: aiCleanerHero as string | undefined,
+    thumb: aiCleanerCover as string | undefined,
     thumbAlt: 'AI Cleaner app interface',
     tags: ['DesignOps', 'AI Integration', 'Team Leadership'],
     metrics: [
@@ -28,13 +28,13 @@ const TABS = [
     type: 'B2C · Web',
     year: '2024',
     title: 'Wanup',
-    thumb: undefined as string | undefined, // replace with wanupHero
+    thumb: wanupCover as string | undefined,
     thumbAlt: 'Wanup hotel booking platform',
     tags: ['Booking Experience', 'Design System', 'Loyalty UX'],
     metrics: [
       { value: '+42%', label: 'Checkout rate' },
       { value: '−28%', label: 'Abandonment' },
-      { value: '3.1×',  label: 'Repeat booking' },
+      { value: '3.1×', label: 'Repeat booking' },
     ],
   },
 ];
@@ -103,12 +103,10 @@ const TabCard: React.FC<{
           }`}
         >
           {isActive ? (
-            // Down arrow when active (content is visible below)
             <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
               <path d="M5.5 2v7M2 6l3.5 3.5L9 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           ) : (
-            // Diagonal arrow when inactive
             <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
               <path d="M2 9L9 2M9 2H3.5M9 2v5.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -191,7 +189,7 @@ const CaseStudyTabs: React.FC = () => {
         className="animate-in fade-in slide-in-from-bottom-3 duration-500"
       >
         {activeId === 'ai-cleaner' && <FeaturedCaseStudy />}
-        {activeId === 'wanup'      && <WanupCaseStudy />}
+        {activeId === 'wanup' && <WanupCaseStudy />}
       </div>
 
     </section>
