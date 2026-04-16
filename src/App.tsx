@@ -13,6 +13,7 @@ import AdminPage from './pages/AdminPage';
 import SiteImages from './pages/SiteImages';
 import AboutPage from './pages/AboutPage';
 import PersonalProjectsPage from './pages/PersonalProjectsPage';
+import ResourcesPage from './pages/ResourcesPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,6 +40,7 @@ function App() {
             <Route path="/site-images" element={<SiteImages />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/personal-projects" element={<PersonalProjectsPage />} />
+            <Route path="/resources" element={<ResourcesPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

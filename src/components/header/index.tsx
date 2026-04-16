@@ -27,16 +27,18 @@ const Header: React.FC = () => {
     };
   }, [mobileMenuOpen]);
 
-  const navItems = isProjectPage 
+  const navItems = isProjectPage
     ? [
         { label: 'Home', href: '/' },
         { label: 'Case Study', href: '/#case-study' },
-        { label: 'Personal Projects', href: '/personal-projects' }
+        { label: 'Personal Projects', href: '/personal-projects' },
+        { label: 'Resources', href: '/resources' }
       ]
     : [
         { label: 'Home', href: '/' },
         { label: 'Case Study', href: '/#case-study' },
         { label: 'Personal Projects', href: '/personal-projects' },
+        { label: 'Resources', href: '/resources' },
         { label: 'About', href: '/#about' },
         { label: 'Process', href: '/#process' },
         { label: 'Contact', href: '/#contact' }

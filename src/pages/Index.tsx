@@ -5,7 +5,7 @@ import About from '@/components/About';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import TransitionEffect from '@/components/TransitionEffect';
-import PersonalProjects from '@/components/PersonalProjects';
+import HomeResources from '@/components/HomeResources';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -31,7 +31,7 @@ const Index: React.FC = () => {
       <main className="flex-grow">
         <Hero />
         <CaseStudyTabs />
-        <PersonalProjects />
+        <HomeResources />
         <About />
         <Testimonials />
         <Contact />
