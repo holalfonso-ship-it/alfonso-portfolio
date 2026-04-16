@@ -1,0 +1,26 @@
+{
+  "src/main.tsx": {
+    "file": "main.mjs",
+    "name": "main",
+    "src": "src/main.tsx",
+    "isEntry": true,
+    "assets": [
+      "assets/hero-aicleaner-CCavbvc4.png",
+      "assets/2nd-aicleaner-CeSfeVtW.png",
+      "assets/3rd-aicleaner-BSj5mhiH.png",
+      "assets/4to-aicleaner-DyvvtgfX.png",
+      "assets/designsistem-aicleaner-h1-b1Y6_.png",
+      "assets/1er-wanup-CCftO5G9.png",
+      "assets/2nd-wanup-DCLge0eD.png",
+      "assets/3rd-wanup-Hhn_q87N.png",
+      "assets/4to-wanup-Dl7Olrg6.png",
+      "assets/5to-wanup-B2ThkH2l.png",
+      "assets/Cover-icleaner-DZ5EVhA0.png",
+      "assets/Cover-wanup-DEyiXQtF.png"
+    ]
+  },
+  "style.css": {
+    "file": "assets/style-CqdbwyR2.css",
+    "src": "style.css"
+  }
+}

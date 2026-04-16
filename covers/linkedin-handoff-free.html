@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px; height: 1350px;
+    background: #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; position: relative;
+  }
+
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.055) 1px, transparent 1px);
+    background-size: 54px 54px;
+  }
+
+  .glow-top {
+    position: absolute; width: 800px; height: 800px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 65%);
+    top: -200px; right: -200px;
+  }
+
+  .glow-bottom {
+    position: absolute; width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 65%);
+    bottom: -150px; left: -100px;
+  }
+
+  .wrapper {
+    position: relative; z-index: 10;
+    display: flex; flex-direction: column;
+    height: 100%; padding: 80px 80px 72px;
+    justify-content: space-between;
+  }
+
+  /* ── TOP: brand ── */
+  .top-bar {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-dot { width: 9px; height: 9px; background: #3b82f6; border-radius: 50%; }
+  .brand-name { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; }
+
+  .free-pill {
+    background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4);
+    border-radius: 100px; padding: 8px 20px;
+    font-size: 13px; font-weight: 700; color: #22c55e;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  /* ── HERO text ── */
+  .hero { display: flex; flex-direction: column; gap: 20px; }
+
+  .eyebrow {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #3b82f6;
+  }
+
+  h1 {
+    font-size: 80px; font-weight: 900; line-height: 1.0;
+    letter-spacing: -0.04em; color: #fff;
+  }
+
+  h1 em { font-style: normal; color: #3b82f6; }
+
+  .hero-sub {
+    font-size: 22px; font-weight: 400; color: rgba(255,255,255,0.45);
+    line-height: 1.5; max-width: 680px;
+  }
+
+  /* ── CHECKLIST CARD ── */
+  .card {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 24px; padding: 32px 36px;
+    display: flex; flex-direction: column; gap: 0;
+  }
+
+  .card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 28px;
+  }
+
+  .card-title { font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.9); }
+  .card-count {
+    font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.06); border-radius: 8px; padding: 5px 12px;
+  }
+
+  .check-item {
+    display: flex; align-items: center; gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .check-item:last-child { border-bottom: none; }
+
+  .check-item.highlight {
+    background: rgba(59,130,246,0.08);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin: 0 -16px;
+    border-bottom: none;
+    position: relative;
+  }
+
+  .check-item.highlight::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: #3b82f6; border-radius: 3px 0 0 3px;
+  }
+
+  .check-icon {
+    width: 26px; height: 26px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .check-icon.done { background: rgba(34,197,94,0.2); }
+  .check-icon.current { background: rgba(59,130,246,0.25); }
+  .check-icon svg { width: 15px; height: 15px; }
+
+  .check-label { font-size: 17px; font-weight: 500; flex: 1; color: rgba(255,255,255,0.4); }
+  .check-item.highlight .check-label { color: rgba(255,255,255,0.85); font-weight: 600; }
+
+  .check-tag {
+    font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 7px;
+    color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.06);
+  }
+
+  .check-item.highlight .check-tag { color: #3b82f6; background: rgba(59,130,246,0.18); }
+
+  /* ── STATS row ── */
+  .stats { display: flex; gap: 12px; }
+
+  .stat {
+    flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px; padding: 20px 16px;
+    display: flex; flex-direction: column; align-items: center; gap: 5px;
+  }
+
+  .stat-num { font-size: 36px; font-weight: 900; color: #3b82f6; letter-spacing: -0.04em; }
+  .stat-label { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.3); text-align: center; }
+
+  /* ── CTA ── */
+  .cta-section { display: flex; flex-direction: column; gap: 16px; }
+
+  .cta-url {
+    font-size: 20px; font-weight: 700; color: rgba(255,255,255,0.5);
+    letter-spacing: 0.02em;
+  }
+
+  .cta-url span { color: #3b82f6; }
+
+  .cta-bar {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .cta-button {
+    background: #3b82f6; color: white;
+    font-size: 18px; font-weight: 700; padding: 16px 36px;
+    border-radius: 14px; letter-spacing: -0.01em;
+  }
+
+  .tags { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .tag {
+    font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px; padding: 6px 12px;
+  }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow-top"></div>
+  <div class="glow-bottom"></div>
+
+  <div class="wrapper">
+
+    <!-- Top bar -->
+    <div class="top-bar">
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <div class="brand-name">Alfonso Zamorano · DesignOps</div>
+      </div>
+      <div class="free-pill">Free template</div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="eyebrow">Notion Template</div>
+      <h1>Design ↔ Dev<br /><em>Handoff</em><br />Checklist</h1>
+      <div class="hero-sub">8 sections, 50+ checks — todo lo que engineering necesita para construir sin preguntas.</div>
+    </div>
+
+    <!-- Checklist card -->
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">Checklist Preview</div>
+        <div class="card-count">50+ items</div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon done"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-5.5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="check-label">File & frame organisation</div>
+        <div class="check-tag">Structure</div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon done"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-5.5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="check-label">Design tokens & styles</div>
+        <div class="check-tag">Tokens</div>
+      </div>
+
+      <div class="check-item highlight">
+        <div class="check-icon current"><svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3.5" fill="#3b82f6"/></svg></div>
+        <div class="check-label">Interactive states & flows</div>
+        <div class="check-tag">States</div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon done"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-5.5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="check-label">Accessibility annotations</div>
+        <div class="check-tag">A11y</div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-icon done"><svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3.5 3.5 5.5-5.5" stroke="#22c55e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="check-label">Component & auto layout</div>
+        <div class="check-tag">Components</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat"><div class="stat-num">8</div><div class="stat-label">Sections</div></div>
+      <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Checks</div></div>
+      <div class="stat"><div class="stat-num">1×</div><div class="stat-label">Click to duplicate</div></div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <div class="cta-url">azportfolio.net<span>/resources</span></div>
+      <div class="cta-bar">
+        <div class="tags">
+          <div class="tag">#DesignOps</div>
+          <div class="tag">#Figma</div>
+          <div class="tag">#Notion</div>
+          <div class="tag">#Handoff</div>
+        </div>
+        <div class="cta-button">Descargar gratis →</div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

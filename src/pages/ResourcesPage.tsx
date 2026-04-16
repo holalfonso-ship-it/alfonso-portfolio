@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AnimatedText from '@/components/AnimatedText';
@@ -99,6 +100,33 @@ const ResourcesPage: React.FC = () => {
 
   return (
     <div className="min-h-screen py-32 px-6 md:px-12">
+      <Helmet>
+        <title>DesignOps Resources & Templates — Alfonso Zamorano</title>
+        <meta name="description" content="Free and premium Notion templates for design teams. Handoff checklists, UX audit frameworks, design system docs, sprint facilitation kits and more — built by a DesignOps specialist." />
+        <meta property="og:title" content="DesignOps Resources & Templates — Alfonso Zamorano" />
+        <meta property="og:description" content="Free and premium Notion templates for design teams. Handoff checklists, UX audit frameworks, design system docs, sprint facilitation kits and more." />
+        <meta property="og:url" content="https://azportfolio.net/resources" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://azportfolio.net/handoff-checklist-cover.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="DesignOps Resources & Templates — Alfonso Zamorano" />
+        <meta name="twitter:description" content="Free and premium Notion templates for design teams. Built by a DesignOps specialist with 10+ years of experience." />
+        <link rel="canonical" href="https://azportfolio.net/resources" />
+        <script type="application/ld+json">{`
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "DesignOps Resources & Templates",
+            "description": "Free and premium Notion templates for design teams by Alfonso Zamorano.",
+            "url": "https://azportfolio.net/resources",
+            "author": {
+              "@type": "Person",
+              "name": "Alfonso Zamorano",
+              "url": "https://azportfolio.net"
+            }
+          }
+        `}</script>
+      </Helmet>
       <TransitionEffect />
 
       <div className="max-w-7xl mx-auto">

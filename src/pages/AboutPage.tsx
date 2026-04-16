@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import TransitionEffect from '@/components/TransitionEffect';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Briefcase, GraduationCap, Languages, Trophy, Code } from 'lucide-react';
@@ -12,6 +13,16 @@ import { Separator } from '@/components/ui/separator';
 const AboutPage: React.FC = () => {
   return (
     <>
+      <Helmet>
+        <title>About — Alfonso Zamorano, Senior Product Designer & DesignOps Specialist</title>
+        <meta name="description" content="10+ years of experience as a Senior Product Designer and DesignOps Specialist. Worked in fintech, SaaS, and e-commerce. Based in Europe, available for freelance and full-time roles." />
+        <meta property="og:title" content="About Alfonso Zamorano — Senior Product Designer & DesignOps Specialist" />
+        <meta property="og:description" content="10+ years designing digital products across fintech, SaaS and e-commerce. Available for new opportunities." />
+        <meta property="og:url" content="https://azportfolio.net/about" />
+        <meta property="og:type" content="profile" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="https://azportfolio.net/about" />
+      </Helmet>
       <TransitionEffect />
       <div className="pt-32 pb-24 px-6 md:px-16 lg:px-24">
         <div className="max-w-4xl mx-auto">
