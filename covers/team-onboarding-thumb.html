@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 800px; height: 800px;
+    background: #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; position: relative;
+  }
+
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .glow {
+    position: absolute; width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+    top: -150px; right: -150px;
+  }
+
+  .glow2 {
+    position: absolute; width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+    bottom: -100px; left: -80px;
+  }
+
+  .wrapper {
+    position: relative; z-index: 10;
+    display: flex; flex-direction: column;
+    justify-content: space-between; height: 100%; padding: 64px;
+  }
+
+  .top { display: flex; flex-direction: column; gap: 24px; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.35);
+    border-radius: 100px; padding: 7px 18px; width: fit-content;
+  }
+  .badge-dot { width: 7px; height: 7px; background: #3b82f6; border-radius: 50%; }
+  .badge span { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3b82f6; }
+
+  h1 { font-size: 64px; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: #fff; }
+  h1 em { font-style: normal; color: #3b82f6; }
+
+  /* Days */
+  .days { display: flex; flex-direction: column; gap: 10px; }
+
+  .day-row {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 13px 16px;
+  }
+
+  .day-row.active {
+    background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.3);
+    position: relative; overflow: hidden;
+  }
+
+  .day-row.active::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: #3b82f6; border-radius: 3px 0 0 3px;
+  }
+
+  .check {
+    width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .check.done { background: rgba(34,197,94,0.2); }
+  .check.now { background: rgba(59,130,246,0.2); }
+  .check.pending { background: rgba(255,255,255,0.06); }
+  .check svg { width: 13px; height: 13px; }
+
+  .day-text { font-size: 14px; font-weight: 700; flex: 1; color: rgba(255,255,255,0.4); }
+  .day-row.active .day-text { color: rgba(255,255,255,0.9); }
+  .done-text { color: rgba(255,255,255,0.4) !important; }
+
+  .status {
+    font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 6px;
+  }
+  .status.done { color: #22c55e; background: rgba(34,197,94,0.12); }
+  .status.today { color: #3b82f6; background: rgba(59,130,246,0.15); }
+
+  /* Goals row */
+  .goals-row {
+    display: flex; gap: 10px;
+  }
+
+  .goal-pill {
+    flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px; padding: 14px 12px;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+
+  .goal-num { font-size: 28px; font-weight: 800; color: #3b82f6; letter-spacing: -0.03em; }
+  .goal-label { font-size: 10px; font-weight: 600; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 0.08em; }
+  .goal-theme { font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.5); }
+
+  .bottom { display: flex; align-items: center; justify-content: space-between; }
+
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-dot { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; }
+  .brand span { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.25); letter-spacing: 0.06em; }
+
+  .price-tag {
+    background: rgba(59,130,246,0.9); color: white;
+    font-size: 26px; font-weight: 800; padding: 12px 26px;
+    border-radius: 14px; letter-spacing: -0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+
+  <div class="wrapper">
+    <div class="top">
+      <div class="badge"><div class="badge-dot"></div><span>Onboarding</span></div>
+      <h1>Design Team<br /><em>Onboarding Kit</em></h1>
+    </div>
+
+    <div class="days">
+      <div class="day-row">
+        <div class="check done"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="day-text done-text">Day 1 — Welcome</div>
+        <div class="status done">Done</div>
+      </div>
+      <div class="day-row">
+        <div class="check done"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="day-text done-text">Day 2 — Context</div>
+        <div class="status done">Done</div>
+      </div>
+      <div class="day-row active">
+        <div class="check now"><svg viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="3" fill="#3b82f6"/></svg></div>
+        <div class="day-text">Day 3 — Process</div>
+        <div class="status today">Today</div>
+      </div>
+      <div class="day-row">
+        <div class="check pending"></div>
+        <div class="day-text done-text">Day 4 — Dive In</div>
+      </div>
+      <div class="day-row">
+        <div class="check pending"></div>
+        <div class="day-text done-text">Day 5 — Reflect</div>
+      </div>
+    </div>
+
+    <div class="goals-row">
+      <div class="goal-pill">
+        <div class="goal-num">30</div>
+        <div class="goal-label">Days</div>
+        <div class="goal-theme">Learn</div>
+      </div>
+      <div class="goal-pill">
+        <div class="goal-num">60</div>
+        <div class="goal-label">Days</div>
+        <div class="goal-theme">Contribute</div>
+      </div>
+      <div class="goal-pill">
+        <div class="goal-num">90</div>
+        <div class="goal-label">Days</div>
+        <div class="goal-theme">Lead</div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="brand"><div class="brand-dot"></div><span>azportfolio.net</span></div>
+      <div class="price-tag">€19</div>
+    </div>
+  </div>
+</body>
+</html>

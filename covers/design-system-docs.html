@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Design System Documentation Kit Cover</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1280px;
+    height: 720px;
+    background: #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.16) 0%, transparent 70%);
+    top: -150px;
+    right: -100px;
+  }
+
+  .glow-left {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%);
+    bottom: -80px;
+    left: -60px;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    height: 100%;
+    align-items: stretch;
+  }
+
+  /* Left */
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 72px 48px 72px 80px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(59,130,246,0.15);
+    border: 1px solid rgba(59,130,246,0.35);
+    border-radius: 100px;
+    padding: 6px 16px;
+    margin-bottom: 28px;
+    width: fit-content;
+  }
+
+  .badge-dot { width: 7px; height: 7px; background: #3b82f6; border-radius: 50%; }
+
+  .badge span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3b82f6;
+  }
+
+  h1 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  h1 em { font-style: normal; color: #3b82f6; }
+
+  .subtitle {
+    font-size: 17px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.55;
+    max-width: 360px;
+    margin-bottom: 40px;
+  }
+
+  .tags { display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .tag {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* Right */
+  .right {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 56px 48px 24px;
+    gap: 12px;
+  }
+
+  /* Token section */
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 8px;
+    margin-top: 4px;
+  }
+
+  .token-group {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 16px 18px;
+  }
+
+  .token-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .token-row:last-child { border-bottom: none; }
+
+  .token-swatch {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
+  .token-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    flex: 1;
+  }
+
+  .token-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  /* Component card */
+  .component-card {
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.25);
+    border-radius: 14px;
+    padding: 16px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .component-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: #3b82f6;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .comp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .comp-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .comp-tag {
+    font-size: 10px;
+    font-weight: 600;
+    color: #3b82f6;
+    background: rgba(59,130,246,0.15);
+    padding: 3px 8px;
+    border-radius: 6px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .comp-variants {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .variant-pill {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.45);
+  }
+
+  .variant-pill.active {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #fff;
+  }
+
+  /* Brand + price */
+  .brand {
+    position: absolute;
+    bottom: 32px;
+    left: 80px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .brand-dot { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; }
+
+  .brand span {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.06em;
+  }
+
+  .price-tag {
+    position: absolute;
+    bottom: 32px;
+    right: 56px;
+    background: rgba(59,130,246,0.9);
+    color: white;
+    font-size: 22px;
+    font-weight: 800;
+    padding: 10px 22px;
+    border-radius: 12px;
+    letter-spacing: -0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow"></div>
+  <div class="glow-left"></div>
+
+  <div class="wrapper">
+    <div class="left">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        <span>Documentation</span>
+      </div>
+
+      <h1>Design System<br /><em>Docs Kit</em></h1>
+      <p class="subtitle">One source of truth for every component, token, and guideline — structured and ready to share with engineering.</p>
+
+      <div class="tags">
+        <div class="tag">Design Systems</div>
+        <div class="tag">Notion</div>
+        <div class="tag">Documentation</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="section-label">Design Tokens</div>
+      <div class="token-group">
+        <div class="token-row">
+          <div class="token-swatch" style="background:#3b82f6;"></div>
+          <div class="token-name">color-primary</div>
+          <div class="token-value">#3b82f6</div>
+        </div>
+        <div class="token-row">
+          <div class="token-swatch" style="background:#0a0a0a; border:1px solid rgba(255,255,255,0.12);"></div>
+          <div class="token-name">color-background</div>
+          <div class="token-value">#0a0a0a</div>
+        </div>
+        <div class="token-row">
+          <div class="token-swatch" style="background:#22c55e;"></div>
+          <div class="token-name">color-success</div>
+          <div class="token-value">#22c55e</div>
+        </div>
+        <div class="token-row">
+          <div class="token-swatch" style="background:#ef4444;"></div>
+          <div class="token-name">color-error</div>
+          <div class="token-value">#ef4444</div>
+        </div>
+      </div>
+
+      <div class="section-label">Component Spec</div>
+      <div class="component-card">
+        <div class="comp-header">
+          <div class="comp-title">Button</div>
+          <div class="comp-tag">Component</div>
+        </div>
+        <div class="comp-variants">
+          <div class="variant-pill active">Primary</div>
+          <div class="variant-pill">Secondary</div>
+          <div class="variant-pill">Ghost</div>
+          <div class="variant-pill">Disabled</div>
+        </div>
+      </div>
+
+      <div class="token-group">
+        <div class="token-row">
+          <div class="token-swatch" style="background:rgba(255,255,255,0.08); border-radius:4px; display:flex; align-items:center; justify-content:center;">
+            <div style="font-size:9px; color:rgba(255,255,255,0.4); font-family:monospace;">v</div>
+          </div>
+          <div class="token-name">space-4</div>
+          <div class="token-value">16px</div>
+        </div>
+        <div class="token-row">
+          <div class="token-swatch" style="background:rgba(255,255,255,0.08); border-radius:4px;"></div>
+          <div class="token-name">radius-md</div>
+          <div class="token-value">8px</div>
+        </div>
+        <div class="token-row">
+          <div class="token-swatch" style="background:rgba(255,255,255,0.08); border-radius:4px;"></div>
+          <div class="token-name">motion-base</div>
+          <div class="token-value">300ms</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brand">
+    <div class="brand-dot"></div>
+    <span>azportfolio.net</span>
+  </div>
+
+  <div class="price-tag">€24</div>
+</body>
+</html>

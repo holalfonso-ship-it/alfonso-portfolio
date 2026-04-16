@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1280px;
+    height: 720px;
+    background: #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .glow {
+    position: absolute; width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.16) 0%, transparent 70%);
+    top: -150px; right: -100px;
+  }
+
+  .glow2 {
+    position: absolute; width: 350px; height: 350px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.07) 0%, transparent 70%);
+    bottom: -80px; left: -60px;
+  }
+
+  .wrapper {
+    position: relative; z-index: 10;
+    display: flex; height: 100%; align-items: stretch;
+  }
+
+  /* Left */
+  .left {
+    flex: 1; display: flex; flex-direction: column;
+    justify-content: center;
+    padding: 72px 48px 72px 80px;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.35);
+    border-radius: 100px; padding: 6px 16px; margin-bottom: 28px; width: fit-content;
+  }
+  .badge-dot { width: 7px; height: 7px; background: #3b82f6; border-radius: 50%; }
+  .badge span { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #3b82f6; }
+
+  h1 { font-size: 56px; font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; color: #fff; margin-bottom: 20px; }
+  h1 em { font-style: normal; color: #3b82f6; }
+
+  .subtitle { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.55; max-width: 360px; margin-bottom: 40px; }
+
+  .tags { display: flex; gap: 10px; flex-wrap: wrap; }
+  .tag { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 7px 14px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.6); }
+
+  /* Right */
+  .right {
+    width: 490px; display: flex; flex-direction: column;
+    justify-content: center; padding: 48px 56px 48px 24px; gap: 10px;
+  }
+
+  .day-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex; align-items: center; gap: 14px;
+  }
+
+  .day-card.active {
+    background: rgba(59,130,246,0.1);
+    border-color: rgba(59,130,246,0.3);
+    position: relative; overflow: hidden;
+  }
+
+  .day-card.active::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: #3b82f6; border-radius: 3px 0 0 3px;
+  }
+
+  .day-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: #3b82f6;
+    background: rgba(59,130,246,0.15); border-radius: 8px;
+    padding: 5px 10px; flex-shrink: 0; min-width: 68px; text-align: center;
+  }
+
+  .day-card:not(.active) .day-label {
+    background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.35);
+  }
+
+  .day-info { flex: 1; }
+
+  .day-title { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.85); margin-bottom: 3px; }
+  .day-card:not(.active) .day-title { color: rgba(255,255,255,0.4); }
+
+  .day-desc { font-size: 11px; color: rgba(255,255,255,0.3); line-height: 1.4; }
+  .day-card.active .day-desc { color: rgba(255,255,255,0.5); }
+
+  .day-status {
+    font-size: 10px; font-weight: 600; color: #3b82f6;
+    background: rgba(59,130,246,0.15); border-radius: 6px; padding: 3px 8px; flex-shrink: 0;
+  }
+
+  /* Brand + price */
+  .brand { position: absolute; bottom: 32px; left: 80px; display: flex; align-items: center; gap: 10px; }
+  .brand-dot { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; }
+  .brand span { font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.25); letter-spacing: 0.06em; }
+
+  .price-tag {
+    position: absolute; bottom: 32px; right: 56px;
+    background: rgba(59,130,246,0.9); color: white;
+    font-size: 22px; font-weight: 800; padding: 10px 22px;
+    border-radius: 12px; letter-spacing: -0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+
+  <div class="wrapper">
+    <div class="left">
+      <div class="badge"><div class="badge-dot"></div><span>Workshop Kit</span></div>
+      <h1>Design Sprint<br /><em>Facilitation Kit</em></h1>
+      <p class="subtitle">Day-by-day plans, facilitator scripts, and voting tools to run a full 5-day Design Sprint.</p>
+      <div class="tags">
+        <div class="tag">Design Sprint</div>
+        <div class="tag">Notion</div>
+        <div class="tag">Facilitation</div>
+        <div class="tag">Workshop</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="day-card">
+        <div class="day-label">MON</div>
+        <div class="day-info">
+          <div class="day-title">Understand</div>
+          <div class="day-desc">Expert interviews · HMW notes · Journey map</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-label">TUE</div>
+        <div class="day-info">
+          <div class="day-title">Sketch</div>
+          <div class="day-desc">Lightning demos · Crazy 8s · Solution sketch</div>
+        </div>
+      </div>
+
+      <div class="day-card active">
+        <div class="day-label">WED</div>
+        <div class="day-info">
+          <div class="day-title">Decide</div>
+          <div class="day-desc">Storyboard · Supervote · Prototype plan</div>
+        </div>
+        <div class="day-status">In progress</div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-label">THU</div>
+        <div class="day-info">
+          <div class="day-title">Prototype</div>
+          <div class="day-desc">Build in Figma · Trial run · Final check</div>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <div class="day-label">FRI</div>
+        <div class="day-info">
+          <div class="day-title">Test</div>
+          <div class="day-desc">5 user interviews · Pattern finding · Next steps</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="brand"><div class="brand-dot"></div><span>azportfolio.net</span></div>
+  <div class="price-tag">€34</div>
+</body>
+</html>

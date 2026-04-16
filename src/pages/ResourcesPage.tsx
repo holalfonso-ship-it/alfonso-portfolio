@@ -40,10 +40,9 @@ const resources: Resource[] = [
     type: 'Framework',
     price: 39,
     image: '/ux-audit-framework-cover.png',
-    gumroadUrl: 'https://gumroad.com',
+    gumroadUrl: 'https://alfonsowave74.gumroad.com/l/qlyyj',
     tags: ['UX Research', 'Figma', 'Notion', 'Audit'],
     format: 'Figma + Notion',
-    comingSoon: true,
   },
   {
     id: 3,
@@ -53,10 +52,9 @@ const resources: Resource[] = [
     type: 'Documentation',
     price: 24,
     image: '/design-system-docs-cover.png',
-    gumroadUrl: 'https://gumroad.com',
+    gumroadUrl: 'https://alfonsowave74.gumroad.com/l/pafjjp',
     tags: ['Design Systems', 'Notion', 'Documentation'],
     format: 'Notion Template',
-    comingSoon: true,
   },
   {
     id: 4,
@@ -66,10 +64,9 @@ const resources: Resource[] = [
     type: 'Workshop Kit',
     price: 34,
     image: '/design-sprint-cover.png',
-    gumroadUrl: 'https://gumroad.com',
+    gumroadUrl: 'https://alfonsowave74.gumroad.com/l/qfvbs',
     tags: ['Design Sprint', 'Figma', 'Workshop', 'Facilitation'],
     format: 'Figma + Notion',
-    comingSoon: true,
   },
   {
     id: 5,
@@ -79,10 +76,9 @@ const resources: Resource[] = [
     type: 'Onboarding',
     price: 19,
     image: '/team-onboarding-cover.png',
-    gumroadUrl: 'https://gumroad.com',
+    gumroadUrl: 'https://alfonsowave74.gumroad.com/l/hdxkhs',
     tags: ['Onboarding', 'Notion', 'Team Management'],
     format: 'Notion Template',
-    comingSoon: true,
   },
 ];
 

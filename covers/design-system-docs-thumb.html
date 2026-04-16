@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 800px;
+    height: 800px;
+    background: #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,130,246,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,130,246,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+    top: -150px;
+    right: -150px;
+  }
+
+  .glow2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+    bottom: -100px;
+    left: -80px;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+    padding: 64px;
+  }
+
+  /* Top */
+  .top { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(59,130,246,0.15);
+    border: 1px solid rgba(59,130,246,0.35);
+    border-radius: 100px;
+    padding: 7px 18px;
+    width: fit-content;
+  }
+
+  .badge-dot { width: 7px; height: 7px; background: #3b82f6; border-radius: 50%; }
+
+  .badge span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3b82f6;
+  }
+
+  h1 {
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+  }
+
+  h1 em { font-style: normal; color: #3b82f6; }
+
+  /* Middle: token + component cards */
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .token-group {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 16px;
+  }
+
+  .token-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .token-info { display: flex; flex-direction: column; gap: 2px; }
+
+  .token-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .token-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .component-card {
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.3);
+    border-radius: 16px;
+    padding: 18px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .component-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: #3b82f6;
+    border-radius: 3px 0 0 3px;
+  }
+
+  .comp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+
+  .comp-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .comp-tag {
+    font-size: 10px;
+    font-weight: 600;
+    color: #3b82f6;
+    background: rgba(59,130,246,0.15);
+    padding: 3px 10px;
+    border-radius: 6px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .variants { display: flex; gap: 8px; }
+
+  .pill {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.4);
+  }
+
+  .pill.active {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    color: #fff;
+  }
+
+  /* Bottom */
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-dot { width: 8px; height: 8px; background: #3b82f6; border-radius: 50%; }
+  .brand span { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.25); letter-spacing: 0.06em; }
+
+  .price-tag {
+    background: rgba(59,130,246,0.9);
+    color: white;
+    font-size: 26px;
+    font-weight: 800;
+    padding: 12px 26px;
+    border-radius: 14px;
+    letter-spacing: -0.02em;
+  }
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="glow"></div>
+  <div class="glow2"></div>
+
+  <div class="wrapper">
+    <div class="top">
+      <div class="badge">
+        <div class="badge-dot"></div>
+        <span>Documentation</span>
+      </div>
+      <h1>Design System<br /><em>Docs Kit</em></h1>
+    </div>
+
+    <div class="cards">
+      <div class="token-group">
+        <div class="token-item">
+          <div class="swatch" style="background:#3b82f6;"></div>
+          <div class="token-info">
+            <div class="token-name">color-primary</div>
+            <div class="token-val">#3b82f6</div>
+          </div>
+        </div>
+        <div class="token-item">
+          <div class="swatch" style="background:#22c55e;"></div>
+          <div class="token-info">
+            <div class="token-name">color-success</div>
+            <div class="token-val">#22c55e</div>
+          </div>
+        </div>
+        <div class="token-item">
+          <div class="swatch" style="background:#ef4444;"></div>
+          <div class="token-info">
+            <div class="token-name">color-error</div>
+            <div class="token-val">#ef4444</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="component-card">
+        <div class="comp-header">
+          <div class="comp-title">Button — Component Spec</div>
+          <div class="comp-tag">Notion</div>
+        </div>
+        <div class="variants">
+          <div class="pill active">Primary</div>
+          <div class="pill">Secondary</div>
+          <div class="pill">Ghost</div>
+          <div class="pill">Disabled</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="brand">
+        <div class="brand-dot"></div>
+        <span>azportfolio.net</span>
+      </div>
+      <div class="price-tag">€24</div>
+    </div>
+  </div>
+</body>
+</html>
