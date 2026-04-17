@@ -91,10 +91,6 @@ const Hero: React.FC = () => {
 
           {/* Personal tags */}
           <div className="flex flex-wrap gap-2 md:gap-3 opacity-0 animate-fade-in animation-delay-1200">
-            <span className="flex items-center gap-1.5 text-sm font-medium px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-muted/40 border border-border/60 text-foreground/80">
-              <MapPin className="w-3.5 h-3.5 text-primary" />
-              Barcelona, Spain
-            </span>
             <span className="text-sm font-medium px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-muted/40 border border-border/60 text-foreground/80">
               10+ years in product design
             </span>

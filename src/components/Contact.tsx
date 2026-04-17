@@ -11,12 +11,6 @@ const contactInfo = [
     link: 'mailto:holalfonso@gmail.com'
   },
   {
-    icon: <Phone className="h-5 w-5" />,
-    label: 'Phone',
-    value: '+34 678 815 239',
-    link: 'tel:+34678815239'
-  },
-  {
     icon: <MapPin className="h-5 w-5" />,
     label: 'Location',
     value: 'Barcelona, Spain',
