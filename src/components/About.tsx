@@ -46,16 +46,31 @@ const About: React.FC = () => {
     <section id="about" className="py-20 md:py-32 px-6 md:px-12 bg-gradient-to-b from-background to-background/90">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 text-center">
+          {/* Avatar */}
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <div className="w-24 h-24 rounded-full overflow-hidden ring-4 ring-primary/20 ring-offset-4 ring-offset-background shadow-xl">
+                <img
+                  src="/alfonso-hero.png"
+                  alt="Alfonso Zamorano"
+                  className="w-full h-full object-cover object-[center_15%]"
+                />
+              </div>
+              {/* Online indicator */}
+              <span className="absolute bottom-1 right-1 w-4 h-4 bg-green-500 border-2 border-background rounded-full" />
+            </div>
+          </div>
+
           <span className="inline-block text-sm md:text-base font-medium tracking-wider mb-4 py-1 px-4 rounded-full bg-primary/20 text-primary animate-pulse">
             About Me
           </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight mb-6">
-            <AnimatedText text="Professional Background" className="inline-block" once />
+            <AnimatedText text="A bit about Me" className="inline-block" once />
           </h2>
           <div className="max-w-2xl mx-auto">
             <p className="text-muted-foreground">
-              Digital product designer with extensive experience in DesignOps and Product design, 
-              specializing in optimizing workflows and enhancing efficiency within design teams.
+              Designer by craft, systems thinker by nature. I've spent 10+ years helping teams
+              ship better products — building the processes, tools and culture that make great design possible.
             </p>
           </div>
         </div>
