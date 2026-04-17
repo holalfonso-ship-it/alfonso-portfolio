@@ -61,16 +61,13 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <span className="inline-block text-sm md:text-base font-medium tracking-wider mb-4 py-1 px-4 rounded-full bg-primary/20 text-primary animate-pulse">
-            About Me
-          </span>
           <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight mb-6">
             <AnimatedText text="A bit about Me" className="inline-block" once />
           </h2>
           <div className="max-w-2xl mx-auto">
             <p className="text-muted-foreground">
               Designer by craft, systems thinker by nature. I've spent 10+ years helping teams
-              ship better products — building the processes, tools and culture that make great design possible.
+              ship better products, building the processes, tools and culture that make great design possible.
             </p>
           </div>
         </div>
