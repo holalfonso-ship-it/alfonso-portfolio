@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import AnimatedText from '@/components/AnimatedText';
 
-// ─── Image imports — swap placeholders for real assets when ready ─────────────
-// import heroImg     from '@/assets/hero-aidesign.png';
-// import screensImg  from '@/assets/2nd-aidesign.png';
-// import researchImg from '@/assets/3rd-aidesign.png';
-// import flowImg     from '@/assets/4to-aidesign.png';
-// import systemImg   from '@/assets/designsystem-aidesign.png';
+// ─── Image imports ────────────────────────────────────────────────────────────
+import heroImg     from '@/assets/1er-aidesign.png';
+import screensImg  from '@/assets/2nd-aidesign.png';
+import researchImg from '@/assets/3rd-aidesign.png';
+import flowImg     from '@/assets/4to-aidesign.png';
+import systemImg   from '@/assets/5to-aidesign.png';
 
 // ─── Scroll reveal hook ───────────────────────────────────────────────────────
 
@@ -232,15 +232,15 @@ const AiDesignCaseStudy: React.FC = () => {
       {/* ── HERO IMAGE ─────────────────────────────────────────────────────── */}
       <div className="w-full px-0 md:px-6 lg:px-12 max-w-7xl mx-auto mb-0">
         <div
-          className="relative w-full overflow-hidden rounded-none md:rounded-2xl bg-secondary/30"
+          className="relative w-full overflow-hidden rounded-none md:rounded-2xl"
           style={{ aspectRatio: '16/9' }}
         >
-          {/* Replace with: <img src={heroImg} … /> */}
-          <div className="w-full h-full flex items-center justify-center">
-            <span className="text-[11px] tracking-[0.12em] uppercase text-muted-foreground/30">
-              Hero image — AI Design app overview
-            </span>
-          </div>
+          <img
+            src={heroImg}
+            alt="AI Design — main app interface overview"
+            loading="eager"
+            className="w-full h-full object-cover object-center"
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
         </div>
       </div>
@@ -260,7 +260,7 @@ const AiDesignCaseStudy: React.FC = () => {
       {/* ── IMAGE 2 ────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
-          src={undefined}
+          src={screensImg}
           alt="AI Design — three core screens: Photo Capture, Style Picker, Result"
           caption="Core flow across three screens — Photo Capture, Style Picker, and the AI-generated result. The full journey was compressed from 11 steps to 3."
           priority
@@ -300,7 +300,7 @@ const AiDesignCaseStudy: React.FC = () => {
       {/* ── IMAGE 3 ────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
-          src={undefined}
+          src={researchImg}
           alt="User research findings — renovation paralysis survey data"
           caption="Survey data from 340 users — 73% reported abandoning a redecoration project due to fear of making expensive mistakes. This insight reframed our entire product strategy."
         />
@@ -337,7 +337,7 @@ const AiDesignCaseStudy: React.FC = () => {
       {/* ── IMAGE 4 ────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
-          src={undefined}
+          src={flowImg}
           alt="Before and after — same room in Minimalist and Scandinavian styles"
           caption="Before / after comparison — the same living room rendered in Minimalist and Scandinavian styles. Generated in under 9 seconds on a standard iPhone 14."
         />
@@ -379,7 +379,7 @@ const AiDesignCaseStudy: React.FC = () => {
       {/* ── IMAGE 5 — Design System ─────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
-          src={undefined}
+          src={systemImg}
           alt="AI Design component library — full design system overview"
           caption="AI Design System — 90+ components including the Style Card, Before/After slider, Room Snapshot, and Colour Picker — all built with Figma variables for instant theme switching."
         />

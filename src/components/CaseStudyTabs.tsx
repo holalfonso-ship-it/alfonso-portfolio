@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // ─── Thumbnail imports ────────────────────────────────────────────────────────
 import aiCleanerCover from '@/assets/Cover-icleaner.png';
 import wanupCover from '@/assets/Cover-wanup.png';
-// import aiDesignCover from '@/assets/Cover-aidesign.png'; // add when asset is ready
+import aiDesignCover from '@/assets/Cover-aidesign.png';
 
 // ─── Card config ──────────────────────────────────────────────────────────────
 
@@ -39,7 +39,7 @@ const CASE_STUDIES = [
     slug: 'ai-design',
     type: 'B2C · iOS App',
     title: 'AI Design',
-    thumb: undefined, // swap for: aiDesignCover as string | undefined
+    thumb: aiDesignCover as string | undefined,
     thumbAlt: 'AI Design — interior space redesign app',
     tags: ['Generative AI', 'Computer Vision', 'iOS App'],
     metrics: [
