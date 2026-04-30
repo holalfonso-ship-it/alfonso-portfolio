@@ -29,18 +29,15 @@ const Header: React.FC = () => {
 
   const navItems = isProjectPage
     ? [
-        { label: 'Home', href: '/' },
-        { label: 'Case Study', href: '/#case-study' },
-        { label: 'Personal Projects', href: '/personal-projects' },
-        { label: 'Resources', href: '/resources' }
-      ]
-    : [
-        { label: 'Home', href: '/' },
-        { label: 'Case Study', href: '/#case-study' },
-        { label: 'Personal Projects', href: '/personal-projects' },
+        { label: 'Case Studies', href: '/#case-study' },
         { label: 'Resources', href: '/resources' },
         { label: 'About', href: '/#about' },
-        { label: 'Process', href: '/#process' },
+        { label: 'Contact', href: '/#contact' }
+      ]
+    : [
+        { label: 'Case Studies', href: '/#case-study' },
+        { label: 'Resources', href: '/resources' },
+        { label: 'About', href: '/#about' },
         { label: 'Contact', href: '/#contact' }
       ];
 

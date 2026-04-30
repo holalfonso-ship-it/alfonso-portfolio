@@ -100,7 +100,7 @@ const WanupCaseStudy: React.FC = () => {
           {tags.map((tag) => (<Badge key={tag} variant="secondary" className="text-sm px-4 py-1.5 bg-secondary/80 hover:bg-secondary">{tag}</Badge>))}
         </div>
         <div className="flex flex-wrap gap-x-10 gap-y-4 pt-6 border-t border-border/30">
-          {[{ label: 'Role', value: 'Lead Product Designer' }, { label: 'Scope', value: 'Web · Desktop & Mobile' }, { label: 'Tools', value: 'Figma · Hotjar · Notion' }, { label: 'Year', value: '2024' }].map(({ label, value }) => (
+          {[{ label: 'Role', value: 'Lead Product Designer' }, { label: 'Scope', value: 'Web · Desktop & Mobile' }, { label: 'Tools', value: 'Figma · Hotjar · Notion' }].map(({ label, value }) => (
             <div key={label}><p className="text-[11px] tracking-[0.1em] uppercase text-muted-foreground mb-1">{label}</p><p className="text-sm font-medium text-foreground">{value}</p></div>
           ))}
         </div>

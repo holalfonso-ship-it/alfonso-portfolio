@@ -71,8 +71,8 @@ const Hero: React.FC = () => {
 
           {/* Subtitle */}
           <p className="text-base md:text-lg text-muted-foreground max-w-xl mb-6 md:mb-8 opacity-0 animate-slide-up animation-delay-900 leading-relaxed">
-            Through DesignOps, design systems, and product design, I build the
-            foundation that lets teams stop firefighting and start shipping great work.
+            Senior Product Designer with 10+ years building digital products for 1M+ users.
+            Specialising in marketplace design, DesignOps, and AI-native workflows.
           </p>
 
           {/* CTA */}

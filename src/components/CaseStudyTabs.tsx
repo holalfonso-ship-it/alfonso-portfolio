@@ -82,7 +82,7 @@ const TabCard: React.FC<{
     {/* Body */}
     <div className="p-5">
       <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-muted-foreground mb-1">
-        {tab.type} · {tab.year}
+        {tab.type}
       </p>
 
       <div className="flex items-start justify-between gap-4 mb-3">

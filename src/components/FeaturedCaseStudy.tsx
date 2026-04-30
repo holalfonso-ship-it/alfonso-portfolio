@@ -187,12 +187,11 @@ const FeaturedCaseStudy: React.FC = () => {
         </div>
 
         {/* Meta bar */}
-        <div className="flex flex-wrap gap-x-10 gap-y-4 pt-6 border-t border-border/30">
+        <div className="flex flex-wrap items-center gap-x-10 gap-y-4 pt-6 border-t border-border/30">
           {[
             { label: 'Role', value: 'Lead Product Designer' },
             { label: 'Scope', value: 'iOS App · Global' },
             { label: 'Tools', value: 'Figma AI · Amplitude · Synthetic Users' },
-            { label: 'Year', value: '2024' },
           ].map(({ label, value }) => (
             <div key={label}>
               <p className="text-[11px] tracking-[0.1em] uppercase text-muted-foreground mb-1">
@@ -201,6 +200,20 @@ const FeaturedCaseStudy: React.FC = () => {
               <p className="text-sm font-medium text-foreground">{value}</p>
             </div>
           ))}
+          {/* App Store badge */}
+          <a
+            href="https://apps.apple.com/app/id6478890050"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-auto flex-shrink-0"
+            aria-label="Download AI Cleaner on the App Store"
+          >
+            <img
+              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              alt="Download on the App Store"
+              className="h-9 w-auto opacity-80 hover:opacity-100 transition-opacity"
+            />
+          </a>
         </div>
       </div>
 
