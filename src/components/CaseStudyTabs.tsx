@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import aiCleanerCover from '@/assets/Cover-icleaner.png';
 import wanupCover from '@/assets/Cover-wanup.png';
 import aiDesignCover from '@/assets/Cover-aidesign.png';
-// import coperamaCover from '@/assets/Cover-coperama.png'; // uncomment when asset is ready
+import coperamaCover from '@/assets/Cover-coperama.png';
 
 // ─── Card config ──────────────────────────────────────────────────────────────
 
@@ -53,7 +53,7 @@ const CASE_STUDIES = [
     slug: 'coperama',
     type: 'B2B · Web Platform',
     title: 'Coperama',
-    thumb: undefined, // swap for: coperamaCover as string | undefined
+    thumb: coperamaCover as string | undefined,
     thumbAlt: 'Coperama — NH Hotels centralised procurement platform',
     tags: ['Enterprise Design', 'Procurement UX', 'B2B Dashboard'],
     metrics: [

@@ -2,12 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Badge } from '@/components/ui/badge';
 import AnimatedText from '@/components/AnimatedText';
 
-// ─── Image imports — uncomment and swap when assets are ready ─────────────────
-// import heroImg    from '@/assets/1er-coperama.png';
-// import screen2Img from '@/assets/2nd-coperama.png';
-// import screen3Img from '@/assets/3rd-coperama.png';
-// import screen4Img from '@/assets/4to-coperama.png';
-// import screen5Img from '@/assets/5to-coperama.png';
+// ─── Image imports ────────────────────────────────────────────────────────────
+import heroImg    from '@/assets/1er-coperama.png';
+import screen2Img from '@/assets/2nd-coperama.png';
+import screen3Img from '@/assets/3rd-coperama.png';
+import screen4Img from '@/assets/4to-coperama.png';
+import screen5Img from '@/assets/5to-coperama.png';
 
 // ─── Scroll reveal hook ───────────────────────────────────────────────────────
 const useScrollReveal = (threshold = 0.12) => {
@@ -152,10 +152,7 @@ const CoperamaCaseStudy: React.FC = () => {
       {/* ── HERO IMAGE ─────────────────────────────────────────────────────── */}
       <div className="w-full px-0 md:px-6 lg:px-12 max-w-7xl mx-auto mb-0">
         <div className="relative w-full overflow-hidden rounded-none md:rounded-2xl bg-secondary/40" style={{ aspectRatio: '16/9' }}>
-          {/* Replace with: <img src={heroImg} alt="Coperama — main platform overview" loading="eager" className="w-full h-full object-cover object-center" /> */}
-          <div className="w-full h-full flex items-center justify-center">
-            <p className="text-[11px] tracking-[0.1em] uppercase text-muted-foreground/40">Coperama — platform overview</p>
-          </div>
+          <img src={heroImg} alt="Coperama — main platform overview" loading="eager" className="w-full h-full object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
         </div>
       </div>
@@ -175,7 +172,7 @@ const CoperamaCaseStudy: React.FC = () => {
       {/* ── IMAGE 2 ────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
-          src={undefined}
+          src={screen2Img}
           alt="Coperama — group spend dashboard with category breakdown and hotel filter"
           caption="The centralised spend dashboard — procurement managers see real-time spend across all properties, broken down by category and supplier. Individual hotels see only their own slice."
           priority
@@ -207,7 +204,7 @@ const CoperamaCaseStudy: React.FC = () => {
       {/* ── IMAGE 3 ────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
-          src={undefined}
+          src={screen3Img}
           alt="Discovery workshop output — procurement journey map across 3 hotel roles"
           caption="Stakeholder journey map from discovery workshops — 12 buyer personas across hotel operations, finance, and central procurement. Red zones mark the three critical failure points in the existing process."
         />
@@ -238,7 +235,7 @@ const CoperamaCaseStudy: React.FC = () => {
       {/* ── IMAGE 4 ────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
-          src={undefined}
+          src={screen4Img}
           alt="Joint order flow — multiple hotels bundling requests into a single purchase order"
           caption="The joint order flow — hotels add their individual line items to a shared basket. The platform consolidates them into a single supplier order and automatically calculates each property's cost share."
         />
@@ -266,7 +263,7 @@ const CoperamaCaseStudy: React.FC = () => {
       {/* ── IMAGE 5 ────────────────────────────────────────────────────────── */}
       <div className="px-6 md:px-12 max-w-7xl mx-auto">
         <FullImage
-          src={undefined}
+          src={screen5Img}
           alt="Coperama design system — component library for enterprise procurement UI"
           caption="Coperama Design System — built for density and clarity. Enterprise data tables, multi-level approval flows, supplier catalogue cards, and cost allocation widgets — all designed to handle real procurement complexity without overwhelming users."
         />
