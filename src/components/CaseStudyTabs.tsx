@@ -1,18 +1,16 @@
-import React, { useState } from 'react';
-import FeaturedCaseStudy from '@/components/FeaturedCaseStudy';
-import WanupCaseStudy from '@/components/WanupCaseStudy';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 // ─── Thumbnail imports ────────────────────────────────────────────────────────
 import aiCleanerCover from '@/assets/Cover-icleaner.png';
 import wanupCover from '@/assets/Cover-wanup.png';
 
-// ─── Tab config ───────────────────────────────────────────────────────────────
+// ─── Card config ──────────────────────────────────────────────────────────────
 
-const TABS = [
+const CASE_STUDIES = [
   {
-    id: 'ai-cleaner',
+    slug: 'ai-cleaner',
     type: 'B2C · iOS App',
-    year: '2024',
     title: 'AI Cleaner',
     thumb: aiCleanerCover as string | undefined,
     thumbAlt: 'AI Cleaner app interface',
@@ -24,9 +22,8 @@ const TABS = [
     ],
   },
   {
-    id: 'wanup',
+    slug: 'wanup',
     type: 'B2C · Web',
-    year: '2024',
     title: 'Wanup',
     thumb: wanupCover as string | undefined,
     thumbAlt: 'Wanup hotel booking platform',
@@ -39,84 +36,68 @@ const TABS = [
   },
 ];
 
-// ─── Single tab card ──────────────────────────────────────────────────────────
+// ─── Arrow icon (navigate-out) ────────────────────────────────────────────────
 
-const TabCard: React.FC<{
-  tab: typeof TABS[0];
-  isActive: boolean;
-  onClick: () => void;
-}> = ({ tab, isActive, onClick }) => (
-  <button
-    onClick={onClick}
-    className={`
-      group w-full text-left rounded-xl overflow-hidden border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary
-      ${isActive
-        ? 'border-foreground/20 bg-background'
-        : 'border-border/20 bg-secondary/20 hover:bg-secondary/40 hover:border-border/30 opacity-60 hover:opacity-80'
-      }
-    `}
+const ArrowOutIcon = () => (
+  <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+    <path
+      d="M2 9L9 2M9 2H3.5M9 2v5.5"
+      stroke="currentColor"
+      strokeWidth="1.3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+// ─── Single case study card ───────────────────────────────────────────────────
+
+const CaseStudyCard: React.FC<{ cs: typeof CASE_STUDIES[0] }> = ({ cs }) => (
+  <Link
+    to={`/case-studies/${cs.slug}`}
+    className="group block rounded-xl overflow-hidden border border-border/20 bg-background transition-all duration-200 hover:border-foreground/20 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
   >
     {/* Thumbnail */}
     <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/7' }}>
-      {tab.thumb ? (
+      {cs.thumb ? (
         <img
-          src={tab.thumb}
-          alt={tab.thumbAlt}
-          className="w-full h-full object-cover object-center"
+          src={cs.thumb}
+          alt={cs.thumbAlt}
+          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
         />
       ) : (
         <div className="w-full h-full bg-secondary/60 flex items-center justify-center">
           <span className="text-[11px] tracking-[0.1em] uppercase text-muted-foreground/30">
-            {tab.thumbAlt}
+            {cs.thumbAlt}
           </span>
         </div>
       )}
-      {/* Active underline */}
-      <div
-        className={`absolute bottom-0 left-0 right-0 h-[2px] bg-foreground transition-opacity duration-200 ${
-          isActive ? 'opacity-100' : 'opacity-0'
-        }`}
-      />
+      {/* Bottom fade on hover */}
+      <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </div>
 
     {/* Body */}
     <div className="p-5">
       <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-muted-foreground mb-1">
-        {tab.type}
+        {cs.type}
       </p>
 
       <div className="flex items-start justify-between gap-4 mb-3">
         <h3
-          className={`font-display font-bold leading-tight transition-colors ${
-            isActive ? 'text-foreground' : 'text-muted-foreground group-hover:text-foreground'
-          }`}
+          className="font-display font-bold leading-tight text-foreground"
           style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)' }}
         >
-          {tab.title}
+          {cs.title}
         </h3>
-        {/* Arrow icon */}
-        <div
-          className={`flex-shrink-0 w-7 h-7 rounded-full border flex items-center justify-center mt-0.5 transition-all duration-200 ${
-            isActive
-              ? 'bg-foreground border-foreground text-background'
-              : 'border-border/30 text-muted-foreground'
-          }`}
-        >
-          {isActive ? (
-            <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-              <path d="M5.5 2v7M2 6l3.5 3.5L9 6" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          ) : (
-            <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-              <path d="M2 9L9 2M9 2H3.5M9 2v5.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          )}
+        {/* Arrow circle */}
+        <div className="flex-shrink-0 w-7 h-7 rounded-full border border-border/30 flex items-center justify-center mt-0.5 text-muted-foreground transition-all duration-200 group-hover:bg-foreground group-hover:border-foreground group-hover:text-background">
+          <ArrowOutIcon />
         </div>
       </div>
 
       {/* Pills */}
       <div className="flex flex-wrap gap-1.5 mb-4">
-        {tab.tags.map((tag) => (
+        {cs.tags.map((tag) => (
           <span
             key={tag}
             className="text-[11px] px-3 py-1 rounded-full border border-border/30 text-muted-foreground"
@@ -128,12 +109,10 @@ const TabCard: React.FC<{
 
       {/* Metrics */}
       <div className="flex gap-5 pt-4 border-t border-border/20">
-        {tab.metrics.map(({ value, label }) => (
+        {cs.metrics.map(({ value, label }) => (
           <div key={label}>
             <p
-              className={`font-display font-bold leading-none mb-0.5 transition-colors ${
-                isActive ? 'text-foreground' : 'text-muted-foreground'
-              }`}
+              className="font-display font-bold leading-none mb-0.5 text-foreground"
               style={{ fontSize: 'clamp(1rem, 1.8vw, 1.2rem)' }}
             >
               {value}
@@ -145,55 +124,37 @@ const TabCard: React.FC<{
         ))}
       </div>
     </div>
-  </button>
+  </Link>
 );
 
 // ─── Main component ───────────────────────────────────────────────────────────
 
-const CaseStudyTabs: React.FC = () => {
-  const [activeId, setActiveId] = useState<string>(TABS[0].id);
+const CaseStudyTabs: React.FC = () => (
+  <section id="case-study" className="bg-background">
 
-  return (
-    <section id="case-study" className="bg-background">
-
-      {/* ── Section header ───────────────────────────────────────────────── */}
-      <div className="px-6 md:px-12 max-w-7xl mx-auto pt-28 md:pt-36 pb-10 md:pb-14">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="inline-block w-6 h-px bg-muted-foreground/40" />
-          <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-            Selected work
-          </span>
-        </div>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-[1.05]">
-          Case studies
-        </h2>
+    {/* ── Section header ─────────────────────────────────────────────────── */}
+    <div className="px-6 md:px-12 max-w-7xl mx-auto pt-28 md:pt-36 pb-10 md:pb-14">
+      <div className="flex items-center gap-3 mb-4">
+        <span className="inline-block w-6 h-px bg-muted-foreground/40" />
+        <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+          Selected work
+        </span>
       </div>
+      <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold tracking-tight leading-[1.05]">
+        Case studies
+      </h2>
+    </div>
 
-      {/* ── Two tab cards ─────────────────────────────────────────────────── */}
-      <div className="px-6 md:px-12 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {TABS.map((tab) => (
-            <TabCard
-              key={tab.id}
-              tab={tab}
-              isActive={tab.id === activeId}
-              onClick={() => setActiveId(tab.id)}
-            />
-          ))}
-        </div>
+    {/* ── Cards grid ─────────────────────────────────────────────────────── */}
+    <div className="px-6 md:px-12 max-w-7xl mx-auto pb-20 md:pb-28">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {CASE_STUDIES.map((cs) => (
+          <CaseStudyCard key={cs.slug} cs={cs} />
+        ))}
       </div>
+    </div>
 
-      {/* ── Active case study content ─────────────────────────────────────── */}
-      <div
-        key={activeId}
-        className="animate-in fade-in slide-in-from-bottom-3 duration-500"
-      >
-        {activeId === 'ai-cleaner' && <FeaturedCaseStudy />}
-        {activeId === 'wanup' && <WanupCaseStudy />}
-      </div>
-
-    </section>
-  );
-};
+  </section>
+);
 
 export default CaseStudyTabs;

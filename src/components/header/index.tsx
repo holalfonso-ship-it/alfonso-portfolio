@@ -13,7 +13,9 @@ const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [cvUrl, setCvUrl] = useState<string | null>(null);
   const location = useLocation();
-  const isProjectPage = location.pathname.includes('/project/');
+  const isProjectPage =
+    location.pathname.includes('/project/') ||
+    location.pathname.includes('/case-studies/');
 
   useEffect(() => {
     if (mobileMenuOpen) {
