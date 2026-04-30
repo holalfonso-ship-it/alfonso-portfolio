@@ -1,9 +1,11 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { ChevronDown, Download, MapPin } from 'lucide-react';
+import { supabase } from '@/integrations/supabase/client';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [cvUrl, setCvUrl] = useState<string | null>(null);
 
   useEffect(() => {
     const checkIfMobile = () => {
@@ -16,6 +18,26 @@ const Hero: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const fetchLatestCV = async () => {
+      try {
+        const { data, error } = await supabase.storage
+          .from('cv_files')
+          .list('', { limit: 1, sortBy: { column: 'created_at', order: 'desc' } });
+        if (error) throw error;
+        if (data && data.length > 0) {
+          const { data: { publicUrl } } = supabase.storage
+            .from('cv_files')
+            .getPublicUrl(data[0].name);
+          setCvUrl(publicUrl);
+        }
+      } catch (error) {
+        console.error('Error fetching CV:', error);
+      }
+    };
+    fetchLatestCV();
+  }, []);
+
   const handleScrollClick = () => {
     const projectsSection = document.getElementById('projects');
     if (projectsSection) {
@@ -24,10 +46,7 @@ const Hero: React.FC = () => {
   };
 
   const handleDownloadCV = () => {
-    window.open(
-      'https://gefsvwcyxxgyfaandyjp.supabase.co/storage/v1/object/public/cv_files/cv-1754558816430.pdf',
-      '_blank'
-    );
+    window.open(cvUrl || '/alfonso-cv.pdf', '_blank');
   };
 
   return (
