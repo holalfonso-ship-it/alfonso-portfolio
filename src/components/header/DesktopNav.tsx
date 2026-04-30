@@ -15,6 +15,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 export const CASE_STUDY_ITEMS = [
   { slug: 'ai-cleaner', label: 'AI Cleaner' },
   { slug: 'wanup', label: 'Wanup' },
+  { slug: 'ai-design', label: 'AI Design' },
 ];
 
 interface NavItem {

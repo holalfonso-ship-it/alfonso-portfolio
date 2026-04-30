@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { ArrowLeft } from 'lucide-react';
 import FeaturedCaseStudy from '@/components/FeaturedCaseStudy';
 import WanupCaseStudy from '@/components/WanupCaseStudy';
+import AiDesignCaseStudy from '@/components/AiDesignCaseStudy';
 
 // ─── Metadata per slug ────────────────────────────────────────────────────────
 
@@ -17,6 +18,11 @@ const META: Record<string, { title: string; description: string }> = {
     title: 'Wanup Case Study — Alfonso Zamorano',
     description:
       'How I redesigned the Wanup hotel booking experience — increasing checkout rates by 42% and driving 3.1× repeat bookings through loyalty UX.',
+  },
+  'ai-design': {
+    title: 'AI Design Case Study — Alfonso Zamorano',
+    description:
+      'How I designed AI Design — an iOS app that lets anyone reimagine their living space with a single photo, achieving a 4.7★ App Store rating and 68% increase in purchase confidence.',
   },
 };
 
@@ -37,6 +43,8 @@ const CaseStudyPage: React.FC = () => {
         return <FeaturedCaseStudy />;
       case 'wanup':
         return <WanupCaseStudy />;
+      case 'ai-design':
+        return <AiDesignCaseStudy />;
       default:
         return (
           <div className="min-h-screen flex items-center justify-center">

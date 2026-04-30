@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // ─── Thumbnail imports ────────────────────────────────────────────────────────
 import aiCleanerCover from '@/assets/Cover-icleaner.png';
 import wanupCover from '@/assets/Cover-wanup.png';
+// import aiDesignCover from '@/assets/Cover-aidesign.png'; // add when asset is ready
 
 // ─── Card config ──────────────────────────────────────────────────────────────
 
@@ -32,6 +33,19 @@ const CASE_STUDIES = [
       { value: '+42%', label: 'Checkout rate' },
       { value: '28%', label: 'Abandonment' },
       { value: '3.1×', label: 'Repeat booking' },
+    ],
+  },
+  {
+    slug: 'ai-design',
+    type: 'B2C · iOS App',
+    title: 'AI Design',
+    thumb: undefined, // swap for: aiDesignCover as string | undefined
+    thumbAlt: 'AI Design — interior space redesign app',
+    tags: ['Generative AI', 'Computer Vision', 'iOS App'],
+    metrics: [
+      { value: '4.7★', label: 'App Store' },
+      { value: '+68%', label: 'Purchase confidence' },
+      { value: '4.2×', label: 'Sessions/week' },
     ],
   },
 ];
