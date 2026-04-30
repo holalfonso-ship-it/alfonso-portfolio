@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import aiCleanerCover from '@/assets/Cover-icleaner.png';
 import wanupCover from '@/assets/Cover-wanup.png';
 import aiDesignCover from '@/assets/Cover-aidesign.png';
+// import coperamaCover from '@/assets/Cover-coperama.png'; // uncomment when asset is ready
 
 // ─── Card config ──────────────────────────────────────────────────────────────
 
@@ -46,6 +47,19 @@ const CASE_STUDIES = [
       { value: '4.7★', label: 'App Store' },
       { value: '+68%', label: 'Purchase confidence' },
       { value: '4.2×', label: 'Sessions/week' },
+    ],
+  },
+  {
+    slug: 'coperama',
+    type: 'B2B · Web Platform',
+    title: 'Coperama',
+    thumb: undefined, // swap for: coperamaCover as string | undefined
+    thumbAlt: 'Coperama — NH Hotels centralised procurement platform',
+    tags: ['Enterprise Design', 'Procurement UX', 'B2B Dashboard'],
+    metrics: [
+      { value: '−23%', label: 'Procurement costs' },
+      { value: '340+', label: 'Hotels' },
+      { value: '€2.4M', label: 'Annual savings' },
     ],
   },
 ];

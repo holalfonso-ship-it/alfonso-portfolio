@@ -5,6 +5,7 @@ import { ArrowLeft } from 'lucide-react';
 import FeaturedCaseStudy from '@/components/FeaturedCaseStudy';
 import WanupCaseStudy from '@/components/WanupCaseStudy';
 import AiDesignCaseStudy from '@/components/AiDesignCaseStudy';
+import CoperamaCaseStudy from '@/components/CoperamaCaseStudy';
 
 // ─── Metadata per slug ────────────────────────────────────────────────────────
 
@@ -23,6 +24,11 @@ const META: Record<string, { title: string; description: string }> = {
     title: 'AI Design Case Study — Alfonso Zamorano',
     description:
       'How I designed AI Design — an iOS app that lets anyone reimagine their living space with a single photo, achieving a 4.7★ App Store rating and 68% increase in purchase confidence.',
+  },
+  coperama: {
+    title: 'Coperama Case Study — Alfonso Zamorano',
+    description:
+      'How I designed Coperama — a centralised procurement platform for NH Hotels that reduced purchasing costs by 23%, onboarded 340+ properties, and saved an estimated €2.4M annually.',
   },
 };
 
@@ -45,6 +51,8 @@ const CaseStudyPage: React.FC = () => {
         return <WanupCaseStudy />;
       case 'ai-design':
         return <AiDesignCaseStudy />;
+      case 'coperama':
+        return <CoperamaCaseStudy />;
       default:
         return (
           <div className="min-h-screen flex items-center justify-center">

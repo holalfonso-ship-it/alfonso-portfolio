@@ -16,6 +16,7 @@ export const CASE_STUDY_ITEMS = [
   { slug: 'ai-cleaner', label: 'AI Cleaner' },
   { slug: 'wanup', label: 'Wanup' },
   { slug: 'ai-design', label: 'AI Design' },
+  { slug: 'coperama', label: 'Coperama' },
 ];
 
 interface NavItem {
