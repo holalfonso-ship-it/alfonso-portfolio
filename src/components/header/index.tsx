@@ -32,12 +32,14 @@ const Header: React.FC = () => {
   const navItems = isProjectPage
     ? [
         { label: 'Case Studies', href: '/#case-study' },
+        { label: 'Blog', href: '/blog' },
         { label: 'Resources', href: '/resources' },
         { label: 'About', href: '/#about' },
         { label: 'Contact', href: '/#contact' }
       ]
     : [
         { label: 'Case Studies', href: '/#case-study' },
+        { label: 'Blog', href: '/blog' },
         { label: 'Resources', href: '/resources' },
         { label: 'About', href: '/#about' },
         { label: 'Contact', href: '/#contact' }

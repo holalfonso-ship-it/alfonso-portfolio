@@ -15,6 +15,8 @@ import AboutPage from './pages/AboutPage';
 import PersonalProjectsPage from './pages/PersonalProjectsPage';
 import ResourcesPage from './pages/ResourcesPage';
 import CaseStudyPage from './pages/CaseStudyPage';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -43,6 +45,8 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/personal-projects" element={<PersonalProjectsPage />} />
             <Route path="/resources" element={<ResourcesPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:id" element={<BlogPostPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
