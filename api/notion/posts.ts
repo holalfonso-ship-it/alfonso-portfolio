@@ -15,8 +15,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     const body = {
       filter: {
-        property: 'Estado',
-        select: { equals: 'En blog' },
+        or: [
+          { property: 'Estado', select: { equals: 'En blog' } },
+          { property: 'Estado', select: { equals: 'Publicado en LK' } },
+        ],
       },
       sorts: [
         { property: 'Fecha publicación', direction: 'descending' },
