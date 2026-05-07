@@ -139,13 +139,13 @@ export function FooterSection({ className }: FooterSectionProps) {
                 </a>
               </li>
               <li>
-                <Link to="/personal-projects" className="text-muted-foreground hover:text-foreground transition-colors">
-                  Personal Projects
+                <Link to="/blog" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Blog
                 </Link>
               </li>
               <li>
                 <a href="/#about" className="text-muted-foreground hover:text-foreground transition-colors">
-                  About Me
+                  About
                 </a>
               </li>
               <li>
