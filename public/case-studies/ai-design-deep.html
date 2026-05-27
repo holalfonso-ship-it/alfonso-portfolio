@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Design: Reimagining Spaces with a Single Photo — Alfonso Zamorano</title>
+<meta name="description" content="How I compressed an 11-step flow to 3, reduced time to first redesign from 34s to 8.3s, and drove +68% purchase confidence. Case study by Alfonso Zamorano, Lead Product Designer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080808;
+    --bg-2: #111111;
+    --bg-3: #1a1a1a;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #f0ede8;
+    --text-muted: rgba(240,237,232,0.45);
+    --text-secondary: rgba(240,237,232,0.7);
+    --accent: #0099FF;
+    --accent-dim: rgba(0,153,255,0.15);
+    --accent-dim2: rgba(0,153,255,0.08);
+    --font: 'DM Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  nav.scrolled {
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(12px);
+    border-color: var(--border);
+  }
+  .nav-logo {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-logo:hover { color: var(--text); }
+  .nav-back {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--text); }
+  .nav-back::before { content: '←'; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-3);
+    overflow: hidden;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.45;
+  }
+  .hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #111 50%, #0d0d0d 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0.6;
+  }
+  .hero-image-placeholder span {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(8,8,8,0.2) 0%,
+      rgba(8,8,8,0.1) 40%,
+      rgba(8,8,8,0.85) 80%,
+      rgba(8,8,8,1) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 48px;
+    max-width: 1200px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 5.5vw, 80px);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 820px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.35s forwards;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+  .hero-meta {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+  .meta-item {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    border-right: 1px solid var(--border);
+  }
+  .meta-item:last-child { border-right: none; }
+  .meta-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .meta-value {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    right: 48px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: var(--border);
+    animation: lineGrow 1.2s ease 1s forwards;
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 120px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  section.full-bleed {
+    max-width: none;
+    padding: 0;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+  .section-header .num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  /* REVEAL ANIMATION */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 48px;
+  }
+
+  /* BIG STAT SECTION */
+  .stat-hero {
+    padding: 140px 48px;
+    text-align: center;
+    max-width: none;
+    margin: 0;
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-hero .stat-num {
+    font-size: clamp(80px, 14vw, 180px);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    color: var(--text);
+    display: block;
+    margin-bottom: 24px;
+  }
+  .stat-hero .stat-label {
+    font-size: clamp(18px, 2.5vw, 28px);
+    color: var(--text-secondary);
+    font-weight: 300;
+    max-width: 540px;
+    margin: 0 auto 16px;
+    line-height: 1.4;
+  }
+  .stat-hero .stat-source {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* REFRAME SECTION */
+  .reframe {
+    padding: 140px 48px;
+    max-width: none;
+    margin: 0;
+  }
+  .reframe-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .reframe .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .reframe blockquote {
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    font-style: italic;
+    color: var(--text);
+  }
+  .reframe blockquote strong {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .reframe p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 600px;
+  }
+
+  /* ROLE CARDS */
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  .role-card {
+    background: var(--bg-2);
+    padding: 28px;
+    transition: background 0.2s;
+  }
+  .role-card:hover { background: var(--bg-3); }
+  .role-card .rc-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .role-card .rc-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .role-card .rc-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* BODY TEXT */
+  .body-text {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 680px;
+  }
+  .body-text strong { color: var(--text); font-weight: 500; }
+  .body-text em { font-style: italic; }
+
+  /* PROCESS STEPS */
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .process-step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0 40px;
+    padding: 40px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: start;
+  }
+  .process-step:first-child { border-top: 1px solid var(--border); }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    padding-top: 4px;
+  }
+  .step-content h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+  .step-content p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 600px;
+  }
+  .step-tag {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 4px 10px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* FLOW SECTION */
+  .flow-visual {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 48px 0;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  .flow-step {
+    flex-shrink: 0;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    min-width: 180px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .flow-step:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-3);
+  }
+  .flow-step.accent {
+    border-color: var(--accent);
+    background: var(--accent-dim2);
+  }
+  .flow-step-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .flow-step-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .flow-step-desc {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+  .flow-arrow {
+    padding: 0 16px;
+    color: var(--text-muted);
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .flow-old {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .flow-old-step {
+    padding: 6px 12px;
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+  }
+  .flow-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .flow-label.accent { color: var(--accent); }
+
+  /* IMAGE PLACEHOLDER */
+  .img-placeholder {
+    width: 100%;
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    margin: 32px 0;
+    transition: border-color 0.2s;
+  }
+  .img-placeholder:hover { border-color: var(--border-hover); }
+  .img-placeholder .ph-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  /* DECISIONS */
+  .decisions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  .decision-item {
+    background: var(--bg-2);
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 28px;
+    align-items: start;
+    transition: background 0.2s;
+  }
+  .decision-item:hover { background: var(--bg-3); }
+  .decision-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    padding-top: 4px;
+  }
+  .decision-content h3 {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .decision-content p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .decision-content .decision-why {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--accent-dim2);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* DS PIPELINE */
+  .ds-pipeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  .ds-step {
+    background: var(--bg-2);
+    padding: 28px 28px 32px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .ds-step:hover { background: var(--bg-3); }
+  .ds-tool {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .ds-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .ds-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .ds-arrow {
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--text-muted);
+    z-index: 2;
+  }
+
+  /* VALIDATION */
+  .validation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  .validation-item {
+    background: var(--bg-2);
+    padding: 28px 32px;
+    transition: background 0.2s;
+  }
+  .validation-item:hover { background: var(--bg-3); }
+  .v-method {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .v-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .v-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .v-change {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: var(--accent-dim2);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .v-change strong { color: var(--text-secondary); font-weight: 500; }
+
+  /* METRICS */
+  .metrics-section {
+    padding: 120px 48px;
+    max-width: none;
+    margin: 0;
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .metrics-section .section-header { max-width: 1200px; margin: 0 auto 64px; }
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .metric-card {
+    background: var(--bg);
+    padding: 48px 48px 52px;
+    transition: background 0.2s;
+  }
+  .metric-card:hover { background: #0d0d0d; }
+  .metric-num {
+    font-size: clamp(56px, 7vw, 96px);
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--text);
+    display: block;
+    margin-bottom: 16px;
+  }
+  .metric-num .accent { color: var(--accent); }
+  .metric-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+  .metric-context {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 320px;
+  }
+  .metric-baseline {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .metric-baseline .from {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-muted);
+    text-decoration: line-through;
+  }
+  .metric-baseline .arrow { color: var(--accent); font-size: 12px; }
+  .metric-baseline .to {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+  }
+
+  /* LEARNINGS */
+  .learnings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 32px;
+  }
+  .learning-item {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 28px;
+    align-items: start;
+  }
+  .learning-item:first-child { border-top: 1px solid var(--border); }
+  .learning-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    padding-top: 3px;
+  }
+  .learning-content h3 {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .learning-content p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 600px;
+  }
+
+  /* CLOSING NARRATIVE */
+  .closing {
+    padding: 120px 48px;
+    max-width: none;
+    margin: 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .closing-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  .closing p {
+    font-size: clamp(20px, 2.8vw, 32px);
+    font-weight: 300;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+    margin-bottom: 48px;
+  }
+  .closing p strong { color: var(--text); font-weight: 500; }
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-family: var(--mono);
+    letter-spacing: 0.06em;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .btn-back:hover {
+    border-color: var(--border-hover);
+    color: var(--text);
+    background: var(--bg-2);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--text); }
+
+  /* KEYFRAMES */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes lineGrow {
+    to { transform: scaleY(1); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .hero-content { padding: 0 24px; }
+    section { padding: 80px 24px; }
+    .divider { margin: 0 24px; }
+    .stat-hero, .reframe, .metrics-section, .closing { padding: 80px 24px; }
+    .hero-meta { gap: 16px; }
+    .meta-item { padding: 0 16px 0 0; margin-right: 16px; }
+    .metrics-grid { grid-template-columns: 1fr; }
+    .validation-grid { grid-template-columns: 1fr; }
+    .ds-pipeline { grid-template-columns: 1fr; }
+    .process-step { grid-template-columns: 1fr; gap: 8px; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .scroll-hint { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="https://www.azportfolio.net" class="nav-logo">Alfonso Zamorano</a>
+  <a href="https://www.azportfolio.net/#case-study" class="nav-back">All case studies</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-image">
+    <!-- REPLACE: Export hero image from Figma (full app mockup / before-after) -->
+    <!-- <img src="./images/hero.jpg" alt="AI Design app — before and after room transformation"> -->
+    <div class="hero-image-placeholder">
+      <span>→ Replace with hero image from Figma</span>
+      <span>Recommended: before/after room mockup, full bleed</span>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <div class="section-num">Case Study · Lead Product Designer</div>
+    <h1>AI Design: Reimagining Spaces <em>with a Single Photo</em></h1>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="meta-label">Company</div>
+        <div class="meta-value">AI Design App</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Scope</div>
+        <div class="meta-value">iOS App · B2C</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Type</div>
+        <div class="meta-value">Generative AI · Computer Vision</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Tools</div>
+        <div class="meta-value">Figma · Amplitude · Maze · Runway</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Scroll</div>
+</div>
+
+<!-- 01 SITUATION -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">01</span>
+    <h2>Everyone has a vision for their home.</h2>
+  </div>
+
+  <div class="body-text reveal reveal-delay-1">
+    <p>A color they've been meaning to try, a style they've saved a hundred times on Pinterest, a room they know could feel completely different. The vision is there. The problem is the gap between that vision and reality — the inability to see how a space will actually look before spending thousands on furniture, paint, and renovation.</p>
+    <br>
+    <p>That gap has a name. We called it <strong>Renovation Paralysis</strong>.</p>
+    <br>
+    <p>Our research confirmed what we suspected: 73% of users wanted to redecorate, but felt blocked. Not by lack of inspiration — they had plenty of that. Blocked by the <strong>fear of making an expensive mistake</strong>. So they stayed stuck, scrolling, saving, never deciding.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BIG STAT -->
+<div class="stat-hero full-bleed">
+  <div class="reveal">
+    <span class="stat-num">73%</span>
+    <p class="stat-label">of users wanted to redecorate their home — but felt blocked by the fear of making an expensive mistake.</p>
+    <span class="stat-source">Survey · n=340 users · pre-MVP research</span>
+  </div>
+</div>
+
+<!-- REFRAME -->
+<div class="reframe full-bleed">
+  <div class="reframe-inner">
+    <div class="eyebrow reveal">The insight that changed everything</div>
+    <blockquote class="reveal reveal-delay-1">
+      "This wasn't a decoration tool.<br><strong>It was a confidence tool."</strong>
+    </blockquote>
+    <p class="reveal reveal-delay-2">When I joined this project as Lead Product Designer, the brief was to build a decoration tool. But the data told a different story. This wasn't a decoration problem — it was a confidence problem. And that reframe changed every design decision that followed.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 02 MY ROLE -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">02</span>
+    <h2>My role and the north star.</h2>
+  </div>
+
+  <div class="body-text reveal reveal-delay-1">
+    <p>I was the <strong>sole designer</strong> on a cross-functional team of 6: 1 PM, 1 PO, 1 Dev Lead and 2 developers. I owned the design end-to-end — from research and facilitation to design system and handoff.</p>
+  </div>
+
+  <div class="role-grid reveal reveal-delay-2">
+    <div class="role-card">
+      <div class="rc-label">Role</div>
+      <div class="rc-value">Lead Product Designer</div>
+      <div class="rc-sub">Sole designer on the team</div>
+    </div>
+    <div class="role-card">
+      <div class="rc-label">North star metric</div>
+      <div class="rc-value">Time to first redesign</div>
+      <div class="rc-sub">Every decision evaluated against this</div>
+    </div>
+    <div class="role-card">
+      <div class="rc-label">Platform</div>
+      <div class="rc-value">iOS + Android</div>
+      <div class="rc-sub">Developed in parallel</div>
+    </div>
+    <div class="role-card">
+      <div class="rc-label">Timeline</div>
+      <div class="rc-value">MVP → 90 days post-launch</div>
+      <div class="rc-sub">Measured impact window</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 03 PROCESS -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">03</span>
+    <h2>The process, before a single screen was designed.</h2>
+  </div>
+
+  <div class="body-text reveal reveal-delay-1">
+    <p>Before opening Figma, we ran a structured series of collaborative workshops with all stakeholders. The goal was to align everyone on what mattered — and surface the north star collectively, not impose it top-down.</p>
+  </div>
+
+  <div class="process-steps" style="margin-top: 48px;">
+    <div class="process-step reveal">
+      <div class="step-num">WS 01</div>
+      <div class="step-content">
+        <h3>Co-creation workshops</h3>
+        <p>Joint sessions with PM, PO and business stakeholders to align vision, identify opportunities and prioritise from day zero. Everyone had a voice in defining the product before a single screen existed — avoiding costly direction changes in later phases.</p>
+        <span class="step-tag">Facilitated</span>
+      </div>
+    </div>
+    <div class="process-step reveal reveal-delay-1">
+      <div class="step-num">WS 02</div>
+      <div class="step-content">
+        <h3>User persona workshops</h3>
+        <p>Collaborative construction of user personas with the full team. We defined who the real user was — not the imagined one — their motivations, blockers and behaviours around home decoration. These profiles directly informed design decisions, from onboarding tone to the selection of the 12 styles in the Style Library.</p>
+        <span class="step-tag">Facilitated</span>
+      </div>
+    </div>
+    <div class="process-step reveal reveal-delay-2">
+      <div class="step-num">WS 03</div>
+      <div class="step-content">
+        <h3>MoSCoW prioritisation</h3>
+        <p>With all stakeholders — PM, PO, Dev Lead, business — we ran a MoSCoW workshop to define what entered the MVP and what didn't. This was the framework that resolved the tension between the dev team (ship fast) and PM/PO (more features) — with an objective, shared framework rather than opinion. What didn't make the Must Have or Should Have was documented and moved to the Q1 roadmap.</p>
+        <span class="step-tag">Conflict resolution</span>
+      </div>
+    </div>
+    <div class="process-step reveal reveal-delay-3">
+      <div class="step-num">WS 04</div>
+      <div class="step-content">
+        <h3>North star metric workshop</h3>
+        <p>In the pre-MVP workshops, the team collectively identified the need for a single guiding metric. The result was <strong>time to first redesign</strong> — the time from app open to first AI-generated room transformation. It wasn't imposed — it emerged from the process. That guaranteed PM, devs and design evaluated every decision against the same criterion.</p>
+        <span class="step-tag">Emerged collaboratively</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="img-placeholder reveal" style="height: 320px;">
+    <div class="ph-icon">🖼</div>
+    <span>→ Workshop artifacts / user persona outputs / MoSCoW board</span>
+  </div>
+
+  <div class="body-text reveal" style="margin-top: 32px;">
+    <p>From the workshops, we moved into quantitative research. A survey of <strong>340 users</strong> confirmed and sharpened the problem. 73% had abandoned a redecoration project due to fear of making costly mistakes. The insight didn't just validate the problem — it reframed the entire product strategy.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 04 COMPLEX FLOW -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">04</span>
+    <h2>Compressing 11 steps into 3.</h2>
+  </div>
+
+  <div class="body-text reveal reveal-delay-1">
+    <p>The original flow had <strong>11 steps</strong>. Between photo capture, style selection, AI parameter configuration, manual room masking, render adjustments and result review — the journey was so long that most users dropped off before seeing a single result. The first prototype took 34 seconds. Unacceptable for a B2C mobile product.</p>
+  </div>
+
+  <div style="margin-top: 48px;" class="reveal reveal-delay-2">
+    <div class="flow-label">Original flow — 11 steps</div>
+    <div class="flow-old">
+      <div class="flow-old-step">01 Open app</div>
+      <div class="flow-old-step">02 Onboarding</div>
+      <div class="flow-old-step">03 Grant permissions</div>
+      <div class="flow-old-step">04 Capture photo</div>
+      <div class="flow-old-step">05 Manual masking</div>
+      <div class="flow-old-step">06 Select style</div>
+      <div class="flow-old-step">07 Set AI params</div>
+      <div class="flow-old-step">08 Render (34s)</div>
+      <div class="flow-old-step">09 Review result</div>
+      <div class="flow-old-step">10 Edit</div>
+      <div class="flow-old-step">11 Save / share</div>
+    </div>
+
+    <div class="flow-label accent" style="margin-top: 32px;">New flow — 3 steps → 8.3 seconds</div>
+    <div class="flow-visual">
+      <div class="flow-step accent">
+        <div class="flow-step-num">01</div>
+        <div class="flow-step-title">Photo Capture</div>
+        <div class="flow-step-desc">Single tap. No masking. ControlNet handles room detection automatically.</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step accent">
+        <div class="flow-step-num">02</div>
+        <div class="flow-step-title">Style Picker</div>
+        <div class="flow-step-desc">12 curated styles validated with 200+ users via Maze. Before/After visible on each card.</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step accent">
+        <div class="flow-step-num">03</div>
+        <div class="flow-step-title">AI Result</div>
+        <div class="flow-step-desc">Generated in under 8.3s. Active loading feedback — not a blank screen.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="img-placeholder reveal" style="height: 400px;">
+    <div class="ph-icon">🖼</div>
+    <span>→ Core flow screens: Photo Capture / Style Picker / AI Result</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 05 KEY DECISIONS -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">05</span>
+    <h2>Three decisions that shaped the product.</h2>
+  </div>
+
+  <div class="decisions-list">
+    <div class="decision-item reveal">
+      <div class="decision-num">01</div>
+      <div class="decision-content">
+        <h3>Automate the masking — hide the complexity</h3>
+        <p>The original flow required users to manually mask their room before the AI could process it. This was technically necessary but UX-catastrophic for a B2C audience.</p>
+        <div class="decision-why">Decision: moved room masking entirely into the ControlNet pipeline. The user never sees it. One tap, done. This single change removed 4 steps from the flow.</div>
+      </div>
+    </div>
+    <div class="decision-item reveal reveal-delay-1">
+      <div class="decision-num">02</div>
+      <div class="decision-content">
+        <h3>Wow first, controls second</h3>
+        <p>The granular editing layer — wall colour picker, furniture swap by category, lighting tone — existed in v1 as part of the primary flow. It was overwhelming users before they'd experienced any value.</p>
+        <div class="decision-why">Decision: moved all editing controls to a secondary layer. Available, but not required. Users reach the wow moment first, then explore customisation at their own pace.</div>
+      </div>
+    </div>
+    <div class="decision-item reveal reveal-delay-2">
+      <div class="decision-num">03</div>
+      <div class="decision-content">
+        <h3>A roadmap instead of an argument</h3>
+        <p>Competitors had more features in their MVPs. The dev team wanted to ship fast. PM/PO wanted more features before launch. As the sole designer at the centre of this tension, I needed more than an opinion.</p>
+        <div class="decision-why">Decision: built a Q1 post-launch roadmap showing exactly when each competitor feature would arrive. It gave stakeholders certainty, devs permission to ship, and business the visibility to plan CRO campaigns. The roadmap unlocked the agreement — not a debate.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 06 DESIGN SYSTEM -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">06</span>
+    <h2>A design system built to outlast the project.</h2>
+  </div>
+
+  <div class="body-text reveal reveal-delay-1">
+    <p>90+ components. Built from zero. The goal wasn't just consistency — it was making sure the knowledge didn't disappear when a sprint ended or a team member moved on.</p>
+  </div>
+
+  <div class="ds-pipeline reveal reveal-delay-2">
+    <div class="ds-step">
+      <div class="ds-tool">Figma</div>
+      <div class="ds-title">UI Kit with variables</div>
+      <div class="ds-desc">Components built with Figma variables for instant theme switching. Enabled consistency across iOS and Android simultaneously.</div>
+      <div class="ds-arrow">→</div>
+    </div>
+    <div class="ds-step">
+      <div class="ds-tool">Zeroheight</div>
+      <div class="ds-title">Living documentation</div>
+      <div class="ds-desc">Every component published with corresponding code generated with Claude. Devs had direct access to specs and code — zero ambiguity in handoff.</div>
+      <div class="ds-arrow">→</div>
+    </div>
+    <div class="ds-step">
+      <div class="ds-tool">Notebook LLM</div>
+      <div class="ds-title">Shared knowledge base</div>
+      <div class="ds-desc">All documentation shared with devs via Notebook LLM. Knowledge doesn't depend on a single person — any team member can query and use the code at any time.</div>
+    </div>
+  </div>
+
+  <div class="img-placeholder reveal reveal-delay-3" style="height: 380px;">
+    <div class="ph-icon">🖼</div>
+    <span>→ Design system overview — 90+ components from Figma / Zeroheight</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 07 VALIDATION -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">07</span>
+    <h2>What testing changed.</h2>
+  </div>
+
+  <div class="body-text reveal reveal-delay-1">
+    <p>Validation wasn't a checkbox at the end of the process — it was what shaped the final decisions. Two findings directly changed the product.</p>
+  </div>
+
+  <div class="validation-grid reveal reveal-delay-2">
+    <div class="validation-item">
+      <div class="v-method">Maze · n=200+ users</div>
+      <div class="v-title">Style Library validation</div>
+      <div class="v-desc">Each of the 12 interior styles was tested for instant recognition and desirability. Only styles with high recognition and desirability scores made it into the product.</div>
+    </div>
+    <div class="validation-item">
+      <div class="v-method">Usability Testing</div>
+      <div class="v-title">Two things that changed</div>
+      <div class="v-desc">Full flow testing surfaced two clear issues.</div>
+      <div class="v-change"><strong>Paint was redundant with Wall Paint.</strong> Removed to eliminate confusion.</div>
+      <div class="v-change" style="margin-top: 8px;"><strong>Home cards didn't show Before/After.</strong> Users didn't understand the core value proposition. Redesigned cards and Home to make the transformation immediately visible.</div>
+    </div>
+    <div class="validation-item">
+      <div class="v-method">A/B Testing</div>
+      <div class="v-title">Pricing pages</div>
+      <div class="v-desc">Plans and copy were tested from launch to optimise conversion. Results fed continuous iterations on pricing pages through Q1.</div>
+    </div>
+    <div class="validation-item">
+      <div class="v-method">Amplitude · Hotjar</div>
+      <div class="v-title">Behavioural data</div>
+      <div class="v-desc">Session tracking and heatmaps used throughout to identify friction points in the flow and validate improvements after each release.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 08 METRICS -->
+<div class="metrics-section full-bleed">
+  <div class="section-header reveal">
+    <span class="num">08</span>
+    <h2>Results — 90 days post-launch.</h2>
+  </div>
+
+  <div class="metrics-grid">
+    <div class="metric-card reveal">
+      <span class="metric-num"><span class="accent">+68</span>%</span>
+      <div class="metric-label">Purchase confidence</div>
+      <div class="metric-context">Users who visualised a redesign before buying reported significantly higher purchase confidence — validated through post-session surveys with retailer partners.</div>
+    </div>
+    <div class="metric-card reveal reveal-delay-1">
+      <span class="metric-num">8.3<span class="accent">s</span></span>
+      <div class="metric-label">Time to first redesign</div>
+      <div class="metric-context">From photo capture to AI-generated result. Every design decision was evaluated against this north star metric.</div>
+      <div class="metric-baseline">
+        <span class="from">34s prototype v1</span>
+        <span class="arrow">→</span>
+        <span class="to">8.3s shipped</span>
+      </div>
+    </div>
+    <div class="metric-card reveal reveal-delay-2">
+      <span class="metric-num">4.7<span class="accent">★</span></span>
+      <div class="metric-label">App Store rating</div>
+      <div class="metric-context">Achieved in the first 90 days, ranking in the top 50 of the Lifestyle category across 12 markets.</div>
+    </div>
+    <div class="metric-card reveal reveal-delay-3">
+      <span class="metric-num">4.2<span class="accent">×</span></span>
+      <div class="metric-label">Sessions per week</div>
+      <div class="metric-context">Weekly return rate — users came back to explore different styles across multiple rooms, driving strong organic growth.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 09 LEARNINGS -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">09</span>
+    <h2>What I'd do differently.</h2>
+  </div>
+
+  <div class="learnings-list">
+    <div class="learning-item reveal">
+      <div class="learning-num">01</div>
+      <div class="learning-content">
+        <h3>The onboarding was a missed opportunity</h3>
+        <p>We based the onboarding on competitive benchmarking — we replicated what competitors were doing without questioning it enough. In retrospect, there was a real opportunity for differentiation. Onboarding is the first moment a user forms their perception of the product, and ours could have reinforced the "confidence tool" positioning much more strongly instead of replicating what already existed.</p>
+      </div>
+    </div>
+    <div class="learning-item reveal reveal-delay-1">
+      <div class="learning-num">02</div>
+      <div class="learning-content">
+        <h3>The next frontier is planning, not just visualising</h3>
+        <p>The MVP validated the visualisation concept. But the bigger opportunity is converting the app into a full renovation planning tool — AI-generated floor plans, cost estimation, material selection. That vision was visible from the start, but required the foundation the MVP built first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing full-bleed">
+  <div class="closing-inner">
+    <p class="reveal">Within 90 days, the app had become a daily habit. Users weren't opening it once — they were coming back <strong>4.2 times a week</strong>, exploring different styles, different rooms, different possibilities.</p>
+    <p class="reveal reveal-delay-1">The paralysis had broken. <strong>+68% purchase confidence</strong> was the proof we'd solved the right problem. Not decoration. Confidence.</p>
+    <a href="https://www.azportfolio.net/#case-study" class="btn-back reveal reveal-delay-2">← All case studies</a>
+  </div>
+</div>
+
+<footer>
+  <p>Alfonso Zamorano — Lead Product Designer</p>
+  <p><a href="https://www.azportfolio.net">azportfolio.net</a> · <a href="mailto:hello@azportfolio.net">hello@azportfolio.net</a></p>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
