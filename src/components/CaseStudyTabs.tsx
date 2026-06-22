@@ -25,6 +25,7 @@ const CASE_STUDIES = [
   },
   {
     slug: 'wanup',
+    externalUrl: '/case-studies/wanup-deep.html',
     type: 'B2C · Web',
     title: 'Wanup',
     thumb: wanupCover as string | undefined,
@@ -38,6 +39,7 @@ const CASE_STUDIES = [
   },
   {
     slug: 'ai-design',
+    externalUrl: '/case-studies/ai-design-deep.html',
     type: 'B2C · iOS App',
     title: 'AI Design',
     thumb: aiDesignCover as string | undefined,
@@ -80,80 +82,82 @@ const ArrowOutIcon = () => (
 
 // ─── Single case study card ───────────────────────────────────────────────────
 
-const CaseStudyCard: React.FC<{ cs: typeof CASE_STUDIES[0] }> = ({ cs }) => (
-  <Link
-    to={`/case-studies/${cs.slug}`}
-    className="group block rounded-xl overflow-hidden border border-border/20 bg-background transition-all duration-200 hover:border-foreground/20 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-  >
-    {/* Thumbnail */}
-    <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/7' }}>
-      {cs.thumb ? (
-        <img
-          src={cs.thumb}
-          alt={cs.thumbAlt}
-          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
-        />
-      ) : (
-        <div className="w-full h-full bg-secondary/60 flex items-center justify-center">
-          <span className="text-[11px] tracking-[0.1em] uppercase text-muted-foreground/30">
-            {cs.thumbAlt}
-          </span>
-        </div>
-      )}
-      {/* Bottom fade on hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-    </div>
+const CaseStudyCard: React.FC<{ cs: typeof CASE_STUDIES[0] }> = ({ cs }) => {
+  const className = "group block rounded-xl overflow-hidden border border-border/20 bg-background transition-all duration-200 hover:border-foreground/20 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary";
 
-    {/* Body */}
-    <div className="p-5">
-      <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-muted-foreground mb-1">
-        {cs.type}
-      </p>
-
-      <div className="flex items-start justify-between gap-4 mb-3">
-        <h3
-          className="font-display font-bold leading-tight text-foreground"
-          style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)' }}
-        >
-          {cs.title}
-        </h3>
-        {/* Arrow circle */}
-        <div className="flex-shrink-0 w-7 h-7 rounded-full border border-border/30 flex items-center justify-center mt-0.5 text-muted-foreground transition-all duration-200 group-hover:bg-foreground group-hover:border-foreground group-hover:text-background">
-          <ArrowOutIcon />
-        </div>
-      </div>
-
-      {/* Pills */}
-      <div className="flex flex-wrap gap-1.5 mb-4">
-        {cs.tags.map((tag) => (
-          <span
-            key={tag}
-            className="text-[11px] px-3 py-1 rounded-full border border-border/30 text-muted-foreground"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-
-      {/* Metrics */}
-      <div className="flex gap-5 pt-4 border-t border-border/20">
-        {cs.metrics.map(({ value, label }) => (
-          <div key={label}>
-            <p
-              className="font-display font-bold leading-none mb-0.5 text-foreground"
-              style={{ fontSize: 'clamp(1rem, 1.8vw, 1.2rem)' }}
-            >
-              {value}
-            </p>
-            <p className="text-[10px] uppercase tracking-[0.07em] text-muted-foreground">
-              {label}
-            </p>
+  const inner = (
+    <>
+      {/* Thumbnail */}
+      <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/7' }}>
+        {cs.thumb ? (
+          <img
+            src={cs.thumb}
+            alt={cs.thumbAlt}
+            className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        ) : (
+          <div className="w-full h-full bg-secondary/60 flex items-center justify-center">
+            <span className="text-[11px] tracking-[0.1em] uppercase text-muted-foreground/30">
+              {cs.thumbAlt}
+            </span>
           </div>
-        ))}
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
-    </div>
-  </Link>
-);
+
+      {/* Body */}
+      <div className="p-5">
+        <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-muted-foreground mb-1">
+          {cs.type}
+        </p>
+
+        <div className="flex items-start justify-between gap-4 mb-3">
+          <h3
+            className="font-display font-bold leading-tight text-foreground"
+            style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)' }}
+          >
+            {cs.title}
+          </h3>
+          <div className="flex-shrink-0 w-7 h-7 rounded-full border border-border/30 flex items-center justify-center mt-0.5 text-muted-foreground transition-all duration-200 group-hover:bg-foreground group-hover:border-foreground group-hover:text-background">
+            <ArrowOutIcon />
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {cs.tags.map((tag) => (
+            <span
+              key={tag}
+              className="text-[11px] px-3 py-1 rounded-full border border-border/30 text-muted-foreground"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex gap-5 pt-4 border-t border-border/20">
+          {cs.metrics.map(({ value, label }) => (
+            <div key={label}>
+              <p
+                className="font-display font-bold leading-none mb-0.5 text-foreground"
+                style={{ fontSize: 'clamp(1rem, 1.8vw, 1.2rem)' }}
+              >
+                {value}
+              </p>
+              <p className="text-[10px] uppercase tracking-[0.07em] text-muted-foreground">
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+
+  if (cs.externalUrl) {
+    return <a href={cs.externalUrl} className={className}>{inner}</a>;
+  }
+  return <Link to={`/case-studies/${cs.slug}`} className={className}>{inner}</Link>;
+};
 
 // ─── Main component ───────────────────────────────────────────────────────────
 
