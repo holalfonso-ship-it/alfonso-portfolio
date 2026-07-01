@@ -94,7 +94,8 @@
     background: var(--bg-3);
     overflow: hidden;
   }
-  .hero-image img {
+  .hero-image img,
+  .hero-image video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -972,7 +973,10 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-image">
-    <img src="./images/ai-cleaner-hero.png" alt="AI Cleaner — main app interface overview">
+    <video autoplay muted loop playsinline poster="./images/ai-cleaner-hero.png">
+      <source src="./motion/ai-cleaner-hero.webm" type="video/webm">
+      <img src="./images/ai-cleaner-hero.png" alt="AI Cleaner — main app interface overview">
+    </video>
   </div>
   <div class="hero-content">
     <p class="section-num">Case Study · iOS · 2024</p>
