@@ -13,9 +13,9 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 
 // ─── Case studies list (add new entries here when ready) ─────────────────────
 export const CASE_STUDY_ITEMS = [
-  { slug: 'ai-cleaner', label: 'AI Cleaner' },
-  { slug: 'wanup', label: 'Wanup' },
-  { slug: 'ai-design', label: 'AI Design' },
+  { slug: 'ai-cleaner', label: 'AI Cleaner', href: '/case-studies/ai-cleaner-deep.html' },
+  { slug: 'wanup', label: 'Wanup', href: '/case-studies/wanup-deep.html' },
+  { slug: 'ai-design', label: 'AI Design', href: '/case-studies/ai-design-deep.html' },
   { slug: 'coperama', label: 'Coperama' },
 ];
 
@@ -53,14 +53,17 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
                   align="center"
                   className="bg-background/90 backdrop-blur-md border-border/40 shadow-lg w-44 mt-1"
                 >
-                  {CASE_STUDY_ITEMS.map(({ slug, label }) => (
+                  {CASE_STUDY_ITEMS.map(({ slug, label, href }) => (
                     <DropdownMenuItem key={slug} asChild>
-                      <Link
-                        to={`/case-studies/${slug}`}
-                        className="cursor-pointer text-sm"
-                      >
-                        {label}
-                      </Link>
+                      {href ? (
+                        <a href={href} className="cursor-pointer text-sm">
+                          {label}
+                        </a>
+                      ) : (
+                        <Link to={`/case-studies/${slug}`} className="cursor-pointer text-sm">
+                          {label}
+                        </Link>
+                      )}
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>

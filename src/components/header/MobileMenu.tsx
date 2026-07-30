@@ -47,15 +47,26 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   Case Studies
                 </span>
                 {/* Sub-links */}
-                {CASE_STUDY_ITEMS.map(({ slug, label }) => (
-                  <Link
-                    key={slug}
-                    to={`/case-studies/${slug}`}
-                    className="text-xl font-medium transition-colors hover:text-primary"
-                    onClick={onLinkClick}
-                  >
-                    {label}
-                  </Link>
+                {CASE_STUDY_ITEMS.map(({ slug, label, href }) => (
+                  href ? (
+                    <a
+                      key={slug}
+                      href={href}
+                      className="text-xl font-medium transition-colors hover:text-primary"
+                      onClick={onLinkClick}
+                    >
+                      {label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={slug}
+                      to={`/case-studies/${slug}`}
+                      className="text-xl font-medium transition-colors hover:text-primary"
+                      onClick={onLinkClick}
+                    >
+                      {label}
+                    </Link>
+                  )
                 ))}
               </div>
             );

@@ -12,6 +12,7 @@ import coperamaCover from '@/assets/Cover-coperama.png';
 const CASE_STUDIES = [
   {
     slug: 'ai-cleaner',
+    externalUrl: '/case-studies/ai-cleaner-deep.html',
     type: 'B2C · iOS App',
     title: 'AI Cleaner',
     thumb: aiCleanerCover as string | undefined,
