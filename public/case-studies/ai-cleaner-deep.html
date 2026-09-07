@@ -1019,6 +1019,15 @@
     <p>Amplitude told us the exact number: <strong>67% of users abandoned at the photo library permissions request</strong>, before they had seen a single feature. We had built a product that worked, but an entry experience that didn't earn the trust required to use it.</p>
     <p>The product challenge wasn't the AI, the scan speed, or the storage math. It was a trust problem at the very first moment of the relationship.</p>
   </div>
+
+  <div class="reveal" style="margin-top: 32px; padding: 24px 28px; background: var(--bg-2); border: 1px solid var(--border); border-radius: 12px; font-family: var(--mono); font-size: 13px; color: var(--text-secondary); line-height: 1.8; letter-spacing: 0.01em;">
+    <span style="color: var(--accent); font-weight: 600; margin-right: 12px;">At a glance</span>
+    67% → drop-off eliminated at the trust point &nbsp;·&nbsp; 31% → under 8% secondary drop-off &nbsp;·&nbsp; 2.1× permissions grant rate &nbsp;·&nbsp; 340MB → 2.5GB avg. storage recovered per first session &nbsp;·&nbsp; 4.5★, Top 100 Utilities (US + China)
+  </div>
+
+  <div class="body-text reveal reveal-delay-1" style="margin-top: 32px; padding: 24px 28px; border-left: 2px solid var(--accent); background: var(--bg-2); border-radius: 0 8px 8px 0;">
+    <p><strong>Why this mattered beyond the screen:</strong> every abandoned session at the permissions screen was an install we'd already paid for or earned through App Store ranking, churning before it ever saw the product work. This wasn't a UI polish problem — it was acquisition spend and organic ranking momentum leaking out on day zero.</p>
+  </div>
 </section>
 
 <!-- BIG STAT -->
@@ -1048,6 +1057,7 @@
   <div class="body-text reveal reveal-delay-1">
     <p>I joined as Lead Product Designer with ownership across the full product experience: onboarding, core scan flow, design system, and the China market variant. The team was small but fast — and the brief was clear: fix activation, then scale globally.</p>
     <p>The north star wasn't downloads. It was the number of users who completed a scan and recovered storage on their first session. Everything we designed had to move that number.</p>
+    <p style="margin-top: 16px;"><strong>Cross-functional alignment:</strong> ran structured working sessions with PM, iOS engineering and the data analyst to keep funnel diagnosis and trade-offs visible to the whole team before any screen was built — not formal facilitated workshops, but the same job: get the room aligned on the problem before committing to a solution.</p>
   </div>
   <div class="role-grid reveal reveal-delay-2">
     <div class="role-card">
@@ -1084,10 +1094,11 @@
 <section>
   <div class="section-header reveal">
     <span class="num">03</span>
-    <h2>Four weeks to understand two different problems.</h2>
+    <h2>Research & Discovery: four weeks to understand two different problems.</h2>
   </div>
   <div class="body-text reveal reveal-delay-1">
     <p>Before touching any screens, we needed to understand why activation was failing and what the China expansion would require. We ran a structured discovery sprint: quantitative first, qualitative second, competitive last.</p>
+    <p style="margin-top: 16px;"><strong>Method mix:</strong> funnel analytics, moderated qualitative interviews, competitive benchmarking, synthetic-user validation, strategic synthesis — sequenced to move from "where are they dropping" to "why" to "what to build."</p>
   </div>
 
   <div class="process-steps" style="margin-top: 48px;">
@@ -1182,6 +1193,8 @@
       <div class="decision-num">01</div>
       <div class="decision-content">
         <h3>Defer the permissions ask until after demonstrated value</h3>
+        <div class="decision-why" style="margin-bottom: 16px;"><strong>Business rationale:</strong> a permissions denial doesn't just lose a session, it usually loses the install for good — no second ask, no organic recovery. Fixing the sequencing directly protected acquisition spend and App Store ranking, not just the onboarding metric.</div>
+        <div class="decision-why" style="margin-bottom: 16px;"><strong>Interaction pattern:</strong> progressive disclosure — value is demonstrated with a real scan interaction against sample data before any system permission dialog appears, so the ask that follows is contextual, not cold.</div>
         <p>Instead of asking for photo library access on screen 2, we built a demo scan mode that showed users what the app would find — using sample data — before asking for anything. The permissions request moved to the moment of intent: after the user had seen the value and tapped "scan my photos."</p>
         <div class="decision-why">Why this over a better permissions screen: A better-designed permissions screen would still be asking for trust before earning it. The demo scan addressed the root cause, not the symptom. Maze testing with 80 users confirmed the hypothesis: demo-first increased permissions grant rate by 2.1x over a redesigned-screen-only approach.</div>
       </div>
@@ -1190,6 +1203,8 @@
       <div class="decision-num">02</div>
       <div class="decision-content">
         <h3>Reduce the scan flow from 7 steps to 2</h3>
+        <div class="decision-why" style="margin-bottom: 16px;"><strong>Business rationale:</strong> every extra decision screen after permissions was a second chance to lose an install we'd already unlocked. Cutting to two steps was a direct bet on completed first-session value over giving users "control" they'd already said (via research) they didn't want.</div>
+        <div class="decision-why" style="margin-bottom: 16px;"><strong>Interaction pattern:</strong> single primary action per screen, no intermediate decision points — scan progress flows straight into a results screen with one CTA.</div>
         <p>The original flow had seven distinct screens between opening the app and completing a clean. We collapsed this to two: a scan progress screen and a results screen with a single primary action. Every intermediate screen that asked the user to make a decision was either eliminated or deferred to an advanced settings section.</p>
         <div class="decision-why">Why this over a progressive disclosure approach: Progressive disclosure still requires decisions at each step. Our research showed that users who abandoned post-permissions were abandoning because the cleanup felt complicated, not because they lacked information. Simplicity was the goal, not depth. The 31% secondary drop-off fell to under 8% after the redesign.</div>
       </div>
@@ -1198,6 +1213,8 @@
       <div class="decision-num">03</div>
       <div class="decision-content">
         <h3>Build one design system for two markets, not two products</h3>
+        <div class="decision-why" style="margin-bottom: 16px;"><strong>Business rationale — led with, not retrofitted:</strong> one token-based system with market configs instead of two products was a direct bet on maintenance cost and shipping velocity: half the maintenance debt, zero divergence risk between US and China, consistent feature shipping without burning out a 3-person team. This is the argument that should have opened the decision the first time it was pitched.</div>
+        <div class="decision-why" style="margin-bottom: 16px;"><strong>Interaction pattern:</strong> same components, different density and information-hierarchy configuration per market (comfortable spacing for US, compact/information-dense for China) — one interaction language, two calibrations.</div>
         <p>The China variant required higher information density, different social proof patterns, WeChat and Alipay payment entry points, and a distinct visual trust hierarchy. The temptation was to build it as a separate product. Instead, we built it as a configuration of the same component system — a single token layer with market-specific overrides for density, typography scale, and payment UI.</p>
         <div class="decision-why">Why this mattered strategically: Two parallel products would have doubled maintenance costs and halved the team's ability to ship features consistently. The one-system approach meant a bug fixed in the US variant was fixed in China simultaneously, and a new component built for the US was already 80% of the way to the China variant. This DesignOps decision was as much a business decision as a design one.</div>
       </div>
@@ -1246,6 +1263,10 @@
     <img src="./images/ai-cleaner-designsystem.png" alt="AI Cleaner design system — component library and dual-market variants" style="width:100%; border-radius:8px; display:block;">
     <figcaption>120+ components built from a single token layer — US and China density variants configured at the token level, not duplicated at the component level.</figcaption>
   </figure>
+
+  <div class="body-text reveal" style="margin-top: 32px; padding: 20px 24px; border-left: 2px solid var(--accent); background: var(--bg-2); border-radius: 0 8px 8px 0;">
+    <p><strong>Business read:</strong> the 40% reduction in design-to-dev time isn't a design-team vanity metric — it's engineering hours not spent on rebuild, redirected to shipping.</p>
+  </div>
 </section>
 
 <div class="divider"></div>
@@ -1380,8 +1401,8 @@
     <div class="learning-item reveal reveal-delay-2">
       <div class="learning-num">03</div>
       <div class="learning-content">
-        <h3>DesignOps should have been framed as a business case from day one</h3>
-        <p>The decision to build one design system for two markets instead of two parallel products saved us significant time and cost. But I presented it as a design architecture decision, not a business case. In retrospect, I should have framed the ROI explicitly from the start: one system means half the maintenance debt, half the risk of divergence, and a team that can ship consistently into both markets without burning out. That framing would have got buy-in faster and with less friction from the PM and engineering leads.</p>
+        <h3>What changed since</h3>
+        <p>The business case for Decision 03 used to live only here, as a lesson learned after the fact. It's now the first thing you read in that decision above — because a case study that flags its own blind spot and then fixes it is more useful than one that just lists the fix as a regret.</p>
       </div>
     </div>
   </div>
