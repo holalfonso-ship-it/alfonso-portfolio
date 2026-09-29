@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Cleaner Design System: One System, Two Reading Directions | Alfonso Zamorano</title>
+<meta name="description" content="How I built a 213-component design system for AI Cleaner, with LTR and RTL variants in every component, as the sole designer. Case study by Alfonso Zamorano, Lead Product Designer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080808;
+    --bg-2: #111111;
+    --bg-3: #1a1a1a;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.18);
+    --text: #f0ede8;
+    --text-muted: rgba(240,237,232,0.45);
+    --text-secondary: rgba(240,237,232,0.7);
+    --accent: #0099FF;
+    --accent-dim: rgba(0,153,255,0.15);
+    --accent-dim2: rgba(0,153,255,0.08);
+    --font: 'Inter', system-ui, sans-serif;
+    --mono: 'DM Mono', ui-monospace, monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  nav.scrolled {
+    background: rgba(8,8,8,0.92);
+    backdrop-filter: blur(12px);
+    border-color: var(--border);
+  }
+  .nav-logo {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-logo:hover { color: var(--text); }
+  .nav-back {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .nav-back:hover { color: var(--text); }
+  .nav-back::before { content: '←'; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-3);
+    overflow: hidden;
+  }
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.85;
+  }
+  .hero-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(8,8,8,0.05) 0%,
+      rgba(8,8,8,0.05) 40%,
+      rgba(8,8,8,0.6) 80%,
+      rgba(8,8,8,0.9) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 48px;
+    max-width: 1200px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 5.5vw, 80px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    max-width: 900px;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.35s forwards;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+  .hero-meta {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.5s forwards;
+  }
+  .meta-item {
+    padding: 0 28px 0 0;
+    margin-right: 28px;
+    border-right: 1px solid var(--border);
+  }
+  .meta-item:last-child { border-right: none; }
+  .meta-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .meta-value {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 32px;
+    right: 48px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 48px;
+    background: var(--border);
+    animation: lineGrow 1.2s ease 1s forwards;
+    transform-origin: top;
+    transform: scaleY(0);
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 120px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  section.full-bleed {
+    max-width: none;
+    padding: 0;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 56px;
+  }
+  .section-header .num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: clamp(28px, 3.5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  /* REVEAL ANIMATION */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 0 48px;
+  }
+
+  /* BIG STAT SECTION */
+  .stat-hero {
+    padding: 140px 48px;
+    text-align: center;
+    max-width: none;
+    margin: 0;
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat-hero .stat-num {
+    font-size: clamp(80px, 14vw, 180px);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    color: var(--text);
+    display: block;
+    margin-bottom: 24px;
+  }
+  .stat-hero .stat-label {
+    font-size: clamp(18px, 2.5vw, 28px);
+    color: var(--text-secondary);
+    font-weight: 400;
+    max-width: 620px;
+    margin: 0 auto 16px;
+    line-height: 1.4;
+  }
+  .stat-hero .stat-source {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* REFRAME SECTION */
+  .reframe {
+    padding: 140px 48px;
+    max-width: none;
+    margin: 0;
+  }
+  .reframe-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .reframe .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .reframe blockquote {
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    font-style: italic;
+    color: var(--text);
+  }
+  .reframe blockquote strong {
+    font-style: normal;
+    font-weight: 500;
+    color: var(--accent);
+  }
+  .reframe p {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 620px;
+  }
+
+  /* ROLE CARDS */
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  .role-card {
+    background: var(--bg-2);
+    padding: 28px;
+    transition: background 0.2s;
+  }
+  .role-card:hover { background: var(--bg-3); }
+  .role-card .rc-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .role-card .rc-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .role-card .rc-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* BODY TEXT */
+  .body-text {
+    font-size: 17px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 680px;
+  }
+  .body-text strong { color: var(--text); font-weight: 500; }
+  .body-text em { font-style: italic; }
+
+  /* IMAGE PLACEHOLDER */
+  .img-placeholder {
+    width: 100%;
+    background: var(--bg-3);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    margin: 32px 0;
+    padding: 48px 32px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+  .img-placeholder:hover { border-color: var(--border-hover); }
+  .img-placeholder .ph-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .img-placeholder .ph-caption {
+    color: var(--text-muted);
+    font-size: 12px;
+    max-width: 560px;
+    line-height: 1.6;
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
+  figcaption {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-family: var(--mono);
+    letter-spacing: 0.04em;
+  }
+
+  /* DECISIONS */
+  .decisions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  .decision-item {
+    background: var(--bg-2);
+    padding: 32px 36px;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 28px;
+    align-items: start;
+    transition: background 0.2s;
+  }
+  .decision-item:hover { background: var(--bg-3); }
+  .decision-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    padding-top: 4px;
+  }
+  .decision-content h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .decision-content p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .decision-content .decision-why {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--accent-dim2);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    font-size: 13px;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  /* ANATOMY */
+  .anatomy-figure {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin: 32px 0;
+  }
+  .anatomy-figure img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+    background: #d9d9d9;
+  }
+  .anatomy-notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 24px;
+  }
+  .anatomy-note {
+    background: var(--bg-2);
+    padding: 24px 26px;
+  }
+  .anatomy-note .an-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .anatomy-note p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+  .anatomy-note code {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text);
+    background: var(--bg-3);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  /* DS PIPELINE */
+  .ds-pipeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  .ds-step {
+    background: var(--bg-2);
+    padding: 28px 28px 32px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .ds-step:hover { background: var(--bg-3); }
+  .ds-tool {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .ds-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .ds-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .ds-arrow {
+    position: absolute;
+    right: -12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--text-muted);
+    z-index: 2;
+  }
+
+  /* VALIDATION */
+  .validation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  .validation-item {
+    background: var(--bg-2);
+    padding: 28px 32px;
+    transition: background 0.2s;
+  }
+  .validation-item:hover { background: var(--bg-3); }
+  .v-method {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .v-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+  .v-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+  .v-change {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: var(--accent-dim2);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .v-change strong { color: var(--text-secondary); font-weight: 500; }
+
+  /* METRICS */
+  .metrics-section {
+    padding: 120px 48px;
+    max-width: none;
+    margin: 0;
+    background: var(--bg-2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .metrics-section .section-header { max-width: 1200px; margin: 0 auto 64px; }
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .metric-card {
+    background: var(--bg);
+    padding: 48px 40px 52px;
+    transition: background 0.2s;
+  }
+  .metric-card:hover { background: #0d0d0d; }
+  .metric-num {
+    font-size: clamp(48px, 6vw, 84px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--text);
+    display: block;
+    margin-bottom: 16px;
+  }
+  .metric-num .accent { color: var(--accent); }
+  .metric-label {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+  }
+  .metric-context {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 320px;
+  }
+
+  /* LEARNINGS */
+  .learnings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 32px;
+  }
+  .learning-item {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 28px;
+    align-items: start;
+  }
+  .learning-item:first-child { border-top: 1px solid var(--border); }
+  .learning-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    padding-top: 3px;
+  }
+  .learning-content h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .learning-content p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    max-width: 620px;
+  }
+
+  /* AIDA BRIDGE */
+  .aida-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 32px;
+  }
+  .aida-card {
+    background: var(--bg-2);
+    padding: 26px 28px;
+    transition: background 0.2s;
+  }
+  .aida-card:hover { background: var(--bg-3); }
+  .aida-card .ac-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .aida-card .ac-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .aida-card .ac-sub {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .aida-links {
+    margin-top: 24px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .aida-links a {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-dim);
+    padding-bottom: 2px;
+  }
+  .aida-links a:hover { border-color: var(--accent); }
+  .research-tag {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+  }
+
+  /* CLOSING NARRATIVE */
+  .closing {
+    padding: 120px 48px;
+    max-width: none;
+    margin: 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .closing-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .closing p {
+    font-size: clamp(20px, 2.8vw, 32px);
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    letter-spacing: -0.01em;
+    margin-bottom: 48px;
+  }
+  .closing p strong { color: var(--text); font-weight: 500; }
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-family: var(--mono);
+    letter-spacing: 0.06em;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .btn-back:hover {
+    border-color: var(--border-hover);
+    color: var(--text);
+    background: var(--bg-2);
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 40px 48px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+  }
+  footer a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  footer a:hover { color: var(--text); }
+
+  /* KEYFRAMES */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes lineGrow {
+    to { transform: scaleY(1); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .hero-content { padding: 0 24px; }
+    section { padding: 80px 24px; }
+    .divider { margin: 0 24px; }
+    .stat-hero, .reframe, .metrics-section, .closing { padding: 80px 24px; }
+    .hero-meta { gap: 16px; }
+    .meta-item { padding: 0 16px 0 0; margin-right: 16px; }
+    .metrics-grid { grid-template-columns: 1fr; }
+    .validation-grid { grid-template-columns: 1fr; }
+    .ds-pipeline { grid-template-columns: 1fr; }
+    .anatomy-notes { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+    .scroll-hint { display: none; }
+  }
+
+  /* LIGHTBOX */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    cursor: zoom-out;
+  }
+  .lightbox.active {
+    display: flex;
+    animation: lbFadeIn 0.2s ease;
+  }
+  @keyframes lbFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+    animation: lbScaleIn 0.2s ease;
+    cursor: default;
+  }
+  @keyframes lbScaleIn {
+    from { transform: scale(0.95); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+    z-index: 10000;
+  }
+  .lightbox-close:hover {
+    background: rgba(255,255,255,0.18);
+    border-color: rgba(255,255,255,0.4);
+  }
+  body.lb-open { overflow: hidden; }
+  figure img,
+  .reveal img,
+  section img:not(.no-lb) {
+    cursor: zoom-in;
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="https://www.azportfolio.net" class="nav-logo">azportfolio.net</a>
+  <a href="https://www.azportfolio.net/#case-study" class="nav-back">All case studies</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-image">
+    <img src="./images/design-system/designsystem-01.png" alt="AI Cleaner app screens: Smart Cleaning, Boost Challenge and Compress, dark UI" class="no-lb">
+  </div>
+  <div class="hero-content">
+    <p class="section-num">Case Study · Design System · iOS</p>
+    <h1>One design system, <em>two reading directions.</em></h1>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="meta-label">Company</div>
+        <div class="meta-value">Eyewind <!-- TODO: confirm vs Leadtech Group before publishing --></div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Role</div>
+        <div class="meta-value">Lead Product Designer (sole designer)</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Scope</div>
+        <div class="meta-value">iOS App · US + Arabic-speaking countries</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Tools</div>
+        <div class="meta-value">Figma Variables · RTL Language plugin · Figma AI</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</div>
+
+<!-- 01 CONTEXT + ROLE -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">01</span>
+    <h2>An app for two reading directions, one designer.</h2>
+  </div>
+  <div class="body-text reveal reveal-delay-1">
+    <p>AI Cleaner is an iOS app that helps people free up storage on their phone. It launched in the US and in Arabic-speaking countries, so every screen had to work in two reading directions, not just two languages.</p>
+    <p>I was the only designer and I led design end to end: the design system, the app layouts, the wireframes for each feature, the branding, and the technical solution for RTL. I worked with the product managers and the iOS developers. The developers who reviewed the Arabic version were Arabic speakers themselves, so they checked the RTL variants directly.</p>
+  </div>
+
+  <figure class="anatomy-figure reveal reveal-delay-1">
+    <img src="./images/design-system/designsystem-02.png" alt="Smart Cleaning and Boost Challenge screens, English (LTR) next to Arabic (RTL)">
+    <figcaption>The same two screens in English and Arabic, side by side.</figcaption>
+  </figure>
+
+  <div class="role-grid reveal reveal-delay-2">
+    <div class="role-card">
+      <div class="rc-label">Role</div>
+      <div class="rc-value">Lead Product Designer</div>
+      <div class="rc-sub">Sole designer, end to end</div>
+    </div>
+    <div class="role-card">
+      <div class="rc-label">Markets</div>
+      <div class="rc-value">US + Arabic-speaking countries</div>
+      <div class="rc-sub">LTR and RTL, one system</div>
+    </div>
+    <div class="role-card">
+      <div class="rc-label">Scope</div>
+      <div class="rc-value">DS, app layouts, wireframes, branding</div>
+      <div class="rc-sub">Plus the RTL technical approach</div>
+    </div>
+    <div class="role-card">
+      <div class="rc-label">Timeline</div>
+      <div class="rc-value">12 months</div>
+      <div class="rc-sub">From a basic UI kit to 213 components</div>
+    </div>
+  </div>
+</section>
+
+<!-- BIG STAT -->
+<div class="stat-hero reveal">
+  <span class="stat-num">213</span>
+  <p class="stat-label">components in one library, built for both LTR and right-to-left Arabic.</p>
+  <p class="stat-source">Figma library panel · AI Cleaner iOS UI Kit</p>
+</div>
+
+<!-- REFRAME -->
+<div class="reframe reveal">
+  <div class="reframe-inner">
+    <p class="eyebrow">The real problem</p>
+    <blockquote>"Mirroring the screen isn't enough. In Arabic, <strong>text length reshapes the layout</strong>, and some icons change meaning by direction, not just position."</blockquote>
+    <p>The app had to feel native in two reading directions. Text length changes the layout, Arabic and Latin brand names share the same line, navigation arrows and icons flip, and some icons change orientation entirely, like PLAY and VOLUME. Branding elements are the one thing that never mirrors.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 02 THE DECISION -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">02</span>
+    <h2>One component library, not two.</h2>
+  </div>
+  <div class="body-text reveal reveal-delay-1">
+    <p>Every component with text or navigation has an <code style="font-family:var(--mono);background:var(--bg-3);padding:1px 6px;border-radius:3px;font-size:15px;">RTL = True/False</code> property. I built the variants by hand with help from the RTL Language plugin, which mirrors the component, translates the text into Arabic, and creates the variant inside the same component.</p>
+  </div>
+
+  <div class="decisions-list">
+    <div class="decision-item reveal">
+      <div class="decision-num">01</div>
+      <div class="decision-content">
+        <h3>RTL as a variant inside each component, not as a separate mode</h3>
+        <p>I chose variants over Variable modes because the system was scaling up from a simple UI kit and I wanted to move fast. I also considered designing the Arabic layouts separately, without RTL variants inside the components, and discarded that: I wanted every component in one place, as a single source of truth, not two libraries that could drift apart.</p>
+        <div class="decision-why"><strong>The trade-off:</strong> maintaining the variants by hand costs more than an automated mode would. In return, I can see in one place, in the same component, exactly how it's assembled in both directions.</div>
+      </div>
+    </div>
+    <div class="decision-item reveal">
+      <div class="decision-num">02</div>
+      <div class="decision-content">
+        <h3>Tokens are shared, direction lives in the components</h3>
+        <p>One Variables collection holds colors, spacing, typography and radius, with Light and Dark as modes of the same variables, not separate ones. RTL doesn't touch the tokens at all: it's a component-level property, so both directions draw from the same source of truth for color and spacing.</p>
+      </div>
+    </div>
+    <div class="decision-item reveal">
+      <div class="decision-num">03</div>
+      <div class="decision-content">
+        <h3>Handoff: both directions, side by side</h3>
+        <p>Developers received an Arabic-specific layout, built with the same components in their RTL variant, right next to the LTR layout, so they could compare both versions directly rather than reconstructing the Arabic layout from specs alone.</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="anatomy-figure reveal">
+    <img src="./images/design-system/designsystem-03.png" alt="AI Cleaner token collection: System and Liquid colors, Light and Dark modes">
+    <figcaption>Color tokens: System and Liquid sets, each with Light and Dark modes. Primitives and semantic roles live in a single collection, shared by both reading directions.</figcaption>
+  </figure>
+
+  <figure class="anatomy-figure reveal">
+    <img src="./images/design-system/designsystem-05.png" alt="Handoff checklist and Splash Screens compared in English and Arabic">
+    <figcaption>Handoff checklist, and the Splash Screens layout handed off in both directions, side by side.</figcaption>
+  </figure>
+
+  <figure class="anatomy-figure reveal">
+    <img src="./images/design-system/designsystem-04.png" alt="Components compared in English and Arabic: storage gauge, progress bars, Sign in with Google">
+    <figcaption>More components in both directions: the storage gauge, progress bars, and the Sign in with Google button.</figcaption>
+  </figure>
+</section>
+
+<div class="divider"></div>
+
+<!-- 03 ANATOMY -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">03</span>
+    <h2>Anatomy of a component: Button Google.</h2>
+  </div>
+  <div class="body-text reveal reveal-delay-1">
+    <p>Five states, normal, hover, pressed, disable, and focus, each with an LTR and an RTL variant inside the same component. It's a small component that shows what RTL actually requires.</p>
+  </div>
+
+  <figure class="anatomy-figure reveal reveal-delay-1">
+    <img src="./images/design-system/button-google-matrix.png" alt="Button Google component matrix: 5 states in LTR on the left, 5 states in RTL on the right">
+    <figcaption>10 variants in one component: 5 states × LTR/RTL. Figma · AI Cleaner iOS UI Kit</figcaption>
+  </figure>
+
+  <div class="anatomy-notes reveal reveal-delay-2">
+    <div class="anatomy-note">
+      <div class="an-tag">Mirrors</div>
+      <p>The icon position and the text alignment flip. Navigation arrows and directional icons follow the same rule everywhere in the system.</p>
+    </div>
+    <div class="anatomy-note">
+      <div class="an-tag">Adapts</div>
+      <p>The width changes, <code>179px → 208px</code>, because the Arabic text is longer, not because of a design decision. Auto Layout handles it. The Latin brand name "Google" stays inside the same line as the Arabic text.</p>
+    </div>
+    <div class="anatomy-note">
+      <div class="an-tag">Stays the same</div>
+      <p>The radius (<code>Pill</code>, 100) and the color variables, <code>Background/Primary</code>, <code>Background/Secondary</code>, <code>Separator/Opaque</code>, <code>Label/Secondary</code>, are identical in both directions.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 04 INSIDE THE SYSTEM -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">04</span>
+    <h2>213 components, one token collection.</h2>
+  </div>
+  <div class="body-text reveal reveal-delay-1">
+    <p>Almost every component that has text or navigation elements carries an RTL variant. Icon orientation is part of the same system: PLAY and VOLUME change orientation by direction, the way an arrow does.</p>
+  </div>
+
+  <div class="ds-pipeline reveal reveal-delay-2">
+    <div class="ds-step">
+      <div class="ds-tool">Figma · Variables</div>
+      <div class="ds-title">One token collection</div>
+      <div class="ds-desc">Colors in four sets (System/Liquid × Light/Dark), plus spacing (e.g. Spacing_01 = 8px), typography and radius tokens. Primitives and semantic roles share one collection.</div>
+      <div class="ds-arrow">→</div>
+    </div>
+    <div class="ds-step">
+      <div class="ds-tool">Figma · Auto Layout + RTL Language</div>
+      <div class="ds-title">213 components, LTR + RTL</div>
+      <div class="ds-desc">Auto Layout components with an RTL property. The plugin mirrors, translates and builds the RTL variant inside the same component.</div>
+      <div class="ds-arrow">→</div>
+    </div>
+    <div class="ds-step">
+      <div class="ds-tool">Figma AI · Annotation</div>
+      <div class="ds-title">Handoff, side by side</div>
+      <div class="ds-desc">Specs and annotations made with Figma AI. Developers got the Arabic layout next to the LTR layout, built from the same components, to compare directly.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 05 COLLABORATION / VALIDATION -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">05</span>
+    <h2>Governance was a conversation, not a queue.</h2>
+  </div>
+  <div class="body-text reveal reveal-delay-1">
+    <p>With one designer and a product trio, governance had to be lightweight and direct rather than a formal review process.</p>
+  </div>
+
+  <div class="validation-grid reveal reveal-delay-2">
+    <div class="validation-item">
+      <div class="v-method">Product trio</div>
+      <div class="v-title">New components</div>
+      <div class="v-desc">Decided in a meeting of the product trio, stakeholders, design and developers, rather than a separate design-system review.</div>
+    </div>
+    <div class="validation-item">
+      <div class="v-method">Figma branching</div>
+      <div class="v-title">Versioning</div>
+      <div class="v-desc">Changes to the library were versioned using Figma's own branching, rather than a separate changelog or release process.</div>
+    </div>
+    <div class="validation-item">
+      <div class="v-method">Maze / Figma Make</div>
+      <div class="v-title">RTL usability testing</div>
+      <div class="v-desc">After each milestone, we ran usability tests with the group of Arabic-speaking developers, mostly on a prototype in Maze or Figma Make.</div>
+    </div>
+    <div class="validation-item">
+      <div class="v-method">Native review</div>
+      <div class="v-title">Language and layout QA</div>
+      <div class="v-desc">The developers who reviewed the Arabic version were Arabic speakers, so they checked the plugin's translation and the RTL layout directly. I reviewed the plugin's output myself as well.</div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS / 06 RESULTS -->
+<section class="full-bleed">
+  <div class="metrics-section">
+    <div class="section-header">
+      <span class="num">06</span>
+      <h2>Results.</h2>
+    </div>
+    <div class="metrics-grid">
+      <div class="metric-card reveal">
+        <span class="metric-num"><span class="accent">+</span>30<span style="font-size:0.5em;vertical-align:middle">%</span></span>
+        <div class="metric-label">Faster design-to-dev delivery</div>
+        <div class="metric-context">Judged by ticket flow in our sprints after the system shipped, against the baseline before it.</div>
+      </div>
+      <div class="metric-card reveal reveal-delay-1">
+        <span class="metric-num">4.6<span class="accent">★</span></span>
+        <div class="metric-label">App Store rating</div>
+        <div class="metric-context">210K ratings in the US market, #172 in the Utilities category (App Store, checked Sep 2026).</div>
+      </div>
+      <div class="metric-card reveal reveal-delay-2">
+        <span class="metric-num">213</span>
+        <div class="metric-label">Components, one library</div>
+        <div class="metric-context">Auto Layout components, almost all with an RTL variant, built and maintained by one designer.</div>
+      </div>
+    </div>
+
+    <figure class="anatomy-figure reveal" style="max-width:1200px;margin-left:auto;margin-right:auto;">
+      <img src="./images/design-system/designsystem-07.png" alt="AI Cleaner App Store listing, US store: 4.6 stars, 210K ratings, #172 in Utilities">
+      <figcaption>App Store listing, US store · checked September 2026</figcaption>
+    </figure>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 07 LEARNINGS -->
+<section>
+  <div class="section-header reveal">
+    <span class="num">07</span>
+    <h2>What I'd do differently.</h2>
+  </div>
+
+  <div class="learnings-list">
+    <div class="learning-item reveal">
+      <div class="learning-num">01</div>
+      <div class="learning-content">
+        <h3>Document the system properly, not just in Figma</h3>
+        <p>I relied on Figma annotations for handoff, and it worked, but it meant the reasoning behind decisions lived in my head more than in the file. I'd document the system properly from the start: not just what a component is, but why it exists and when to use it.</p>
+      </div>
+    </div>
+    <div class="learning-item reveal reveal-delay-1">
+      <div class="learning-num">02</div>
+      <div class="learning-content">
+        <h3>Maintaining RTL variants by hand costs more than it should</h3>
+        <p>Building the RTL variants by hand, with the plugin's help, costs more to maintain than an automated approach would. In return, I could see in one place how components and layouts were assembled in both directions, which mattered while the system was still taking shape. At this scale, I'd look again at Variable modes for direction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 AIDA BRIDGE -->
+<section class="full-bleed">
+  <div class="metrics-section" style="padding-bottom: 140px;">
+    <div class="section-header">
+      <span class="num">08</span>
+      <h2>Toward an agentic design system: Aida.</h2>
+    </div>
+    <div class="body-text reveal" style="max-width: 1200px; margin: 0 auto 8px;">
+      <p>AI Cleaner taught me how to make one system hold two reading directions without splitting into two products. Aida is my own research project, asking the next question: what does a design system need so that people <em>and</em> AI agents can both use it, without the agent inventing a component that already exists?</p>
+    </div>
+
+    <div class="aida-grid reveal reveal-delay-1" style="max-width:1200px;margin:32px auto 0;">
+      <div class="aida-card">
+        <div class="ac-label">Layer 1</div>
+        <div class="ac-title">Component metadata</div>
+        <div class="ac-sub">Props, tokens, when to use it, accessibility notes, and a link back to the Figma source.</div>
+      </div>
+      <div class="aida-card">
+        <div class="ac-label">Layer 2</div>
+        <div class="ac-title">Generated index</div>
+        <div class="ac-sub">A machine-readable index of every component, kept in sync with the metadata.</div>
+      </div>
+      <div class="aida-card">
+        <div class="ac-label">Layer 3</div>
+        <div class="ac-title">Protocol for agents</div>
+        <div class="ac-sub">A CLAUDE.md file that tells an agent to extend an existing component before creating a new one, with a checklist, an ARC working cycle, and a flags log.</div>
+      </div>
+      <div class="aida-card">
+        <div class="ac-label">Layer 4</div>
+        <div class="ac-title">Storybook</div>
+        <div class="ac-sub">A public showcase that consumes the same metadata people and agents both read from.</div>
+      </div>
+    </div>
+
+    <div class="body-text reveal reveal-delay-2" style="max-width:1200px;margin:32px auto 0;">
+      <p>Where it stands: phases 0 to 3 are done, phase 4 is in progress, with 11 components live today. It's a solo research project, and it doesn't have impact metrics yet, this is early, honest work in progress, not a finished system.</p>
+    </div>
+    <div class="aida-links reveal reveal-delay-2" style="max-width:1200px;margin:0 auto;">
+      <a href="https://agentic-design-system-chi.vercel.app/?path=/docs/introducci%C3%B3n--documentaci%C3%B3n" target="_blank" rel="noopener">Storybook ↗</a>
+      <a href="https://www.figma.com/design/3EHBqyJGvIfSG3CZol393z/Aida" target="_blank" rel="noopener">Figma ↗</a>
+      <a href="https://github.com/holalfonso-ship-it/agentic-design-system" target="_blank" rel="noopener">GitHub repo ↗</a>
+    </div>
+
+    <figure class="anatomy-figure reveal reveal-delay-2" style="max-width:1200px;margin-left:auto;margin-right:auto;">
+      <img src="./images/design-system/designsystem-08.png" alt="Aida Storybook: ProductCard component documentation, props table and usage notes">
+      <figcaption>Aida's Storybook: component docs written for people and agents to read.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<div class="closing full-bleed reveal">
+  <div class="closing-inner">
+    <p>At AI Cleaner I made two reading directions live in one system. With Aida I'm asking the next question: <strong>what does a design system need so that an agent can extend it without inventing?</strong></p>
+    <a href="https://www.azportfolio.net/#case-study" class="btn-back">← All case studies</a>
+  </div>
+</div>
+
+<footer>
+  <p>Alfonso Zamorano · Lead Product Designer</p>
+  <p><a href="https://www.azportfolio.net">azportfolio.net</a></p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox">
+  <button id="lbClose" class="lightbox-close" aria-label="Close">✕</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbClose = document.getElementById('lbClose');
+
+  document.querySelectorAll('img:not([src*="svg"]):not(.no-lb)').forEach(img => {
+    img.addEventListener('click', () => {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lightbox.classList.add('active');
+      document.body.classList.add('lb-open');
+    });
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLb();
+  });
+  lbClose.addEventListener('click', closeLb);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLb();
+  });
+
+  function closeLb() {
+    lightbox.classList.remove('active');
+    document.body.classList.remove('lb-open');
+    lbImg.src = '';
+  }
+</script>
+</body>
+</html>

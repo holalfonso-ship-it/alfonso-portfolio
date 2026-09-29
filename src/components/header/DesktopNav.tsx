@@ -16,6 +16,7 @@ export const CASE_STUDY_ITEMS = [
   { slug: 'ai-cleaner', label: 'AI Cleaner', href: '/case-studies/ai-cleaner-deep.html' },
   { slug: 'wanup', label: 'Wanup', href: '/case-studies/wanup-deep.html' },
   { slug: 'ai-design', label: 'AI Design', href: '/case-studies/ai-design-deep.html' },
+  { slug: 'design-system', label: 'Design System', href: '/case-studies/design-system-deep.html' },
   { slug: 'coperama', label: 'Coperama' },
 ];
 

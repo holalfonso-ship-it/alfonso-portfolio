@@ -6,6 +6,7 @@ import aiCleanerCover from '@/assets/Cover-icleaner.png';
 import wanupCover from '@/assets/Cover-wanup.png';
 import aiDesignCover from '@/assets/Cover-aidesign.png';
 import coperamaCover from '@/assets/Cover-coperama.png';
+import designSystemCover from '@/assets/Cover-designsystem.png';
 
 // ─── Card config ──────────────────────────────────────────────────────────────
 
@@ -50,6 +51,20 @@ const CASE_STUDIES = [
       { value: '4.7★', label: 'App Store' },
       { value: '+68%', label: 'Purchase confidence' },
       { value: '4.2×', label: 'Sessions/week' },
+    ],
+  },
+  {
+    slug: 'design-system',
+    externalUrl: '/case-studies/design-system-deep.html',
+    type: 'B2B · iOS App',
+    title: 'Design System',
+    thumb: designSystemCover as string | undefined,
+    thumbAlt: 'AI Cleaner Design System — LTR and RTL component library',
+    tags: ['DesignOps', 'RTL', 'Figma Variables'],
+    metrics: [
+      { value: '+30%', label: 'Design-to-dev' },
+      { value: '4.6★', label: 'App Store' },
+      { value: '213', label: 'Components' },
     ],
   },
   {
