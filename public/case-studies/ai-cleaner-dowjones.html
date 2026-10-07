@@ -1184,7 +1184,7 @@
     .tr-strip { grid-template-columns: 1fr; }
   }
 
-  .img-two { display: grid; grid-template-columns: 1fr; gap: 24px; margin-top: 24px; }
+  .img-two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
   .img-two .img-placeholder { margin: 0; }
   @media (max-width: 768px) { .img-two { grid-template-columns: 1fr; } }
 </style>
@@ -1249,11 +1249,6 @@
   <figure class="shots-main reveal">
     <img src="./images/ai-cleaner-screens.png" alt="AI Cleaner final product screens: demo scan, contextual permissions ask, one-tap clean">
   </figure>
-  <div class="shots-row reveal reveal-delay-1">
-    <img src="./images/ai-cleaner-extra-1.png" alt="AI Cleaner additional screens">
-    <img src="./images/ai-cleaner-extra-2.png" alt="AI Cleaner additional screens">
-    <img src="./images/ai-cleaner-extra-3.png" alt="AI Cleaner additional screens">
-  </div>
 </div>
 
 <div class="divider"></div>
@@ -1265,7 +1260,7 @@
     <h2>My role: sole designer, design lead.</h2>
   </div>
   <div class="body-text tight reveal reveal-delay-1">
-    <p>B2C iOS app at Leadtech Group. I owned onboarding, the scan flow, the design system and the Arabic variant, working with a PM, iOS engineers and a data analyst. Before any screen existed, I ran working sessions so the whole team saw the funnel diagnosis.</p>
+    <p>B2C iOS app at Leadtech Group. I owned onboarding, the scan flow, the design system and the Arabic variant, working with a PM, iOS engineers and a data analyst.</p>
   </div>
   <div class="role-grid reveal reveal-delay-2">
     <div class="role-card">
@@ -1295,7 +1290,7 @@
     <h2>The leak sat between install and first value.</h2>
   </div>
   <div class="body-text tight reveal reveal-delay-1">
-    <p>Every install was one we had paid for or earned through ranking. Two thirds left at the permissions screen, and 31% of those who stayed never completed a scan. The product worked. The entry did not earn trust.</p>
+    <p>Every install was paid for or earned through ranking. The product worked. The entry did not earn trust.</p>
   </div>
 
   <div class="funnel reveal reveal-delay-2">
@@ -1306,10 +1301,6 @@
   </div>
   <p class="fn-cap reveal">Amplitude cohort analysis · iOS activation funnel · 2023 baseline</p>
 
-  <figure class="reveal" style="margin-top: 32px;">
-    <img src="./images/ai-cleaner-dj-01-onboarding-original.png" alt="The original onboarding: the real seven screens, as the starting point." style="width:100%; border-radius:8px; display:block;">
-    <figcaption>The original onboarding: the real seven screens, as the starting point.</figcaption>
-  </figure>
 </section>
 
 <div class="divider"></div>
@@ -1328,7 +1319,7 @@
     <div class="dt">
       <div class="ph">Understand</div><div class="wk">Week 01 · Amplitude</div>
       <div class="h">Two problems, not one</div>
-      <div class="p">Permissions drop-off at 67%, plus a 31% drop after granting access.</div>
+      <div class="p">67% drop-off at permissions, 31% more after access granted.</div>
     </div>
     <div class="dt">
       <div class="ph">Empathize</div><div class="wk">Week 02 · Interviews</div>
@@ -1349,7 +1340,7 @@
 
   <div class="angles reveal">
     <span class="lbl">Angles covered</span>
-    <span class="chip">Trust</span><span class="chip">Acquisition cost</span><span class="chip">Flow complexity</span><span class="chip">Market differences</span><span class="chip">Cost of two products</span>
+    <span class="chip">Trust</span><span class="chip">Acquisition cost</span><span class="chip">Flow complexity</span><span class="chip">Market differences</span>
   </div>
 
   <figure class="reveal" style="margin: 24px 0 0;">
@@ -1366,11 +1357,7 @@
     <span class="num">04</span>
     <h2>My first answer was wrong.</h2>
   </div>
-  <div class="body-text tight reveal reveal-delay-1">
-    <p>No solution on the first try: I tested my own idea and the data disagreed.</p>
-  </div>
-
-  <div class="pair reveal reveal-delay-2">
+  <div class="pair reveal reveal-delay-1">
     <div>
       <div class="tag">First hypothesis</div>
       <h3>A better permissions screen</h3>
@@ -1437,7 +1424,7 @@
     </div>
   </div>
 
-  <p class="note-line reveal"><strong>Limit:</strong> faster than real research, with a fidelity ceiling. I used it because I could not fund the real thing (see trade-offs).</p>
+  <p class="note-line reveal"><strong>Limit:</strong> faster than real research, with a fidelity ceiling.</p>
 
   <div class="img-two">
     <figure class="reveal" style="margin:0;">
@@ -1498,7 +1485,7 @@
           <div class="star-row"><span class="k">A</span><p>I built a demo scan on sample data and moved the permission ask to the moment of intent: after the user taps “scan my photos”.</p></div>
           <div class="star-row"><span class="k">R</span><p>2.1× permission grant rate in Maze (80 users), confirmed before engineering started.</p></div>
         </div>
-        <p class="dec-biz"><b>Why it matters:</b> a denied permission usually loses the install for good. This protects acquisition spend and App Store ranking.</p>
+        <p class="dec-biz"><b>Why it matters:</b> a denied permission usually loses the install for good.</p>
       </div>
 
       <!-- DECISION 02 -->
@@ -1576,11 +1563,6 @@
     <figcaption>Original 7-step onboarding vs. redesigned flow: demo scan, permission at the moment of intent, immediate results.</figcaption>
   </figure>
 
-  <figure class="reveal" style="margin: 24px 0 0;">
-    <img src="./images/ai-cleaner-designsystem.png" alt="AI Cleaner design system, component library and dual-market variants" style="width:100%; border-radius:8px; display:block;">
-    <figcaption>120+ components from a single token layer. Market density is set at token level, not duplicated per component.</figcaption>
-  </figure>
-
   <div class="img-two">
     <figure class="reveal" style="margin:0;">
       <img src="./images/ai-cleaner-dj-06-demo-scan.png" alt="The scan, before and after the permissions step." style="width:100%; border-radius:8px; display:block;">
@@ -1612,7 +1594,7 @@
     <h2>What I chose not to do.</h2>
   </div>
   <div class="body-text tight reveal reveal-delay-1">
-    <p>The biggest call I made, and what it cost: no discovery of my own for the Arabic market. The task was to reduce the risk of shipping a market I could not test with real people.</p>
+    <p>The biggest call I made: no discovery with real Arabic users. What I did instead, and what it cost.</p>
   </div>
 
   <div class="tr reveal reveal-delay-2">
@@ -1651,7 +1633,7 @@
       </div>
       <div class="tr-cell risk">
         <div class="tr-tag warm">What it risked</div>
-        <p>Subtler issues I could not see, mainly in the post-scan flow and in how results are communicated.</p>
+        <p>Subtler issues I could not see, mainly in the post-scan flow.</p>
       </div>
       <div class="tr-cell next">
         <div class="tr-tag">With budget</div>
@@ -1675,7 +1657,7 @@
       <div class="learning-num">01</div>
       <div class="learning-content">
         <h3>Instrument the demo scan earlier</h3>
-        <p>Our best intervention had no solid analytics until two months after launch. I could not tell what drove conviction: the file categories, the storage number or the animation.</p>
+        <p>Our best intervention had no solid analytics until two months after launch.</p>
       </div>
     </div>
     <div class="learning-item reveal reveal-delay-1">
