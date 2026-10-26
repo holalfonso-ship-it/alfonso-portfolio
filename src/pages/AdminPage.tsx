@@ -1,4 +1,5 @@
 
+import { Head } from 'vite-react-ssg';
 import React from 'react';
 import CVUploader from '@/components/CVUploader';
 import TransitionEffect from '@/components/TransitionEffect';
@@ -9,6 +10,9 @@ import { Button } from '@/components/ui/button';
 const AdminPage: React.FC = () => {
   return (
     <>
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <TransitionEffect />
       <div className="pt-32 pb-24 px-6 md:px-16 lg:px-24">
         <div className="max-w-2xl mx-auto">

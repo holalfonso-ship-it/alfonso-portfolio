@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Head } from 'vite-react-ssg';
 import { ArrowLeft, Loader2, ExternalLink } from 'lucide-react';
 import { fetchPost, formatDate } from '@/lib/notion';
 import type { BlogPostDetail } from '@/types/blog';
@@ -44,13 +44,13 @@ const BlogPostPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
+      <Head>
         <title>{post.title} — Alfonso Zamorano</title>
         {post.summary && <meta name="description" content={post.summary} />}
         <meta property="og:title" content={`${post.title} — Alfonso Zamorano`} />
         {post.summary && <meta property="og:description" content={post.summary} />}
         {post.cover && <meta property="og:image" content={post.cover} />}
-      </Helmet>
+      </Head>
 
       <div className="min-h-screen bg-background">
 

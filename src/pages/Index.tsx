@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Head } from 'vite-react-ssg';
 import Hero from '@/components/Hero';
 import CaseStudyTabs from '@/components/CaseStudyTabs';
 import About from '@/components/About';
@@ -28,7 +28,7 @@ const Index: React.FC = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Helmet>
+      <Head>
         <title>Alfonso Zamorano — Senior Product Designer & DesignOps Specialist</title>
         <meta name="description" content="Senior Product Designer with 10+ years building digital products for 1M+ users. Specialising in marketplace design, DesignOps, and AI-native workflows." />
         <meta property="og:title" content="Alfonso Zamorano — Senior Product Designer & DesignOps Specialist" />
@@ -53,7 +53,7 @@ const Index: React.FC = () => {
             ]
           }
         `}</script>
-      </Helmet>
+      </Head>
       <TransitionEffect />
       <main className="flex-grow">
         <Hero />

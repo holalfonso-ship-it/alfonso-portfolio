@@ -1,4 +1,5 @@
 
+import { Head } from 'vite-react-ssg';
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import TransitionEffect from '@/components/TransitionEffect';
@@ -91,6 +92,9 @@ const SiteImages: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <TransitionEffect />
       <div className="pt-32 pb-24 px-6 md:px-16 lg:px-24">
         <div className="max-w-7xl mx-auto">

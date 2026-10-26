@@ -19,4 +19,11 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  ssgOptions: {
+    script: 'async',
+    formatting: 'none',
+    // Internal tools, not meant for public crawling.
+    includedRoutes: (paths) =>
+      paths.filter((p) => p !== '/admin' && p !== '/site-images'),
+  },
 }));

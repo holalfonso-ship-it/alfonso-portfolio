@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Head } from 'vite-react-ssg';
 import { ArrowUpRight, Loader2 } from 'lucide-react';
 import { fetchPosts, formatDate } from '@/lib/notion';
 import type { BlogPost } from '@/types/blog';
@@ -123,13 +123,13 @@ const BlogPage: React.FC = () => {
 
   return (
     <>
-      <Helmet>
+      <Head>
         <title>Blog — Alfonso Zamorano</title>
         <meta
           name="description"
           content="Reflexiones sobre diseño de producto, DesignOps, IA y herramientas que uso en el día a día."
         />
-      </Helmet>
+      </Head>
 
       <div className="min-h-screen bg-background">
         {/* ── Header ── */}

@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Head } from 'vite-react-ssg';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AnimatedText from '@/components/AnimatedText';
@@ -100,7 +100,7 @@ const ResourcesPage: React.FC = () => {
 
   return (
     <div className="min-h-screen py-32 px-6 md:px-12">
-      <Helmet>
+      <Head>
         <title>DesignOps Resources & Templates — Alfonso Zamorano</title>
         <meta name="description" content="Free and premium Notion templates for design teams. Handoff checklists, UX audit frameworks, design system docs, sprint facilitation kits and more — built by a DesignOps specialist." />
         <meta property="og:title" content="DesignOps Resources & Templates — Alfonso Zamorano" />
@@ -126,7 +126,7 @@ const ResourcesPage: React.FC = () => {
             }
           }
         `}</script>
-      </Helmet>
+      </Head>
       <TransitionEffect />
 
       <div className="max-w-7xl mx-auto">

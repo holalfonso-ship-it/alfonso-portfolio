@@ -24,11 +24,13 @@ export function ThemeProvider({
   children,
   defaultTheme = "system",
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem("ui-theme") as Theme) || defaultTheme
-  );
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") return defaultTheme;
+    return (localStorage.getItem("ui-theme") as Theme) || defaultTheme;
+  });
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
 
@@ -47,7 +49,9 @@ export function ThemeProvider({
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      localStorage.setItem("ui-theme", theme);
+      if (typeof window !== "undefined") {
+        localStorage.setItem("ui-theme", theme);
+      }
       setTheme(theme);
     },
   };
