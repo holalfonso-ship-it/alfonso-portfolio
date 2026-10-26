@@ -14,7 +14,6 @@ import SiteImages from './pages/SiteImages';
 import AboutPage from './pages/AboutPage';
 import PersonalProjectsPage from './pages/PersonalProjectsPage';
 import ResourcesPage from './pages/ResourcesPage';
-import CaseStudyPage from './pages/CaseStudyPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 
@@ -37,7 +36,6 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/case-studies/:slug" element={<CaseStudyPage />} />
             <Route path="/project/:id" element={<ProjectPage />} />
             <Route path="/projects/:slug" element={<ProjectPage />} />
             <Route path="/admin" element={<AdminPage />} />
