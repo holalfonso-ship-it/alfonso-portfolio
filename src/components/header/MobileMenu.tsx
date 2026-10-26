@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FileText, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { CASE_STUDY_ITEMS } from './DesktopNav';
+import { CASE_STUDIES } from '@/data/caseStudies';
 
 interface NavItem {
   label: string;
@@ -47,16 +47,27 @@ const MobileMenu: React.FC<MobileMenuProps> = ({
                   Case Studies
                 </span>
                 {/* Sub-links */}
-                {CASE_STUDY_ITEMS.map(({ slug, label }) => (
-                  <Link
-                    key={slug}
-                    to={`/case-studies/${slug}`}
-                    className="text-xl font-medium transition-colors hover:text-primary"
-                    onClick={onLinkClick}
-                  >
-                    {label}
-                  </Link>
-                ))}
+                {CASE_STUDIES.map(({ slug, label, externalUrl }) =>
+                  externalUrl ? (
+                    <a
+                      key={slug}
+                      href={externalUrl}
+                      className="text-xl font-medium transition-colors hover:text-primary"
+                      onClick={onLinkClick}
+                    >
+                      {label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={slug}
+                      to={`/case-studies/${slug}`}
+                      className="text-xl font-medium transition-colors hover:text-primary"
+                      onClick={onLinkClick}
+                    >
+                      {label}
+                    </Link>
+                  )
+                )}
               </div>
             );
           }
