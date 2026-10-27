@@ -915,9 +915,86 @@
   section img:not(.no-lb) {
     cursor: zoom-in;
   }
+
+  /* TOC — sticky section index with scroll-spy (desktop only) */
+  .toc {
+    position: fixed;
+    left: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 90;
+    display: none;
+  }
+  @media (min-width: 1536px) {
+    .toc { display: block; }
+  }
+  .toc ol {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+  .toc a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-muted);
+    opacity: 0.6;
+    transition: opacity 0.2s, color 0.2s;
+  }
+  .toc a:hover { opacity: 1; color: var(--text); }
+  .toc a.active { opacity: 1; color: var(--accent); }
+  .toc-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    width: 16px;
+    flex-shrink: 0;
+  }
+  .toc-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.5;
+    flex-shrink: 0;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .toc a.active .toc-dot {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  .toc-label {
+    font-family: var(--font);
+    font-size: 12px;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    transition: max-width 0.25s ease, opacity 0.2s ease;
+  }
+  .toc a:hover .toc-label,
+  .toc a.active .toc-label {
+    max-width: 160px;
+    opacity: 1;
+  }
 </style>
 </head>
 <body>
+<nav class="toc" aria-label="Section navigation">
+  <ol>
+    <li><a href="#s01" data-toc="s01"><span class="toc-num">01</span><span class="toc-dot"></span><span class="toc-label">Problem</span></a></li>
+    <li><a href="#s02" data-toc="s02"><span class="toc-num">02</span><span class="toc-dot"></span><span class="toc-label">Components</span></a></li>
+    <li><a href="#s03" data-toc="s03"><span class="toc-num">03</span><span class="toc-dot"></span><span class="toc-label">Anatomy</span></a></li>
+    <li><a href="#s04" data-toc="s04"><span class="toc-num">04</span><span class="toc-dot"></span><span class="toc-label">Tokens</span></a></li>
+    <li><a href="#s05" data-toc="s05"><span class="toc-num">05</span><span class="toc-dot"></span><span class="toc-label">Governance</span></a></li>
+    <li><a href="#s06" data-toc="s06"><span class="toc-num">06</span><span class="toc-dot"></span><span class="toc-label">Results</span></a></li>
+    <li><a href="#s07" data-toc="s07"><span class="toc-num">07</span><span class="toc-dot"></span><span class="toc-label">Retro</span></a></li>
+    <li><a href="#s08" data-toc="s08"><span class="toc-num">08</span><span class="toc-dot"></span><span class="toc-label">Aida</span></a></li>
+  </ol>
+</nav>
+
 
 <nav id="nav">
   <a href="https://www.azportfolio.net" class="nav-logo">azportfolio.net</a>
@@ -955,7 +1032,7 @@
 </div>
 
 <!-- 01 CONTEXT + ROLE -->
-<section>
+<section id="s01">
   <div class="section-header reveal">
     <span class="num">01</span>
     <h2>An app for two reading directions, one designer.</h2>
@@ -1013,7 +1090,7 @@
 <div class="divider"></div>
 
 <!-- 02 THE DECISION -->
-<section>
+<section id="s02">
   <div class="section-header reveal">
     <span class="num">02</span>
     <h2>One component library, not two.</h2>
@@ -1066,7 +1143,7 @@
 <div class="divider"></div>
 
 <!-- 03 ANATOMY -->
-<section>
+<section id="s03">
   <div class="section-header reveal">
     <span class="num">03</span>
     <h2>Anatomy of a component: Button Google.</h2>
@@ -1099,7 +1176,7 @@
 <div class="divider"></div>
 
 <!-- 04 INSIDE THE SYSTEM -->
-<section>
+<section id="s04">
   <div class="section-header reveal">
     <span class="num">04</span>
     <h2>213 components, one token collection.</h2>
@@ -1132,7 +1209,7 @@
 <div class="divider"></div>
 
 <!-- 05 COLLABORATION / VALIDATION -->
-<section>
+<section id="s05">
   <div class="section-header reveal">
     <span class="num">05</span>
     <h2>Governance was a conversation, not a queue.</h2>
@@ -1166,7 +1243,7 @@
 </section>
 
 <!-- METRICS / 06 RESULTS -->
-<section class="full-bleed">
+<section id="s06" class="full-bleed">
   <div class="metrics-section">
     <div class="section-header">
       <span class="num">06</span>
@@ -1200,7 +1277,7 @@
 <div class="divider"></div>
 
 <!-- 07 LEARNINGS -->
-<section>
+<section id="s07">
   <div class="section-header reveal">
     <span class="num">07</span>
     <h2>What I'd do differently.</h2>
@@ -1225,7 +1302,7 @@
 </section>
 
 <!-- 08 AIDA BRIDGE -->
-<section class="full-bleed">
+<section id="s08" class="full-bleed">
   <div class="metrics-section" style="padding-bottom: 140px;">
     <div class="section-header">
       <span class="num">08</span>
@@ -1339,6 +1416,32 @@
     document.body.classList.remove('lb-open');
     lbImg.src = '';
   }
+</script>
+
+<script>
+  // TOC scroll-spy
+  (function () {
+    var links = document.querySelectorAll('.toc a[data-toc]');
+    if (!links.length) return;
+    var map = {};
+    var targets = [];
+    links.forEach(function (a) {
+      var id = a.getAttribute('data-toc');
+      var el = document.getElementById(id);
+      if (el) { map[id] = a; targets.push(el); }
+    });
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = map[entry.target.id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove('active'); });
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+    targets.forEach(function (el) { observer.observe(el); });
+  })();
 </script>
 </body>
 </html>
