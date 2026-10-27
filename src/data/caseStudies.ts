@@ -2,6 +2,7 @@ import aiCleanerCover from '@/assets/Cover-icleaner.png';
 import wanupCover from '@/assets/Cover-wanup.png';
 import aiDesignCover from '@/assets/Cover-aidesign.png';
 import coperamaCover from '@/assets/Cover-coperama.png';
+import designSystemCover from '@/assets/Cover-designsystem.png';
 
 // ─── Shared case-study registry ──────────────────────────────────────────────
 // Single source of truth for both the homepage cards (CaseStudyTabs) and the
@@ -78,16 +79,16 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     slug: 'design-system',
     label: 'Design System',
     externalUrl: '/case-studies/design-system-deep.html',
-    type: 'B2B · Design System',
+    type: 'B2B · iOS App',
     title: 'Design System',
-    thumb: '/designsystem-casestudy.png',
-    thumbAlt: 'AI Cleaner design system — bidirectional light/dark tokens',
-    tags: ['Design Tokens', 'Component Library', 'Dual-reading Direction'],
+    thumb: designSystemCover as string | undefined,
+    thumbAlt: 'AI Cleaner Design System — LTR and RTL component library',
+    tags: ['DesignOps', 'RTL', 'Figma Variables'],
     heroMetricIndex: 0,
     metrics: [
-      { value: '120+', label: 'Components' },
-      { value: '2', label: 'Markets covered' },
-      { value: '+30%', label: 'Delivery speed' },
+      { value: '213', label: 'Components' },
+      { value: '4.6★', label: 'App Store' },
+      { value: '+30%', label: 'Design-to-dev' },
     ],
   },
   {

@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import CursorEffect from './components/CursorEffect';
 import { ThemeProvider } from './components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
+import { Analytics } from '@vercel/analytics/react';
 
 const Layout: React.FC = () => {
   return (
@@ -15,6 +16,7 @@ const Layout: React.FC = () => {
         <Outlet />
         <Footer />
         <Toaster />
+        <Analytics />
       </ThemeProvider>
     </div>
   );
