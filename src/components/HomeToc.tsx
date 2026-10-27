@@ -6,8 +6,10 @@ import React, { useEffect, useRef, useState } from 'react';
 // enough side padding to fit it without sitting on top of content.
 // The label only appears as a hover flyout, never on the active item
 // by itself, so it never permanently covers body text while
-// scrolling. Smooth-scroll on click is handled by the global
-// anchor-click listener in Index.tsx.
+// scrolling. Hidden while the hero (#home) is in view, same as the
+// case-study pages — fades in once the user scrolls past it. Smooth-
+// scroll on click is handled by the global anchor-click listener in
+// Index.tsx.
 
 const SECTIONS: { id: string; label: string }[] = [
   { id: 'home', label: 'Home' },
@@ -20,7 +22,9 @@ const SECTIONS: { id: string; label: string }[] = [
 
 const HomeToc: React.FC = () => {
   const [active, setActive] = useState<string>(SECTIONS[0].id);
+  const [atHero, setAtHero] = useState<boolean>(true);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const heroObserverRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     const targets = SECTIONS
@@ -39,15 +43,32 @@ const HomeToc: React.FC = () => {
       },
       { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
     );
-
     targets.forEach((el) => observerRef.current?.observe(el));
-    return () => observerRef.current?.disconnect();
+
+    const hero = document.getElementById('home');
+    if (hero) {
+      heroObserverRef.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => setAtHero(entry.isIntersecting));
+        },
+        { threshold: 0 }
+      );
+      heroObserverRef.current.observe(hero);
+    }
+
+    return () => {
+      observerRef.current?.disconnect();
+      heroObserverRef.current?.disconnect();
+    };
   }, []);
 
   return (
     <nav
       aria-label="Section navigation"
-      className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 z-40"
+      className={
+        'hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 z-40 transition-opacity duration-300 ' +
+        (atHero ? 'opacity-0 pointer-events-none' : 'opacity-100')
+      }
     >
       <ol className="flex flex-col gap-3">
         {SECTIONS.map(({ id, label }, i) => {
