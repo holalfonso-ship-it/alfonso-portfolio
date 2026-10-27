@@ -17,13 +17,16 @@ const ArrowOutIcon = () => (
 );
 
 // ─── Single case study card ───────────────────────────────────────────────────
+// Borderless, image-led layout: the thumbnail does most of the talking, one
+// hero metric gets visual priority next to the eyebrow line, and everything
+// below a thin rule is just the way in to the full case study.
 
-const CaseStudyCard: React.FC<{ cs: CaseStudyMeta }> = ({ cs }) => {
+const CaseStudyCard: React.FC<{ cs: CaseStudyMeta; index: number }> = ({ cs, index }) => {
   const CardWrapper = cs.externalUrl
     ? ({ children }: { children: React.ReactNode }) => (
         <a
           href={cs.externalUrl}
-          className="group block rounded-xl overflow-hidden border border-border/20 bg-background transition-all duration-200 hover:border-foreground/20 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
         >
           {children}
         </a>
@@ -31,16 +34,18 @@ const CaseStudyCard: React.FC<{ cs: CaseStudyMeta }> = ({ cs }) => {
     : ({ children }: { children: React.ReactNode }) => (
         <Link
           to={`/case-studies/${cs.slug}`}
-          className="group block rounded-xl overflow-hidden border border-border/20 bg-background transition-all duration-200 hover:border-foreground/20 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
         >
           {children}
         </Link>
       );
 
+  const heroMetric = cs.metrics[cs.heroMetricIndex];
+
   return (
     <CardWrapper>
-      {/* Thumbnail */}
-      <div className="relative w-full overflow-hidden" style={{ aspectRatio: '16/7' }}>
+      {/* Thumbnail — bigger, more prominent, no card border around it */}
+      <div className="relative w-full overflow-hidden rounded-2xl bg-secondary/40" style={{ aspectRatio: '8/5' }}>
         {cs.thumb ? (
           <img
             src={cs.thumb}
@@ -54,72 +59,42 @@ const CaseStudyCard: React.FC<{ cs: CaseStudyMeta }> = ({ cs }) => {
             </span>
           </div>
         )}
-        {/* Bottom fade on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
-      {/* Body */}
-      <div className="p-5">
-        <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-muted-foreground mb-1">
-          {cs.type}
+      {/* Eyebrow + hero metric */}
+      <div className="flex items-start justify-between gap-4 mt-5 mb-2">
+        <p className="text-[11px] font-medium tracking-[0.1em] uppercase text-muted-foreground max-w-[70%]">
+          {String(index + 1).padStart(2, '0')} · {cs.tags.join(' · ')}
         </p>
-
-        <div className="flex items-start justify-between gap-4 mb-3">
-          <h3
-            className="font-display font-bold leading-tight text-foreground"
-            style={{ fontSize: 'clamp(1.05rem, 2vw, 1.25rem)' }}
+        <div className="flex-shrink-0 text-right">
+          <p
+            className="font-display font-bold leading-none text-primary"
+            style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}
           >
-            {cs.title}
-          </h3>
-          {/* Arrow circle */}
-          <div className="flex-shrink-0 w-7 h-7 rounded-full border border-border/30 flex items-center justify-center mt-0.5 text-muted-foreground transition-all duration-200 group-hover:bg-foreground group-hover:border-foreground group-hover:text-background">
-            <ArrowOutIcon />
-          </div>
+            {heroMetric.value}
+          </p>
         </div>
+      </div>
 
-        {/* Pills */}
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {cs.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-[11px] px-3 py-1 rounded-full border border-border/30 text-muted-foreground"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+      {/* Title + hero metric label */}
+      <div className="flex items-start justify-between gap-4 mb-5">
+        <h3
+          className="font-display font-bold leading-tight text-foreground"
+          style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.5rem)' }}
+        >
+          {cs.title}
+        </h3>
+        <p className="flex-shrink-0 text-[10px] uppercase tracking-[0.07em] text-muted-foreground/70 mt-1 text-right">
+          {heroMetric.label}
+        </p>
+      </div>
 
-        {/* Metrics — one hero metric gets visual priority, the rest stay secondary */}
-        <div className="flex items-end gap-5 pt-4 border-t border-border/20">
-          {cs.metrics.map(({ value, label }, i) => {
-            const isHero = i === cs.heroMetricIndex;
-            return (
-              <div key={label}>
-                <p
-                  className={
-                    isHero
-                      ? 'font-display font-bold leading-none mb-0.5 text-primary'
-                      : 'font-display font-semibold leading-none mb-0.5 text-foreground/60'
-                  }
-                  style={{
-                    fontSize: isHero ? 'clamp(1.35rem, 2.6vw, 1.7rem)' : 'clamp(0.85rem, 1.4vw, 1rem)',
-                  }}
-                >
-                  {value}
-                </p>
-                <p
-                  className={
-                    isHero
-                      ? 'text-[10px] uppercase tracking-[0.07em] text-foreground/70 font-medium'
-                      : 'text-[10px] uppercase tracking-[0.07em] text-muted-foreground/70'
-                  }
-                >
-                  {label}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+      {/* Divider + CTA */}
+      <div className="pt-4 border-t border-border/20">
+        <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground/80 transition-all duration-200 group-hover:gap-2.5 group-hover:text-foreground">
+          View case study
+          <ArrowOutIcon />
+        </span>
       </div>
     </CardWrapper>
   );
@@ -145,9 +120,9 @@ const CaseStudyTabs: React.FC = () => (
 
     {/* ── Cards grid ─────────────────────────────────────────────────────── */}
     <div className="px-6 md:px-12 max-w-7xl mx-auto pb-20 md:pb-28">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-        {CASE_STUDIES.map((cs) => (
-          <CaseStudyCard key={cs.slug} cs={cs} />
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 md:gap-x-14 gap-y-14 md:gap-y-20">
+        {CASE_STUDIES.map((cs, i) => (
+          <CaseStudyCard key={cs.slug} cs={cs} index={i} />
         ))}
       </div>
     </div>
