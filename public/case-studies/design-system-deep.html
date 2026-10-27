@@ -979,6 +979,42 @@
     max-width: 160px;
     opacity: 1;
   }
+
+  .a11y-note {
+    margin-top: 24px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 26px;
+  }
+  .a11y-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .a11y-badge::before {
+    content: "✓";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    font-size: 10px;
+  }
+  .a11y-note p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
 </style>
 </head>
 <body>
@@ -1203,6 +1239,11 @@
       <div class="ds-title">Handoff, side by side</div>
       <div class="ds-desc">Specs and annotations made with Figma AI. Developers got the Arabic layout next to the LTR layout, built from the same components, to compare directly.</div>
     </div>
+  </div>
+
+  <div class="a11y-note reveal reveal-delay-3">
+    <div class="a11y-badge">WCAG AA &middot; Color contrast</div>
+    <p>Every color pairing in the token collection, Background against Label, across all four sets (System/Liquid × Light/Dark) and both reading directions, was checked for contrast with Stark in Figma. Checking at the token level meant one pass per semantic pairing, not one per instance across 213 components.</p>
   </div>
 </section>
 
