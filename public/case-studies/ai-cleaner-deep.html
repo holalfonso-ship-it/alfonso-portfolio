@@ -984,6 +984,13 @@
   @media (min-width: 900px) {
     .toc { display: block; }
   }
+  .toc {
+    transition: opacity 0.3s ease;
+  }
+  .toc.at-hero {
+    opacity: 0;
+    pointer-events: none;
+  }
   .toc ol {
     list-style: none;
     display: flex;
@@ -1569,8 +1576,9 @@
 <script>
   // TOC scroll-spy
   (function () {
+    var toc = document.querySelector('.toc');
     var links = document.querySelectorAll('.toc a[data-toc]');
-    if (!links.length) return;
+    if (!toc || !links.length) return;
     var map = {};
     var targets = [];
     links.forEach(function (a) {
@@ -1589,6 +1597,18 @@
       });
     }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
     targets.forEach(function (el) { observer.observe(el); });
+
+    // Hide the whole rail while the hero section is on screen — its
+    // title sits too close to the left edge for the rail to coexist.
+    var hero = document.getElementById('s01');
+    if (hero) {
+      var heroObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          toc.classList.toggle('at-hero', entry.isIntersecting);
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -85% 0px' });
+      heroObserver.observe(hero);
+    }
   })();
 </script>
 </body>
