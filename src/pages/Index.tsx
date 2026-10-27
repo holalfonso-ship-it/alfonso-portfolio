@@ -7,6 +7,7 @@ import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import TransitionEffect from '@/components/TransitionEffect';
 import HomeResources from '@/components/HomeResources';
+import HomeToc from '@/components/HomeToc';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -55,6 +56,7 @@ const Index: React.FC = () => {
         `}</script>
       </Head>
       <TransitionEffect />
+      <HomeToc />
       <main className="flex-grow">
         <Hero />
         <CaseStudyTabs />

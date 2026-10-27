@@ -967,16 +967,21 @@
     cursor: zoom-in;
   }
 
-  /* TOC — sticky section index with scroll-spy (desktop only) */
+  /* TOC — sticky section index with scroll-spy. Narrow rail that fits
+     inside the section's own side padding (48px down to the 768px
+     mobile cutoff), so it's visible on 13" laptop widths too, not
+     just large external monitors. Labels are a hover-only flyout —
+     the active state only shows via color/dot so it never sits on
+     top of body text while scrolling. */
   .toc {
     position: fixed;
-    left: 22px;
+    left: 16px;
     top: 50%;
     transform: translateY(-50%);
     z-index: 90;
     display: none;
   }
-  @media (min-width: 1536px) {
+  @media (min-width: 900px) {
     .toc { display: block; }
   }
   .toc ol {
@@ -985,10 +990,12 @@
     flex-direction: column;
     gap: 13px;
   }
+  .toc li { position: relative; }
   .toc a {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     text-decoration: none;
     color: var(--text-muted);
     opacity: 0.6;
@@ -1000,7 +1007,7 @@
     font-family: var(--mono);
     font-size: 10px;
     letter-spacing: 0.04em;
-    width: 16px;
+    width: 14px;
     flex-shrink: 0;
   }
   .toc-dot {
@@ -1017,17 +1024,23 @@
     transform: scale(1.5);
   }
   .toc-label {
+    position: absolute;
+    left: 26px;
+    top: 50%;
+    transform: translateY(-50%);
     font-family: var(--font);
     font-size: 12px;
-    max-width: 0;
-    overflow: hidden;
+    color: var(--text);
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    padding: 5px 10px;
+    border-radius: 6px;
     white-space: nowrap;
     opacity: 0;
-    transition: max-width 0.25s ease, opacity 0.2s ease;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
   }
-  .toc a:hover .toc-label,
-  .toc a.active .toc-label {
-    max-width: 160px;
+  .toc a:hover .toc-label {
     opacity: 1;
   }
 </style>
