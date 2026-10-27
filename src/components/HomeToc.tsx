@@ -1,9 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-// ─── Same sticky-index pattern as the case-study pages: number + label
-// revealed on hover/active, scroll-spy via IntersectionObserver, visible
-// only at 2xl (1536px) and up since there's no room for it in the margin
-// below that. Smooth-scroll on click is already handled by the global
+// ─── Sticky section index with scroll-spy, matching the case-study
+// pages. Narrow rail (number + dot) fixed in the page's own left
+// gutter, visible from `lg` (1024px) up — below that there isn't
+// enough side padding to fit it without sitting on top of content.
+// The label only appears as a hover flyout, never on the active item
+// by itself, so it never permanently covers body text while
+// scrolling. Smooth-scroll on click is handled by the global
 // anchor-click listener in Index.tsx.
 
 const SECTIONS: { id: string; label: string }[] = [
@@ -44,23 +47,23 @@ const HomeToc: React.FC = () => {
   return (
     <nav
       aria-label="Section navigation"
-      className="hidden 2xl:flex fixed left-6 top-1/2 -translate-y-1/2 z-40"
+      className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 z-40"
     >
       <ol className="flex flex-col gap-3">
         {SECTIONS.map(({ id, label }, i) => {
           const isActive = active === id;
           return (
-            <li key={id}>
+            <li key={id} className="relative">
               <a
                 href={`#${id}`}
                 className={
-                  'group flex items-center gap-2.5 transition-opacity duration-200 ' +
+                  'group relative flex items-center gap-2 transition-opacity duration-200 ' +
                   (isActive ? 'opacity-100' : 'opacity-60 hover:opacity-100')
                 }
               >
                 <span
                   className={
-                    'font-mono text-[10px] tracking-wide w-4 shrink-0 ' +
+                    'font-mono text-[10px] tracking-wide w-3.5 shrink-0 ' +
                     (isActive ? 'text-primary' : 'text-muted-foreground')
                   }
                 >
@@ -73,12 +76,7 @@ const HomeToc: React.FC = () => {
                   }
                 />
                 <span
-                  className={
-                    'text-xs font-medium whitespace-nowrap overflow-hidden transition-all duration-200 ' +
-                    (isActive
-                      ? 'max-w-[160px] opacity-100 text-primary'
-                      : 'max-w-0 opacity-0 group-hover:max-w-[160px] group-hover:opacity-100 text-foreground')
-                  }
+                  className="pointer-events-none absolute left-[26px] top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md border border-border bg-background px-2.5 py-1 text-xs font-medium text-foreground opacity-0 shadow-sm transition-opacity duration-150 group-hover:opacity-100"
                 >
                   {label}
                 </span>
