@@ -35,7 +35,7 @@ export const CASE_STUDIES: CaseStudyMeta[] = [
     title: 'AI Cleaner',
     thumb: aiCleanerCover as string | undefined,
     thumbAlt: 'AI Cleaner app interface',
-    tags: ['DesignOps', 'AI Integration', 'Team Leadership'],
+    tags: ['DesignOps', 'AI Integration', 'Multi-Market'],
     heroMetricIndex: 2,
     metrics: [
       { value: '4.5', label: 'App Store' },

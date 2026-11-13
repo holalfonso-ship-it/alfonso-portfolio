@@ -954,10 +954,9 @@
     gap: 8px;
     text-decoration: none;
     color: var(--text-muted);
-    opacity: 0.6;
     transition: opacity 0.2s, color 0.2s;
   }
-  .toc a:hover { opacity: 1; color: var(--text); }
+  .toc a:hover, .toc a:focus-visible { opacity: 1; color: var(--text); }
   .toc a.active { opacity: 1; color: var(--accent); }
   .toc-num {
     font-family: var(--mono);
@@ -996,7 +995,7 @@
     pointer-events: none;
     transition: opacity 0.15s ease;
   }
-  .toc a:hover .toc-label {
+  .toc a:hover .toc-label, .toc a:focus-visible .toc-label {
     opacity: 1;
   }
 
@@ -1068,7 +1067,7 @@
     <div class="hero-meta">
       <div class="meta-item">
         <div class="meta-label">Company</div>
-        <div class="meta-value">Eyewind <!-- TODO: confirm vs Leadtech Group before publishing --></div>
+        <div class="meta-value">Leadtech Group</div>
       </div>
       <div class="meta-item">
         <div class="meta-label">Role</div>

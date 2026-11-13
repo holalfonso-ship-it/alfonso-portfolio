@@ -1005,10 +1005,9 @@
     gap: 8px;
     text-decoration: none;
     color: var(--text-muted);
-    opacity: 0.6;
     transition: opacity 0.2s, color 0.2s;
   }
-  .toc a:hover { opacity: 1; color: var(--text); }
+  .toc a:hover, .toc a:focus-visible { opacity: 1; color: var(--text); }
   .toc a.active { opacity: 1; color: var(--accent); }
   .toc-num {
     font-family: var(--mono);
@@ -1047,7 +1046,7 @@
     pointer-events: none;
     transition: opacity 0.15s ease;
   }
-  .toc a:hover .toc-label {
+  .toc a:hover .toc-label, .toc a:focus-visible .toc-label {
     opacity: 1;
   }
 </style>
@@ -1330,7 +1329,7 @@
 <section>
   <div class="section-header reveal" id="s05">
     <span class="num">05</span>
-    <h2>One system. Two markets. 120+ components.</h2>
+    <h2>One system. Two markets. 213 components.</h2>
   </div>
   <div class="body-text reveal reveal-delay-1">
     <p>The design system had to solve a structural problem: serve users with fundamentally different expectations of what "a trustworthy utility app" looks like, without creating two parallel maintenance burdens. The solution was a single token layer with market-specific configurations, not two design systems.</p>
@@ -1345,7 +1344,7 @@
     </div>
     <div class="ds-step">
       <div class="ds-tool">Figma · Auto Layout</div>
-      <div class="ds-title">120+ components</div>
+      <div class="ds-title">213 components</div>
       <div class="ds-desc">All components built with Auto Layout and density variants. US default: comfortable spacing. Arabic variant: compact, information-dense configurations.</div>
       <div class="ds-arrow">→</div>
     </div>
@@ -1358,7 +1357,7 @@
 
   <figure class="reveal" style="margin: 32px 0 0;">
     <img src="./images/ai-cleaner-designsystem.png" alt="AI Cleaner design system, component library and dual-market variants" style="width:100%; border-radius:8px; display:block;">
-    <figcaption>120+ components built from a single token layer, US and Arabic density variants configured at the token level, not duplicated at the component level.</figcaption>
+    <figcaption>213 components built from a single token layer, US and Arabic density variants configured at the token level, not duplicated at the component level.</figcaption>
   </figure>
 
   <div class="body-text reveal" style="margin-top: 32px; padding: 20px 24px; border-left: 2px solid var(--accent); background: var(--bg-2); border-radius: 0 8px 8px 0;">
