@@ -119,10 +119,14 @@ const CaseStudyTabs: React.FC = () => (
     </div>
 
     {/* ── Cards grid ─────────────────────────────────────────────────────── */}
-    <div className="px-6 md:px-12 max-w-7xl mx-auto pb-20 md:pb-28">
+    {/* First case study is the flagship — full-width on its own row. The rest
+        keep the original 2-up grid, same card size and type as before. */}
+    <div className="px-6 md:px-12 max-w-7xl mx-auto pb-20 md:pb-28 space-y-14 md:space-y-20">
+      <CaseStudyCard cs={CASE_STUDIES[0]} index={0} />
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 md:gap-x-14 gap-y-14 md:gap-y-20">
-        {CASE_STUDIES.map((cs, i) => (
-          <CaseStudyCard key={cs.slug} cs={cs} index={i} />
+        {CASE_STUDIES.slice(1).map((cs, i) => (
+          <CaseStudyCard key={cs.slug} cs={cs} index={i + 1} />
         ))}
       </div>
     </div>
